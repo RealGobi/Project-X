@@ -1,9 +1,15 @@
+@import '_color.scss';
+@import '_global.scss';
+
 div {
-    background: #000;
+    background: $lightGreen;
     font-family: 'Courier New', Courier, monospace;
     text-align: center;
+    @extend %center;
 
     h2 {
-        color: #fff;
+        width: 200px;
+        background: $grey;
+        color: $darkGreen;
     }
 }
