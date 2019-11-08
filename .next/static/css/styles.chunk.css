@@ -1,0 +1,15 @@
+Html {
+  background: white;
+  width: 768px;
+  height: 1024px;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  Html .content {
+    width: 720px;
+    height: 976px;
+    background: rgba(95, 95, 95, 0.1); }
+
+
+/*# sourceMappingURL=styles.chunk.css.map*/
