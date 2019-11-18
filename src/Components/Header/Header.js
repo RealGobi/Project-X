@@ -10,7 +10,7 @@ const Header = ({ headLine }) => (
 );
 
 Header.propTypes = {
-  headLine: PropTypes.node,
+  headLine: PropTypes.string,
 };
 
 Header.defaultProps = {

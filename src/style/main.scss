@@ -25,11 +25,15 @@ html {
             background: $dinner_Blue;
 
             .headLine {
-                @extend %center;
                 margin: 0;
                 line-height: 100px;
+                @extend %center;
                 @extend %header2;
             }
+        }
+
+        .select-button {
+            @extend %center;
         }
     }
 }

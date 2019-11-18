@@ -1,5 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Red+Hat+Text:400&display=swap);
-html, html .content .header .headLine {
+html, html .content .header .headLine, html .content .select-button {
   display: flex;
   align-items: center;
   justify-content: center; }

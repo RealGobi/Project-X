@@ -8339,6 +8339,64 @@ module.exports = {
 
 /***/ }),
 
+/***/ "./src/Components/Button/Button.js":
+/*!*****************************************!*\
+  !*** ./src/Components/Button/Button.js ***!
+  \*****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _style_main_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../style/main.scss */ "./src/style/main.scss");
+/* harmony import */ var _style_main_scss__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_style_main_scss__WEBPACK_IMPORTED_MODULE_2__);
+var _jsxFileName = "/Users/macbookpro/project-x/src/Components/Button/Button.js";
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+const buttonStyle = {
+  width: '180px',
+  height: '65px',
+  borderRadius: '4px',
+  margin: '24px'
+};
+
+const Button = ({
+  buttonText,
+  bg
+}) => __jsx("div", {
+  style: buttonStyle,
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 15
+  },
+  __self: undefined
+}, __jsx("h1", {
+  className: "buttonText",
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 16
+  },
+  __self: undefined
+}, " ", buttonText, " "));
+
+Button.propTypes = {
+  buttonText: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string,
+  bg: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string
+};
+Button.defaultProps = {
+  buttonText: '',
+  bg: '#eee'
+};
+/* harmony default export */ __webpack_exports__["default"] = (Button);
+
+/***/ }),
+
 /***/ "./src/Components/Header/Header.js":
 /*!*****************************************!*\
   !*** ./src/Components/Header/Header.js ***!
@@ -8379,7 +8437,7 @@ const Header = ({
 }, " ", headLine, " "));
 
 Header.propTypes = {
-  headLine: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.node
+  headLine: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string
 };
 Header.defaultProps = {
   headLine: ''
@@ -8453,52 +8511,85 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _Components_Page_Page__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Components/Page/Page */ "./src/Components/Page/Page.js");
 /* harmony import */ var _Components_Header_Header__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Components/Header/Header */ "./src/Components/Header/Header.js");
+/* harmony import */ var _Components_Button_Button__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Components/Button/Button */ "./src/Components/Button/Button.js");
 var _jsxFileName = "/Users/macbookpro/project-x/src/pages/Sign-up.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
 
+
 function SignUp() {
   const headLine = 'Skapa Konto';
+  const buttonText1 = 'Vego';
+  const buttonText2 = 'Vegitarian';
+  const buttonText3 = 'Allätare';
   return __jsx("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 10
+      lineNumber: 14
     },
     __self: this
   }, __jsx(_Components_Page_Page__WEBPACK_IMPORTED_MODULE_2__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 11
+      lineNumber: 15
     },
     __self: this
   }, __jsx(_Components_Header_Header__WEBPACK_IMPORTED_MODULE_3__["default"], {
     headLine: headLine,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 12
+      lineNumber: 16
     },
     __self: this
   }), "[Sign-up]", __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
     href: "/Landing-page",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 14
+      lineNumber: 18
     },
     __self: this
   }, __jsx("a", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 15
+      lineNumber: 19
     },
     __self: this
-  }, "Landing-page"))));
+  }, "Landing-page")), __jsx("div", {
+    className: "select-button",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 21
+    },
+    __self: this
+  }, __jsx(_Components_Button_Button__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    buttonText: buttonText1,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 22
+    },
+    __self: this
+  }), __jsx(_Components_Button_Button__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    buttonText: buttonText2,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 23
+    },
+    __self: this
+  }), __jsx(_Components_Button_Button__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    buttonText: buttonText3,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 24
+    },
+    __self: this
+  }))));
 }
 
 /***/ }),
 
-/***/ 1:
+/***/ 4:
 /*!************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2FSign-up&absolutePagePath=%2FUsers%2Fmacbookpro%2Fproject-x%2Fsrc%2Fpages%2FSign-up.js ***!
   \************************************************************************************************************************************/
@@ -8521,5 +8612,5 @@ module.exports = dll_ea92a4d9664833a26066;
 
 /***/ })
 
-},[[1,"static/runtime/webpack.js","styles"]]]);
+},[[4,"static/runtime/webpack.js","styles"]]]);
 //# sourceMappingURL=Sign-up.js.map

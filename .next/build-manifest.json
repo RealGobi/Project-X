@@ -4,6 +4,12 @@
     "static/development/dll/dll_90e8ea1802b868f0c448.js.map"
   ],
   "pages": {
+    "/Search-list": [
+      "static/runtime/webpack.js",
+      "static/css/styles.chunk.css",
+      "static/chunks/styles.js",
+      "static/runtime/main.js"
+    ],
     "/Sign-up": [
       "static/runtime/webpack.js",
       "static/css/styles.chunk.css",
