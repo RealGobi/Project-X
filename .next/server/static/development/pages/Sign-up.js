@@ -5220,18 +5220,20 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
-const buttonStyle = {
-  width: '180px',
-  height: '65px',
-  borderRadius: '4px',
-  margin: '24px'
-};
+/**
+ * Renders background color for button.
+ *
+ * @param {string} buttonText Props passed down as a string.
+ * @param {object} bg Props passed down as a style object.
+ * 
+ */
 
 const Button = ({
   buttonText,
   bg
 }) => __jsx("div", {
-  style: buttonStyle,
+  className: "button",
+  style: bg,
   __source: {
     fileName: _jsxFileName,
     lineNumber: 15
@@ -5248,11 +5250,11 @@ const Button = ({
 
 Button.propTypes = {
   buttonText: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string,
-  bg: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string
+  // eslint-disable-next-line react/forbid-prop-types
+  bg: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.object.isRequired
 };
 Button.defaultProps = {
-  buttonText: '',
-  bg: '#eee'
+  buttonText: ''
 };
 /* harmony default export */ __webpack_exports__["default"] = (Button);
 
@@ -5385,64 +5387,76 @@ function SignUp() {
   const buttonText1 = 'Vego';
   const buttonText2 = 'Vegitarian';
   const buttonText3 = 'Allätare';
+  const bg1 = {
+    background: '#B7DDE0'
+  };
+  const bg2 = {
+    background: '#FEE19F'
+  };
+  const bg3 = {
+    background: '#FFC79B'
+  };
   return __jsx("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 14
+      lineNumber: 26
     },
     __self: this
   }, __jsx(_Components_Page_Page__WEBPACK_IMPORTED_MODULE_2__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 15
+      lineNumber: 27
     },
     __self: this
   }, __jsx(_Components_Header_Header__WEBPACK_IMPORTED_MODULE_3__["default"], {
     headLine: headLine,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 16
+      lineNumber: 28
     },
     __self: this
   }), "[Sign-up]", __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
     href: "/Landing-page",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 18
+      lineNumber: 30
     },
     __self: this
   }, __jsx("a", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 19
+      lineNumber: 31
     },
     __self: this
   }, "Landing-page")), __jsx("div", {
     className: "select-button",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 21
+      lineNumber: 33
     },
     __self: this
   }, __jsx(_Components_Button_Button__WEBPACK_IMPORTED_MODULE_4__["default"], {
     buttonText: buttonText1,
+    bg: bg1,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 22
+      lineNumber: 34
     },
     __self: this
   }), __jsx(_Components_Button_Button__WEBPACK_IMPORTED_MODULE_4__["default"], {
     buttonText: buttonText2,
+    bg: bg2,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 23
+      lineNumber: 35
     },
     __self: this
   }), __jsx(_Components_Button_Button__WEBPACK_IMPORTED_MODULE_4__["default"], {
     buttonText: buttonText3,
+    bg: bg3,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 24
+      lineNumber: 36
     },
     __self: this
   }))));

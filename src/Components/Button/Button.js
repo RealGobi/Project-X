@@ -3,28 +3,28 @@ import PropTypes from 'prop-types';
 
 import '../../style/main.scss';
 
-
-const buttonStyle = {
-  width: '180px',
-  height: '65px',
-  borderRadius: '4px',
-  margin: '24px',
-};
+/**
+ * Renders background color for button.
+ *
+ * @param {string} buttonText Props passed down as a string.
+ * @param {object} bg Props passed down as a style object.
+ * 
+ */
 
 const Button = ({ buttonText, bg }) => (
-  <div style={buttonStyle}>
+  <div className="button" style={bg}>
     <h1 className="buttonText"> { buttonText } </h1>
   </div>
 );
 
 Button.propTypes = {
   buttonText: PropTypes.string,
-  bg: PropTypes.string,
+  // eslint-disable-next-line react/forbid-prop-types
+  bg: PropTypes.object.isRequired,
 };
 
 Button.defaultProps = {
   buttonText: '',
-  bg: '#eee',
 };
 
 export default Button;

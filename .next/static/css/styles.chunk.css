@@ -4,6 +4,9 @@ html, html .content .header .headLine, html .content .select-button {
   align-items: center;
   justify-content: center; }
 
+html .content .select-button .button {
+  margin: 24px; }
+
 html .content .header .headLine {
   color: #4f4f4f;
   font-family: 'Red Hat Text', sans-serif;
@@ -27,6 +30,10 @@ html {
       html .content .header .headLine {
         margin: 0;
         line-height: 100px; }
+    html .content .select-button .button {
+      width: 180px;
+      height: 65px;
+      border-radius: 4px; }
 
 
 /*# sourceMappingURL=styles.chunk.css.map*/
