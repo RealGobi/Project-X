@@ -8364,7 +8364,8 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
  *
  * @param {string} buttonText Props passed down as a string.
  * @param {object} bg Props passed down as a style object.
- */
+ * @param {Button} Button-component need to be wrapped within a <a>-tag, to work with next.js.
+ * */
 
 const Button = ({
   buttonText,
@@ -8380,14 +8381,14 @@ const Button = ({
     style: bg,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 21
+      lineNumber: 22
     },
     __self: undefined
   }, __jsx("h1", {
     style: buttonTextStyle,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 22
+      lineNumber: 23
     },
     __self: undefined
   }, " ", buttonText, " "));
@@ -8526,6 +8527,8 @@ __webpack_require__.r(__webpack_exports__);
 var _jsxFileName = "/Users/macbookpro/project-x/src/pages/Sign-up.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
+/* eslint-disable jsx-a11y/anchor-is-valid */
+
 
 
 
@@ -8548,40 +8551,27 @@ function SignUp() {
   return __jsx("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 27
+      lineNumber: 28
     },
     __self: this
   }, __jsx(_Components_Page_Page__WEBPACK_IMPORTED_MODULE_2__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 28
+      lineNumber: 29
     },
     __self: this
   }, __jsx(_Components_Header_Header__WEBPACK_IMPORTED_MODULE_3__["default"], {
     headLine: headLine,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 29
+      lineNumber: 30
     },
     __self: this
-  }), "[Sign-up]", __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
-    href: "/Landing-page",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 31
-    },
-    __self: this
-  }, __jsx("a", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 32
-    },
-    __self: this
-  }, "Landing-page")), __jsx("div", {
+  }), "[Sign-up]", __jsx("div", {
     className: "select-button",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 34
+      lineNumber: 32
     },
     __self: this
   }, __jsx(_Components_Button_Button__WEBPACK_IMPORTED_MODULE_4__["default"], {
@@ -8589,7 +8579,7 @@ function SignUp() {
     bg: bg1,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 35
+      lineNumber: 33
     },
     __self: this
   }), __jsx(_Components_Button_Button__WEBPACK_IMPORTED_MODULE_4__["default"], {
@@ -8597,7 +8587,7 @@ function SignUp() {
     bg: bg2,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 36
+      lineNumber: 34
     },
     __self: this
   }), __jsx(_Components_Button_Button__WEBPACK_IMPORTED_MODULE_4__["default"], {
@@ -8605,11 +8595,24 @@ function SignUp() {
     bg: bg3,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 37
+      lineNumber: 35
     },
     __self: this
   })), __jsx("div", {
     className: "next-page",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 37
+    },
+    __self: this
+  }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+    href: "/Landing-page",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 38
+    },
+    __self: this
+  }, __jsx("a", {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 39
@@ -8623,7 +8626,7 @@ function SignUp() {
       lineNumber: 40
     },
     __self: this
-  }))));
+  }))))));
 }
 
 /***/ }),

@@ -4,7 +4,7 @@
     "static/development/dll/dll_90e8ea1802b868f0c448.js.map"
   ],
   "pages": {
-    "/Search-list": [
+    "/Landing-page": [
       "static/runtime/webpack.js",
       "static/css/styles.chunk.css",
       "static/chunks/styles.js",

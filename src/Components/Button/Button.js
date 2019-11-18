@@ -8,7 +8,8 @@ import '../../style/main.scss';
  *
  * @param {string} buttonText Props passed down as a string.
  * @param {object} bg Props passed down as a style object.
- */
+ * @param {Button} Button-component need to be wrapped within a <a>-tag, to work with next.js.
+ * */
 
 const Button = ({ buttonText, bg }) => {
   const buttonTextStyle = {

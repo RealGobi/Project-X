@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import Link from 'next/link';
 
@@ -28,16 +29,17 @@ export default function SignUp() {
       <Page>
         <Header headLine={headLine} />
         [Sign-up]
-        <Link href="/Landing-page">
-          <a>Landing-page</a>
-        </Link>
         <div className="select-button">
           <Button buttonText={buttonText1} bg={bg1} />
           <Button buttonText={buttonText2} bg={bg2} />
           <Button buttonText={buttonText3} bg={bg3} />
         </div>
         <div className="next-page">
-          <Button buttonText={buttonText4} bg={bg1} />
+          <Link href="/Landing-page">
+            <a>
+              <Button buttonText={buttonText4} bg={bg1} />
+            </a>
+          </Link>
         </div>
       </Page>
     </div>

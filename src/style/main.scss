@@ -18,8 +18,9 @@ html {
         height: 976px;
         border-radius: 4px;
         background: rgba(95, 95, 95, 0.10);
-
+        
         .header{
+            border-radius: 4px;
             height: 100px;
             width: 100%;
             background: $dinner_Blue;
@@ -37,15 +38,24 @@ html {
             height: 65px;
             border-radius: 4px;
             border: 1px solid black;
-            @extend %betweenElement;
             @extend %center;
         }
+
         .select-button {
-            @extend %center;    
+            display: flex;
+            justify-content: space-between;   
+            margin: 0 64px;   
         }
+        
         .next-page {
             display: flex;
-            justify-content: flex-end;   
+            align-items: flex-end;
+            justify-content: flex-end; 
+            margin: 64px;  
+
+            a {
+                text-decoration: none;
+            }
         }
     }
 }
