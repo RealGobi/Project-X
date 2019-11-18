@@ -1,15 +1,35 @@
-Html {
+@import './_color.scss';
+@import './global.scss';
+
+// align center
+
+
+
+html {
     background:white;
     width: 768px;
     height: 1024px;
     margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
+    @extend %center;
+    margin: 0 auto;
+    
     .content {
         width: 720px;
         height: 976px;
+        border-radius: 4px;
         background: rgba(95, 95, 95, 0.10);
+
+        .header{
+            height: 100px;
+            width: 100%;
+            background: $dinner_Blue;
+
+            .headLine {
+                @extend %center;
+                margin: 0;
+                line-height: 100px;
+                @extend %header2;
+            }
+        }
     }
 }
