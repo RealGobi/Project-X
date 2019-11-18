@@ -11,6 +11,7 @@ export default function SignUp() {
   const buttonText1 = 'Vego';
   const buttonText2 = 'Vegitarian';
   const buttonText3 = 'Allätare';
+  const buttonText4 = 'Skapa Konto';
 
   const bg1 = {
     background: '#B7DDE0',
@@ -34,6 +35,9 @@ export default function SignUp() {
           <Button buttonText={buttonText1} bg={bg1} />
           <Button buttonText={buttonText2} bg={bg2} />
           <Button buttonText={buttonText3} bg={bg3} />
+        </div>
+        <div className="next-page">
+          <Button buttonText={buttonText4} bg={bg1} />
         </div>
       </Page>
     </div>

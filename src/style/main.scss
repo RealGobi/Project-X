@@ -32,17 +32,20 @@ html {
             }
         }
 
-        .select-button {
+        .button {
+            width: 180px;
+            height: 65px;
+            border-radius: 4px;
+            border: 1px solid black;
+            @extend %betweenElement;
             @extend %center;
-            
-            .button {
-                width: 180px;
-                height: 65px;
-                border-radius: 4px;
-                border: 1px solid black;
-                @extend %betweenElement;
-                @extend %center;
-            }
+        }
+        .select-button {
+            @extend %center;    
+        }
+        .next-page {
+            display: flex;
+            justify-content: flex-end;   
         }
     }
 }

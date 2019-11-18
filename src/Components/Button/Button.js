@@ -27,11 +27,12 @@ const Button = ({ buttonText, bg }) => {
 Button.propTypes = {
   buttonText: PropTypes.string,
   // eslint-disable-next-line react/forbid-prop-types
-  bg: PropTypes.object.isRequired,
+  bg: PropTypes.object,
 };
 
 Button.defaultProps = {
   buttonText: '',
+  bg: { background: '#FFC79B' },
 };
 
 export default Button;
