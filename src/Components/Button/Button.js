@@ -8,14 +8,21 @@ import '../../style/main.scss';
  *
  * @param {string} buttonText Props passed down as a string.
  * @param {object} bg Props passed down as a style object.
- * 
  */
 
-const Button = ({ buttonText, bg }) => (
-  <div className="button" style={bg}>
-    <h1 className="buttonText"> { buttonText } </h1>
-  </div>
-);
+const Button = ({ buttonText, bg }) => {
+  const buttonTextStyle = {
+    fontFamily: 'Red Hat Text',
+    fontSize: '1.2rem',
+    color: '#4f4f4f',
+  };
+
+  return (
+    <div className="button" style={bg}>
+      <h1 style={buttonTextStyle}> { buttonText } </h1>
+    </div>
+  );
+};
 
 Button.propTypes = {
   buttonText: PropTypes.string,

@@ -8364,28 +8364,34 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
  *
  * @param {string} buttonText Props passed down as a string.
  * @param {object} bg Props passed down as a style object.
- * 
  */
 
 const Button = ({
   buttonText,
   bg
-}) => __jsx("div", {
-  className: "button",
-  style: bg,
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 15
-  },
-  __self: undefined
-}, __jsx("h1", {
-  className: "buttonText",
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 16
-  },
-  __self: undefined
-}, " ", buttonText, " "));
+}) => {
+  const buttonTextStyle = {
+    fontFamily: 'Red Hat Text',
+    fontSize: '1.2rem',
+    color: '#4f4f4f'
+  };
+  return __jsx("div", {
+    className: "button",
+    style: bg,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 21
+    },
+    __self: undefined
+  }, __jsx("h1", {
+    style: buttonTextStyle,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 22
+    },
+    __self: undefined
+  }, " ", buttonText, " "));
+};
 
 Button.propTypes = {
   buttonText: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string,

@@ -39,7 +39,9 @@ html {
                 width: 180px;
                 height: 65px;
                 border-radius: 4px;
+                border: 1px solid black;
                 @extend %betweenElement;
+                @extend %center;
             }
         }
     }
