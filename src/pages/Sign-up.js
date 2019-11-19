@@ -14,16 +14,6 @@ export default function SignUp() {
   const buttonText3 = 'Allätare';
   const buttonText4 = 'Skapa Konto';
 
-  const bg1 = {
-    background: '#B7DDE0',
-  };
-  const bg2 = {
-    background: '#FEE19F',
-  };
-  const bg3 = {
-    background: '#FFC79B',
-  };
-
   return (
     <div>
       <Page>
