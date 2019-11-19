@@ -9,25 +9,20 @@ import Button from '../Components/Button/Button';
 export default function SignUp() {
   const headLine = 'Skapa Konto';
 
-  const buttonText1 = 'Vegan';
-  const buttonText2 = 'Vegetarian';
-  const buttonText3 = 'Allätare';
-  const buttonText4 = 'Skapa Konto';
-
   return (
     <div>
       <Page>
         <Header headLine={headLine} />
         [Sign-up]
         <div className="select-button">
-          <Button buttonText={buttonText1} color="mint" />
-          <Button buttonText={buttonText2} color="yellow" />
-          <Button buttonText={buttonText3} color="persica" />
+          <Button buttonText="Vegan" color="mint" />
+          <Button buttonText="Vegetarian" color="yellow" />
+          <Button buttonText="Allätare" color="persica" />
         </div>
         <div className="next-page">
           <Link href="/Landing-page">
             <a>
-              <Button buttonText={buttonText4} color="mint" />
+              <Button buttonText={headLine} color="mint" />
             </a>
           </Link>
         </div>
