@@ -30,14 +30,14 @@ export default function SignUp() {
         <Header headLine={headLine} />
         [Sign-up]
         <div className="select-button">
-          <Button buttonText={buttonText1} bg={bg1} />
-          <Button buttonText={buttonText2} bg={bg2} />
-          <Button buttonText={buttonText3} bg={bg3} />
+          <Button buttonText={buttonText1} color="mint" />
+          <Button buttonText={buttonText2} color="yellow" />
+          <Button buttonText={buttonText3} color="persica" />
         </div>
         <div className="next-page">
           <Link href="/Landing-page">
             <a>
-              <Button buttonText={buttonText4} bg={bg1} />
+              <Button buttonText={buttonText4} color="mint" />
             </a>
           </Link>
         </div>

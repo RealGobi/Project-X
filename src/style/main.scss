@@ -32,15 +32,7 @@ html {
                 @extend %header2;
             }
         }
-
-        .button {
-            width: 180px;
-            height: 65px;
-            border-radius: 4px;
-            border: 1px solid black;
-            @extend %center;
-        }
-
+        
         .select-button {
             display: flex;
             justify-content: space-between;   

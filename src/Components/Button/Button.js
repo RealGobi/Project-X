@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import '../../style/main.scss';
+import './Button.css';
 
 /**
  * Renders background color for button.
@@ -11,29 +12,37 @@ import '../../style/main.scss';
  * @param {Button} Button-component need to be wrapped within a <a>-tag, to work with next.js.
  * */
 
-const Button = ({ buttonText, bg }) => {
-  const buttonTextStyle = {
-    fontFamily: 'Red Hat Text',
-    fontSize: '1.2rem',
-    color: '#4f4f4f',
-  };
+const Button = ({ buttonText, color }) => {
+  let bg;
+
+  switch (color) {
+    case 'mint':
+      bg = { background: '#B7DDE0' };
+      break;
+    case 'persica':
+      bg = { background: '#FFC79B' };
+      break;
+    case 'yellow':
+      bg = { background: '#FEE19F' };
+      break;
+    default:
+  }
 
   return (
-    <div className="button" style={bg}>
-      <h1 style={buttonTextStyle}> { buttonText } </h1>
+    <div className="Button" style={bg}>
+      <h1 className="header-style"> { buttonText } </h1>
     </div>
   );
 };
 
 Button.propTypes = {
   buttonText: PropTypes.string,
-  // eslint-disable-next-line react/forbid-prop-types
-  bg: PropTypes.object,
+  color: PropTypes.string,
 };
 
 Button.defaultProps = {
   buttonText: '',
-  bg: { background: '#FFC79B' },
+  color: 'yellow',
 };
 
 export default Button;
