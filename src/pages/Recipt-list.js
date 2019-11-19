@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Page from '../Components/Page/Page';
 import Header from '../Components/Header/Header';
 import Button from '../Components/Button/Button';
+import RecipeItem from '../Components/RecipeItem/RecipeItem';
 
 export default function ReciptList() {
   return (
@@ -11,7 +12,13 @@ export default function ReciptList() {
       <Page>
         <Header headLine="Receptlista" />
         <Link href="/Recipt-page">
-          <a>Recipt-page</a>
+          <a>
+            <RecipeItem
+              recipeTitle="Flygande Jakob"
+              recipeIntro="hej"
+              recipeImg="hej"
+            />
+          </a>
         </Link>
         <Link href="/Recipt-page">
           <a>Recipt-page</a>
