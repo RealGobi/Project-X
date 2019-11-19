@@ -9,8 +9,8 @@ import Button from '../Components/Button/Button';
 export default function SignUp() {
   const headLine = 'Skapa Konto';
 
-  const buttonText1 = 'Vego';
-  const buttonText2 = 'Vegitarian';
+  const buttonText1 = 'Vegan';
+  const buttonText2 = 'Vegetarian';
   const buttonText3 = 'Allätare';
   const buttonText4 = 'Skapa Konto';
 
