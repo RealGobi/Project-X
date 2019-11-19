@@ -8,7 +8,7 @@ import './Button.css';
  * Renders background color for button.
  *
  * @param {string} buttonText Props passed down as a string.
- * @param {object} bg Props passed down as a style object.
+ * @param {string} color Props passed down as a string:'mint','persica', 'yellow'.
  * @param {Button} Button-component need to be wrapped within a <a>-tag, to work with next.js.
  * */
 
