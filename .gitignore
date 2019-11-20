@@ -5,6 +5,8 @@
 /.pnp
 .pnp.js
 .next
+min.css
+main.css.map
 
 # testing
 /coverage
