@@ -1,0 +1,10 @@
+.page {
+    width: 720px;
+    height: 876px;
+    border-radius: 0 0 3px 3px;
+    background: rgba(95, 95, 95, 0.10);    
+}
+
+.content {
+    margin: 0 40px;
+}
