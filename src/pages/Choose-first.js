@@ -8,9 +8,8 @@ import Button from '../Components/Button/Button';
 export default function ChooseFirst() {
   return (
     <div>
+      <Header headLine="Välj Första" />
       <Page>
-        <Header headLine="Välj Första" />
-
         <div className="select-button">
           <Button buttonText="Kyckling" bg="mint" />
           <Button buttonText="Tofu" />

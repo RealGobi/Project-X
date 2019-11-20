@@ -9,8 +9,8 @@ import RecipeItem from '../Components/RecipeItem/RecipeItem';
 export default function ReciptList() {
   return (
     <div>
+      <Header headLine="Receptlista" />
       <Page>
-        <Header headLine="Receptlista" />
         <Link href="/Recipt-page">
           <a>
             <RecipeItem

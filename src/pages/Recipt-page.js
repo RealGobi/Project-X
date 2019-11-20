@@ -8,8 +8,8 @@ import Header from '../Components/Header/Header';
 export default function ReciptPage() {
   return (
     <div>
+      <Header headLine="Recept" />
       <Page>
-        <Header headLine="Recept" />
         <Link href="/Recipt-list">
           <a>
             <Button buttonText="Tillbaka" color="mint" />
