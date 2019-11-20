@@ -2,7 +2,6 @@ import React from 'react';
 import Link from 'next/link';
 
 import Page from '../Components/Page/Page';
-import Header from '../Components/Header/Header';
 import Button from '../Components/Button/Button';
 
 export default function Login() {
@@ -12,12 +11,12 @@ export default function Login() {
         Let´s do DINNER!
         <Link href="/Sign-up">  
           <a>
-            <Button buttonText="Skapa Konto" />
+            <Button buttonText="Skapa Konto" color="mint" />
           </a>
         </Link>
         <Link href="/Landing-page">
           <a>
-            <Button buttonText="Logga In" />
+            <Button buttonText="Logga In" color="yellow" />
           </a>
         </Link>
       </Page>

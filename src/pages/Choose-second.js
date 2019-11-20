@@ -16,14 +16,14 @@ export default function ChooseSecond() {
           <Button buttonText="Potatis" />
         </div>
         <div className="next-page">
-          <Link href="/Choose-second">
+          <Link href="/Choose-first">
             <a>
-              <Button buttonText="Back" />
+              <Button buttonText="Back" color="mint" />
             </a>
           </Link>
           <Link href="/Recipt-list">
             <a>
-              <Button buttonText="Välj Andra" />
+              <Button buttonText="Välj Andra" color="mint" />
             </a>
           </Link>
         </div>

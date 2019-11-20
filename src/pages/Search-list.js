@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 
 import Page from '../Components/Page/Page';
+import RecipeItem from '../Components/RecipeItem/RecipeItem';
 
 export default function SearchList() {
   return (
@@ -9,7 +10,13 @@ export default function SearchList() {
       <Page>
         [Search-list]
         <Link href="/Recipt-page">
-          <a>Recipt-page</a>
+          <a>
+            <RecipeItem
+              recipeTitle="Flygande Jakob"
+              recipeIntro="hej"
+              recipeImg="https://placekitten.com/250/150"
+            />
+          </a>
         </Link>
       </Page>
     </div>

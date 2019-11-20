@@ -12,8 +12,7 @@ export default function SignUp() {
   return (
     <div>
       <Page>
-        <Header headLine={headLine} />
-        [Sign-up]
+        <Header headLine={headLine} />        
         <div className="select-button">
           <Button buttonText="Vegan" color="mint" />
           <Button buttonText="Vegetarian" color="yellow" />

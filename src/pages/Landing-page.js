@@ -16,12 +16,12 @@ export default function LandingPage() {
         </div>
         <Link href="/Choose-first">
           <a>
-            <Button buttonText="Välj 2 och få alternativ på middag" />
+            <Button buttonText="Välj 2 och få alternativ på middag" color="yellow" />
           </a>
         </Link>
         <Link href="/Search-list">
           <a>
-            <Button buttonText="Sök efter Recept" />
+            <Button buttonText="Sök efter Recept" color="persica" />
           </a>
         </Link>
       </Page>

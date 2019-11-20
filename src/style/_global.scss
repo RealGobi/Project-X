@@ -1,6 +1,17 @@
 @import url('https://fonts.googleapis.com/css?family=Red+Hat+Text:400&display=swap');
 // align center
 
+:root {
+    font-family: 'Red Hat Text', sans-serif;
+    font-size: 1rem;
+    color: #4f4f4f;
+}
+
+a {
+    color: #4f4f4f;
+    text-decoration: none;
+}
+
 %center {
     display: flex;
     align-items: center;

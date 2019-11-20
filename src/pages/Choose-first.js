@@ -19,12 +19,12 @@ export default function ChooseFirst() {
         <div className="next-page">
           <Link href="/Landing-page">
             <a>
-              <Button buttonText="Back" />
+              <Button buttonText="Back" color="mint" />
             </a>
           </Link>
           <Link href="/Choose-second">
             <a>
-              <Button buttonText="Välj Första" />
+              <Button buttonText="Välj Första" color="mint" />
             </a>
           </Link>
         </div>

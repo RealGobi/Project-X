@@ -16,19 +16,22 @@ export default function ReciptList() {
             <RecipeItem
               recipeTitle="Flygande Jakob"
               recipeIntro="hej"
-              recipeImg="hej"
+              recipeImg="https://placekitten.com/250/150"
             />
           </a>
         </Link>
         <Link href="/Recipt-page">
-          <a>Recipt-page</a>
-        </Link>
-        <Link href="/Recipt-page">
-          <a>Recipt-page</a>
+          <a>
+            <RecipeItem
+              recipeTitle="Flygande Jakob"
+              recipeIntro="hej"
+              recipeImg="https://placekitten.com/250/150"
+            />
+          </a>
         </Link>
         <Link href="/Choose-second">
           <a>
-            <Button buttonText="Tillbaka" />
+            <Button buttonText="Tillbaka" color="mint" />
           </a>
         </Link>
       </Page>
