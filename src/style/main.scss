@@ -10,7 +10,7 @@ html {
     margin: 0;
     @extend %center;
     margin: 0 auto;
-    
+
     .Startlogga {
         background-image: url(../images/Startlogga.svg);
         background-repeat: no-repeat;
@@ -19,6 +19,56 @@ html {
         display: flex;
         justify-content: flex-end;
         align-items: flex-end;
+
+        .login-container {
+            display: flex;
+            flex-direction: column; 
+            margin: 64px;
+
+            .input-container {
+                margin: 0 12px 12px 0;
+
+                span {
+                    padding-left: 12px;
+                }
+            }
+
+            .login-button-container {
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-end;
+                a {
+                    margin: 0 12px 0 0;
+                }
+            }
+        }
+
+    }
+    .sign-up {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 875px;
+
+        .input-container:nth-child(1) {
+            background: $dinner_Persica;
+            margin-top: 140px;
+        }
+
+        .input-container:nth-child(3) {
+            background: $dinner_Yellow;
+            margin-bottom: 140px;
+        }
+
+        .Button {
+            margin: 0 6px;
+        }
+        .next-page {
+            width: 80%;
+            justify-content: flex-start;
+            align-items: flex-end;
+        }
     }
 
     .header {
