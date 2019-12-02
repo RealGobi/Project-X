@@ -8,20 +8,20 @@ import Button from '../Components/Button/Button';
 export default function LandingPage() {
   return (
     <div>
+      <Header headLine="God Morgon" />
       <Page>
-        <Header headLine="God Morgon" />
         <div className="select-button">
           <Button buttonText="maila oss" />
           <Button buttonText="inställningar" />
         </div>
-        <Link href="/Choose-first">
+        <Link href="/Choose-first" >
           <a>
-            <Button buttonText="Välj 2 och få alternativ på middag" color="yellow" />
+            <Button buttonType="big" buttonText="Välj 2 och få alternativ på middag" color="yellow" />
           </a>
         </Link>
         <Link href="/Search-list">
           <a>
-            <Button buttonText="Sök efter Recept" color="persica" />
+            <Button buttonType="big" buttonText="Sök efter Recept" color="persica" />
           </a>
         </Link>
       </Page>

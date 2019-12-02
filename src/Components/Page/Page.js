@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import '../../style/main.scss';
-
+import './Page.css';
 
 const Page = ({ children }) => (
   <div className="page">

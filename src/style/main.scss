@@ -3,8 +3,6 @@
 
 // align center
 
-
-
 html {
     background:white;
     width: 768px;
@@ -13,32 +11,36 @@ html {
     @extend %center;
     margin: 0 auto;
     
-    .content {
-        width: 720px;
-        height: 976px;
-        border-radius: 3px;
-        background: rgba(95, 95, 95, 0.10);
-        
-        .header{
-            border-radius: 3px 3px 0 0;
-            height: 100px;
-            width: 100%;
-            background: $dinner_Blue;
+    .Startlogga {
+        background-image: url(../images/Startlogga.svg);
+        background-repeat: no-repeat;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+    }
 
-            .headLine {
-                margin: 0;
-                line-height: 100px;
-                @extend %center;
-                @extend %header2;
-            }
+    .header {
+        background: $dinner_Blue;
+        border-radius: 3px 3px 0 0;
+
+        .headLine {
+            margin: 0;
+            line-height: 100px;
+            @extend %center;
+            @extend %header2;
         }
-        
+    }
+
+    .content {
+                
         .select-button {
             display: flex;
             justify-content: space-between;   
             margin: 0 64px;   
         }
-        
+       
         .next-page {
             display: flex;
             align-items: flex-end;

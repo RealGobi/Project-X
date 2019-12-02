@@ -1,0 +1,13 @@
+.Searchinput {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.Searchinput input[type=text] {
+    padding: 6px;
+    width: 350px;
+    height: 75px;
+    margin-top: 51px;
+    font-size: 2.1rem;
+  }

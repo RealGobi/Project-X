@@ -12,6 +12,15 @@ a {
     text-decoration: none;
 }
 
+input[type=text] {
+    padding: 6px;
+    border: 1px solid #828282;
+    box-sizing: border-box;
+    border-radius: 3px;
+    background:white;
+    font-family: 'Red Hat Text', sans-serif;
+  }
+
 %center {
     display: flex;
     align-items: center;
