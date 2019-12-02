@@ -38,7 +38,7 @@ const Button = ({ buttonText, color, buttonType }) => {
       btnType = { width: '180px' };
       break;
     case 'square':
-      btnType = { width: '100px', heigth: '100px' };
+      btnType = { width: '125px', height: '125px' };
       break;
     default:
   }

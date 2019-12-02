@@ -84,11 +84,35 @@ html {
     }
 
     .content {
-                
-        .select-button {
+
+        .choose-button {
+            display: grid;
+            grid-template-columns: repeat(4, 127px);
+            grid-template-rows:repeat(4, 127px);
+            gap: 32px;
+
+            .Button {
+                margin: 64px;
+
+            }
+        }
+
+        .mail-button {
             display: flex;
             justify-content: space-between;   
             margin: 0 64px;   
+            padding: 36px 0;
+        }
+            
+        .landing-button-position {
+            height: 600px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            .Button {
+                margin: 24px;
+            }    
         }
        
         .next-page {
