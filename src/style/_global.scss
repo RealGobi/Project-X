@@ -11,15 +11,34 @@ a {
     color: #4f4f4f;
     text-decoration: none;
 }
-
-input[type=text] {
-    padding: 6px;
-    border: 1px solid #828282;
-    box-sizing: border-box;
+.input-container {            
+    width: 440px;
+    height: 65px;
     border-radius: 3px;
-    background:white;
+    border: 1px solid #828282;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
     font-family: 'Red Hat Text', sans-serif;
-  }
+    font-size: 1.2rem;
+    color: #4f4f4f;
+    background:$dinner_Blue;
+    margin: 0 12px 12px 0;
+
+    input[type=email],[type=password], [type=text] {
+        width: 290px;
+        height: 35px;
+        border-radius: 3px;
+        border: 1px solid #828282;
+        font-family: 'Red Hat Text', sans-serif;
+        font-size: 1.2rem;
+        margin: 12px;
+    }
+
+    span {
+        padding-left: 12px;
+    }
+}
 
 %center {
     display: flex;
