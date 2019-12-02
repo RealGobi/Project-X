@@ -9,11 +9,14 @@ export default function ChooseFirst() {
   return (
     <div>
       <Header headLine="Välj Första" />
-      <Page>
-        <div className="select-button">
-          <Button buttonText="Kyckling" bg="mint" />
-          <Button buttonText="Tofu" />
-          <Button buttonText="Oumph" />
+
+      <Page> 
+        <div className="choose-button">
+          <Button buttonText="Tofu" buttonType="square" />
+          <Button buttonText="Oumph" buttonType="square" />
+          <Button buttonText="Kyckling" color="mint" buttonType="square" />
+          <Button buttonText="Tofu" buttonType="square" />
+          <Button buttonText="Oumph" buttonType="square" />
         </div>
         <div className="next-page">
           <Link href="/Landing-page">
@@ -28,6 +31,7 @@ export default function ChooseFirst() {
           </Link>
         </div>
       </Page>
+      
     </div>
   );
 }
