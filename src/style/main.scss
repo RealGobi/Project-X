@@ -60,6 +60,49 @@ html {
 
     .content {
 
+        .sign-up {
+
+            #bg {
+                width: 100%;
+                height: 100%;
+            }
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            height: 100%;
+
+            .input-container:nth-child(1) {
+                background: $dinner_Persica;
+                margin-top: 140px;
+            }
+
+            .input-container:nth-child(3) {
+                background: $dinner_Yellow;
+                margin-bottom: 140px;
+            }
+
+            .Button {
+                margin: 0 6px;
+            }
+
+            .next-page {
+                width: 100%;
+                justify-content: flex-end;
+                align-items: flex-end;
+
+                .Button {
+                    margin-right: 75px;
+                }
+            }
+        }
+
+
+        .select-button {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+
         .choose-button {
             display: grid;
             grid-template-columns: repeat(4, 127px);
