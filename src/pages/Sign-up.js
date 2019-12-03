@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import Link from 'next/link';
 
@@ -20,31 +19,33 @@ export default function SignUp() {
   return (
     <div>
       <Header headLine={headLine} />
-      <Page>
-        <div className="sign-up" style={styleback}>
-          <div className="input-container">
-            <span>Namn:</span> <input type="text" />
+      <div id="bg" style={styleback}>
+        <Page>
+          <div className="sign-up">
+            <div className="input-container">
+              <span>Namn:</span> <input type="text" />
+            </div>
+            <div className="input-container">
+              <span>E-post:</span> <input type="email" />
+            </div>
+            <div className="input-container">
+              <span>Lösenord:</span> <input type="password" />
+            </div>
+            <div className="select-button">
+              <Button buttonText="Vegan" color="mint" />
+              <Button buttonText="Vegetarian" color="yellow" />
+              <Button buttonText="Allätare" color="persica" />
+            </div>
+            <div className="next-page">
+              <Link href="/Landing-page">
+                <a>
+                  <Button buttonText={headLine} color="mint" />
+                </a>
+              </Link>
+            </div>
           </div>
-          <div className="input-container">
-            <span>E-post:</span> <input type="email" />
-          </div>
-          <div className="input-container">
-            <span>Lösenord:</span> <input type="password" />
-          </div>
-          <div className="select-button">
-            <Button buttonText="Vegan" color="mint" />
-            <Button buttonText="Vegetarian" color="yellow" />
-            <Button buttonText="Allätare" color="persica" />
-          </div>
-          <div className="next-page">
-            <Link href="/Landing-page">
-              <a>
-                <Button buttonText={headLine} color="mint" />
-              </a>
-            </Link>
-          </div>
-        </div>
-      </Page>
+        </Page>
+      </div>
     </div>
   );
 }
