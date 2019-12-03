@@ -1,0 +1,57 @@
+.Popup.popup-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    z-index: 9999;
+  }
+  
+  .Popup .popup-content {
+    width: 600px;
+    margin: 0 auto;
+    background-color: #fff;
+  
+    height: 600px;
+    overflow: hidden;
+  
+    padding-top: 48px;
+    position: relative;
+  }
+  
+  .Popup .popup-content.padded {
+    padding: 48px;
+  }
+  
+  .Popup .popup-content .BtnClose {
+    width: 44px;
+    height: 44px;
+    border: none;
+    background-color: transparent;
+    font-size: 28px;
+    color: #f6a800;
+    padding: 0;
+    margin: 0;
+    line-height: 0;
+  
+    position: absolute;
+    right: 8px;
+    top: 8px;
+  }
+  
+  .Popup .popup-content .BtnClose img {
+    width: 16px;
+    height: 16px;
+  }
+  
+  .Popup .popup-content .children {
+    height: 100%;
+    overflow: hidden;
+  }
+  
