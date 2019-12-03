@@ -13,10 +13,21 @@ export default function ChooseFirst() {
         <span className="centerGrid">
           <div className="choose-button">
             <Button buttonText="Tofu" buttonType="square" />
+          <Button buttonText="Bönor" buttonType="square" />
             <Button buttonText="Oumph" buttonType="square" />
-            <Button buttonText="Kyckling" color="mint" buttonType="square" />
-            <Button buttonText="Tofu" buttonType="square" />
-            <Button buttonText="Oumph" buttonType="square" />
+          <Button buttonText="Linser" buttonType="square" />
+          <Button buttonText="Lax" color="mint" buttonType="square" />
+          <Button buttonText="Vit Fisk" color="mint" buttonType="square" />
+          <Button buttonText="Färs" color="mint" buttonType="square" />
+          <Button buttonText="Fisk" color="mint" buttonType="square" />
+          <Button buttonText="Mozzarella" buttonType="square" />
+          <Button buttonText="Getost" buttonType="square" />
+          <Button buttonText="Fetaost" buttonType="square" />
+          <Button buttonText="Ägg" buttonType="square" />
+          <Button buttonText="Kyckling" color="persica" buttonType="square" />
+          <Button buttonText="Vilt" color="persica" buttonType="square" />
+          <Button buttonText="Nötkött" color="persica" buttonType="square" />
+          <Button buttonText="Fläskött" color="persica" buttonType="square" />
           </div>
         </span>
         <div className="next-page">
