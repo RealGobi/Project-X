@@ -24,28 +24,26 @@ const Button = ({ buttonText, color, buttonType }) => {
     case 'persica':
       bg = { background: '#FFC79B' };
       break;
-    case 'yellow':
+    default:
       bg = { background: '#FEE19F' };
       break;
-    default:
   }
 
   switch (buttonType) {
     case 'big':
       btnType = { width: '400px' };
       break;
-    case 'normal':
-      btnType = { width: '180px' };
-      break;
     case 'square':
       btnType = { width: '125px', height: '125px' };
       break;
     default:
+      btnType = { width: '180px' };
+      break;
   }
 
   return (
     <div className="Button" style={{ ...bg, ...btnType }}>
-      <h1 className="button-text"> { buttonText } </h1>
+      <h1 className="button-text"> {buttonText} </h1>
     </div>
   );
 };
