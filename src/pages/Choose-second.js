@@ -11,13 +11,13 @@ export default function ChooseSecond() {
       <Header headLine="Välj Andra" />
       <Page>
         <span className="centerGrid">
-          <div className="select-button">          
+          <div className="choose-button">
             <Button buttonText="Rotfrukt" color="persica" buttonType="square" />
             <Button buttonText="Potatis" color="persica" buttonType="square" />
             <Button buttonText="Bröd" color="persica" buttonType="square" />
-            <Button buttonText="Matvete" color="mint" buttonType="square" />          
+            <Button buttonText="Matvete" color="mint" buttonType="square" />
             <Button buttonText="Pasta" color="mint" buttonType="square" />
-            <Button buttonText="Quinoa" color="mint" buttonType="square" />          
+            <Button buttonText="Quinoa" color="mint" buttonType="square" />
             <Button buttonText="Couscous" color="mint" buttonType="square" />
             <Button buttonText="Ris" buttonType="square" />
           </div>
