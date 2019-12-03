@@ -60,48 +60,34 @@ html {
 
     .content {
 
-
-        .sign-up {
-
-            #bg {
-                width: 100%;
-                height: 100%;
-            }
-            display: flex;
-            align-items: center;
-            flex-direction: column;
-            height: 100%;
-
-            .input-container:nth-child(1) {
-                background: $dinner_Persica;
-                margin-top: 140px;
-            }
-
-            .input-container:nth-child(3) {
-                background: $dinner_Yellow;
-                margin-bottom: 140px;
-            }
+        .choose-button {
+            display: grid;
+            grid-template-columns: repeat(4, 127px);
+            grid-template-rows:repeat(4, 127px);
+            gap: 32px;
 
             .Button {
-                margin: 0 6px;
-            }
+                margin: 64px;
 
-            .next-page {
-                width: 100%;
-                justify-content: flex-end;
-                align-items: flex-end;
-
-                .Button {
-                    margin-right: 75px;
-                }
             }
         }
 
-
-        .select-button {
+        .mail-button {
+            display: flex;
+            justify-content: space-between;   
+            margin: 0 64px;   
+            padding: 36px 0;
+        }
+            
+        .landing-button-position {
+            height: 600px;
             display: flex;
             justify-content: center;
-            width: 100%;
+            align-items: center;
+            flex-direction: column;
+            .Button {
+                margin: 24px;
+            }    
         }
 
         .next-page {
