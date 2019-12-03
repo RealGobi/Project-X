@@ -1,0 +1,75 @@
+.recipt-content {
+    margin: 0 64px 12px;
+    padding: 12px 0;
+}
+
+.time {
+    display: flex;
+    flex-direction: row;
+}
+
+.clock {
+    padding: 0 12px;
+}
+
+.recipe-img {
+    border: 1px solid #575757;
+    box-sizing: border-box;
+    border-radius: 10px;
+    margin: 12px 0;
+}
+
+.recipe-intro {
+    border: 1px solid #828282;
+    background: #B7DDE0;
+    border-radius: 3px;
+    padding: 26px;
+    font-size: 1.1rem;
+}
+
+.ingridiens-header {
+    position: relative;
+    top: 26px;
+    left: 22px;
+    border: 1px solid #828282;
+    background: #E0E0E0;
+    border-radius: 3px;
+    font-size: 1.4rem;
+    width: 288px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    padding: 0 0 0 12px;
+}
+
+.ingridiens {
+    border: 1px solid #828282;
+    background: #FEE19F;
+    border-radius: 3px;
+    padding: 40px 26px 26px 26px;
+    font-size: 1.1rem;
+}
+
+.portioner {
+    width: 100px;
+    height: 30px;
+    position: relative;
+    left: 360px;
+    top: -12px;
+    border: 1px solid #828282;
+    background: #ffffff;
+    border-radius: 3px;    
+}
+
+select[option] {
+    font-size: 3rem;
+}
+
+.instructions {
+    border: 1px solid #828282;
+    background: #B7DDE0;
+    border-radius: 3px;
+    margin: 12px 0;
+    padding: 0 26px 26px;
+    font-size: 1.1rem;
+}
