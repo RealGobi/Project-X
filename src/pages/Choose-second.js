@@ -10,16 +10,18 @@ export default function ChooseSecond() {
     <div>
       <Header headLine="Välj Andra" />
       <Page>
-        <div className="select-button">          
-          <Button buttonText="Rotfrukt" color="persica" buttonType="square" />
-          <Button buttonText="Potatis" color="persica" buttonType="square" />
-          <Button buttonText="Bröd" color="persica" buttonType="square" />
-          <Button buttonText="Matvete" color="mint" buttonType="square" />          
-          <Button buttonText="Pasta" color="mint" buttonType="square" />
-          <Button buttonText="Quinoa" color="mint" buttonType="square" />          
-          <Button buttonText="Couscous" color="mint" buttonType="square" />
-          <Button buttonText="Ris" buttonType="square" />
-        </div>
+        <span className="centerGrid">
+          <div className="select-button">          
+            <Button buttonText="Rotfrukt" color="persica" buttonType="square" />
+            <Button buttonText="Potatis" color="persica" buttonType="square" />
+            <Button buttonText="Bröd" color="persica" buttonType="square" />
+            <Button buttonText="Matvete" color="mint" buttonType="square" />          
+            <Button buttonText="Pasta" color="mint" buttonType="square" />
+            <Button buttonText="Quinoa" color="mint" buttonType="square" />          
+            <Button buttonText="Couscous" color="mint" buttonType="square" />
+            <Button buttonText="Ris" buttonType="square" />
+          </div>
+        </span>
         <div className="next-page">
           <Link href="/Choose-first">
             <a>
