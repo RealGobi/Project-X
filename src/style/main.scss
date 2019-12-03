@@ -59,7 +59,6 @@ html {
     }
 
     .content {
-
         .sign-up {
 
             #bg {
@@ -102,18 +101,20 @@ html {
             justify-content: center;
             width: 100%;
         }
+        
+        .centerGrid {
+
+        @extend %center;
+        flex-direction: column;
+        padding: 64px;
 
         .choose-button {
             display: grid;
             grid-template-columns: repeat(4, 127px);
             grid-template-rows:repeat(4, 127px);
-            gap: 32px;
-
-            .Button {
-                margin: 64px;
-
-            }
+            gap: 28px;
         }
+    }
 
         .mail-button {
             display: flex;
@@ -132,15 +133,17 @@ html {
                 margin: 24px;
             }    
         }
-
+    
         .next-page {
             display: flex;
             align-items: flex-end;
             justify-content: flex-end;
             margin: 64px;
 
+
             a {
                 text-decoration: none;
+                margin: 0 0 0 12px;
             }
         }
     }
