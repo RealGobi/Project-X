@@ -1,20 +1,15 @@
 /* eslint-disable no-underscore-dangle */
 import React from 'react';
 import Link from 'next/link';
-import useAxios from 'axios-hooks';
 
 import Page from '../Components/Page/Page';
 import Header from '../Components/Header/Header';
 import Button from '../Components/Button/Button';
 
-export default function ChooseFirst() {
-  const [{ data, loading }] = useAxios(
-    'http://localhost:3000/products/'
-  );
-  if (loading) return <p>Loading...</p>;
-console.log(data);
-
-  const listItems = data.map(d => <Button key={d._id} buttonText={d.name} color="mint" buttonType="square" />);
+export default function ChooseFirst(data, category1) {
+  console.log(data);
+  console.log(category1);
+  // const listItems = data.map(d => <Button key={d._id} buttonText={d.category1} color={d.color} buttonType="square" />);
 
   return (
     <div>
@@ -22,7 +17,7 @@ console.log(data);
       <Page>
         <span className="centerGrid">
           <div className="choose-button">
-            {listItems}
+            <span>fghj</span>
           </div>
         </span>
         <div className="next-page">
