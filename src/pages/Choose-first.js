@@ -12,8 +12,8 @@ export default function ChooseFirst(props) {
       <Page>
         <span className="centerGrid">
           <div className="choose-button">
-            {props.recipe.map(c => (
-              <div>{c.category1.map((cat) => <Button buttonText={cat} color={c.color} buttonType="square" />)}</div>
+            {props.recipe.map((c, idx) => (
+              <div key={idx}>{c.category1.map((cat) => <Button key={c._id} buttonText={cat} color={c.color} buttonType="square" />)}</div>
             ))
           }
           </div>
