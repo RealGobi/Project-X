@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Login from './pages/Login';
 import SignUp from './pages/Sign-up';
@@ -9,22 +9,36 @@ import ReciptList from './pages/Recipt-list';
 import ReciptPage from './pages/Recipt-page';
 import SearchList from './pages/Search-list';
 
-const App = () => (
-  <Router>
-    <div className="App">
-      <Switch>
-        <Route path="/" exact component={Login} />
-        <Route path="/signup" component={SignUp} />
-        <Route path="/landing-page" component={LandingPage} />
-        <Route path="/choose-first" component={ChooseFirst} />
-        <Route path="/choose-second" component={ChooseSecond} />
-        <Route path="/recipt-list" component={ReciptList} />
-        <Route path="/recipt-page" component={ReciptPage} />
-        <Route path="/search-list" component={SearchList} />
-      </Switch>
-    </div>
-  </Router>
-);
+const App = () => {
+  useEffect(() => {
+    fetchRecipe();
+  }, []);
+
+  const [recipe, setRecipes] = useState([]);
+
+  const fetchRecipe = async () => {
+    const data = await fetch('http://localhost:3000/recipes/');
+    const recipe = await data.json();
+    setRecipes(recipe);
+  };
+
+  return (
+    <Router>
+      <div className="App">
+        <Switch>
+          <Route path="/" exact component={Login} />
+          <Route path="/signup" component={SignUp} />
+          <Route path="/landing-page" component={LandingPage} />
+          <Route path="/choose-first" render={() => <ChooseFirst recipe={recipe} />} />
+          <Route path="/choose-second" component={ChooseSecond} />
+          <Route path="/recipt-list" component={ReciptList} />
+          <Route path="/recipt-page" component={ReciptPage} />
+          <Route path="/search-list" component={SearchList} />
+        </Switch>
+      </div>
+    </Router>
+  );
+};
 
 
 export default App;

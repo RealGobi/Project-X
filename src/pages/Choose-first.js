@@ -5,14 +5,17 @@ import Page from '../Components/Page/Page';
 import Header from '../Components/Header/Header';
 import Button from '../Components/Button/Button';
 
-export default function ChooseFirst() {
+export default function ChooseFirst(props) {
   return (
     <div>
       <Header headLine="Välj Första" />
       <Page>
         <span className="centerGrid">
           <div className="choose-button">
-            hej
+            {props.recipe.map(c => (
+              <div>{c.category1.map((cat) => <Button buttonText={cat} color={c.color} buttonType="square" />)}</div>
+            ))
+          }
           </div>
         </span>
         <div className="next-page">
