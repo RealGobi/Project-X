@@ -1,45 +1,30 @@
-import React, { useEffect, useState } from 'react';
-import Page from './Components/Page/Page';
+import React from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Login from './pages/Login';
+import SignUp from './pages/Sign-up';
+import LandingPage from './pages/Landing-page';
+import ChooseFirst from './pages/Choose-first';
+import ChooseSecond from './pages/Choose-second';
+import ReciptList from './pages/Recipt-list';
+import ReciptPage from './pages/Recipt-page';
+import SearchList from './pages/Search-list';
 
-
-const App = () => {
-  const [data, setData] = useState([]);
-  const [category1, setCategories] = useState([]);
-
-  async function fetchData() {
-    const res = await fetch('http://localhost:3000/recipes/');
-    const data = await res
-      .json()
-      .then((res) => {
-        setData(res);
-        sortOutCategories(res);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  const catTemp = [];
-  function sortOutCategories(data) {
-    if (data) {
-      data.map((d, idx) => { // for each-fooloop
-        for (let i = 0; i < data[idx].category1.length; i++) {
-          catTemp.push(data[idx].category1[i]);
-        }
-      });
-      catTemp.sort();
-      setCategories([...new Set(catTemp)]);
-    } else { return null; }
-  }
-
-  return (
+const App = () => (
+  <Router>
     <div className="App">
-      <Page data={data} category1={category1} />
+      <Switch>
+        <Route path="/" exact component={Login} />
+        <Route path="/signup" component={SignUp} />
+        <Route path="/landing-page" component={LandingPage} />
+        <Route path="/choose-first" component={ChooseFirst} />
+        <Route path="/choose-second" component={ChooseSecond} />
+        <Route path="/recipt-list" component={ReciptList} />
+        <Route path="/recipt-page" component={ReciptPage} />
+        <Route path="/search-list" component={SearchList} />
+      </Switch>
     </div>
-  );
-};
+  </Router>
+);
+
 
 export default App;

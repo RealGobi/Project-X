@@ -36,7 +36,7 @@ const RecipeItem = ({
         <h3>{recipeTitle}</h3>
         <p>{recipeIntro}</p>
       </div>
-      <img src={recipeImg} />
+      <img src={recipeImg} alt="txt" />
     </div>
   );
 };

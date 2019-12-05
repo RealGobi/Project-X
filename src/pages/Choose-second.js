@@ -1,5 +1,5 @@
 import React from 'react';
-import Link from 'next/link';
+import { Link } from 'react-router-dom';
 
 import Page from '../Components/Page/Page';
 import Header from '../Components/Header/Header';
@@ -23,15 +23,11 @@ export default function ChooseSecond() {
           </div>
         </span>
         <div className="next-page">
-          <Link href="/Choose-first">
-            <a>
-              <Button buttonText="Back" color="mint" />
-            </a>
+          <Link to="/choose-first">
+            <Button buttonText="Back" color="mint" />
           </Link>
-          <Link href="/Recipt-list">
-            <a>
-              <Button buttonText="Välj Andra" color="mint" />
-            </a>
+          <Link to="/recipt-list">
+            <Button buttonText="Se resultat" color="mint" />
           </Link>
         </div>
       </Page>

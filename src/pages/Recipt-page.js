@@ -1,5 +1,5 @@
 import React from 'react';
-import Link from 'next/link';
+import { Link } from 'react-router-dom';
 
 import Page from '../Components/Page/Page';
 import Button from '../Components/Button/Button';
@@ -10,10 +10,8 @@ export default function ReciptPage() {
     <div>
       <Header headLine="Recept" />
       <Page>
-        <Link href="/Recipt-list">
-          <a>
-            <Button buttonText="Tillbaka" color="mint" />
-          </a>
+        <Link to="/recipt-list">
+          <Button buttonText="Tillbaka" color="mint" />
         </Link>
       </Page>
     </div>
