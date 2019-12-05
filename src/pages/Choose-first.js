@@ -5,7 +5,7 @@ import Page from '../Components/Page/Page';
 import Header from '../Components/Header/Header';
 import Button from '../Components/Button/Button';
 
-export default function ChooseFirst() {
+const ChooseFirst = props => {
   return (
     <div>
       <Header headLine="Välj Första" />
@@ -46,3 +46,6 @@ export default function ChooseFirst() {
     </div>
   );
 }
+
+
+export default ChooseFirst;

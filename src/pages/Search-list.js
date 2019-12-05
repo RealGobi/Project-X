@@ -5,12 +5,14 @@ import Page from '../Components/Page/Page';
 import RecipeItem from '../Components/RecipeItem/RecipeItem';
 import Searchinput from '../Components/Searchinput/Searchinput';
 import Header from '../Components/Header/Header';
+import Filters from '../Components/Filters/Filters';
 
 export default function SearchList() {
   return (
     <div>
       <Header headLine="Sök Recept" />
       <Page>
+        <Filters />
         <Searchinput />
         <Link href="/Recipt-page">
           <a>

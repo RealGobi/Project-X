@@ -3,11 +3,14 @@ import Link from 'next/link';
 
 import Button from '../Components/Button/Button';
 
-export default function Login() {
+export default function Login(data) {
   return (
     <div className="Startlogga">
       <div className="login-container">
         <div className="input-container">
+          {
+          console.log(data)
+          }
           <span>E-post:</span> <input type="email" />
         </div>
         <div className="input-container">
