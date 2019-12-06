@@ -6,16 +6,20 @@ import Header from '../Components/Header/Header';
 import Button from '../Components/Button/Button';
 
 export default function ChooseFirst(props) {
+
+  const category = [];
+  const sortCategory = () => {
+    props.recipe.map(cat => cat.category1.map(tac => category.push(tac)));
+    console.log(category);
+  };
+  sortCategory();
   return (
     <div>
       <Header headLine="Välj Första" />
       <Page>
         <span className="centerGrid">
           <div className="choose-button">
-            {props.recipe.map((c, idx) => (
-              <div key={idx}>{c.category1.map((cat) => <Button key={c._id} buttonText={cat} color={c.color} buttonType="square" />)}</div>
-            ))
-          }
+            { props.recipe.map( color => category.map(c => <Button key={c} buttonText={c} color={color.color} buttonType="square" />))}
           </div>
         </span>
         <div className="next-page">
