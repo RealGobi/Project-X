@@ -30,7 +30,7 @@ const App = () => {
           <Route path="/signup" component={SignUp} />
           <Route path="/landing-page" component={LandingPage} />
           <Route path="/choose-first" render={() => <ChooseFirst recipe={recipe} />} />
-          <Route path="/choose-second" component={ChooseSecond} />
+          <Route path="/choose-second" render={() => <ChooseSecond recipe={recipe} />} />
           <Route path="/recipt-list" component={ReciptList} />
           <Route path="/recipt-page" component={ReciptPage} />
           <Route path="/search-list" component={SearchList} />

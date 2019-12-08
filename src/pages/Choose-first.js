@@ -1,11 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import PropTypes from 'prop-types';
 import Page from '../Components/Page/Page';
 import Header from '../Components/Header/Header';
 import Button from '../Components/Button/Button';
 
 export default function ChooseFirst(props) {
+  ChooseFirst.propTypes = {
+    // eslint-disable-next-line react/forbid-prop-types
+    recipe: PropTypes.array.isRequired,
+  };
+
   // collect all categorys to one array (and color)
   let category = [];
   const collectCategory = () => {
