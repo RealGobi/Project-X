@@ -7,7 +7,7 @@ import Header from '../Components/Header/Header';
 import Button from '../Components/Button/Button';
 
 export default function ChooseSecond(props) {
-  const [category2, setCategory2] = useState([]);
+  const [categoryTwo, setCategoryTwo] = useState([]);
   ChooseSecond.propTypes = {
     // eslint-disable-next-line react/forbid-prop-types
     recipe: PropTypes.array.isRequired,
@@ -22,7 +22,7 @@ export default function ChooseSecond(props) {
   const data = category;
   category = Array.from(new Set(data.map(JSON.stringify))).map(JSON.parse);
   console.log(category);
-  console.log(category2);
+  console.log(categoryTwo);
 
   return (
     <div>
@@ -30,7 +30,7 @@ export default function ChooseSecond(props) {
       <Page>
         <span className="centerGrid">
           <div className="choose-button">
-            { category.map((cat2, idx) => <Button clickHandler={() => setCategory2(cat2.value)} key={idx} buttonText={cat2.value} buttonType="square" color={cat2.color} />) }
+            { category.map((cat2, idx) => <Button clickHandler={() => setCategoryTwo(cat2.value)} key={idx} buttonText={cat2.value} buttonType="square" color={cat2.color} />) }
           </div>
         </span>
         <div className="next-page">
