@@ -1,35 +1,36 @@
 @import './_color.scss';
 @import './global.scss';
 
-// align center
-
+// mobile
 html {
     background: white;
-    width: 768px;
-    height: 1024px;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin: 0;
-    @extend %center;
-    margin: 0 auto;
 
     .Startlogga {
-        background-image: url(../images/Startlogga.svg);
+        background-image: url(../images/StartloggaPhone.svg);
         background-repeat: no-repeat;
+        background-image: cover;
         width: 100vw;
         height: 100vh;
-        display: flex;
-        justify-content: flex-end;
-        align-items: flex-end;
+        margin: 0;
 
         .login-container {
+            height: 100vh;
             display: flex;
             flex-direction: column;
-            margin: 64px;
+            justify-content: flex-end;
+            align-items: center;
 
             .input-container {
-                margin: 0 12px 12px 0;
+                margin: 0 8px 8px 0;
 
                 span {
-                    padding-left: 12px;
+                    padding-left: 8px;
                 }
             }
 
@@ -37,9 +38,10 @@ html {
                 display: flex;
                 flex-direction: row;
                 justify-content: flex-end;
+                padding: 8px 0 24px 0px;
 
                 a {
-                    margin: 0 12px 0 0;
+                    margin: 0 8px 0 0;
                 }
             }
         }
@@ -58,26 +60,37 @@ html {
         }
     }
 
+    .header-recipt {
+        background: $dinner_Persica;
+        border-radius: 3px 3px 0 0;
+        
+        h1 {
+            margin: 0;
+            line-height: 70px;
+            text-align: center;
+            @extend %header2;
+        }
+    }
+
     .content {
         .sign-up {
 
             #bg {
                 width: 100%;
-                height: 100%;
             }
+            
             display: flex;
             align-items: center;
             flex-direction: column;
-            height: 100%;
 
             .input-container:nth-child(1) {
                 background: $dinner_Persica;
-                margin-top: 140px;
+                margin-top: 40px;
             }
 
             .input-container:nth-child(3) {
                 background: $dinner_Yellow;
-                margin-bottom: 140px;
+                margin-bottom: 40px;
             }
 
             .Button {
@@ -90,11 +103,10 @@ html {
                 align-items: flex-end;
 
                 .Button {
-                    margin-right: 75px;
+                    margin-right: 6px;
                 }
             }
         }
-
 
         .select-button {
             display: flex;
@@ -103,16 +115,15 @@ html {
         }
         
         .centerGrid {
-
-        @extend %center;
-        flex-direction: column;
-        padding: 64px;
+            @extend %center;
+            flex-direction: column;
+            padding: 24px;
 
         .choose-button {
             display: grid;
-            grid-template-columns: repeat(4, 127px);
-            grid-template-rows:repeat(4, 127px);
-            gap: 28px;
+            grid-template-columns: repeat(4, 77px);
+            grid-template-rows:repeat(4, 77px);
+            gap: 8px;
         }
     }
 
@@ -120,7 +131,7 @@ html {
             display: flex;
             justify-content: space-between;   
             margin: 0 64px;   
-            padding: 36px 0;
+            padding: 26px 0;
         }
             
         .landing-button-position {
@@ -138,12 +149,202 @@ html {
             display: flex;
             align-items: flex-end;
             justify-content: flex-end;
-            margin: 64px;
-
+            margin: 24px;
 
             a {
                 text-decoration: none;
                 margin: 0 0 0 12px;
+            }
+        }
+     
+    }
+
+    .admin {
+        margin: 12px 0px;
+
+        .admin-receptlist {
+            background: #c4c4c4;
+            padding: 12px;
+            border-radius: 3px;
+        }
+        
+        .admin-addrecept {
+            background: $dinner_Persica;
+            display: flex;
+            flex-direction: column;
+            margin: 12px 0;
+            padding: 12px;
+            border-radius: 3px;
+
+            h2 {
+                text-align: center;
+            }
+
+            label {
+                display: flex;
+                justify-content: flex-end;
+                padding: 3px;
+                input {
+                    margin: 0 3px;
+                    border-radius: 3px;
+                    border: 1px solid #828282;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 767px) {
+
+    html {
+        background: white;
+        width: 768px;
+        height: 1024px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+
+        .Startlogga {
+            background-image: url(../images/Startlogga.svg);
+            background-repeat: no-repeat;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end;
+
+            .login-container {
+                display: flex;
+                flex-direction: column;
+                margin: 64px;
+
+                .input-container {
+                    margin: 0 12px 12px 0;
+
+                    span {
+                        padding-left: 12px;
+                    }
+                }
+
+                .login-button-container {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: flex-end;
+
+                    a {
+                        margin: 0 12px 0 0;
+                    }
+                }
+            }
+
+        }
+
+        .header {
+            background: $dinner_Blue;
+            border-radius: 3px 3px 0 0;
+
+            .headLine {
+                margin: 0;
+                line-height: 100px;  
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: $dinner_HeadLine;
+                font-family: 'Red Hat Text', sans-serif;
+                font-size: 2.1rem;
+            }
+        }
+
+        .content {
+            .sign-up {
+
+                #bg {
+                    width: 100%;
+                    height: 100%;
+                }
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                height: 100%;
+
+                .input-container:nth-child(1) {
+                    background: $dinner_Persica;
+                    margin-top: 140px;
+                }
+
+                .input-container:nth-child(3) {
+                    background: $dinner_Yellow;
+                    margin-bottom: 140px;
+                }
+
+                .Button {
+                    margin: 0 6px;
+                }
+
+                .next-page {
+                    width: 100%;
+                    justify-content: flex-end;
+                    align-items: flex-end;
+
+                    .Button {
+                        margin-right: 75px;
+                    }
+                }
+            }
+
+
+            .select-button {
+                display: flex;
+                justify-content: center;
+                width: 100%;
+            }
+            
+            .centerGrid {
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 64px;
+
+            .choose-button {
+                display: grid;
+                grid-template-columns: repeat(4, 127px);
+                grid-template-rows:repeat(4, 127px);
+                gap: 28px;
+            }
+        }
+
+            .mail-button {
+                display: flex;
+                justify-content: space-between;   
+                margin: 0 64px;   
+                padding: 36px 0;
+            }
+                
+            .landing-button-position {
+                height: 600px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                .Button {
+                    margin: 24px;
+                }    
+            }
+        
+            .next-page {
+                display: flex;
+                align-items: flex-end;
+                justify-content: flex-end;
+                margin: 64px;
+
+
+                a {
+                    text-decoration: none;
+                    margin: 0 0 0 12px;
+                }
             }
         }
     }

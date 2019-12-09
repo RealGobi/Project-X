@@ -1,7 +1,18 @@
+
 .page {
-    width: 720px;
-    height: 876px;
+    width: 355px;
+    height: 550px;
     border-radius: 0 0 3px 3px;
     background: rgba(95, 95, 95, 0.10);    
 }
 
+@media only screen and (min-width: 767px) {
+
+    .page {
+        width: 720px;
+        height: 876px;
+        border-radius: 0 0 3px 3px;
+        background: rgba(95, 95, 95, 0.10);    
+    }
+
+}

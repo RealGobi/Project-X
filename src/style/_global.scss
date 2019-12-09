@@ -11,34 +11,6 @@ a {
     color: #4f4f4f;
     text-decoration: none;
 }
-.input-container {            
-    width: 440px;
-    height: 65px;
-    border-radius: 3px;
-    border: 1px solid #828282;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    font-family: 'Red Hat Text', sans-serif;
-    font-size: 1.2rem;
-    color: #4f4f4f;
-    background:$dinner_Blue;
-    margin: 0 12px 12px 0;
-
-    input[type=email],[type=password], [type=text] {
-        width: 290px;
-        height: 35px;
-        border-radius: 3px;
-        border: 1px solid #828282;
-        font-family: 'Red Hat Text', sans-serif;
-        font-size: 1.2rem;
-        margin: 12px;
-    }
-
-    span {
-        padding-left: 12px;
-    }
-}
 
 %center {
     display: flex;
@@ -47,16 +19,68 @@ a {
 }
 
 // margin
-
 %betweenElement {
     margin: 24px;
 }
 
-
 // font styles
-
 %header2 {
     color: $dinner_HeadLine;
     font-family: 'Red Hat Text', sans-serif;
     font-size: 2.1rem;
+}
+
+.input-container {            
+    width: 320px;
+    height: 55px;
+    border-radius: 3px;
+    border: 1px solid #828282;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-family: 'Red Hat Text', sans-serif;
+    font-size: 1rem;
+    color: #4f4f4f;
+    background:$dinner_Blue;
+    margin: 0 6px 6px 0;
+
+    input[type=email],[type=password], [type=text] {
+        width: 210px;
+        height: 28px;
+        border-radius: 3px;
+        border: 1px solid #828282;
+        font-family: 'Red Hat Text', sans-serif;
+        font-size: 1rem;
+        margin: 6px;
+    }
+
+    span {
+        padding-left: 12px;
+    }
+}
+
+
+//ipad
+@media only screen and (min-width: 767px) {
+
+    .input-container {            
+        width: 440px;
+        height: 65px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        font-size: 1.2rem;
+        margin: 0 12px 12px 0;
+
+        input[type=email],[type=password], [type=text] {
+            width: 290px;
+            height: 35px;
+            font-size: 1.2rem;
+            margin: 12px;
+        }
+
+        span {
+            padding-left: 12px;
+        }
+    }
 }

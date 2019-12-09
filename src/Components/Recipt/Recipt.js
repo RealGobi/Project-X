@@ -4,6 +4,7 @@ import '../../style/main.scss';
 
 import './Recipt.css';
 import clock from '../../images/modernclock.svg';
+import arrow from '../../images/arrow.svg';
 
 /**
  *
@@ -12,13 +13,19 @@ import clock from '../../images/modernclock.svg';
  * @param {string} recipeImg
 * */
 
+
+function showIngridients (e) {
+  ingridiens 
+}
+
 const Recipt = ({
   recipeImg,
   time,
   recipeIntro,
   recipeIngredients,
   recipeInstructions,
-}) => (
+}) =>
+  (
   <div className="recipt-content">
     <div className="time">
       <img src={clock} className="clock" />
@@ -26,18 +33,25 @@ const Recipt = ({
     </div>
     <img src={recipeImg} className="recipe-img" />
     <div className="recipe-intro">{recipeIntro}</div>
-    <div className="ingridiens-header">Ingredienser</div>
-    <div className="ingridiens">
-      <form>
-        <select className="portioner">
-          <option value="1">1 portion</option>
-          <option value="2">2 portioner</option>
-          <option value="4">4 portioner</option>
-          <option value="6">6 portioner</option>
-          <option value="8">8 portioner</option>
-        </select>
-      </form>
-      {recipeIngredients}
+    <div>
+      <div className="ingridiens-header" onClick={showIngridients}>
+        <h4>Ingredienser</h4>
+        <img src={arrow} />
+      </div>
+      <div className="ingridiens">
+        <div>
+          <form>
+            <select className="portioner">
+              <option value="1">1 portion</option>
+              <option value="2">2 portioner</option>
+              <option value="4">4 portioner</option>
+              <option value="6">6 portioner</option>
+              <option value="8">8 portioner</option>
+            </select>
+          </form>
+          {recipeIngredients}
+        </div>
+      </div>
     </div>
     <div className="instructions">
       <h2>Instruktioner</h2>

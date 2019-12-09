@@ -1,7 +1,7 @@
 
 .Button {
-    width: 180px;
-    height: 65px;
+    width: 140px;
+    height: 50px;
     border-radius: 3px;
     border: 1px solid #828282;
     display: flex;
@@ -12,6 +12,19 @@
 
 .button-text {
     font-family: 'Red Hat Text', sans-serif;
-    font-size: 1.2rem;
+    font-size: 0.8rem;
     color: #4f4f4f;
+}
+
+
+@media only screen and (min-width: 767px) {
+
+    .Button {
+        width: 180px;
+        height: 65px;
+    }
+
+    .button-text {
+        font-size: 1.2rem;
+    }
 }

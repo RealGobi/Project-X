@@ -15,8 +15,8 @@ export default function ReciptList() {
           <a>
             <RecipeItem
               recipeTitle="Flygande Jakob"
-              recipeIntro="hej"
-              recipeImg="https://placekitten.com/250/150"
+              recipeIntro="Loerklasjfkajsfköasfhja asfklfka akjsfka kajs afksj asfklji afjskö"
+              recipeImg="https://placekitten.com/140/120"
             />
           </a>
         </Link>
@@ -24,8 +24,8 @@ export default function ReciptList() {
           <a>
             <RecipeItem
               recipeTitle="Flygande Jakob"
-              recipeIntro="hej"
-              recipeImg="https://placekitten.com/250/150"
+              recipeIntro="Loerklasjfkajsfköasfhja asfklfka akjsfka kajs afksj asfklji afjskö"
+              recipeImg="https://placekitten.com/140/120"
             />
           </a>
         </Link>

@@ -10,7 +10,6 @@ const Searchinput = ({ recipeTitle }) => (
     <div className="Searchinputtext">
       <input type="text" placeholder="Sök" />
     </div>
-    { recipeTitle }
   </div>
 );
 

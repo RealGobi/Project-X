@@ -31,13 +31,16 @@ const Button = ({ buttonText, color, buttonType }) => {
 
   switch (buttonType) {
     case 'big':
-      btnType = { width: '400px' };
+      btnType = { width: '330px' };
       break;
     case 'square':
+      btnType = { width: '75px', height: '75px' };
+      break;
+    case 'squaretablet':
       btnType = { width: '125px', height: '125px' };
       break;
     default:
-      btnType = { width: '180px' };
+      btnType = { width: '140px' };
       break;
   }
 

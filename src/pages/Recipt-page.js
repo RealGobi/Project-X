@@ -7,12 +7,14 @@ import Recipt from '../Components/Recipt/Recipt';
 
 export default function ReciptPage() {
   return (
-    <div>
-      <div className="Recipt-header">ReciptTitle</div>
+    <div> 
+      <div className="header-recipt">
+        <h1>ReciptTitle</h1>
+      </div>
       <Page>
         <Recipt
           recipeIntro="Mumsfiliibaba"
-          recipeImg="https://placekitten.com/590/410"
+          recipeImg="https://placekitten.com/353/250"
           time="49"
           recipeIngredients="1 Apelsin"
           recipeInstructions="1. Ät choklad"
