@@ -23,9 +23,9 @@ export default function LandingPage() {
           <Popup trigger={<img src={Mail} alt="mail" />} modal>
             {close => (
               <div className="modal">
-                <a className="close" onClick={close}>
+                <span className="close" onClick={close}>
                 &times;
-                </a>
+                </span>
                 <div className="header"> Modal Title </div>
                 <div className="content">
                   {mail}
@@ -36,9 +36,9 @@ export default function LandingPage() {
           <Popup trigger={<img src={Settings} alt="inställningar" />} modal>
             {close => (
               <div className="modal">
-                <a className="close" onClick={close}>
+                <span className="close" onClick={close}>
                 &times;
-                </a>
+                </span>
                 <div className="header"> Modal Title </div>
                 <div className="content">
                   {setting}

@@ -28,7 +28,7 @@ export default function ChooseSecond(props) {
       <Page>
         <span className="centerGrid">
           <div className="choose-button">
-            { category.map((cat1, idx) => <Button key={idx} buttonText={cat1.value} buttonType="square" color={cat1.color} />) }
+            { category.map((cat2, idx) => <Button key={idx} buttonText={cat2.value} buttonType="square" color={cat2.color} />) }
           </div>
         </span>
         <div className="next-page">
