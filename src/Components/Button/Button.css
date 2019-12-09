@@ -10,6 +10,11 @@
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
+.Button:hover{
+    transform: scale(1.15);
+    box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.35);
+}
+
 .button-text {
     font-family: 'Red Hat Text', sans-serif;
     font-size: 1.2rem;

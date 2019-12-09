@@ -10,10 +10,12 @@ import './Button.css';
  * @param {string} buttonText Props passed down as a string.
  * @param {string} color Props passed down as a string:'mint','persica', 'yellow'.
  * @param {string} buttonType Props passed down as a string:'square','normal', 'big'.
- * @param {Button} Button-component need to be wrapped within a <a>-tag, to work with next.js.
+ * @param {func} clickHandler Func to handle click.
  * */
 
-const Button = ({ buttonText, color, buttonType }) => {
+const Button = ({
+  buttonText, color, buttonType, clickHandler,
+}) => {
   let bg;
   let btnType;
 
@@ -42,7 +44,7 @@ const Button = ({ buttonText, color, buttonType }) => {
   }
 
   return (
-    <div className="Button" style={{ ...bg, ...btnType }}>
+    <div onClick={clickHandler} className="Button" style={{ ...bg, ...btnType }}>
       <h1 className="button-text"> {buttonText} </h1>
     </div>
   );
@@ -52,12 +54,14 @@ Button.propTypes = {
   buttonText: PropTypes.string,
   color: PropTypes.string,
   buttonType: PropTypes.string,
+  clickHandler: PropTypes.func,
 };
 
 Button.defaultProps = {
   buttonText: '',
   color: 'yellow',
   buttonType: 'normal',
+  clickHandler: null,
 };
 
 export default Button;

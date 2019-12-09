@@ -1,6 +1,5 @@
 import React from 'react';
-import Link from 'next/link';
-
+import { Link } from 'react-router-dom';
 import Button from '../Components/Button/Button';
 
 export default function Login() {
@@ -14,15 +13,11 @@ export default function Login() {
           <span>Lösenord:</span> <input type="password" />
         </div>
         <div className="login-button-container">
-          <Link href="/Sign-up">
-            <a>
-              <Button buttonText="Skapa Konto" color="mint" />
-            </a>
+          <Link to="/signup">
+            <Button buttonText="Skapa Konto" color="mint" />
           </Link>
-          <Link href="/Landing-page">
-            <a>
-              <Button buttonText="Logga In" color="yellow" />
-            </a>
+          <Link to="landing-page">
+            <Button buttonText="Logga In" color="yellow" />
           </Link>
         </div>
       </div>

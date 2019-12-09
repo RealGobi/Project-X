@@ -1,6 +1,8 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
-import Link from 'next/link';
 import Popup from 'reactjs-popup';
+import { Link } from 'react-router-dom';
 
 import './popup.css';
 import Page from '../Components/Page/Page';
@@ -21,9 +23,9 @@ export default function LandingPage() {
           <Popup trigger={<img src={Mail} alt="mail" />} modal>
             {close => (
               <div className="modal">
-                <a className="close" onClick={close}>
+                <span className="close" onClick={close}>
                 &times;
-                </a>
+                </span>
                 <div className="header"> Modal Title </div>
                 <div className="content">
                   {mail}
@@ -34,9 +36,9 @@ export default function LandingPage() {
           <Popup trigger={<img src={Settings} alt="inställningar" />} modal>
             {close => (
               <div className="modal">
-                <a className="close" onClick={close}>
+                <span className="close" onClick={close}>
                 &times;
-                </a>
+                </span>
                 <div className="header"> Modal Title </div>
                 <div className="content">
                   {setting}
@@ -46,15 +48,11 @@ export default function LandingPage() {
           </Popup>
         </div>
         <div className="landing-button-position">
-          <Link href="/Choose-first">
-            <a>
-              <Button buttonType="big" buttonText="Välj 2 och få alternativ på middag" color="yellow" />
-            </a>
+          <Link to="/choose-first">
+            <Button buttonType="big" buttonText="Välj 2 och få alternativ på middag" color="yellow" />
           </Link>
-          <Link href="/Search-list">
-            <a>
-              <Button buttonType="big" buttonText="Sök efter Recept" color="persica" />
-            </a>
+          <Link to="/search-list">
+            <Button buttonType="big" buttonText="Sök efter Recept" color="persica" />
           </Link>
         </div>
       </Page>
