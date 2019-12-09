@@ -10,7 +10,7 @@ import './Button.css';
  * @param {string} buttonText Props passed down as a string.
  * @param {string} color Props passed down as a string:'mint','persica', 'yellow'.
  * @param {string} buttonType Props passed down as a string:'square','normal', 'big'.
- * @param {Button} Button-component need to be wrapped within a <a>-tag, to work with next.js.
+ * @param {func} clickHandler Func to handle click.
  * */
 
 const Button = ({

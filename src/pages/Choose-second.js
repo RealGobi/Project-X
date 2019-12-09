@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
@@ -7,10 +7,10 @@ import Header from '../Components/Header/Header';
 import Button from '../Components/Button/Button';
 
 export default function ChooseSecond(props) {
-  const [categoryTwo, setCategoryTwo] = useState([]);
   ChooseSecond.propTypes = {
     // eslint-disable-next-line react/forbid-prop-types
     recipe: PropTypes.array.isRequired,
+    setCategoryTwo: PropTypes.func.isRequired,
   };
   // collect all categorys to one array (and color)
   let category = [];
@@ -22,7 +22,6 @@ export default function ChooseSecond(props) {
   const data = category;
   category = Array.from(new Set(data.map(JSON.stringify))).map(JSON.parse);
   console.log(category);
-  console.log(categoryTwo);
 
   return (
     <div>
@@ -30,7 +29,7 @@ export default function ChooseSecond(props) {
       <Page>
         <span className="centerGrid">
           <div className="choose-button">
-            { category.map((cat2, idx) => <Button clickHandler={() => setCategoryTwo(cat2.value)} key={idx} buttonText={cat2.value} buttonType="square" color={cat2.color} />) }
+            { category.map((cat2, idx) => <Button clickHandler={() => props.setCategoryTwo(cat2.value)} key={idx} buttonText={cat2.value} buttonType="square" color={cat2.color} />) }
           </div>
         </span>
         <div className="next-page">

@@ -6,7 +6,10 @@ import Header from '../Components/Header/Header';
 import Button from '../Components/Button/Button';
 import RecipeItem from '../Components/RecipeItem/RecipeItem';
 
-export default function ReciptList() {
+export default function ReciptList(categoryOne, categoryTwo) {
+  console.log(categoryOne);
+  console.log(categoryTwo);
+
   return (
     <div>
       <Header headLine="Receptlista" />
