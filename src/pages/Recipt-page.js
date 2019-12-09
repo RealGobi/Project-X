@@ -12,7 +12,7 @@ export default function ReciptPage() {
       <Page>
         <Recipt
           recipeIntro="Mumsfiliibaba"
-          recipeImg="https://placekitten.com/590/310"
+          recipeImg="https://placekitten.com/590/410"
           time="49"
           recipeIngredients="1 Apelsin"
           recipeInstructions="1. Ät choklad"
