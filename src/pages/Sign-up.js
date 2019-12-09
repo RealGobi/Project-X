@@ -1,5 +1,5 @@
 import React from 'react';
-import Link from 'next/link';
+import { Link } from 'react-router-dom';
 
 import Page from '../Components/Page/Page';
 import Header from '../Components/Header/Header';
@@ -37,10 +37,8 @@ export default function SignUp() {
               <Button buttonText="Allätare" color="persica" />
             </div>
             <div className="next-page">
-              <Link href="/Landing-page">
-                <a>
-                  <Button buttonText={headLine} color="mint" />
-                </a>
+              <Link to="/landing-page">
+                <Button buttonText="Skapa Konto" color="mint" />
               </Link>
             </div>
           </div>

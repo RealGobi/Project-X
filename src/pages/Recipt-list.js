@@ -1,5 +1,5 @@
 import React from 'react';
-import Link from 'next/link';
+import { Link } from 'react-router-dom';
 
 import Page from '../Components/Page/Page';
 import Header from '../Components/Header/Header';
@@ -11,28 +11,15 @@ export default function ReciptList() {
     <div>
       <Header headLine="Receptlista" />
       <Page>
-        <Link href="/Recipt-page">
-          <a>
-            <RecipeItem
-              recipeTitle="Flygande Jakob"
+        <Link to="recipt-page">
+          <RecipeItem
+            recipeTitle="Flygande Jakob"
               recipeIntro="Loerklasjfkajsfköasfhja asfklfka akjsfka kajs afksj asfklji afjskö"
               recipeImg="https://placekitten.com/140/120"
-            />
-          </a>
+          />
         </Link>
-        <Link href="/Recipt-page">
-          <a>
-            <RecipeItem
-              recipeTitle="Flygande Jakob"
-              recipeIntro="Loerklasjfkajsfköasfhja asfklfka akjsfka kajs afksj asfklji afjskö"
-              recipeImg="https://placekitten.com/140/120"
-            />
-          </a>
-        </Link>
-        <Link href="/Choose-second">
-          <a>
-            <Button buttonText="Tillbaka" color="mint" />
-          </a>
+        <Link to="/choose-second">
+          <Button buttonText="Tillbaka" color="mint" />
         </Link>
       </Page>
     </div>

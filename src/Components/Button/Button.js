@@ -13,7 +13,9 @@ import './Button.css';
  * @param {Button} Button-component need to be wrapped within a <a>-tag, to work with next.js.
  * */
 
-const Button = ({ buttonText, color, buttonType }) => {
+const Button = ({
+  buttonText, color, buttonType, clickHandler,
+}) => {
   let bg;
   let btnType;
 
@@ -45,7 +47,7 @@ const Button = ({ buttonText, color, buttonType }) => {
   }
 
   return (
-    <div className="Button" style={{ ...bg, ...btnType }}>
+    <div onClick={clickHandler} className="Button" style={{ ...bg, ...btnType }}>
       <h1 className="button-text"> {buttonText} </h1>
     </div>
   );
@@ -55,12 +57,14 @@ Button.propTypes = {
   buttonText: PropTypes.string,
   color: PropTypes.string,
   buttonType: PropTypes.string,
+  clickHandler: PropTypes.func,
 };
 
 Button.defaultProps = {
   buttonText: '',
   color: 'yellow',
   buttonType: 'normal',
+  clickHandler: null,
 };
 
 export default Button;

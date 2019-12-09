@@ -1,45 +1,46 @@
-import React from 'react';
-import Link from 'next/link';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
+import PropTypes from 'prop-types';
 import Page from '../Components/Page/Page';
 import Header from '../Components/Header/Header';
 import Button from '../Components/Button/Button';
 
-export default function ChooseFirst() {
+export default function ChooseFirst(props) {
+  const [categoryOne, setCategoryOne] = useState([]);
+  ChooseFirst.propTypes = {
+    // eslint-disable-next-line react/forbid-prop-types
+    recipe: PropTypes.array.isRequired,
+  };
+
+  // collect all categorys to one array (and color)
+  let category = [];
+  const collectCategory = () => {
+    props.recipe.map(cat => cat.category1.map(tac => category.push(tac)));
+    console.log(category);
+  };
+  collectCategory();
+  // remove duplicates
+  const data = category;
+  category = Array.from(new Set(data.map(JSON.stringify))).map(JSON.parse);
+  console.log(category);
+  console.log(categoryOne);
+
   return (
     <div>
       <Header headLine="Välj Första" />
       <Page>
         <span className="centerGrid">
           <div className="choose-button">
-            <Button buttonText="Tofu" buttonType="square" />
-            <Button buttonText="Bönor" buttonType="square" />
-            <Button buttonText="Oumph" buttonType="square" />
-            <Button buttonText="Linser" buttonType="square" />
-            <Button buttonText="Lax" color="mint" buttonType="square" />
-            <Button buttonText="Vit Fisk" color="mint" buttonType="square" />
-            <Button buttonText="Färs" color="mint" buttonType="square" />
-            <Button buttonText="Fisk" color="mint" buttonType="square" />
-            <Button buttonText="Mozzarella" buttonType="square" />
-            <Button buttonText="Getost" buttonType="square" />
-            <Button buttonText="Fetaost" buttonType="square" />
-            <Button buttonText="Ägg" buttonType="square" />
-            <Button buttonText="Kyckling" color="persica" buttonType="square" />
-            <Button buttonText="Vilt" color="persica" buttonType="square" />
-            <Button buttonText="Nötkött" color="persica" buttonType="square" />
-            <Button buttonText="Fläskött" color="persica" buttonType="square" />
+            { category.map((cat1, idx) => <Button clickHandler={() => setCategoryOne(cat1.value)} key={idx} buttonText={cat1.value} buttonType="square" color={cat1.color} />) }
           </div>
         </span>
         <div className="next-page">
-          <Link href="/Landing-page">
-            <a>
-              <Button buttonText="Back" color="mint" />
-            </a>
+          <Link to="/landing-page">
+            <Button buttonText="Back" color="mint" />
           </Link>
-          <Link href="/Choose-second">
-            <a>
-              <Button buttonText="Välj Första" color="mint" />
-            </a>
+          <Link to="/choose-second">
+            <Button buttonText="Välj Första" color="mint" />
           </Link>
         </div>
       </Page>
