@@ -28,6 +28,8 @@
     font-size: 0.9rem;
 }
 
+.space { margin: 40px;}
+
 .ingridiens-header {
     position: relative;
     top: 20px;

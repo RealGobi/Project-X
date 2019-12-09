@@ -7,7 +7,7 @@ import Recipt from '../Components/Recipt/Recipt';
 
 export default function ReciptPage() {
   return (
-    <div> 
+    <div>
       <div className="header-recipt">
         <h1>ReciptTitle</h1>
       </div>
@@ -20,7 +20,8 @@ export default function ReciptPage() {
           recipeInstructions="1. Ät choklad"
         />
         <div className="to-the-right">
-          <Button buttonText="Tillbaka" color="mint" />
+          <Link to="/recipt-list">
+            <Button buttonText="Tillbaka" color="mint" />
           </Link>
         </div>
       </Page>

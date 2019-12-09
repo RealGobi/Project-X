@@ -59,6 +59,22 @@ a {
     }
 }
 
+.Searchinput {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.Searchinput input[type=text] {
+    padding: 0 6px;
+    width: 320px;
+    height: 55px;
+    margin: 20px 30px;
+    font-size: 1.5rem;
+    border-radius: 3px;
+    border: 1px solid #828282;
+  }
+
 
 //ipad
 @media only screen and (min-width: 767px) {

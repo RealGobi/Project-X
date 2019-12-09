@@ -17,6 +17,7 @@
     }
 
     .Recipeitem img {
+        width: 150px;
         border: 0px solid #828282;
         border-radius: 0px 0px 0px 0px;
     }
@@ -37,6 +38,8 @@
     }
 
     .Recipeitem img {
+        width: 250px;
+        height: 125px;
         border: 1px solid #828282;
         border-radius: 0px 3px 3px 0px;
     }

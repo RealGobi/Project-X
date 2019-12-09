@@ -20,6 +20,7 @@ export default function ChooseFirst(props) {
     console.log(category);
   };
   collectCategory();
+
   // remove duplicates
   const data = category;
   category = Array.from(new Set(data.map(JSON.stringify))).map(JSON.parse);

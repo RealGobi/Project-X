@@ -30,13 +30,14 @@ const RecipeItem = ({
       bg = { background: '#FEE19F' };
       break;
   }
+
   return (
     <div className="Recipeitem" style={bg}>
       <div className="recipeitemtext">
         <h3>{recipeTitle}</h3>
         <p>{recipeIntro}</p>
       </div>
-      <img src={recipeImg} alt="txt" />
+      <img src={recipeImg} alt={recipeTitle} />
     </div>
   );
 };

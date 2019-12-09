@@ -31,9 +31,9 @@ const App = () => {
           <Route path="/landing-page" component={LandingPage} />
           <Route path="/choose-first" render={() => <ChooseFirst recipe={recipe} />} />
           <Route path="/choose-second" render={() => <ChooseSecond recipe={recipe} />} />
-          <Route path="/recipt-list" component={ReciptList} />
+          <Route path="/recipt-list" render={() => <ReciptList recipe={recipe} />} />
           <Route path="/recipt-page" component={ReciptPage} />
-          <Route path="/search-list" component={SearchList} />
+          <Route path="/search-list" render={() => <SearchList recipe={recipe} />} />
         </Switch>
       </div>
     </Router>
