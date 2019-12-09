@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import PropTypes from 'prop-types';
@@ -7,6 +7,7 @@ import Header from '../Components/Header/Header';
 import Button from '../Components/Button/Button';
 
 export default function ChooseFirst(props) {
+  const [categoryOne, setCategoryOne] = useState([]);
   ChooseFirst.propTypes = {
     // eslint-disable-next-line react/forbid-prop-types
     recipe: PropTypes.array.isRequired,
@@ -20,9 +21,10 @@ export default function ChooseFirst(props) {
   };
   collectCategory();
   // remove duplicates
-  const myData = category;
-  category = Array.from(new Set(myData.map(JSON.stringify))).map(JSON.parse);
+  const data = category;
+  category = Array.from(new Set(data.map(JSON.stringify))).map(JSON.parse);
   console.log(category);
+  console.log(categoryOne);
 
   return (
     <div>
@@ -30,7 +32,7 @@ export default function ChooseFirst(props) {
       <Page>
         <span className="centerGrid">
           <div className="choose-button">
-            { category.map((cat1, idx) => <Button key={idx} buttonText={cat1.value} buttonType="square" color={cat1.color} />) }
+            { category.map((cat1, idx) => <Button clickHandler={() => setCategoryOne(cat1.value)} key={idx} buttonText={cat1.value} buttonType="square" color={cat1.color} />) }
           </div>
         </span>
         <div className="next-page">
