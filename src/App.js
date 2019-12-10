@@ -37,7 +37,7 @@ const App = () => {
           <Route path="/choose-first" render={() => <ChooseFirst recipe={recipe} setCategoryOne={setCategoryOne} />} />
           <Route path="/choose-second" render={() => <ChooseSecond recipe={recipe} setCategoryTwo={setCategoryTwo} />} />
           <Route path="/recipt-list" render={() => <ReciptList recipe={recipe} />} />
-          <Route path="/recipt-page" component={ReciptPage} />
+          <Route path="/recipt-page" render={() => <ReciptPage recipe={recipe} />} />
           <Route path="/search-list" render={() => <SearchList recipe={recipe} />} />
         </Switch>
       </div>
