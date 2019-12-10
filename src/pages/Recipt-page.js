@@ -12,7 +12,6 @@ export default function ReciptPage() {
         <h1>ReciptTitle</h1>
       </div>
       <Page>
-        <Recipt
           recipeIntro="Mumsfiliibaba"
           recipeImg="https://placekitten.com/353/250"
           time="49"

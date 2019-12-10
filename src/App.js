@@ -15,12 +15,17 @@ const App = () => {
   }, []);
 
   const [recipe, setRecipes] = useState([]);
+  const [categoryOne, setCategoryOne] = useState([]);
+  const [categoryTwo, setCategoryTwo] = useState([]);
+
 
   const fetchRecipe = async () => {
     const data = await fetch('http://localhost:3000/recipes/');
-    const recipe = await data.json();
-    setRecipes(recipe);
+    const workingData = await data.json();
+    setRecipes(workingData);
   };
+  console.log(categoryOne);
+  console.log(categoryTwo);
 
   return (
     <Router>
@@ -29,8 +34,8 @@ const App = () => {
           <Route path="/" exact component={Login} />
           <Route path="/signup" component={SignUp} />
           <Route path="/landing-page" component={LandingPage} />
-          <Route path="/choose-first" render={() => <ChooseFirst recipe={recipe} />} />
-          <Route path="/choose-second" render={() => <ChooseSecond recipe={recipe} />} />
+          <Route path="/choose-first" render={() => <ChooseFirst recipe={recipe} setCategoryOne={setCategoryOne} />} />
+          <Route path="/choose-second" render={() => <ChooseSecond recipe={recipe} setCategoryTwo={setCategoryTwo} />} />
           <Route path="/recipt-list" render={() => <ReciptList recipe={recipe} />} />
           <Route path="/recipt-page" component={ReciptPage} />
           <Route path="/search-list" render={() => <SearchList recipe={recipe} />} />
