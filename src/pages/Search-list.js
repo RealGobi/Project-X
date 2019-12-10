@@ -13,15 +13,19 @@ export default function SearchList(props) {
     recipe: PropTypes.array.isRequired,
   };
   const [searchValue, setSearchValue] = useState('');
-  const listSearchResults = props.recipe;
+  const listRecipe = props.recipe;
 
   function handleSearchInputChange(e) {
     setSearchValue(e.target.value);
   }
 
-  const [showCategory, setShowCategory] = useState(false);
+  // renders if serchvalue is true.
+  const listRecipeThatRenders = listRecipe.filter(rec => (searchValue ? rec.title.toLowerCase().match(searchValue) : true));
+
+  const [showCategory, setShowCategory] = useState(true);
   const toogleShow = (e) => { setShowCategory(!showCategory); };
- 
+
+  //
   const [chosenCategory1, setChosenCategory1] = useState([]);
   let category1 = [];
   const collectCategory1 = () => {
@@ -39,6 +43,13 @@ export default function SearchList(props) {
   collectCategory2();
   const categorylist2 = category2;
   category2 = Array.from(new Set(categorylist2.map(JSON.stringify))).map(JSON.parse);
+
+  const handleCategory2Change = (e) => {
+    console.log(e);
+  };
+  const handleCategory1Change = (e) => {
+    console.log(e);
+  };
 
   return (
     <div>
@@ -61,26 +72,24 @@ export default function SearchList(props) {
           <div className="category">
             {
               category1.map((cat1, idx) => (
-                <span key={idx}>
+                <label key={idx} onChange={handleCategory1Change}>
                   <input
                     type="checkbox"
-                    className="catCheck"
-                    // checkkHandler={() => setChosenCategory1(cat1.value)}
+                    className="categoryCheck"
                     value={cat1.value}
                   /> {cat1.value}
-                </span>
+                </label>
               ))
             }
             {
               category2.map((cat2, idx) => (
-                <span key={idx}>
+                <label key={idx} onChange={handleCategory2Change}>
                   <input
                     type="checkbox"
-                    className="catCheck"
-                    // checkkHandler={() => setChosenCategory2(cat2.value)}
+                    className="categoryCheck"
                     value={cat2.value}
                   /> {cat2.value}
-                </span>
+                </label>
               ))
             }
           </div>
@@ -88,10 +97,9 @@ export default function SearchList(props) {
           <div />
         )
       }
-
-        <section>
+        <Link to="recipt-page">
           {
-            listSearchResults.map((rec, idx) => (
+            listRecipeThatRenders.map((rec, idx) => (
               <RecipeItem
                 key={idx}
                 recipeTitle={rec.title}
@@ -100,8 +108,7 @@ export default function SearchList(props) {
               />
             ))
           }
-        </section>
-
+        </Link>
         <div className="next-page">
           <Link to="/signup">
             <Button buttonText="Tillbaka" color="mint" />
