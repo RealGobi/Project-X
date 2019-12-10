@@ -99,10 +99,9 @@ export default function SearchList(props) {
       } */}
         <Link to="recipt-page">
           {
-            listRecipeThatRenders.map((rec, idx) => (
-              <span onClick={() => props.setChosenRecipe(rec._id)}>
+            listRecipeThatRenders.map(rec => (
+              <span key={rec._id} onClick={() => props.setChosenRecipe(rec._id)}>
                 <RecipeItem
-                  key={idx}
                   recipeTitle={rec.title}
                   recipeIntro={rec.description}
                   recipeImg={rec.imageLink}

@@ -1,19 +1,20 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-
 import Page from '../Components/Page/Page';
 import Button from '../Components/Button/Button';
 import Recipt from '../Components/Recipt/Recipt';
 
-export default function ReciptPage() {
+export default function ReciptPage(props) {
+  
   return (
     <div>
       <div className="header-recipt">
-        <h1>ReciptTitle</h1>
+        <h1>{props.chosenFromList.title}</h1>
       </div>
       <Page>
         <Recipt
-          recipeTitle="title"
+          recipeTitle={props.chosenFromList.title}
           recipeIntro="Mumsfiliibaba"
           recipeImg="https://placekitten.com/353/250"
           time="49"
