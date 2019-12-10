@@ -8,6 +8,7 @@ import ChooseSecond from './pages/Choose-second';
 import ReciptList from './pages/Recipt-list';
 import ReciptPage from './pages/Recipt-page';
 import SearchList from './pages/Search-list';
+import Admin from './pages/Admin';
 
 const App = () => {
   useEffect(() => {
@@ -39,6 +40,7 @@ const App = () => {
           <Route path="/recipt-list" render={() => <ReciptList recipe={recipe} />} />
           <Route path="/recipt-page" render={() => <ReciptPage recipe={recipe} />} />
           <Route path="/search-list" render={() => <SearchList recipe={recipe} />} />
+          <Route path="/admin" render={() => <Admin />} />
         </Switch>
       </div>
     </Router>

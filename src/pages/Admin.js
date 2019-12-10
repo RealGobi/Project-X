@@ -1,5 +1,4 @@
 import React from 'react';
-import Link from 'next/link';
 
 import Button from '../Components/Button/Button';
 
@@ -12,7 +11,7 @@ export default function Admin() {
       </div>
       <div className="admin-addrecept">
         <h2>Nytt Recept</h2>
-        {/* <form action="send"> */}
+        <form action="send">
           <label>Namn: <input type="text" /></label>
           <label>Beskrivning: <input type="text" /></label>
           <label>Kategori Protein: <input type="text" /></label>
@@ -30,7 +29,7 @@ export default function Admin() {
           <label>Instruktioner 2:<input type="text" /></label>
           <label>Allergy:<input type="text" /></label>
           <label>Rating:<input type="text" /></label>
-        {/* </form><button type="submit"> Lägg till </button> */}
+        </form><Button type="submit"> Lägg till </Button>
 
       </div>
     </div>

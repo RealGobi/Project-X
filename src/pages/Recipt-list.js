@@ -9,7 +9,6 @@ import RecipeItem from '../Components/RecipeItem/RecipeItem';
 
 export default function ReciptList(props) {
   ReciptList.propTypes = {
-    // eslint-disable-next-line react/forbid-prop-types
     recipe: PropTypes.array.isRequired,
   };
   const listResults = props.recipe;

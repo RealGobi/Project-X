@@ -10,42 +10,7 @@ a {
   text-decoration: none;
 }
 
-.input-container {
-  width: 440px;
-  height: 65px;
-  border-radius: 3px;
-  border: 1px solid #828282;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  font-family: 'Red Hat Text', sans-serif;
-  font-size: 1.2rem;
-  color: #4f4f4f;
-  background: #B7DDE0;
-  margin: 0 12px 12px 0;
-}
-
-.input-container input[type=email], .input-container [type=password], .input-container [type=text] {
-  width: 290px;
-  height: 35px;
-  border-radius: 3px;
-  border: 1px solid #828282;
-  font-family: 'Red Hat Text', sans-serif;
-  font-size: 1.2rem;
-  margin: 12px;
-}
-
-.input-container span {
-  padding-left: 12px;
-}
-
-html, html .header .headLine, html .content .centerGrid {
+html .header .headLine, html .content .centerGrid {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -57,37 +22,122 @@ html, html .header .headLine, html .content .centerGrid {
           justify-content: center;
 }
 
-html .header .headLine {
+html .header .headLine, html .header-recipt h1 {
   color: #4f4f4f;
   font-family: 'Red Hat Text', sans-serif;
   font-size: 2.1rem;
 }
 
-html {
-  background: white;
-  width: 768px;
-  height: 1024px;
-  margin: 0;
-  margin: 0 auto;
-}
-
-html .Startlogga {
-  background-image: url(../images/Startlogga.svg);
-  background-repeat: no-repeat;
-  width: 100vw;
-  height: 100vh;
+.input-container {
+  width: 320px;
+  height: 55px;
+  border-radius: 3px;
+  border: 1px solid #828282;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: 'Red Hat Text', sans-serif;
+  font-size: 1rem;
+  color: #4f4f4f;
+  background: #B7DDE0;
+  margin: 0 6px 6px 0;
+}
+
+.input-container input[type=email], .input-container [type=password], .input-container [type=text] {
+  width: 210px;
+  height: 28px;
+  border-radius: 3px;
+  border: 1px solid #828282;
+  font-family: 'Red Hat Text', sans-serif;
+  font-size: 1rem;
+  margin: 6px;
+}
+
+.input-container span {
+  padding-left: 12px;
+}
+
+.Searchinput {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+.Searchinput input[type=text] {
+  padding: 0 6px;
+  width: 320px;
+  height: 55px;
+  margin: 20px 30px;
+  font-size: 1.5rem;
+  border-radius: 3px;
+  border: 1px solid #828282;
+}
+
+@media only screen and (min-width: 767px) {
+  .input-container {
+    width: 440px;
+    height: 65px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    font-size: 1.2rem;
+    margin: 0 12px 12px 0;
+  }
+  .input-container input[type=email], .input-container [type=password], .input-container [type=text] {
+    width: 290px;
+    height: 35px;
+    font-size: 1.2rem;
+    margin: 12px;
+  }
+  .input-container span {
+    padding-left: 12px;
+  }
+}
+
+html {
+  background: white;
+  width: 100vw;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0;
+}
+
+html .Startlogga {
+  background-image: url(../images/StartloggaPhone.svg);
+  background-repeat: no-repeat;
+  background-image: cover;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
 }
 
 html .Startlogga .login-container {
+  height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -95,15 +145,20 @@ html .Startlogga .login-container {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin: 64px;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 html .Startlogga .login-container .input-container {
-  margin: 0 12px 12px 0;
+  margin: 0 8px 8px 0;
 }
 
 html .Startlogga .login-container .input-container span {
-  padding-left: 12px;
+  padding-left: 8px;
 }
 
 html .Startlogga .login-container .login-button-container {
@@ -117,10 +172,11 @@ html .Startlogga .login-container .login-button-container {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
+  padding: 8px 0 24px 0px;
 }
 
 html .Startlogga .login-container .login-button-container a {
-  margin: 0 12px 0 0;
+  margin: 0 8px 0 0;
 }
 
 html .header {
@@ -131,6 +187,17 @@ html .header {
 html .header .headLine {
   margin: 0;
   line-height: 100px;
+}
+
+html .header-recipt {
+  background: #FFC79B;
+  border-radius: 3px 3px 0 0;
+}
+
+html .header-recipt h1 {
+  margin: 0;
+  line-height: 70px;
+  text-align: center;
 }
 
 html .content .sign-up {
@@ -144,22 +211,20 @@ html .content .sign-up {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  height: 100%;
 }
 
 html .content .sign-up #bg {
   width: 100%;
-  height: 100%;
 }
 
 html .content .sign-up .input-container:nth-child(1) {
   background: #FFC79B;
-  margin-top: 140px;
+  margin-top: 40px;
 }
 
 html .content .sign-up .input-container:nth-child(3) {
   background: #FEE19F;
-  margin-bottom: 140px;
+  margin-bottom: 40px;
 }
 
 html .content .sign-up .Button {
@@ -177,7 +242,7 @@ html .content .sign-up .next-page {
 }
 
 html .content .sign-up .next-page .Button {
-  margin-right: 75px;
+  margin-right: 6px;
 }
 
 html .content .select-button {
@@ -195,17 +260,17 @@ html .content .centerGrid {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  padding: 64px;
+  padding: 24px;
 }
 
 html .content .centerGrid .choose-button {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (127px)[4];
-      grid-template-columns: repeat(4, 127px);
-  -ms-grid-rows: (127px)[4];
-      grid-template-rows: repeat(4, 127px);
-  gap: 28px;
+  -ms-grid-columns: (77px)[4];
+      grid-template-columns: repeat(4, 77px);
+  -ms-grid-rows: (77px)[4];
+      grid-template-rows: repeat(4, 77px);
+  gap: 8px;
 }
 
 html .content .mail-button {
@@ -216,7 +281,7 @@ html .content .mail-button {
       -ms-flex-pack: justify;
           justify-content: space-between;
   margin: 0 64px;
-  padding: 36px 0;
+  padding: 26px 0;
 }
 
 html .content .landing-button-position {
@@ -250,11 +315,258 @@ html .content .next-page {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
-  margin: 64px;
+  margin: 24px;
 }
 
 html .content .next-page a {
   text-decoration: none;
   margin: 0 0 0 12px;
+}
+
+html .admin {
+  margin: 12px 0px;
+}
+
+html .admin .admin-receptlist {
+  background: #c4c4c4;
+  padding: 12px;
+  border-radius: 3px;
+}
+
+html .admin .admin-addrecept {
+  background: #FFC79B;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 12px 0;
+  padding: 12px;
+  border-radius: 3px;
+}
+
+html .admin .admin-addrecept h2 {
+  text-align: center;
+}
+
+html .admin .admin-addrecept label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  padding: 3px;
+}
+
+html .admin .admin-addrecept label input {
+  margin: 0 3px;
+  border-radius: 3px;
+  border: 1px solid #828282;
+}
+
+@media only screen and (min-width: 767px) {
+  html {
+    background: white;
+    width: 768px;
+    height: 1024px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    margin: 0 auto;
+  }
+  html .Startlogga {
+    background-image: url(../images/Startlogga.svg);
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 100vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+  }
+  html .Startlogga .login-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin: 64px;
+  }
+  html .Startlogga .login-container .input-container {
+    margin: 0 12px 12px 0;
+  }
+  html .Startlogga .login-container .input-container span {
+    padding-left: 12px;
+  }
+  html .Startlogga .login-container .login-button-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+  }
+  html .Startlogga .login-container .login-button-container a {
+    margin: 0 12px 0 0;
+  }
+  html .header {
+    background: #B7DDE0;
+    border-radius: 3px 3px 0 0;
+  }
+  html .header .headLine {
+    margin: 0;
+    line-height: 100px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    color: #4f4f4f;
+    font-family: 'Red Hat Text', sans-serif;
+    font-size: 2.1rem;
+  }
+  html .content .sign-up {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    height: 100%;
+  }
+  html .content .sign-up #bg {
+    width: 100%;
+    height: 100%;
+  }
+  html .content .sign-up .input-container:nth-child(1) {
+    background: #FFC79B;
+    margin-top: 140px;
+  }
+  html .content .sign-up .input-container:nth-child(3) {
+    background: #FEE19F;
+    margin-bottom: 140px;
+  }
+  html .content .sign-up .Button {
+    margin: 0 6px;
+  }
+  html .content .sign-up .next-page {
+    width: 100%;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+  }
+  html .content .sign-up .next-page .Button {
+    margin-right: 75px;
+  }
+  html .content .select-button {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    width: 100%;
+  }
+  html .content .centerGrid {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding: 64px;
+  }
+  html .content .centerGrid .choose-button {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (127px)[4];
+        grid-template-columns: repeat(4, 127px);
+    -ms-grid-rows: (127px)[4];
+        grid-template-rows: repeat(4, 127px);
+    gap: 28px;
+  }
+  html .content .mail-button {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    margin: 0 64px;
+    padding: 36px 0;
+  }
+  html .content .landing-button-position {
+    height: 600px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  html .content .landing-button-position .Button {
+    margin: 24px;
+  }
+  html .content .next-page {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    margin: 64px;
+  }
+  html .content .next-page a {
+    text-decoration: none;
+    margin: 0 0 0 12px;
+  }
 }
 /*# sourceMappingURL=main.css.map */
