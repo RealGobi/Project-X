@@ -6,7 +6,7 @@ import Page from '../Components/Page/Page';
 import Header from '../Components/Header/Header';
 import Button from '../Components/Button/Button';
 
-export default function ChooseFirst(props) {
+export default function ChooseFirst(recipe, setCategoryOne) {
   ChooseFirst.propTypes = {
     // eslint-disable-next-line react/forbid-prop-types
     recipe: PropTypes.array.isRequired,
@@ -17,7 +17,7 @@ export default function ChooseFirst(props) {
   // collect all categorys to one array (and color)
   let category = [];
   const collectCategory = () => {
-    props.recipe.map(cat => cat.category1.map(tac => category.push(tac)));
+    recipe.map(cat => cat.category1.map(tac => category.push(tac)));
     console.log(category);
   };
   collectCategory();
@@ -33,7 +33,7 @@ export default function ChooseFirst(props) {
       <Page>
         <span className="centerGrid">
           <div className="choose-button">
-            { category.map((cat1, idx) => <Button clickHandler={() => props.setCategoryOne(cat1.value)} key={idx} buttonText={cat1.value} buttonType="square" color={cat1.color} />) }
+            { category.map((cat1, idx) => <Button clickHandler={() => setCategoryOne(cat1.value)} key={idx} buttonText={cat1.value} buttonType="square" color={cat1.color} />) }
           </div>
         </span>
         <div className="next-page">

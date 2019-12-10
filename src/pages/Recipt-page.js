@@ -5,21 +5,22 @@ import Page from '../Components/Page/Page';
 import Button from '../Components/Button/Button';
 import Recipt from '../Components/Recipt/Recipt';
 
-export default function ReciptPage(props) {
-  
+export default function ReciptPage(findRecipe) {
+  console.log(findRecipe.findRecipe.ingredients);
+
   return (
     <div>
       <div className="header-recipt">
-        <h1>{props.chosenFromList.title}</h1>
+        <h1>{ findRecipe.findRecipe.title }</h1>
       </div>
       <Page>
         <Recipt
-          recipeTitle={props.chosenFromList.title}
-          recipeIntro="Mumsfiliibaba"
-          recipeImg="https://placekitten.com/353/250"
-          time="49"
-          recipeIngredients="1 Apelsin"
-          recipeInstructions="1. Ät choklad"
+          recipeTitle={findRecipe.findRecipe.title}
+          recipeIntro={findRecipe.findRecipe.description}
+          recipeImg={findRecipe.findRecipe.imageLink}
+          time={findRecipe.findRecipe.time}
+          recipeIngredients={findRecipe.findRecipe.ingredients}
+          recipeInstructions={findRecipe.findRecipe.instructions}
         />
         <div className="to-the-right">
           <Link to="/search-list">

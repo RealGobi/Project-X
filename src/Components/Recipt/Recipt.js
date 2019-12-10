@@ -48,7 +48,8 @@ const Recipt = ({
                   <option value="8">8 portioner</option>
                 </select>
               </form>
-              {recipeIngredients}
+              <div className="ingredientGrid"></div>
+              {recipeIngredients.map((ing, idx) => <li key={idx}>{ing.ingredient}</li>)}
             </div>
           </div>
         ) : (<div className="space" />)
@@ -67,17 +68,17 @@ Recipt.propTypes = {
   recipeTitle: PropTypes.string,
   recipeIntro: PropTypes.string,
   recipeImg: PropTypes.string,
-  time: PropTypes.string,
-  recipeIngredients: PropTypes.string,
-  recipeInstructions: PropTypes.string,
+  time: PropTypes.number,
+  recipeIngredients: PropTypes.array,
+  recipeInstructions: PropTypes.array,
 };
 
 Recipt.defaultProps = {
   recipeTitle: '',
   recipeIntro: '',
   recipeImg: '',
-  recipeInstructions: '',
-  recipeIngredients: '',
+  recipeInstructions: [],
+  recipeIngredients: [],
   time: '',
 };
 

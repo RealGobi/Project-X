@@ -77,6 +77,13 @@
     font-size: 0.9rem;
 }
 
+.ingredientGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 77px);
+            grid-template-rows:repeat(4, 77px);
+            gap: 8px;
+}
+
 @media only screen and (min-width: 767px) {
     .recipt-content {
         margin: 0 64px 12px;

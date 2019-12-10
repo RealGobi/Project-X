@@ -28,7 +28,7 @@ const App = () => {
   };
   console.log(categoryOne);
   console.log(categoryTwo);
-  console.log(chosenRecipe);
+  console.log(recipe);
 
   const findRecipe = recipe.find(rec => rec._id === chosenRecipe);
   console.log(findRecipe);
@@ -44,7 +44,7 @@ const App = () => {
           <Route path="/choose-first" render={() => <ChooseFirst recipe={recipe} setCategoryOne={setCategoryOne} />} />
           <Route path="/choose-second" render={() => <ChooseSecond recipe={recipe} setCategoryTwo={setCategoryTwo} />} />
           <Route path="/recipt-list" render={() => <ReciptList recipe={recipe} />} />
-          <Route path="/recipt-page" render={() => <ReciptPage chosenFromList={chosenFromList} />} />
+          <Route path="/recipt-page" render={() => <ReciptPage findRecipe={findRecipe} />} />
           <Route path="/search-list" render={() => <SearchList setChosenRecipe={setChosenRecipe} recipe={recipe} />} />
           <Route path="/admin" render={() => <Admin />} />
         </Switch>
