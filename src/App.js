@@ -29,6 +29,9 @@ const App = () => {
   console.log(categoryTwo);
   console.log(chosenRecipe);
 
+  const findRecipe = recipe.find(rec => rec._id === chosenRecipe);
+console.log(findRecipe);
+
   return (
     <Router>
       <div className="App">
