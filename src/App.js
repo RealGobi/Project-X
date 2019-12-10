@@ -39,7 +39,7 @@ const App = () => {
           <Route path="/choose-second" render={() => <ChooseSecond recipe={recipe} setCategoryTwo={setCategoryTwo} />} />
           <Route path="/recipt-list" render={() => <ReciptList recipe={recipe} />} />
           <Route path="/recipt-page" render={() => <ReciptPage recipe={recipe} />} />
-          <Route path="/search-list" render={() => <SearchList recipe={recipe} />} />
+          <Route path="/search-list" render={() => <SearchList recipe={recipe} categoryOne={categoryOne} categoryTwo={categoryTwo} />} />
           <Route path="/admin" render={() => <Admin />} />
         </Switch>
       </div>

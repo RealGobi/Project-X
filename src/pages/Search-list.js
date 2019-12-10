@@ -21,7 +21,7 @@ export default function SearchList(props) {
 
   const [showCategory, setShowCategory] = useState(false);
   const toogleShow = (e) => { setShowCategory(!showCategory); };
-
+ 
   const [chosenCategory1, setChosenCategory1] = useState([]);
   let category1 = [];
   const collectCategory1 = () => {
