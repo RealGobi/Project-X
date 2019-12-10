@@ -26,23 +26,23 @@ export default function SearchList(props) {
   const toogleShow = (e) => { setShowCategory(!showCategory); };
 
   //
-  const [chosenCategory1, setChosenCategory1] = useState([]);
-  let category1 = [];
-  const collectCategory1 = () => {
-    props.recipe.map(cat => cat.category1.map(tac => category1.push(tac)));
-  };
-  collectCategory1();
-  const categorylist1 = category1;
-  category1 = Array.from(new Set(categorylist1.map(JSON.stringify))).map(JSON.parse);
+  // const [chosenCategory1, setChosenCategory1] = useState([]);
+  // let category1 = [];
+  // const collectCategory1 = () => {
+  //   props.recipe.map(cat => cat.category1.map(tac => category1.push(tac)));
+  // };
+  // collectCategory1();
+  // const categorylist1 = category1;
+  // category1 = Array.from(new Set(categorylist1.map(JSON.stringify))).map(JSON.parse);
 
-  const [chosenCategory2, setChosenCategory2] = useState([]);
-  let category2 = [];
-  const collectCategory2 = () => {
-    props.recipe.map(cat => cat.category2.map(tac => category2.push(tac)));
-  };
-  collectCategory2();
-  const categorylist2 = category2;
-  category2 = Array.from(new Set(categorylist2.map(JSON.stringify))).map(JSON.parse);
+  // const [chosenCategory2, setChosenCategory2] = useState([]);
+  // let category2 = [];
+  // const collectCategory2 = () => {
+  //   props.recipe.map(cat => cat.category2.map(tac => category2.push(tac)));
+  // };
+  // collectCategory2();
+  // const categorylist2 = category2;
+  // category2 = Array.from(new Set(categorylist2.map(JSON.stringify))).map(JSON.parse);
 
   const handleCategory2Change = (e) => {
     console.log(e);
@@ -67,7 +67,7 @@ export default function SearchList(props) {
             </form>
           </div>
         </div>
-        <div onClick={toogleShow}>Show/Hide Category</div>
+        {/* <div onClick={toogleShow}>Show/Hide Category</div>
         {showCategory ? (
           <div className="category">
             {
@@ -96,22 +96,23 @@ export default function SearchList(props) {
         ) : (
           <div />
         )
-      }
-        {/* <Link to="recipt-page"> */}
+      } */}
+        <Link to="recipt-page">
           {
-            listRecipeThatRenders.map(rec => (
-              <RecipeItem
-                clickHandler={() => props.setChosenRecipe(rec._id)}
-                key={rec._id}
-                recipeTitle={rec.title}
-                recipeIntro={rec.description}
-                recipeImg={rec.imageLink}
-              />
+            listRecipeThatRenders.map((rec, idx) => (
+              <span onClick={() => props.setChosenRecipe(rec._id)}>
+                <RecipeItem
+                  key={idx}
+                  recipeTitle={rec.title}
+                  recipeIntro={rec.description}
+                  recipeImg={rec.imageLink}
+                />
+              </span>
             ))
           }
-        {/* </Link> */}
+        </Link>
         <div className="next-page">
-          <Link to="/signup">
+          <Link to="/landing-page">
             <Button buttonText="Tillbaka" color="mint" />
           </Link>
         </div>

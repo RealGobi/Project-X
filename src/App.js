@@ -18,7 +18,7 @@ const App = () => {
   const [recipe, setRecipes] = useState([]);
   const [categoryOne, setCategoryOne] = useState([]);
   const [categoryTwo, setCategoryTwo] = useState([]);
-  const [chosenRecipe, setChosenRecipe] = useState({});
+  const [chosenRecipe, setChosenRecipe] = useState('');
 
   const fetchRecipe = async () => {
     const data = await fetch('http://localhost:3000/recipes/');

@@ -21,7 +21,7 @@ export default function ReciptPage() {
           recipeInstructions="1. Ät choklad"
         />
         <div className="to-the-right">
-          <Link to="/recipt-list">
+          <Link to="/search-list">
             <Button buttonText="Tillbaka" color="mint" />
           </Link>
         </div>
