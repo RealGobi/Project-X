@@ -97,18 +97,19 @@ export default function SearchList(props) {
           <div />
         )
       }
-        <Link to="recipt-page">
+        {/* <Link to="recipt-page"> */}
           {
-            listRecipeThatRenders.map((rec, idx) => (
+            listRecipeThatRenders.map(rec => (
               <RecipeItem
-                key={idx}
+                clickHandler={() => props.setChosenRecipe(rec._id)}
+                key={rec._id}
                 recipeTitle={rec.title}
                 recipeIntro={rec.description}
                 recipeImg={rec.imageLink}
               />
             ))
           }
-        </Link>
+        {/* </Link> */}
         <div className="next-page">
           <Link to="/signup">
             <Button buttonText="Tillbaka" color="mint" />
