@@ -7,11 +7,11 @@ import Header from '../Components/Header/Header';
 import Button from '../Components/Button/Button';
 import RecipeItem from '../Components/RecipeItem/RecipeItem';
 
-export default function ReciptList(props) {
+export default function ReciptList({ findRecipeBasedOnOne }) {
   ReciptList.propTypes = {
-    recipe: PropTypes.array.isRequired,
+    findRecipeBasedOnOne: PropTypes.array.isRequired,
   };
-  const listResults = props.recipe;
+  const listResults = findRecipeBasedOnOne;
 
   return (
     <div>
