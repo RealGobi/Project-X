@@ -11,6 +11,8 @@ import arrow from '../../images/arrow.svg';
  * @param {string} recipeItemtitle
  * @param {string} recipeIntro
  * @param {string} recipeImg
+ * @param {string} recipeTitle
+ * @param {number} time
 * */
 
 const Recipt = ({
@@ -49,7 +51,7 @@ const Recipt = ({
                 </select>
               </form>
               {/* <div className="ingredientGrid"></div> */}
-              {recipeIngredients.map((ing, idx) => <li key={idx}>{ing.count} {ing.unit} {ing.ingredient}</li>)}
+              {recipeIngredients.map((ing, idx) => <div key={idx}>{ing.count} {ing.unit} {ing.ingredient}</div>)}
             </div>
           </div>
         ) : (<div className="space" />)
@@ -58,7 +60,7 @@ const Recipt = ({
       <div className="instructions">
         <h2>Instruktioner</h2>
         <hr />
-        {recipeInstructions.map((inst, idx) => <li key={idx}>{idx+1}. {recipeInstructions[idx]} </li>)}
+        {recipeInstructions.map((inst, idx) => <div key={idx}>{idx+1}. {recipeInstructions[idx]} </div>)}
       </div>
     </div>
   );
