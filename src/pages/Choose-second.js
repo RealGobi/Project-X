@@ -6,16 +6,16 @@ import Page from '../Components/Page/Page';
 import Header from '../Components/Header/Header';
 import Button from '../Components/Button/Button';
 
-export default function ChooseSecond(props) {
+export default function ChooseSecond({ findRecipeBasedOnOne, setCategoryTwo }) {
   ChooseSecond.propTypes = {
     // eslint-disable-next-line react/forbid-prop-types
-    recipe: PropTypes.array.isRequired,
+    findRecipeBasedOnOne: PropTypes.array.isRequired,
     setCategoryTwo: PropTypes.func.isRequired,
   };
   // collect all categorys to one array (and color)
   let category = [];
   const collectCategory = () => {
-    props.recipe.map(cat => cat.category2.map(tac => category.push(tac.value)));
+    findRecipeBasedOnOne.map(cat => cat.category2.map(tac => category.push(tac.value)));
   };
   collectCategory();
   // remove duplicates
@@ -29,7 +29,7 @@ export default function ChooseSecond(props) {
       <Page>
         <span className="centerGrid">
           <div className="choose-button">
-            { category.map((cat2, idx) => <Button clickHandler={() => props.setCategoryTwo(cat2)} key={idx} buttonText={cat2} buttonType="square" />) }
+            { category.map((cat2, idx) => <Button clickHandler={() => setCategoryTwo(cat2)} key={idx} buttonText={cat2} buttonType="square" />) }
           </div>
         </span>
         <div className="next-page">

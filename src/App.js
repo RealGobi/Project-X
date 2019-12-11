@@ -40,8 +40,8 @@ const App = () => {
   // console.log(filterRecipeByChoies1);
   // console.log(filterRecipeByChoies2);
 
-  const findRec = recipe.find(rec => rec.category1.find(r => r.value === categoryOne));
-  console.log(findRec);
+  const findRecipeBasedOnOne = recipe.filter(rec => rec.category1.find(r => r.value === categoryOne));
+  console.log(findRecipeBasedOnOne);
 
   return (
     <Router>
@@ -51,7 +51,7 @@ const App = () => {
           <Route path="/signup" component={SignUp} />
           <Route path="/landing-page" component={LandingPage} />
           <Route path="/choose-first" render={() => <ChooseFirst recipe={recipe} setCategoryOne={setCategoryOne} />} />
-          <Route path="/choose-second" render={() => <ChooseSecond recipe={recipe} setCategoryTwo={setCategoryTwo} />} />
+          <Route path="/choose-second" render={() => <ChooseSecond findRecipeBasedOnOne={findRecipeBasedOnOne} setCategoryTwo={setCategoryTwo} />} />
           <Route path="/recipt-list" render={() => <ReciptList recipe={recipe} />} />
           <Route path="/recipt-page" render={() => <ReciptPage findRecipe={findRecipe} />} />
           <Route path="/search-list" render={() => <SearchList setChosenRecipe={setChosenRecipe} recipe={recipe} />} />
