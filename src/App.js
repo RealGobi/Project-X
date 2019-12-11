@@ -26,9 +26,8 @@ const App = () => {
     const workingData = await data.json();
     setRecipes(workingData); 
   };
-  
-  // console.log(categoryOne);
-  // console.log(categoryTwo);
+   console.log(categoryOne);
+   console.log(categoryTwo);
   // console.log(recipe);
 
   const findRecipe = recipe.find(rec => rec._id === chosenRecipe);
