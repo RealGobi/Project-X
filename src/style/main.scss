@@ -15,10 +15,9 @@ html {
     .Startlogga {
         background-image: url(../images/StartloggaPhone.svg);
         background-repeat: no-repeat;
-        background-image: cover;
+        background-size: cover;
         width: 100vw;
         height: 100vh;
-        margin: 0;
 
         .login-container {
             height: 100vh;
@@ -218,6 +217,7 @@ html {
         .Startlogga {
             background-image: url(../images/Startlogga.svg);
             background-repeat: no-repeat;
+            background-size:cover;
             width: 100vw;
             height: 100vh;
             display: flex;
@@ -360,6 +360,33 @@ html {
             .categorybar {
                 margin: 10px 64px;
             }
+        }
+    }
+}
+
+//Ipad Pro
+@media only screen and (min-width: 780px) {
+    html {
+        background: rgb(255, 216, 188);
+   
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        padding: 12px 0;
+        margin: 0;
+
+        .Startlogga {
+            background-image: url(../images/Startlogga.svg);
+            background-repeat: no-repeat;
+            background-size:cover;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end;
+
         }
     }
 }

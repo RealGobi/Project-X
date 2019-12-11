@@ -4,7 +4,7 @@ import Popup from 'reactjs-popup';
 import Button from '../Components/Button/Button';
 
 export default function Login() { 
-  const passwordmail = <h3>Maila mig nytt lösenord!</h3>;
+  const passwordmail = <span><label>E-post: <input type="text" /></label><span className="send"><Button buttonText="Maila lösenord" color="mint" /></span></span>;
 
   return (
     <div className="Startlogga">

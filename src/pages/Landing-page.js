@@ -13,8 +13,8 @@ import Mail from '../images/button-contact.svg';
 import Settings from '../images/button-settings.svg';
 
 export default function LandingPage() {
-  const mail = <h1>Maila mig!</h1>;
-  const setting = <h1>Inställningar!</h1>;
+  const mail = <span><label> Ämne:<input type="text" /></label><label> Förslag eller synpunkt:<input type="textarea" /></label></span>;
+  const setting = <span className="settings"><Button buttonText="Vegan" color="mint" /><Button buttonText="Vegetarian" color="yellow" /><Button buttonText="Fiskätare" color="mint" /><Button buttonText="Allätare" color="persica" /></span>;
   return (
     <div>
       <Header headLine="God Morgon" />
@@ -26,7 +26,7 @@ export default function LandingPage() {
                 <span className="close" onClick={close}>
                 &times;
                 </span>
-                <div className="header"> Modal Title </div>
+                <div className="header"> Kontaktformulär </div>
                 <div className="content">
                   {mail}
                 </div>
@@ -39,7 +39,7 @@ export default function LandingPage() {
                 <span className="close" onClick={close}>
                 &times;
                 </span>
-                <div className="header"> s </div>
+                <div className="header">Inställningar</div>
                 <div className="content">
                   {setting}
                 </div>
