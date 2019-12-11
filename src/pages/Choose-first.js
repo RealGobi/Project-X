@@ -11,7 +11,6 @@ export default function ChooseFirst({ recipe, setCategoryOne }) {
     // eslint-disable-next-line react/forbid-prop-types
     recipe: PropTypes.array.isRequired,
     setCategoryOne: PropTypes.func.isRequired,
-    
   };
 
   // collect all categorys to one array

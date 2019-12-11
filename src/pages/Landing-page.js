@@ -13,7 +13,7 @@ import Mail from '../images/button-contact.svg';
 import Settings from '../images/button-settings.svg';
 
 export default function LandingPage() {
-  const mail = <span><label> Ämne:<input type="text" /></label><label> Förslag eller synpunkt:<input type="textarea" /></label></span>;
+  const mail = <span><label> Ämne:<input type="text" /></label><label> Förslag eller synpunkt:<input type="textarea" /><Button buttonText="Skicka" color="yellow" /></label></span>;
   const setting = <span className="settings"><Button buttonText="Vegan" color="mint" /><Button buttonText="Vegetarian" color="yellow" /><Button buttonText="Fiskätare" color="mint" /><Button buttonText="Allätare" color="persica" /></span>;
   return (
     <div>
