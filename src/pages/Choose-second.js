@@ -15,7 +15,7 @@ export default function ChooseSecond(props) {
   // collect all categorys to one array (and color)
   let category = [];
   const collectCategory = () => {
-    props.recipe.map(cat => cat.category2.map(tac => category.push(tac)));
+    props.recipe.map(cat => cat.category2.map(tac => category.push(tac.value)));
   };
   collectCategory();
   // remove duplicates
@@ -29,7 +29,7 @@ export default function ChooseSecond(props) {
       <Page>
         <span className="centerGrid">
           <div className="choose-button">
-            { category.map((cat2, idx) => <Button clickHandler={() => props.setCategoryTwo(cat2.value)} key={idx} buttonText={cat2.value} buttonType="square" color={cat2.color} />) }
+            { category.map((cat2, idx) => <Button clickHandler={() => props.setCategoryTwo(cat2)} key={idx} buttonText={cat2} buttonType="square" />) }
           </div>
         </span>
         <div className="next-page">

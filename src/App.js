@@ -24,16 +24,25 @@ const App = () => {
   const fetchRecipe = async () => {
     const data = await fetch('http://localhost:3000/recipes/');
     const workingData = await data.json();
-    setRecipes(workingData); 
+    setRecipes(workingData);
   };
-   console.log(categoryOne);
-   console.log(categoryTwo);
+  console.log(categoryOne);
+  console.log(categoryTwo);
   // console.log(recipe);
 
   const findRecipe = recipe.find(rec => rec._id === chosenRecipe);
   console.log(findRecipe);
-  // setChosenFromList(findRecipe);  
-  console.log(chosenFromList);
+  // setChosenFromList(findRecipe);
+  console.log(recipe);
+
+  // const filterRecipeByChoies1 = recipe.map(cat => cat.category1.map(tac => tac.value));
+  // const filterRecipeByChoies2 = recipe.map(cat => cat.category2.map(tac => tac.value));
+  // console.log(filterRecipeByChoies1);
+  // console.log(filterRecipeByChoies2);
+
+  const findRec = recipe.find(rec => rec.category1.find(r => r.value === categoryOne));
+  console.log(findRec);
+
   return (
     <Router>
       <div className="App">
@@ -46,7 +55,7 @@ const App = () => {
           <Route path="/recipt-list" render={() => <ReciptList recipe={recipe} />} />
           <Route path="/recipt-page" render={() => <ReciptPage findRecipe={findRecipe} />} />
           <Route path="/search-list" render={() => <SearchList setChosenRecipe={setChosenRecipe} recipe={recipe} />} />
-          <Route path="/admin" render={() => <Admin recipe={recipe} />} />} />
+          <Route path="/admin" render={() => <Admin recipe={recipe} />} />
         </Switch>
       </div>
     </Router>
