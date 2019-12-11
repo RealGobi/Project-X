@@ -1,14 +1,14 @@
+@import '../../style/color';
 
     .Recipeitem {
-        width: 353px;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        background-color:#FEE19F;
-        border-radius: 0px;
-        border: 1px solid #828282;
-        box-shadow: 0px;
-        margin: 0;
+        background-color: $dinner_Yellow;
+        border-radius: 3px;
+        border:2px solid $dinner_Grey;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        margin: 5px 10px;
     }
 
     .recipeitemtext {
@@ -18,7 +18,9 @@
 
     .Recipeitem img {
         width: 150px;
-        border: 0px solid #828282;
+        height: 120px;
+        border: 1px $dinner_Grey;
+        border-style:none none none solid;
         border-radius: 0px 0px 0px 0px;
     }
 
@@ -27,7 +29,7 @@
     .Recipeitem {
         width: 600px;
         border-radius: 3px;
-        border: 2px solid #828282;
+        border: 2px solid $dinner_Grey;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         margin: 0 auto 12px;
     }
@@ -40,7 +42,7 @@
     .Recipeitem img {
         width: 250px;
         height: 125px;
-        border: 1px solid #828282;
+        border: 1px solid $dinner_Grey;
         border-radius: 0px 3px 3px 0px;
     }
 }

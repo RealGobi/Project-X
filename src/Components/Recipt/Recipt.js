@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import '../../style/main.scss';
 
-import './Recipt.css';
+import './Recipt.scss';
 import clock from '../../images/modernclock.svg';
 import arrow from '../../images/arrow.svg';
 
@@ -21,7 +21,7 @@ const Recipt = ({
   recipeIngredients,
   recipeInstructions,
 }) => {
-  const [showIngridients, setShowIngridients] = useState(false);
+  const [showIngridients, setShowIngridients] = useState(true);
   const toogleShowIngridients = (e) => { setShowIngridients(!showIngridients); };
   return (
     <div className="recipt-content">
@@ -34,7 +34,7 @@ const Recipt = ({
       <div>
         <div className="ingridiens-header" role="button" tabIndex="0" onClick={toogleShowIngridients}>
           <h4>Ingredienser</h4>
-          <img src={arrow} alt="arrow" />
+          <img src={arrow} className="arrow" alt="arrow" />
         </div>
         {showIngridients ? (
           <div className="ingridiens">
@@ -48,8 +48,8 @@ const Recipt = ({
                   <option value="8">8 portioner</option>
                 </select>
               </form>
-              <div className="ingredientGrid"></div>
-              {recipeIngredients.map((ing, idx) => <li key={idx}>{ing.ingredient}</li>)}
+              {/* <div className="ingredientGrid"></div> */}
+              {recipeIngredients.map((ing, idx) => <li key={idx}>{ing.count} {ing.unit} {ing.ingredient}</li>)}
             </div>
           </div>
         ) : (<div className="space" />)
@@ -58,7 +58,7 @@ const Recipt = ({
       <div className="instructions">
         <h2>Instruktioner</h2>
         <hr />
-        {recipeInstructions}
+        {recipeInstructions.map((inst, idx) => <li key={idx}>{idx+1}. {recipeInstructions[idx]} </li>)}
       </div>
     </div>
   );

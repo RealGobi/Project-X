@@ -31,9 +31,10 @@ export default function SignUp() {
             <div className="input-container">
               <span>Lösenord:</span> <input type="password" />
             </div>
-            <div className="select-button">
+            <div className="select-preference-button">
               <Button buttonText="Vegan" color="mint" />
               <Button buttonText="Vegetarian" color="yellow" />
+              <Button buttonText="Fiskätare" color="mint" />
               <Button buttonText="Allätare" color="persica" />
             </div>
             <div className="next-page">

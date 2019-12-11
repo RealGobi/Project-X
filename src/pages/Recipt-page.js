@@ -14,7 +14,7 @@ export default function ReciptPage(findRecipe) {
         <h1>{ findRecipe.findRecipe.title }</h1>
       </div>
       <Page>
-        <Recipt
+        <Recipt          
           recipeTitle={findRecipe.findRecipe.title}
           recipeIntro={findRecipe.findRecipe.description}
           recipeImg={findRecipe.findRecipe.imageLink}
@@ -22,7 +22,7 @@ export default function ReciptPage(findRecipe) {
           recipeIngredients={findRecipe.findRecipe.ingredients}
           recipeInstructions={findRecipe.findRecipe.instructions}
         />
-        <div className="to-the-right">
+        <div className="next-page">
           <Link to="/search-list">
             <Button buttonText="Tillbaka" color="mint" />
           </Link>

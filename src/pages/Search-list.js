@@ -24,31 +24,28 @@ export default function SearchList(props) {
 
   const [showCategory, setShowCategory] = useState(true);
   const toogleShow = (e) => { setShowCategory(!showCategory); };
+  
+  let category1 = [];
+  const collectCategory1 = () => {
+    props.recipe.map(cat => cat.category1.map(tac => category1.push(tac)));
+  };
+  collectCategory1();
+  const categorylist1 = category1;
+  category1 = Array.from(new Set(categorylist1.map(JSON.stringify))).map(JSON.parse);
 
-  //
-  // const [chosenCategory1, setChosenCategory1] = useState([]);
-  // let category1 = [];
-  // const collectCategory1 = () => {
-  //   props.recipe.map(cat => cat.category1.map(tac => category1.push(tac)));
-  // };
-  // collectCategory1();
-  // const categorylist1 = category1;
-  // category1 = Array.from(new Set(categorylist1.map(JSON.stringify))).map(JSON.parse);
-
-  // const [chosenCategory2, setChosenCategory2] = useState([]);
-  // let category2 = [];
-  // const collectCategory2 = () => {
-  //   props.recipe.map(cat => cat.category2.map(tac => category2.push(tac)));
-  // };
-  // collectCategory2();
-  // const categorylist2 = category2;
-  // category2 = Array.from(new Set(categorylist2.map(JSON.stringify))).map(JSON.parse);
+  let category2 = [];
+  const collectCategory2 = () => {
+    props.recipe.map(cat => cat.category2.map(tac => category2.push(tac)));
+  };
+  collectCategory2();
+  const categorylist2 = category2;
+  category2 = Array.from(new Set(categorylist2.map(JSON.stringify))).map(JSON.parse);
 
   const handleCategory2Change = (e) => {
-    console.log(e);
+    console.log(e.target.value);
   };
   const handleCategory1Change = (e) => {
-    console.log(e);
+    console.log(e.target.value);
   };
 
   return (
@@ -67,36 +64,38 @@ export default function SearchList(props) {
             </form>
           </div>
         </div>
-        {/* <div onClick={toogleShow}>Show/Hide Category</div>
-        {showCategory ? (
-          <div className="category">
-            {
-              category1.map((cat1, idx) => (
-                <label key={idx} onChange={handleCategory1Change}>
-                  <input
-                    type="checkbox"
-                    className="categoryCheck"
-                    value={cat1.value}
-                  /> {cat1.value}
-                </label>
-              ))
-            }
-            {
-              category2.map((cat2, idx) => (
-                <label key={idx} onChange={handleCategory2Change}>
-                  <input
-                    type="checkbox"
-                    className="categoryCheck"
-                    value={cat2.value}
-                  /> {cat2.value}
-                </label>
-              ))
-            }
-          </div>
-        ) : (
-          <div />
-        )
-      } */}
+        <div className="categorybar">
+          <div onClick={toogleShow}>Show/Hide Category</div>
+          {showCategory ? (
+            <div className="category">
+              {
+                category1.map((cat1, idx) => (
+                  <label key={idx} onChange={handleCategory1Change}>
+                    <input
+                      type="checkbox"
+                      className="categoryCheck"
+                      value={cat1.value}
+                    /> {cat1.value}
+                  </label>
+                ))
+              }
+              {
+                category2.map((cat2, idx) => (
+                  <label key={idx} onChange={handleCategory2Change}>
+                    <input
+                      type="checkbox"
+                      className="categoryCheck"
+                      value={cat2.value}
+                    /> {cat2.value}
+                  </label>
+                ))
+              }
+            </div>
+          ) : (
+            <div />
+          )
+        } 
+        </div>
         <Link to="recipt-page">
           {
             listRecipeThatRenders.map(rec => (

@@ -12,6 +12,10 @@ a {
     text-decoration: none;
 }
 
+li {
+    list-style-type: none;
+   }
+
 %center {
     display: flex;
     align-items: center;
@@ -42,7 +46,7 @@ a {
     font-size: 1rem;
     color: $dinner_HeadLine;
     background:$dinner_Blue;
-    margin: 0 6px 6px 0;
+    margin: 0 0px 8px 0;
 
     input[type=email],[type=password], [type=text] {
         width: 210px;

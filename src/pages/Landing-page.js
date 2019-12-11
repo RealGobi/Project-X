@@ -39,7 +39,7 @@ export default function LandingPage() {
                 <span className="close" onClick={close}>
                 &times;
                 </span>
-                <div className="header"> Modal Title </div>
+                <div className="header"> s </div>
                 <div className="content">
                   {setting}
                 </div>

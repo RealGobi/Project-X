@@ -24,11 +24,12 @@ const App = () => {
   const fetchRecipe = async () => {
     const data = await fetch('http://localhost:3000/recipes/');
     const workingData = await data.json();
-    setRecipes(workingData);
+    setRecipes(workingData); 
   };
-  console.log(categoryOne);
-  console.log(categoryTwo);
-  console.log(recipe);
+  
+  // console.log(categoryOne);
+  // console.log(categoryTwo);
+  // console.log(recipe);
 
   const findRecipe = recipe.find(rec => rec._id === chosenRecipe);
   console.log(findRecipe);
@@ -46,7 +47,7 @@ const App = () => {
           <Route path="/recipt-list" render={() => <ReciptList recipe={recipe} />} />
           <Route path="/recipt-page" render={() => <ReciptPage findRecipe={findRecipe} />} />
           <Route path="/search-list" render={() => <SearchList setChosenRecipe={setChosenRecipe} recipe={recipe} />} />
-          <Route path="/admin" render={() => <Admin />} />
+          <Route path="/admin" render={() => <Admin recipe={recipe} />} />} />
         </Switch>
       </div>
     </Router>
