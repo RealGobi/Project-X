@@ -10,7 +10,7 @@ import ReciptPage from './pages/Recipt-page';
 import SearchList from './pages/Search-list';
 import Admin from './pages/Admin';
 
-const App = () => {
+const App = (props) => {
   useEffect(() => {
     fetchRecipe();
   }, []);
