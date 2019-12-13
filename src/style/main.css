@@ -10,6 +10,10 @@ a {
   text-decoration: none;
 }
 
+li {
+  list-style-type: none;
+}
+
 html .header .headLine, html .content .centerGrid {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -46,7 +50,7 @@ html .header .headLine, html .header-recipt h1 {
   font-size: 1rem;
   color: #4f4f4f;
   background: #B7DDE0;
-  margin: 0 6px 6px 0;
+  margin: 0 0px 8px 0;
 }
 
 .input-container input[type=email], .input-container [type=password], .input-container [type=text] {
@@ -124,20 +128,20 @@ html {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  padding: 0;
   margin: 0;
 }
 
 html .Startlogga {
   background-image: url(../images/StartloggaPhone.svg);
   background-repeat: no-repeat;
-  background-image: cover;
+  background-size: cover;
   width: 100vw;
   height: 100vh;
-  margin: 0;
 }
 
 html .Startlogga .login-container {
-  height: 100vh;
+  height: 98%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -148,9 +152,9 @@ html .Startlogga .login-container {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
 }
 
 html .Startlogga .login-container .input-container {
@@ -158,7 +162,7 @@ html .Startlogga .login-container .input-container {
 }
 
 html .Startlogga .login-container .input-container span {
-  padding-left: 8px;
+  padding: 0px;
 }
 
 html .Startlogga .login-container .login-button-container {
@@ -169,14 +173,16 @@ html .Startlogga .login-container .login-button-container {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  padding: 8px 0 24px 0px;
+  margin-bottom: 8px;
 }
 
 html .Startlogga .login-container .login-button-container a {
   margin: 0 8px 0 0;
+}
+
+html .Startlogga .login-container p {
+  font-size: 0.8rem;
+  margin: 0 10px 8px;
 }
 
 html .header {
@@ -224,15 +230,12 @@ html .content .sign-up .input-container:nth-child(1) {
 
 html .content .sign-up .input-container:nth-child(3) {
   background: #FEE19F;
-  margin-bottom: 40px;
-}
-
-html .content .sign-up .Button {
-  margin: 0 6px;
+  margin-bottom: 60px;
 }
 
 html .content .sign-up .next-page {
   width: 100%;
+  height: 100px;
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
@@ -242,17 +245,17 @@ html .content .sign-up .next-page {
 }
 
 html .content .sign-up .next-page .Button {
-  margin-right: 6px;
+  margin-right: 24px;
 }
 
-html .content .select-button {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  width: 100%;
+html .content .select-preference-button {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  -ms-grid-rows: (1fr)[2];
+      grid-template-rows: repeat(2, 1fr);
+  gap: 8px;
 }
 
 html .content .centerGrid {
@@ -285,7 +288,7 @@ html .content .mail-button {
 }
 
 html .content .landing-button-position {
-  height: 600px;
+  height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -323,8 +326,29 @@ html .content .next-page a {
   margin: 0 0 0 12px;
 }
 
+html .content .categorybar {
+  margin: 10px 14px;
+}
+
+html .content .categorybar label {
+  font-size: 0.9rem;
+}
+
 html .admin {
   margin: 12px 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  text-align: center;
 }
 
 html .admin .admin-receptlist {
@@ -347,7 +371,7 @@ html .admin .admin-addrecept {
   border-radius: 3px;
 }
 
-html .admin .admin-addrecept h2 {
+html .admin .admin-addrecept h2, html .admin .admin-addrecept h3 {
   text-align: center;
 }
 
@@ -370,22 +394,24 @@ html .admin .admin-addrecept label input {
 @media only screen and (min-width: 767px) {
   html {
     background: white;
-    width: 768px;
-    height: 1024px;
+    width: 100vw;
+    height: 100vh;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    margin: 0 auto;
+    padding: 0;
+    margin: 0;
   }
   html .Startlogga {
     background-image: url(../images/Startlogga.svg);
     background-repeat: no-repeat;
+    background-size: cover;
     width: 100vw;
     height: 100vh;
     display: -webkit-box;
@@ -399,6 +425,7 @@ html .admin .admin-addrecept label input {
             align-items: flex-end;
   }
   html .Startlogga .login-container {
+    height: 800px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -567,6 +594,44 @@ html .admin .admin-addrecept label input {
   html .content .next-page a {
     text-decoration: none;
     margin: 0 0 0 12px;
+  }
+  html .content .categorybar {
+    margin: 10px 64px;
+  }
+}
+
+@media only screen and (min-width: 780px) {
+  html {
+    background: #ffd8bc;
+    width: 100vw;
+    height: 100vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    padding: 12px 0;
+    margin: 0;
+  }
+  html .Startlogga {
+    background-image: url(../images/Startlogga.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
   }
 }
 /*# sourceMappingURL=main.css.map */

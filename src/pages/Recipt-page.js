@@ -1,11 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Page from '../Components/Page/Page';
 import Button from '../Components/Button/Button';
 import Recipt from '../Components/Recipt/Recipt';
 
 export default function ReciptPage(findRecipe) {
-  console.log(findRecipe.findRecipe.ingredients);
+  console.log(findRecipe.findRecipe.instructions);
 
   return (
     <div>
@@ -13,7 +14,7 @@ export default function ReciptPage(findRecipe) {
         <h1>{ findRecipe.findRecipe.title }</h1>
       </div>
       <Page>
-        <Recipt
+        <Recipt          
           recipeTitle={findRecipe.findRecipe.title}
           recipeIntro={findRecipe.findRecipe.description}
           recipeImg={findRecipe.findRecipe.imageLink}

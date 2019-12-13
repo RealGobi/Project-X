@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 import Button from '../Components/Button/Button';
 
 import useFetch from '../Hooks/useFetch';
+import DynomicInput from '../Components/Page/dynamicInput';
 
 export default function Admin(props) {
   const [newRecipe, setNewRecipe] = useState({});
   const [loading, setLoading] = useState(false);
 
-  const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlczB0QHRlc3Quc2UiLCJ1c2VySWQiOiI1ZGU3YWZhODU2MjA1YzBkMjFhZDg2YjQiLCJpYXQiOjE1NzYxNTM5MTgsImV4cCI6MTU3NjE1NzUxOH0.qAfKpwuxaf10z-yibeeUIojI6fK42nVgErH8sFaL-iw';
+  const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlczB0QHRlc3Quc2UiLCJ1c2VySWQiOiI1ZGU3YWZhODU2MjA1YzBkMjFhZDg2YjQiLCJpYXQiOjE1NzYyMzQyMDQsImV4cCI6MTU3NjIzNzgwNH0.AHnhIMNmJcOWR5OjPlioNoZ30VV796mnFltf0JRyCBc';
   const recipeApi = useFetch(
     'http://localhost:3000/recipes/',
     token,
@@ -19,10 +20,39 @@ export default function Admin(props) {
   const [category2, setcategory2] = useState([]);
   const [imageLink, setImageLink] = useState();
   const [time, setTime] = useState();
-  const [instructions, setInstructions] = useState();
   const [foodType, setFoodType] = useState();
 
-  const [ingredients, setIngredients] = useState([null]);
+  // set ingredient
+  const blankState = { count: '', unit: '', ingredient: '' };
+  const [ingredients, setIngredients] = useState([
+    { ...blankState },
+  ]);
+
+  const addIng = () => {
+    setIngredients([...ingredients, { ...blankState }]);
+  };
+
+  const handleIngChange = (e) => {
+    const updatedCats = [...ingredients];
+    updatedCats[e.target.dataset.idx][e.target.className] = e.target.value;
+    setIngredients(updatedCats);
+  };
+
+  // set instruktion
+  const blankStateInst = [];
+  const [instructions, setInstructions] = useState([
+    { ...blankStateInst },
+  ]);
+
+  const addInst = () => {
+    setInstructions([...instructions, { ...blankStateInst }]);
+  };
+
+  const handleInstChange = (e) => {
+    const updatedCats = [...instructions];
+    updatedCats[e.target.dataset.idx][e.target.className] = e.target.value;
+    setInstructions(updatedCats);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault(e);
@@ -46,28 +76,14 @@ export default function Admin(props) {
         setLoading(false);
       });
   };
+  const Rubrik = 'Ingredienser:';
+  const Rubrik2 = 'Instruktioner:';
 
-  
   return (
     <div className="admin">
       <h1>Admin</h1>
       <div className="admin-addrecept">
         <h2>Nytt Recept</h2>
-        <h4>Antal Ingredienser:</h4>
-        <form action="submit">
-          <select className="portioner" onChange={handleNumberIngridients}>
-            <option value="1">1 ingredienser</option>
-            <option value="2">2 ingredienser</option>
-            <option value="3">3 ingredienser</option>
-            <option value="4">4 ingredienser</option>
-            <option value="5">5 ingredienser</option>
-            <option value="6">6 ingredienser</option>
-            <option value="7">7 ingredienser</option>
-            <option value="8">8 ingredienser</option>
-            <option value="9">9 ingredienser</option>
-            <option value="10">10 ingredienser</option>
-          </select>
-        </form>
         <form action="send">
           <label>Namn: <input type="text" onChange={(e) => { setTitle(e.target.value); }} /></label>
           <label>Beskrivning: <input type="text" name="description" onChange={(e) => { setDesc(e.target.value); console.log(description); }} /></label>
@@ -76,13 +92,45 @@ export default function Admin(props) {
           <label>Bildlänk:<input type="text" name="imageLink" onChange={(e) => { setImageLink(e.target.value); }} /></label>
           <label>Tid: <input type="text" name="time" onChange={(e) => { setTime(e.target.value); }} /></label>
           <hr />
-          <label>Instruktioner 1:<input type="text" name="instructions" onChange={(e) => { setInstructions(e.target.value); }} /></label>
-          <label>Instruktioner 2:<input type="text" name="instructions" /></label>
-          <label>Allergy:<input type="text" name="allergy" /></label>
+          <h3>{Rubrik}</h3>
+          {
+                ingredients.map((val, idx) => (
+                  <DynomicInput
+                    Rubrik={Rubrik}
+                    key={`main-${idx}`}
+                    idx={idx}
+                    input={ingredients}
+                    handleCatChange={handleIngChange}
+                  />
+                ))
+            }
+          <input
+            type="button"
+            value="Lägg till ingrediens"
+            onClick={addIng}
+          />
+          <hr />
+          {
+                instructions.map((val, idx) => (
+                  <DynomicInput
+                    Rubrik={Rubrik2}
+                    key={`main-${idx}`}
+                    idx={idx}
+                    input={instructions}
+                    handleCatChange={handleInstChange}
+                  />
+                ))
+            }
+          <input
+            type="button"
+            value="Lägg till instruktion"
+            onClick={addInst}
+          />
+          <hr />
           <label>Rating:<input type="text" name="rating" /></label>
           <label>FoodType:
             <select className="portioner" onChange={(e) => { setFoodType(e.target.value); }}>
-              <option value="All">All</option>
+              <option value="All">Äter allt</option>
               <option value="Fisk">Fisk</option>
               <option value="Vegetarian">Vegetarian</option>
               <option value="Vegan">Vegan</option>

@@ -60,7 +60,7 @@ const Recipt = ({
       <div className="instructions">
         <h2>Instruktioner</h2>
         <hr />
-        {recipeInstructions.map((inst, idx) => <div key={idx}>{idx+1}. {recipeInstructions[idx]} </div>)}
+        {recipeInstructions.map((inst, idx) => <div key={idx}>{idx+1}. {recipeInstructions[idx].inst} </div>)}
       </div>
     </div>
   );

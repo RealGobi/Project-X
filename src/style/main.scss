@@ -169,6 +169,11 @@ html {
 
     .admin {
         margin: 12px 0px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        text-align: center;
 
         .admin-receptlist {
             background: #c4c4c4;
@@ -184,7 +189,7 @@ html {
             padding: 12px;
             border-radius: 3px;
 
-            h2 {
+          h2, h3 {
                 text-align: center;
             }
 
