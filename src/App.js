@@ -19,29 +19,17 @@ const App = (props) => {
   const [categoryOne, setCategoryOne] = useState([]);
   const [categoryTwo, setCategoryTwo] = useState([]);
   const [chosenRecipe, setChosenRecipe] = useState('');
-  const [chosenFromList, setChosenFromList] = useState({});
 
   const fetchRecipe = async () => {
     const data = await fetch('http://localhost:3000/recipes/');
     const workingData = await data.json();
     setRecipes(workingData);
   };
-  console.log(categoryOne);
-  console.log(categoryTwo);
-  // console.log(recipe);
 
   const findRecipe = recipe.find(rec => rec._id === chosenRecipe);
-  console.log(findRecipe);
-  
-  console.log(recipe);
 
-  // const filterRecipeByChoies1 = recipe.map(cat => cat.category1.map(tac => tac.value));
-  // const filterRecipeByChoies2 = recipe.map(cat => cat.category2.map(tac => tac.value));
-  // console.log(filterRecipeByChoies1);
-  // console.log(filterRecipeByChoies2);
 
   const findRecipeBasedOnOne = recipe.filter(rec => rec.category1.find(r => r === categoryOne));
-  console.log(findRecipeBasedOnOne);
 
   return (
     <Router>
