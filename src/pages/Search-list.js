@@ -75,7 +75,7 @@ export default function SearchList(props) {
                       type="checkbox"
                       className="categoryCheck"
                       value={cat1.value}
-                    /> {cat1.value}
+                    /> {cat1}
                   </label>
                 ))
               }
@@ -86,7 +86,7 @@ export default function SearchList(props) {
                       type="checkbox"
                       className="categoryCheck"
                       value={cat2.value}
-                    /> {cat2.value}
+                    /> {cat2}
                   </label>
                 ))
               }
