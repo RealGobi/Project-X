@@ -32,7 +32,7 @@ const App = (props) => {
 
   const findRecipe = recipe.find(rec => rec._id === chosenRecipe);
   console.log(findRecipe);
-  // setChosenFromList(findRecipe);
+  
   console.log(recipe);
 
   // const filterRecipeByChoies1 = recipe.map(cat => cat.category1.map(tac => tac.value));
@@ -52,7 +52,7 @@ const App = (props) => {
           <Route path="/landing-page" component={LandingPage} />
           <Route path="/choose-first" render={() => <ChooseFirst recipe={recipe} setCategoryOne={setCategoryOne} />} />
           <Route path="/choose-second" render={() => <ChooseSecond findRecipeBasedOnOne={findRecipeBasedOnOne} setCategoryTwo={setCategoryTwo} />} />
-          <Route path="/recipt-list" render={() => <ReciptList findRecipeBasedOnOne={findRecipeBasedOnOne} />} />
+          <Route path="/recipt-list" render={() => <ReciptList findRecipeBasedOnOne={findRecipeBasedOnOne} setChosenRecipe={setChosenRecipe} />} />
           <Route path="/recipt-page" render={() => <ReciptPage findRecipe={findRecipe} />} />
           <Route path="/search-list" render={() => <SearchList setChosenRecipe={setChosenRecipe} recipe={recipe} />} />
           <Route path="/admin" render={() => <Admin recipe={recipe} />} />

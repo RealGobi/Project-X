@@ -7,7 +7,7 @@ import Header from '../Components/Header/Header';
 import Button from '../Components/Button/Button';
 import RecipeItem from '../Components/RecipeItem/RecipeItem';
 
-export default function ReciptList({ findRecipeBasedOnOne }) {
+export default function ReciptList({ findRecipeBasedOnOne, setChosenRecipe }) {
   ReciptList.propTypes = {
     findRecipeBasedOnOne: PropTypes.array.isRequired,
   };
@@ -19,13 +19,14 @@ export default function ReciptList({ findRecipeBasedOnOne }) {
       <Page>
         <Link to="recipt-page">
           {
-            listResults.map((rec, idx) => (
-              <RecipeItem
-                key={idx}
-                recipeTitle={rec.title}
-                recipeIntro={rec.description}
-                recipeImg={rec.imageLink}
-              />
+            listResults.map(rec => (
+              <span key={rec._id} onClick={() => setChosenRecipe(rec._id)}>
+                <RecipeItem
+                  recipeTitle={rec.title}
+                  recipeIntro={rec.description}
+                  recipeImg={rec.imageLink}
+                />
+              </span>
             ))
           }
         </Link>
