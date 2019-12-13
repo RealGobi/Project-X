@@ -16,7 +16,7 @@ export default function ChooseFirst({ recipe, setCategoryOne }) {
   // collect all categorys to one array
   let category = [];
   const collectCategory = () => {
-    recipe.map(cat => cat.category1.map(tac => category.push(tac.value)));
+    recipe.map(cat => cat.category1.map(tac => category.push(tac)));
     console.log(category);
   };
   collectCategory();

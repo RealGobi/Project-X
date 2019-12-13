@@ -15,7 +15,7 @@ export default function ChooseSecond({ findRecipeBasedOnOne, setCategoryTwo }) {
   // collect all categorys to one array (and color)
   let category = [];
   const collectCategory = () => {
-    findRecipeBasedOnOne.map(cat => cat.category2.map(tac => category.push(tac.value)));
+    findRecipeBasedOnOne.map(cat => cat.category2.map(tac => category.push(tac)));
   };
   collectCategory();
   // remove duplicates

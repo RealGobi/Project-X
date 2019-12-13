@@ -40,7 +40,7 @@ const App = (props) => {
   // console.log(filterRecipeByChoies1);
   // console.log(filterRecipeByChoies2);
 
-  const findRecipeBasedOnOne = recipe.filter(rec => rec.category1.find(r => r.value === categoryOne));
+  const findRecipeBasedOnOne = recipe.filter(rec => rec.category1.find(r => r === categoryOne));
   console.log(findRecipeBasedOnOne);
 
   return (
