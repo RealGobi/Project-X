@@ -8,7 +8,7 @@ export default function Admin(props) {
   const [newRecipe, setNewRecipe] = useState({});
   const [loading, setLoading] = useState(false);
 
-  const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlczB0QHRlc3Quc2UiLCJ1c2VySWQiOiI1ZGU3YWZhODU2MjA1YzBkMjFhZDg2YjQiLCJpYXQiOjE1NzYyMzQyMDQsImV4cCI6MTU3NjIzNzgwNH0.AHnhIMNmJcOWR5OjPlioNoZ30VV796mnFltf0JRyCBc';
+  const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlczB0QHRlc3Quc2UiLCJ1c2VySWQiOiI1ZGU3YWZhODU2MjA1YzBkMjFhZDg2YjQiLCJpYXQiOjE1NzYyNDg4NjEsImV4cCI6MTU3NjI1MjQ2MX0.qni65blh09WKpSPcNohF0a6mUE4aEf2HT2sKyk2o_mI';
   const recipeApi = useFetch(
     'http://localhost:3000/recipes/',
     token,
@@ -39,7 +39,7 @@ export default function Admin(props) {
   };
 
   // set instruktion
-  const blankStateInst = [];
+  const blankStateInst = { inst: '' };
   const [instructions, setInstructions] = useState([
     { ...blankStateInst },
   ]);
@@ -86,11 +86,11 @@ export default function Admin(props) {
         <h2>Nytt Recept</h2>
         <form action="send">
           <label>Namn: <input type="text" onChange={(e) => { setTitle(e.target.value); }} /></label>
-          <label>Beskrivning: <input type="text" name="description" onChange={(e) => { setDesc(e.target.value); console.log(description); }} /></label>
+          <label>Beskrivning: <input type="text" name="description" onChange={(e) => { setDesc(e.target.value); }} /></label>
           <label>Kategori Protein: <input type="text" name="category1" onChange={(e) => { setcategory1(e.target.value); }} /></label>
           <label>Kategori Kolhydrat: <input type="text" name="category2" onChange={(e) => { setcategory2(e.target.value); }} /></label>
           <label>Bildlänk:<input type="text" name="imageLink" onChange={(e) => { setImageLink(e.target.value); }} /></label>
-          <label>Tid: <input type="text" name="time" onChange={(e) => { setTime(e.target.value); }} /></label>
+          <label>Tid: <input type="number" name="time" onChange={(e) => { setTime(e.target.value); }} /></label>
           <hr />
           <h3>{Rubrik}</h3>
           {
