@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Popup from 'reactjs-popup';
 import Button from '../Components/Button/Button';
@@ -10,13 +10,12 @@ export default function Login() {
   const userEmail = React.createRef();
   const userPassword = React.createRef();
 
-  const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlczB0QHRlc3Quc2UiLCJ1c2VySWQiOiI1ZGU3YWZhODU2MjA1YzBkMjFhZDg2YjQiLCJpYXQiOjE1NzYyNDg4NjEsImV4cCI6MTU3NjI1MjQ2MX0.qni65blh09WKpSPcNohF0a6mUE4aEf2HT2sKyk2o_mI';
+
   const userApi = useFetch(
-    'http://localhost:3000/users/',
-    token,
+    'http://localhost:3000/user/login',
   );
 
-  const submitHandler = (event) => {
+  const submitHandler = async (event) => {
     event.preventDefault();
     const email = userEmail.current.value;
     const password = userPassword.current.value;
@@ -25,19 +24,20 @@ export default function Login() {
       return;
     }
     console.log(email, password);
-    userApi
-      .get({
+    await userApi
+      .post({
         email,
         password,
       })
       .then((data) => {
-        console.log(data);
+        const { token } = data;
+        console.log(token);
       });
   };
 
   return (
     <div className="Startlogga">
-      <form className="login-container" onSubmit={submitHandler}>
+      <form className="login-container">
         <div className="input-container">
           <span>E-post:</span> <input type="email" id="email" ref={userEmail} />
         </div>
@@ -48,12 +48,12 @@ export default function Login() {
           <Link to="/signup">
             <Button buttonText="Skapa Konto" color="mint" />
           </Link>
-          <button type="submit">Logga in</button>
-          <Link to="landing-page">
-            <Button buttonText="Logga In" color="yellow" />
-          </Link>
+          <span onClick={submitHandler}>
+            <Link to="landing-page">
+              <Button buttonText="Logga In" color="yellow" />
+            </Link>
+          </span>
         </div>
-
       </form>
       <div>
         <Popup trigger={<p>glömt lösenord</p>} modal>
