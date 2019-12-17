@@ -12,6 +12,7 @@ import ReciptList from './pages/Recipt-list';
 import ReciptPage from './pages/Recipt-page';
 import SearchList from './pages/Search-list';
 import Admin from './pages/Admin';
+import isAuthenticated from './Auth/auth';
 
 // costum hooks
 
@@ -22,6 +23,7 @@ const App = (props) => {
   // fishing hooks and state
 
   useEffect(() => {
+    isAuthenticated();
     fetchRecipe();
   }, []);
 
@@ -30,11 +32,11 @@ const App = (props) => {
   const [categoryTwo, setCategoryTwo] = useState([]);
   const [chosenRecipe, setChosenRecipe] = useState('');
 
-  // localstorage
+  // sessionStorage
 
-  const [tokens, setTokens] = useLocalState('Token:');
-  const [userName, setUserName] = useLocalState('Use Name:');
-  const [food, setFood] = useLocalState('Food Type:');
+  const [tokens, setTokens] = useLocalState('token');
+  const [userName, setUserName] = useLocalState('useName');
+  const [food, setFood] = useLocalState('foodType');
 
   // get db
 
@@ -72,6 +74,7 @@ const App = (props) => {
         setTokens(token);
         setUserName(name);
         setFood(foodType);
+        isAuthenticated();
       });
   };
   console.log(`Token:${tokens}`);

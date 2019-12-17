@@ -1,10 +1,10 @@
 import { useState } from 'react';
 
 export default function useLocalState(localItem) {
-  const [loc, setState] = useState(localStorage.getItem(localItem));
+  const [loc, setState] = useState(sessionStorage.getItem(localItem));
 
   function setLoc(newItem) {
-    localStorage.setItem(localItem, newItem);
+    sessionStorage.setItem(localItem, newItem);
     setState(newItem);
   }
   return [loc, setLoc];
