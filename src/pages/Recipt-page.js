@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Page from '../Components/Page/Page';
 import Button from '../Components/Button/Button';
