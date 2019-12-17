@@ -38,13 +38,12 @@ export default function SearchList(props) {
     }
   };
 
-  const listRecipeThatRenders =
-  //listRecipe.filter(rec => (searchValue ? rec.title.toLowerCase().match(searchValue) : true));
-  listRecipe.filter(rec => (activeCategoryFilter.length !== 0 ? rec.category1.some(value => activeCategoryFilter.includes(value))
+  const listRecipeThatRenders = listRecipe.filter(rec => (searchValue ? rec.title.toLowerCase().match(searchValue) : true))
+    .filter(rec => (activeCategoryFilter.length !== 0 ? rec.category1.some(value => activeCategoryFilter.includes(value))
    || rec.category2.some(value => activeCategoryFilter.includes(value)) : true));
 
   const [showCategory, setShowCategory] = useState(true);
-  const toogleShow = (e) => { setShowCategory(!showCategory); };
+  const toggleShow = () => { setShowCategory(!showCategory); };
 
   let category1 = [];
   const collectCategory1 = () => {
@@ -86,7 +85,7 @@ export default function SearchList(props) {
           </div>
         </div>
         <div className="categorybar">
-          <div onClick={toogleShow}>Show/Hide Category</div>
+          <div onClick={toggleShow}>Show/Hide Category</div>
           {showCategory ? (
             <div className="category">
               {
