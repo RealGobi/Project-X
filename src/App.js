@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+
+// pages
+
 import Login from './pages/Login';
 import SignUp from './pages/Sign-up';
 import LandingPage from './pages/Landing-page';
@@ -10,7 +13,14 @@ import ReciptPage from './pages/Recipt-page';
 import SearchList from './pages/Search-list';
 import Admin from './pages/Admin';
 
+// costum hooks
+
+import useLocalState from './Hooks/localStorgeHook';
+import useFetch from './Hooks/useFetch';
+
 const App = (props) => {
+  // fishing hooks and state
+
   useEffect(() => {
     fetchRecipe();
   }, []);
@@ -20,22 +30,61 @@ const App = (props) => {
   const [categoryTwo, setCategoryTwo] = useState([]);
   const [chosenRecipe, setChosenRecipe] = useState('');
 
+  // localstorage
+
+  const [tokens, setTokens] = useLocalState('Token:');
+  const [userName, setUserName] = useLocalState('Use Name:');
+  const [food, setFood] = useLocalState('Food Type:');
+
+  // get db
+
   const fetchRecipe = async () => {
     const data = await fetch('http://localhost:3000/recipes/');
     const workingData = await data.json();
     setRecipes(workingData);
   };
 
+  // filter out recipe
+
   const findRecipe = recipe.find(rec => rec._id === chosenRecipe);
-
-
   const findRecipeBasedOnOne = recipe.filter(rec => rec.category1.find(r => r === categoryOne));
+
+
+  // Login func
+
+  const userApi = useFetch(
+    'http://localhost:3000/user/login',
+  );
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const submitHandler = async () => {
+    if (email.trim().length === 0 || password.trim().length === 0) {
+      return;
+    }
+    console.log(email, password);
+    await userApi
+      .post({
+        email,
+        password,
+      })
+      .then((data) => {
+        const { token, name, foodType } = data;
+        setTokens(token);
+        setUserName(name);
+        setFood(foodType);
+      });
+  };
+  console.log(`Token:${tokens}`);
+  console.log(`Name:${userName}`);
+  console.log(`FoodType:${food}`);
+
+  // Router and render
 
   return (
     <Router>
       <div className="App">
         <Switch>
-          <Route path="/" exact component={Login} />
+          <Route path="/" exact render={() => <Login submitHandler={submitHandler} setEmail={setEmail} setPassword={setPassword} />} />
           <Route path="/signup" component={SignUp} />
           <Route path="/landing-page" component={LandingPage} />
           <Route path="/choose-first" render={() => <ChooseFirst recipe={recipe} setCategoryOne={setCategoryOne} />} />
