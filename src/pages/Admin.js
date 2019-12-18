@@ -106,7 +106,7 @@ export default function Admin(props) {
             }
           <input
             type="button"
-            value="Lägg till ingrediens"
+            value="Lägg till en till ingrediens"
             onClick={addIng}
           />
           <hr />
@@ -123,11 +123,11 @@ export default function Admin(props) {
             }
           <input
             type="button"
-            value="Lägg till instruktion"
+            value="Lägg till en till instruktion"
             onClick={addInst}
           />
           <hr />
-          <label htmlFor="rating">Rating:<input type="text" name="rating" /></label>
+          <label htmlFor="rating">Betyg 1-5:<input type="text" name="rating" /></label>
           <label htmlFor="Foodtype" className="foodtype">Vad för sort recept:
             <select className="portioner" onChange={(e) => { setFoodType(e.target.value); }}>
               <option value="All">Kött / kyckling</option>
