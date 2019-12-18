@@ -189,8 +189,18 @@ html {
             padding: 12px;
             border-radius: 3px;
 
-          h2, h3 {
+            h2, h3 {
                 text-align: center;
+            }
+
+            .foodtype {
+                margin: 10px;
+                select {
+                    width: 150px;
+                    margin: 10px;
+                    position: relative;
+                    left: 17px;
+                }
             }
 
             label {

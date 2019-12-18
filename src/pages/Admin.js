@@ -7,6 +7,7 @@ import DynomicInput from '../Components/Page/dynamicInput';
 export default function Admin(props) {
   const [newRecipe, setNewRecipe] = useState({});
   const [loading, setLoading] = useState(false);
+  const listRecipe = props.recipe;
 
   const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlczB0QHRlc3Quc2UiLCJ1c2VySWQiOiI1ZGU3YWZhODU2MjA1YzBkMjFhZDg2YjQiLCJpYXQiOjE1NzYyNDg4NjEsImV4cCI6MTU3NjI1MjQ2MX0.qni65blh09WKpSPcNohF0a6mUE4aEf2HT2sKyk2o_mI';
   const recipeApi = useFetch(
@@ -85,14 +86,13 @@ export default function Admin(props) {
       <div className="admin-addrecept">
         <h2>Nytt Recept</h2>
         <form action="send">
-          <label>Namn: <input type="text" onChange={(e) => { setTitle(e.target.value); }} /></label>
-          <label>Beskrivning: <input type="text" name="description" onChange={(e) => { setDesc(e.target.value); }} /></label>
-          <label>Kategori Protein: <input type="text" name="category1" onChange={(e) => { setcategory1(e.target.value); }} /></label>
-          <label>Kategori Kolhydrat: <input type="text" name="category2" onChange={(e) => { setcategory2(e.target.value); }} /></label>
-          <label>Bildlänk:<input type="text" name="imageLink" onChange={(e) => { setImageLink(e.target.value); }} /></label>
-          <label>Tid: <input type="number" name="time" onChange={(e) => { setTime(e.target.value); }} /></label>
+          <label htmlFor="Namn">Namn: <input type="text" onChange={(e) => { setTitle(e.target.value); }} /></label>
+          <label htmlFor="Beskrivning">Beskrivning: <input type="text" name="description" onChange={(e) => { setDesc(e.target.value); }} /></label>
+          <label htmlFor="Kategori1">Kategori Protein: <input type="text" name="category1" onChange={(e) => { setcategory1(e.target.value); }} /></label>
+          <label htmlFor="Kategori2">Kategori Kolhydrat: <input type="text" name="category2" onChange={(e) => { setcategory2(e.target.value); }} /></label>
+          <label htmlFor="bildlänk">Bildlänk:<input type="text" name="imageLink" onChange={(e) => { setImageLink(e.target.value); }} /></label>
+          <label htmlFor="Time">Tid: <input type="number" name="time" onChange={(e) => { setTime(e.target.value); }} /></label>
           <hr />
-          <h3>{Rubrik}</h3>
           {
                 ingredients.map((val, idx) => (
                   <DynomicInput
@@ -127,10 +127,10 @@ export default function Admin(props) {
             onClick={addInst}
           />
           <hr />
-          <label>Rating:<input type="text" name="rating" /></label>
-          <label>FoodType:
+          <label htmlFor="rating">Rating:<input type="text" name="rating" /></label>
+          <label htmlFor="Foodtype" className="foodtype">Vad för sort recept:
             <select className="portioner" onChange={(e) => { setFoodType(e.target.value); }}>
-              <option value="All">Äter allt</option>
+              <option value="All">Kött / kyckling</option>
               <option value="Fisk">Fisk</option>
               <option value="Vegetarian">Vegetarian</option>
               <option value="Vegan">Vegan</option>
@@ -142,6 +142,17 @@ export default function Admin(props) {
       </div>
       <div className="admin-receptlist">
         <h2>Receptlista</h2>
+        <div>
+          {
+              listRecipe.map(rec => (
+                <div key={rec._id}>
+                  {rec.title}
+                  <div className="editbtn" />
+                  <div className="deletebtn" />
+                </div>
+              ))
+            }
+        </div>
       </div>
     </div>
   );

@@ -72,18 +72,7 @@ const DynamicInput = ({
          ? (
            <div className="DynomicInput" key={`main-${idx}`}>
              <p>{ Rubrik } { idx + 1 }</p>
-             <label htmlFor={unitId}>Enhet
-               <input
-                 type="text"
-                 name={unitId}
-                 data-idx={idx}
-                 id={unitId}
-                 className="unit"
-                 value={input[idx].unit}
-                 onChange={handleCatChange}
-               />
-             </label>
-             <label htmlFor={countId}>Antal
+             <label htmlFor={countId}>Antal:
                <input
                  type="number"
                  name={countId}
@@ -94,7 +83,18 @@ const DynamicInput = ({
                  onChange={handleCatChange}
                />
              </label>
-             <label htmlFor={ingId}>Ingrediens
+             <label htmlFor={unitId}>Enhet:
+               <input
+                 type="text"
+                 name={unitId}
+                 data-idx={idx}
+                 id={unitId}
+                 className="unit"
+                 value={input[idx].unit}
+                 onChange={handleCatChange}
+               />
+             </label>
+             <label htmlFor={ingId}>Ingrediens:
                <input
                  type="text"
                  name={ingId}
@@ -110,7 +110,7 @@ const DynamicInput = ({
          : (
            <div className="DynomicInput" key={`main-${idx}`}>
              <p>{ Rubrik } { idx + 1 }</p>
-             <label htmlFor={instId}>Instruktion
+             <label htmlFor={instId}>Instruktion:
                <input
                  type="text"
                  name={unitId}
