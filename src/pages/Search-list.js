@@ -13,6 +13,8 @@ export default function SearchList(props) {
   };
   const [searchValue, setSearchValue] = useState('');
   const listRecipe = props.recipe;
+  const foodtype1 = props.food;  
+  console.log(foodtype1);
 
   function handleSearchInputChange(e) {
     setSearchValue(e.target.value);
@@ -61,7 +63,7 @@ export default function SearchList(props) {
   const categorylist2 = category2;
   category2 = Array.from(new Set(categorylist2.map(JSON.stringify))).map(JSON.parse);
 
-  const handleCategory2Change = (e) => {
+  const handleCategory2Change = (e) => {  
     categoryToggle(e);
   };
   const handleCategory1Change = (e) => {
@@ -90,7 +92,7 @@ export default function SearchList(props) {
             <div className="category">
               {
                 category1.map((cat1, idx) => (
-                  <label key={idx} onChange={handleCategory1Change}>
+                  <label htmlFor="idx" key={idx} onChange={handleCategory1Change}>
                     <input
                       type="checkbox"
                       className="categoryCheck"
@@ -101,7 +103,7 @@ export default function SearchList(props) {
               }
               {
                 category2.map((cat2, idx) => (
-                  <label key={idx} onChange={handleCategory2Change}>
+                  <label htmlFor="idx" key={idx} onChange={handleCategory2Change}>
                     <input
                       type="checkbox"
                       className="categoryCheck"
