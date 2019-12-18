@@ -145,10 +145,10 @@ export default function Admin(props) {
         <div>
           {
               listRecipe.map(rec => (
-                <div key={rec._id}>
-                  {rec.title}
-                  <div className="editbtn" />
-                  <div className="deletebtn" />
+                <div key={rec._id} className="listrow">
+                  <span className="admin-title">{rec.title}</span>
+                  <span className="editbtn" role="button" alt="edit" />
+                  <span className="deletebtn" role="button" alt="delete" />
                 </div>
               ))
             }

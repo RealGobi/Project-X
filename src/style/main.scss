@@ -179,6 +179,15 @@ html {
             background: #c4c4c4;
             padding: 12px;
             border-radius: 3px;
+            .listrow {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                .admin-title {
+                    width: 260px;
+                    text-align: left;
+                }
+            }
         }
         
         .admin-addrecept {
