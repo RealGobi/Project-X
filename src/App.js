@@ -85,7 +85,7 @@ const App = (props) => {
       <div className="App">
         <Switch>
           <Route path="/" exact render={() => <Login submitHandler={submitHandler} setEmail={setEmail} setPassword={setPassword} />} />
-          <Route path="/signup" component={SignUp} />
+          <Route path="/signup" render={() => <SignUp tokens={tokens} />} />
           <Route path="/landing-page" render={() => <LandingPage userName={userName} food={food}/>} />
           <Route path="/choose-first" render={() => <ChooseFirst recipe={recipe} setCategoryOne={setCategoryOne} />} />
           <Route path="/choose-second" render={() => <ChooseSecond findRecipeBasedOnOne={findRecipeBasedOnOne} setCategoryTwo={setCategoryTwo} />} />

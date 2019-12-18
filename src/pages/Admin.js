@@ -59,6 +59,7 @@ export default function Admin(props) {
     e.preventDefault(e);
     if (!newRecipe) return;
     setLoading(true);
+    console.log(loading);    
     recipeApi
       .post({
         title,

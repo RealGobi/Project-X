@@ -6,7 +6,7 @@ import Button from '../Components/Button/Button';
 import Background from '../images/monika-grabkowska-white.jpg';
 import useFetch from '../Hooks/useFetch';
 
-export default function SignUp() {
+export default function SignUp(props) {
   const headLine = 'Skapa Konto';
   const styleback = {
     backgroundImage: `url(${Background})`,
@@ -20,7 +20,7 @@ export default function SignUp() {
   const userPassword = React.createRef();
   const [foodType, setUserFoodType] = useState('');
 
-  const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlczB0QHRlc3Quc2UiLCJ1c2VySWQiOiI1ZGU3YWZhODU2MjA1YzBkMjFhZDg2YjQiLCJpYXQiOjE1NzYyNDg4NjEsImV4cCI6MTU3NjI1MjQ2MX0.qni65blh09WKpSPcNohF0a6mUE4aEf2HT2sKyk2o_mI';
+  const token = props.tokens;
   const userApi = useFetch(
     'http://localhost:3000/users/',
     token,
@@ -36,7 +36,7 @@ export default function SignUp() {
       return;
     }
     console.log(email, password, name, foodType);
-  /*   userApi
+    userApi
       .post({
         name,
         email,
@@ -45,7 +45,7 @@ export default function SignUp() {
       })
       .then((data) => {
         console.log(data);
-      }); */
+      });
   };
 
   return (

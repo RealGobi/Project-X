@@ -16,6 +16,13 @@ export default function LandingPage(props) {
   const userName1 = props.userName;
   const foodtypeUser1 = props.food;
   const [foodType, setUserFoodType] = useState(foodtypeUser1);
+  const [mailContent, setMailContent] = useState();
+  const [mailHead, setMailHead] = useState('');
+
+  const setSendMail = () => {
+    console.log(mailHead);
+    console.log(mailContent);
+  };
 
   const hello = <span>God Morgon {userName1}</span>;
   const setting = (
@@ -23,16 +30,22 @@ export default function LandingPage(props) {
       <Button buttonText="Vegan" color="mint" clickHandler={() => setUserFoodType('Vegan')} /><Button buttonText="Vegetarian" color="yellow" clickHandler={() => setUserFoodType('Vegetarian')} />
       <Button buttonText="Fiskätare" color="mint" clickHandler={() => setUserFoodType('Fiskätare')} />
       <Button buttonText="Allätare" color="persica" clickHandler={() => setUserFoodType('Allätare')} />
-      <p>Du har valt {foodType}. Tryck på krysset om du är nöjd.</p>
+      <p>Du har valt {foodType}</p>
     </span>
   );
-  const mail = <span><label htmlFor="ämne"> Ämne:<input type="text" /></label><label> Förslag eller synpunkt:<input type="textarea" /><Button buttonText="Skicka" color="yellow" /></label></span>;
-  console.log(foodType);
+  const mail = (
+    <span>
+      <form>
+        <label htmlFor="ämne">Ämne:<input type="text" id="mailhead" onChange={e => setMailHead(e.target.value)} /></label>
+        <label htmlFor="förslag">Förslag eller synpunkt:<textarea id="mailcontent" onChange={e => setMailContent(e.target.value)} /></label>
+      </form>
+      <Button buttonText="Skicka" color="yellow" clickHandler={setSendMail} />
+    </span>
+  );
 
   return (
     <div>
       <Header headLine={hello} />
-
       <Page>
         <div className="mail-button">
           <Popup trigger={<img src={Mail} alt="mail" />} modal>
