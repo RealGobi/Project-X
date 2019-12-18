@@ -92,7 +92,7 @@ const App = (props) => {
           <Route path="/recipt-list" render={() => <ReciptList findRecipeBasedOnOne={findRecipeBasedOnOne} setChosenRecipe={setChosenRecipe} />} />
           <Route path="/recipt-page" render={() => <ReciptPage findRecipe={findRecipe} />} />
           <Route path="/search-list" render={() => <SearchList setChosenRecipe={setChosenRecipe} recipe={recipe} />} />
-          <Route path="/admin" render={() => <Admin recipe={recipe} />} />
+          <Route path="/admin" render={() => <Admin recipe={recipe} tokens={tokens} />} />
         </Switch>
       </div>
     </Router>
