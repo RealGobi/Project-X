@@ -12,17 +12,18 @@ import {
 
 const initialState = {
   token: localStorage.getItem('token'),
+  name: localStorage.getItem('name'),
+  foodType: localStorage.getItem('foodType'),
   isAuthenticated: null,
   isLoading: false,
   user: null,
 };
 
 export default function (state = initialState, action) {
-
   switch (action.type) {
     case USER_LOADING:
       return {
-        state,
+        ...state,
         isLoading: true,
       };
     case USER_LOADED:
@@ -35,6 +36,8 @@ export default function (state = initialState, action) {
     case LOGIN_SUCCESS:
     case REGISTER_SUCCESS:
       localStorage.setItem('token', action.payload.token);
+      localStorage.setItem('name', action.payload.user.name);
+      localStorage.setItem('foodType', action.payload.user.foodType);
       return {
         ...state,
         ...action.payload,
@@ -46,6 +49,8 @@ export default function (state = initialState, action) {
     case LOGOUT_SUCCESS:
     case REGISTER_FAIL:
       localStorage.removeItem('token');
+      localStorage.removeItem('name');
+      localStorage.removeItem('foodType');
       return {
         ...state,
         token: null,

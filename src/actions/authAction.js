@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { returnErrors } from './errorAction';
-
+import store from '../store';
 import {
   USER_LOADED,
   USER_LOADING,
@@ -11,6 +11,25 @@ import {
   REGISTER_SUCCESS,
   REGISTER_FAIL,
 } from './types';
+
+// setup config and header - use in all actions
+
+export const tokenConfig = (getState) => {
+  // get token from localStorage
+  const { token } = getState().auth;
+
+  // headers
+  const config = {
+    headers: {
+      'Content-type': 'application/json',
+    },
+  };
+  if (token) {
+    console.log(token);
+    config.headers['x-auth-token'] = token;
+  }
+  return config;
+};
 
 // Check token & load user
 export const loadUser = () => (dispatch, getState) => {
@@ -24,7 +43,9 @@ export const loadUser = () => (dispatch, getState) => {
       payload: res.data,
     }))
     .catch((err) => {
-      dispatch(returnErrors(err.response.data, err.response.status));
+      console.log(err);
+      
+      dispatch(returnErrors(err.response));
       dispatch({
         type: AUTH_ERROR,
       });
@@ -92,27 +113,10 @@ export const login = ({ email, password }) => (dispatch) => {
 };
 
 
-// Logout user
+// Logout
 
-export const logout = () => ({
-  type: LOGOUT_SUCCESS,
-});
-
-// setup config and header - use in all actions
-
-export const tokenConfig = (getState) => {
-  // get token from localStorage
-  const { token } = getState().auth;
-
-  // headers
-  const config = {
-    headers: {
-      'Content-type': 'application/json',
-    },
-  };
-  if (token) {
-    config.header['x-auth-token'] = token;
-    console.log(token);
-  }
-  return config;
+export const logoutMe = () => {
+  store.dispatch({
+    type: LOGOUT_SUCCESS,
+  });
 };

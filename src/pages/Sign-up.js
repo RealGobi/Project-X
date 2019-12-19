@@ -20,7 +20,9 @@ function SignUp(props) {
     signUp: PropTypes.func.isRequired,
     clearErrors: PropTypes.func.isRequired,
   };
-
+  SignUp.defaultProps = {
+    isAuthenticated: false,
+  };
   const headLine = 'Skapa Konto';
   const styleback = {
     backgroundImage: `url(${Background})`,
@@ -35,7 +37,7 @@ function SignUp(props) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [msg, setMsg] = useState('hj');
+  const [msg, setMsg] = useState('');
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -53,14 +55,16 @@ function SignUp(props) {
     store.dispatch(signUp(newUser));
   };
 
-  const { error } = props;
-  console.log(error);
+  const { error, isAuthenticated } = props;
 
   useEffect(() => {
     if (error.id === 'REGISTER_FAIL') {
       setMsg(error.msg.msg);
     } else {
       setMsg(null);
+    }
+    if (isAuthenticated) {
+      props.history.push('/landing-page');
     }
   }, [onSubmit]);
 
