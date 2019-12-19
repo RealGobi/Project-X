@@ -33,7 +33,7 @@ export const loadUser = () => (dispatch, getState) => {
 
 // signUp
 export const signUp = ({
-  name, email, password, foodType,
+  name, email, password, foodType, props,
 }) => (dispatch) => {
   // Heders
   const config = {
@@ -60,6 +60,7 @@ export const signUp = ({
         type: REGISTER_FAIL,
       });
     });
+  console.log(body);
 };
 
 // Login user
@@ -74,7 +75,7 @@ export const login = ({ email, password }) => (dispatch) => {
   // req body
   const body = JSON.stringify({ email, password });
 
-  fetch
+  axios
     .post('http://localhost:5000/api/auth', body, config)
     .then(res => dispatch({
       type: LOGIN_SUCCESS,

@@ -18,10 +18,11 @@ const initialState = {
 };
 
 export default function (state = initialState, action) {
+
   switch (action.type) {
     case USER_LOADING:
       return {
-        ...state,
+        state,
         isLoading: true,
       };
     case USER_LOADED:

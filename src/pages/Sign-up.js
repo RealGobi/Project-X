@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Page from '../Components/Page/Page';
-import usePrev from '../Hooks/usePrev';
 import Header from '../Components/Header/Header';
 import Button from '../Components/Button/Button';
 import Background from '../images/monika-grabkowska-white.jpg';
@@ -36,7 +35,7 @@ function SignUp(props) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [msg, setMsg] = useState('');
+  const [msg, setMsg] = useState('hj');
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -54,16 +53,17 @@ function SignUp(props) {
     store.dispatch(signUp(newUser));
   };
 
-  const { error, isAuthenticated } = props;
+  const { error } = props;
   console.log(error);
 
   useEffect(() => {
-    if (error) {
-      setMsg({ msg: error.msg.msg });
+    if (error.id === 'REGISTER_FAIL') {
+      setMsg(error.msg.msg);
     } else {
-      setMsg({ msg: null });
+      setMsg(null);
     }
-  }, []);
+  }, [onSubmit]);
+
   return (
     <div>
       <Header headLine={headLine} />
@@ -85,6 +85,13 @@ function SignUp(props) {
               <Button buttonText="Fiskätare" color="mint" clickHandler={() => setUserFoodType('Fiskätare')} />
               <Button buttonText="Allätare" color="persica" clickHandler={() => setUserFoodType('Allätare')} />
             </div>
+            <span className="err">
+              {
+                msg
+                  ? <span className="error">{msg}</span>
+                  : null
+              }
+            </span>
             <div className="next-page">
               <button type="submit">Skapa Konto</button>
               <Link to="/">
