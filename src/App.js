@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './store';
+import { loadUser } from './actions/authAction';
+
 
 // pages
 
@@ -14,19 +16,13 @@ import ReciptList from './pages/Recipt-list';
 import ReciptPage from './pages/Recipt-page';
 import SearchList from './pages/Search-list';
 import Admin from './pages/Admin';
-import isAuthenticated from './Auth/auth';
 
-// costum hooks
-
-import useLocalState from './Hooks/localStorgeHook';
-import useFetch from './Hooks/useFetch';
-
-const App = (props) => {
-  // fishing hooks and state
+const App = () => {
+  // fishing hooks
 
   useEffect(() => {
-    isAuthenticated();
     fetchRecipe();
+    store.dispatch(loadUser());
   }, []);
 
   const [recipe, setRecipes] = useState([]);
@@ -34,16 +30,10 @@ const App = (props) => {
   const [categoryTwo, setCategoryTwo] = useState([]);
   const [chosenRecipe, setChosenRecipe] = useState('');
 
-  // sessionStorage
-
-  const [tokens, setTokens] = useLocalState('token');
-  const [userName, setUserName] = useLocalState('useName');
-  const [food, setFood] = useLocalState('foodType');
-
   // get db
 
   const fetchRecipe = async () => {
-    const data = await fetch('http://localhost:3000/recipes/');
+    const data = await fetch('http://localhost:5000/api/recipe');
     const workingData = await data.json();
     setRecipes(workingData);
   };
@@ -53,36 +43,6 @@ const App = (props) => {
   const findRecipe = recipe.find(rec => rec._id === chosenRecipe);
   const findRecipeBasedOnOne = recipe.filter(rec => rec.category1.find(r => r === categoryOne));
 
-
-  // Login func
-
-  const userApi = useFetch(
-    'http://localhost:3000/user/login',
-  );
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const submitHandler = async () => {
-    if (email.trim().length === 0 || password.trim().length === 0) {
-      return;
-    }
-    console.log(email, password);
-    await userApi
-      .post({
-        email,
-        password,
-      })
-      .then((data) => {
-        const { token, name, foodType } = data;
-        setTokens(token);
-        setUserName(name);
-        setFood(foodType);
-        isAuthenticated();
-      });
-  };
-  console.log(`Token:${tokens}`);
-  console.log(`Name:${userName}`);
-  console.log(`FoodType:${food}`);
-
   // Router and render
 
   return (
@@ -90,7 +50,7 @@ const App = (props) => {
       <Provider store={store}>
         <div className="App">
           <Switch>
-            <Route path="/" exact render={() => <Login submitHandler={submitHandler} setEmail={setEmail} setPassword={setPassword} />} />
+            <Route path="/" exact render={() => <Login />} />
             <Route path="/signup" component={SignUp} />
             <Route path="/landing-page" component={LandingPage} />
             <Route path="/choose-first" render={() => <ChooseFirst recipe={recipe} setCategoryOne={setCategoryOne} />} />
@@ -98,7 +58,7 @@ const App = (props) => {
             <Route path="/recipt-list" render={() => <ReciptList findRecipeBasedOnOne={findRecipeBasedOnOne} setChosenRecipe={setChosenRecipe} />} />
             <Route path="/recipt-page" render={() => <ReciptPage findRecipe={findRecipe} />} />
             <Route path="/search-list" render={() => <SearchList setChosenRecipe={setChosenRecipe} recipe={recipe} />} />
-            <Route path="/admin" render={() => <Admin recipe={recipe} tokens={tokens} />} />
+            <Route path="/admin" render={() => <Admin recipe={recipe} />} />
           </Switch>
         </div>
       </Provider>
