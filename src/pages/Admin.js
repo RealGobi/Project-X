@@ -87,7 +87,7 @@ export default function Admin(props) {
 
   return (
     <div className="admin">
-      <h1>Admin</h1>
+      <div className="header"><h1>Admin</h1></div> 
       <div className="admin-addrecept">
         <h2>Nytt Recept</h2>
         <form action="send">
