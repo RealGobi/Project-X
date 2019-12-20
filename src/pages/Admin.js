@@ -59,7 +59,7 @@ export default function Admin(props) {
     e.preventDefault(e);
     if (!newRecipe) return;
     setLoading(true);
-    console.log(loading);    
+    console.log(loading);
     recipeApi
       .post({
         title,
@@ -83,8 +83,7 @@ export default function Admin(props) {
 
   const handleSave = () => {
     console.log(props);
-    
-  }
+  };
 
   return (
     <div className="admin">

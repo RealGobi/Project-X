@@ -3,6 +3,9 @@ import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { logoutMe } from '../../actions/authAction';
 
+import '../../style/main.scss';
+import './Logout.scss';
+
 const Logout = () => {
   const history = useHistory();
   const out = () => {

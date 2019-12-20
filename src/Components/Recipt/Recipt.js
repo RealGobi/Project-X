@@ -24,7 +24,15 @@ const Recipt = ({
   recipeInstructions,
 }) => {
   const [showIngridients, setShowIngridients] = useState(true);
+  const [portions, setPortions] = useState();
   const toogleShowIngridients = (e) => { setShowIngridients(!showIngridients); };
+  const [changedPortionValue, setChangedPortionValue] = useState(false);
+
+  const onChangedValue = (e) => {
+    setChangedPortionValue(true);
+    setPortions(e.target.value);
+    console.log(e.target.value);
+  };
   return (
     <div className="recipt-content">
       <div className="time">
@@ -42,16 +50,22 @@ const Recipt = ({
           <div className="ingridiens">
             <div>
               <form>
-                <select className="portioner">
+                <select className="portioner" defaultValue="4" onChange={onChangedValue}>
                   <option value="1">1 portion</option>
                   <option value="2">2 portioner</option>
+                  <option value="3">3 portioner</option>
                   <option value="4">4 portioner</option>
+                  <option value="5">5 portioner</option>
                   <option value="6">6 portioner</option>
                   <option value="8">8 portioner</option>
+                  <option value="10">10 portioner</option>
                 </select>
               </form>
-              {/* <div className="ingredientGrid"></div> */}
-              {recipeIngredients.map((ing, idx) => <div key={idx}>{ing.count} {ing.unit} {ing.ingredient}</div>)}
+              {changedPortionValue ? (
+                recipeIngredients.map((ing, idx) => <div key={idx}>{portions} {ing.count} {ing.unit} {ing.ingredient}</div>)
+              ) : (
+                recipeIngredients.map((ing, idx) => <div key={idx}>{ing.count} {ing.unit} {ing.ingredient}</div>))
+              }
             </div>
           </div>
         ) : (<div className="space" />)
