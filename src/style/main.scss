@@ -179,6 +179,15 @@ html {
             background: #c4c4c4;
             padding: 12px;
             border-radius: 3px;
+            .listrow {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                .admin-title {
+                    width: 260px;
+                    text-align: left;
+                }
+            }
         }
         
         .admin-addrecept {
@@ -189,8 +198,18 @@ html {
             padding: 12px;
             border-radius: 3px;
 
-          h2, h3 {
+            h2, h3 {
                 text-align: center;
+            }
+
+            .foodtype {
+                margin: 10px;
+                select {
+                    width: 150px;
+                    margin: 10px;
+                    position: relative;
+                    left: 17px;
+                }
             }
 
             label {
@@ -237,7 +256,6 @@ html {
 
                 .input-container {
                     margin: 0 12px 12px 0;
-
                     span {
                         padding-left: 12px;
                     }
@@ -247,7 +265,6 @@ html {
                     display: flex;
                     flex-direction: row;
                     justify-content: flex-end;
-
                     a {
                         margin: 0 12px 0 0;
                     }
@@ -259,7 +276,6 @@ html {
         .header {
             background: $dinner_Blue;
             border-radius: 3px 3px 0 0;
-
             .headLine {
                 margin: 0;
                 line-height: 100px;  
@@ -309,7 +325,6 @@ html {
                 }
             }
 
-
             .select-button {
                 display: flex;
                 justify-content: center;
@@ -317,7 +332,6 @@ html {
             }
             
             .centerGrid {
-
             display: flex;
             align-items: center;
             justify-content: center;
@@ -355,8 +369,6 @@ html {
                 align-items: flex-end;
                 justify-content: flex-end;
                 margin: 64px;
-
-
                 a {
                     text-decoration: none;
                     margin: 0 0 0 12px;
@@ -367,6 +379,7 @@ html {
                 margin: 10px 64px;
             }
         }
+        
     }
 }
 
@@ -393,6 +406,23 @@ html {
             justify-content: flex-end;
             align-items: flex-end;
 
+        }
+        .admin {
+            margin: 12px 12px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-content: space-around;
+            text-align: center;
+            .admin-receptlist {
+                margin: 10px;
+            }
+            
+            .admin-addrecept {
+                display: flex;
+                flex-direction: row;
+                margin: 12px;
+            }
         }
     }
 }

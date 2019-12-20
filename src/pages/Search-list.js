@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useReducer } from 'react';
 import { Link } from 'react-router-dom';
-
 import PropTypes from 'prop-types';
 import Page from '../Components/Page/Page';
 import Header from '../Components/Header/Header';
@@ -19,12 +18,33 @@ export default function SearchList(props) {
     setSearchValue(e.target.value);
   }
 
-  // renders if serchvalue is true.
-  const listRecipeThatRenders = listRecipe.filter(rec => (searchValue ? rec.title.toLowerCase().match(searchValue) : true));
+  // Creating array with the activeCategories
+  const [activeCategoryFilter, dispatch] = useReducer((activeCategoryFilter, { type, value }) => {
+    switch (type) {
+      case 'add':
+        return [...activeCategoryFilter, value];
+      case 'remove':
+        return activeCategoryFilter.filter(index => index !== value);
+      default:
+        return activeCategoryFilter;
+    }
+  }, []);
+  // toogle check/uncheck category
+  const categoryToggle = (e) => {
+    if (e.target.checked) {
+      dispatch({ type: 'add', value: e.target.value });
+    } else if (!e.target.checked) {
+      dispatch({ type: 'remove', value: e.target.value });
+    }
+  };
+
+  const listRecipeThatRenders = listRecipe.filter(rec => (searchValue ? rec.title.toLowerCase().match(searchValue) : true))
+    .filter(rec => (activeCategoryFilter.length !== 0 ? rec.category1.some(value => activeCategoryFilter.includes(value))
+   || rec.category2.some(value => activeCategoryFilter.includes(value)) : true));
 
   const [showCategory, setShowCategory] = useState(true);
-  const toogleShow = (e) => { setShowCategory(!showCategory); };
-  
+  const toggleShow = () => { setShowCategory(!showCategory); };
+
   let category1 = [];
   const collectCategory1 = () => {
     props.recipe.map(cat => cat.category1.map(tac => category1.push(tac)));
@@ -42,10 +62,10 @@ export default function SearchList(props) {
   category2 = Array.from(new Set(categorylist2.map(JSON.stringify))).map(JSON.parse);
 
   const handleCategory2Change = (e) => {
-    console.log(e.target.value);
+    categoryToggle(e);
   };
   const handleCategory1Change = (e) => {
-    console.log(e.target.value);
+    categoryToggle(e);
   };
 
   return (
@@ -65,7 +85,7 @@ export default function SearchList(props) {
           </div>
         </div>
         <div className="categorybar">
-          <div onClick={toogleShow}>Show/Hide Category</div>
+          <div onClick={toggleShow}>Show/Hide Category</div>
           {showCategory ? (
             <div className="category">
               {
@@ -74,7 +94,7 @@ export default function SearchList(props) {
                     <input
                       type="checkbox"
                       className="categoryCheck"
-                      value={cat1.value}
+                      value={cat1}
                     /> {cat1}
                   </label>
                 ))
@@ -85,7 +105,7 @@ export default function SearchList(props) {
                     <input
                       type="checkbox"
                       className="categoryCheck"
-                      value={cat2.value}
+                      value={cat2}
                     /> {cat2}
                   </label>
                 ))
@@ -94,7 +114,7 @@ export default function SearchList(props) {
           ) : (
             <div />
           )
-        } 
+        }
         </div>
         <Link to="recipt-page">
           {
