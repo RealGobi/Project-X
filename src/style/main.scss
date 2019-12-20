@@ -47,6 +47,7 @@ body {
         background: $dinner_Blue;
         border-radius: 3px 3px 0 0;
         margin:0;
+        max-height:100px;
         .headLine {
             margin: 0;
             line-height: 100px;
@@ -63,6 +64,7 @@ body {
             line-height: 70px;
             text-align: center;
             @extend %header2;
+            font-size: 1.8rem;
         }
     }
 
