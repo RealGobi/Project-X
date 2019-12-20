@@ -47,7 +47,6 @@ const App = () => {
 
   return (
     <Router>
-<<<<<<< HEAD
       <Provider store={store}>
         <div className="App">
           <Switch>
@@ -63,21 +62,6 @@ const App = () => {
           </Switch>
         </div>
       </Provider>
-=======
-      <div className="App">
-        <Switch>
-          <Route path="/" exact render={() => <Login submitHandler={submitHandler} setEmail={setEmail} setPassword={setPassword} />} />
-          <Route path="/signup" component={SignUp} />
-          <Route path="/landing-page" component={LandingPage} />
-          <Route path="/choose-first" render={() => <ChooseFirst recipe={recipe} setCategoryOne={setCategoryOne} />} />
-          <Route path="/choose-second" render={() => <ChooseSecond findRecipeBasedOnOne={findRecipeBasedOnOne} setCategoryTwo={setCategoryTwo} />} />
-          <Route path="/recipt-list" render={() => <ReciptList findRecipeBasedOnOne={findRecipeBasedOnOne} setChosenRecipe={setChosenRecipe} />} />
-          <Route path="/recipt-page" render={() => <ReciptPage findRecipe={findRecipe} />} />
-          <Route path="/search-list" render={() => <SearchList setChosenRecipe={setChosenRecipe} recipe={recipe} />} />
-          <Route path="/admin" render={() => <Admin recipe={recipe} tokens={tokens} />} />
-        </Switch>
-      </div>
->>>>>>> master
     </Router>
   );
 };
