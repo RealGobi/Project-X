@@ -2,8 +2,7 @@
 @import './global.scss';
 
 // mobile
-html {
-    background: white;
+body {
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -28,7 +27,6 @@ html {
 
             .input-container {
                 margin: 0 8px 8px 0;
-
                 span {
                     padding: 0px;
                 }
@@ -37,24 +35,18 @@ html {
             .login-button-container {
                 display: flex;
                 flex-direction: row;
-                margin-bottom: 8px;
-
+                margin: 0 8px;
                 a {
                     margin: 0 8px 0 0;
                 }
             }
-            p {
-                font-size: 0.8rem;
-                margin:0 10px 8px;
-            }
         }
-
     }
 
     .header {
         background: $dinner_Blue;
         border-radius: 3px 3px 0 0;
-
+        margin:0;
         .headLine {
             margin: 0;
             line-height: 100px;
@@ -66,7 +58,6 @@ html {
     .header-recipt {
         background: $dinner_Persica;
         border-radius: 3px 3px 0 0;
-        
         h1 {
             margin: 0;
             line-height: 70px;
@@ -77,11 +68,9 @@ html {
 
     .content {
         .sign-up {
-
             #bg {
                 width: 100%;
             }
-
             display: flex;
             align-items: center;
             flex-direction: column;
@@ -227,16 +216,15 @@ html {
 }
 
 @media only screen and (min-width: 767px) {
-
-    html {
-        background: white;
+    
+    body {
         width: 100vw;
         height: 100vh;
         display: flex;
         align-items: flex-start;
         justify-content: center;
-        padding: 0;
         margin: 0;
+        padding: 0;
 
         .Startlogga {
             background-image: url(../images/Startlogga.svg);
@@ -276,6 +264,7 @@ html {
         .header {
             background: $dinner_Blue;
             border-radius: 3px 3px 0 0;
+            margin: 24px 0 0 0;
             .headLine {
                 margin: 0;
                 line-height: 100px;  
@@ -385,27 +374,85 @@ html {
 
 //Ipad Pro
 @media only screen and (min-width: 780px) {
-    html {
-        background: rgb(255, 216, 188);
-   
+    body {
         width: 100vw;
         height: 100vh;
         display: flex;
         align-items: flex-start;
         justify-content: center;
-        padding: 12px 0;
+        padding: 0px 0;
         margin: 0;
 
         .Startlogga {
             background-image: url(../images/Startlogga.svg);
             background-repeat: no-repeat;
-            background-size:cover;
-            width: 100vw;
-            height: 100vh;
+            background-size:1024px 1366px;
             display: flex;
             justify-content: flex-end;
             align-items: flex-end;
+            margin: 0;
 
+        }
+        .admin {
+            margin: 12px 12px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-content: space-around;
+            text-align: center;
+            .admin-receptlist {
+                margin: 10px;
+            }
+            
+            .admin-addrecept {
+                display: flex;
+                flex-direction: row;
+                margin: 12px;
+            }
+        }
+    }
+}
+
+//bigger than ipad pro
+@media only screen and (min-width: 1025px) {
+    body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 0;
+
+        .Startlogga {
+            background-image: url(../images/Startlogga.svg);
+            background-repeat: no-repeat;
+            background-position: center;
+            max-width: 1000px;
+            background-size:1000px 800px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            margin: 0;
+            .login-container {
+                height: 200px;
+                display: flex;
+                flex-direction: column;
+                margin: 0px;
+
+                .input-container {
+                    margin: 0 8px 8px 0;
+                    span {
+                        padding-left: 8px;
+                    }
+                }
+
+                .login-button-container {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: flex-end;
+                    a {
+                        margin: 0 12px 0 0;
+                    }
+                }
+            }
         }
         .admin {
             margin: 12px 12px;

@@ -59,6 +59,7 @@ export default function Admin(props) {
     e.preventDefault(e);
     if (!newRecipe) return;
     setLoading(true);
+    console.log(loading);    
     recipeApi
       .post({
         title,
@@ -79,6 +80,11 @@ export default function Admin(props) {
   };
   const Rubrik = 'Ingredienser:';
   const Rubrik2 = 'Instruktioner:';
+
+  const handleSave = () => {
+    console.log(props);
+    
+  }
 
   return (
     <div className="admin">
@@ -136,9 +142,11 @@ export default function Admin(props) {
               <option value="Vegan">Vegan</option>
             </select>
           </label>
-
         </form>
-        <Button type="button" buttonText="Lägg till" clickHandler={handleSubmit} />
+        <div>
+          <Button type="button" buttonText="Lägg till" clickHandler={handleSubmit} />
+          <Button type="button" buttonText="Spara men posta inte" clickHandler={handleSave} />
+        </div>
       </div>
       <div className="admin-receptlist">
         <h2>Receptlista</h2>
