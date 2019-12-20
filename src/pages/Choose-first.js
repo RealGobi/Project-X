@@ -18,17 +18,19 @@ export default function ChooseFirst({ category1, setCategoryOne }) {
       <Header headLine="Välj Första" />
       <Page>
         <span className="centerGrid">
-          <div className="choose-button">
-            { category1.map((cat1, idx) => <Button clickHandler={() => setCategoryOne(cat1)} key={idx} buttonText={cat1} buttonType="square" />) }
-          </div>
+          <Link to="/choose-second">
+            <div className="choose-button">
+              { category1.map((cat1, idx) => <Button clickHandler={() => setCategoryOne(cat1)} key={idx} buttonText={cat1} buttonType="square" />) }
+            </div>
+          </Link>
         </span>
         <div className="next-page">
           <Link to="/landing-page">
             <Button buttonText="Tillbaka" color="mint" />
           </Link>
-          <Link to="/choose-second">
+         {/*  <Link to="/choose-second">
             <Button buttonText="Välj Första" color="mint" />
-          </Link>
+          </Link> */}
         </div>
       </Page>
     </div>
