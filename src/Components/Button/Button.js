@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import useWindowDimensions from '../../Hooks/useWindowDimensions';
 import '../../style/main.scss';
 import './Button.css';
 
@@ -18,6 +18,7 @@ const Button = ({
 }) => {
   let bg;
   let btnType;
+  const { width } = useWindowDimensions();
 
   switch (color) {
     case 'mint':
@@ -31,21 +32,31 @@ const Button = ({
       break;
   }
 
-  switch (buttonType) {
-    case 'big':
-      btnType = { width: '330px' };
-      break;
-    case 'square':
-      btnType = { width: '75px', height: '75px' };
-      break;
-    case 'squaretablet':
-      btnType = { width: '125px', height: '125px' };
-      break;
-    default:
-      btnType = { width: '140px' };
-      break;
+  if (width > 767) {
+    switch (buttonType) {
+      case 'big':
+        btnType = { width: '500px', height: '75px' };
+        break;
+      case 'square':
+        btnType = { width: '125px', height: '125px' };
+        break;
+      default:
+        btnType = { width: '200px', height: '75px' };
+        break;
+    }
+  } else {
+    switch (buttonType) {
+      case 'big':
+        btnType = { width: '330px', height: '55px' };
+        break;
+      case 'square':
+        btnType = { width: '75px', height: '75px' };
+        break;
+      default:
+        btnType = { width: '140px', height: '55px' };
+        break;
+    }
   }
-
   return (
     <div onClick={clickHandler} className="Button" style={{ ...bg, ...btnType }}>
       <h1 className="button-text"> {buttonText} </h1>
