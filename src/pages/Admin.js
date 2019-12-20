@@ -9,9 +9,9 @@ export default function Admin(props) {
   const [loading, setLoading] = useState(false);
   const listRecipe = props.recipe;
 
-  const token = props.tokens;
+  const token = localStorage.getItem('token');
   const recipeApi = useFetch(
-    'http://localhost:3000/recipes/',
+    'http://localhost:5000/api/recipe',
     token,
   );
 
