@@ -1,12 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import Page from '../Components/Page/Page';
 import Header from '../Components/Header/Header';
 import Button from '../Components/Button/Button';
 import Background from '../images/monika-grabkowska-white.jpg';
-import useFetch from '../Hooks/useFetch';
+import { signUp } from '../actions/authAction';
+import { clearErrors } from '../actions/errorAction';
+import store from '../store';
 
-export default function SignUp(props) {
+
+function SignUp(props) {
+  // prop types
+
+  SignUp.propTypes = {
+    isAuthenticated: PropTypes.bool,
+    error: PropTypes.object.isRequired,
+    signUp: PropTypes.func.isRequired,
+    clearErrors: PropTypes.func.isRequired,
+  };
+  SignUp.defaultProps = {
+    isAuthenticated: false,
+  };
   const headLine = 'Skapa Konto';
   const styleback = {
     backgroundImage: `url(${Background})`,
@@ -15,53 +31,62 @@ export default function SignUp(props) {
     backgroundRepeat: 'no-repeat',
   };
 
-  const userName = React.createRef();
-  const userEmail = React.createRef();
-  const userPassword = React.createRef();
+  // state
+
   const [foodType, setUserFoodType] = useState('');
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [msg, setMsg] = useState('');
 
-  const token = props.tokens;
-  const userApi = useFetch(
-    'http://localhost:3000/users/',
-    token,
-  );
-
+  const onSubmit = (e) => {
+    e.preventDefault();
   const submitHandler = (event) => {
     event.preventDefault();
     const name = userName.current.value;
     const email = userEmail.current.value;
     const password = userPassword.current.value;
 
-    if (email.trim().length === 0 || password.trim().length === 0) {
-      return;
-    }
-    console.log(email, password, name, foodType);
-    userApi
-      .post({
-        name,
-        email,
-        password,
-        foodType,
-      })
-      .then((data) => {
-        console.log(data);
-      });
+    // Create user object
+    const newUser = {
+      name,
+      email,
+      password,
+      foodType,
+
+    };
+
+    // Attempt to register
+    store.dispatch(signUp(newUser));
   };
+
+  const { error, isAuthenticated } = props;
+
+  useEffect(() => {
+    if (error.id === 'REGISTER_FAIL') {
+      setMsg(error.msg.msg);
+    } else {
+      setMsg(null);
+    }
+    if (isAuthenticated) {
+      props.history.push('/landing-page');
+    }
+  }, [onSubmit]);
 
   return (
     <div>
       <Header headLine={headLine} />
       <div id="bg" style={styleback}>
         <Page>
-          <form className="sign-up" onSubmit={submitHandler}>
+          <form className="sign-up" onSubmit={onSubmit}>
             <div className="input-container">
-              <span>Namn:</span> <input type="text" id="name" ref={userName} />
+              <label htmlFor="name">Name: </label><input type="text" id="name" onChange={e => setName(e.target.value)} />
             </div>
             <div className="input-container">
-              <span>E-post:</span> <input type="email" id="email" ref={userEmail} />
+              <label htmlFor="email">E-post: </label> <input type="email" id="email" onChange={e => setEmail(e.target.value)} />
             </div>
             <div className="input-container">
-              <span>Lösenord:</span> <input type="password" id="password" ref={userPassword} />
+              <label htmlFor="password">Lösenord: </label> <input type="password" id="password" onChange={e => setPassword(e.target.value)} />
             </div>
             <div className="select-preference-button">
               <Button buttonText="Vegan" color="mint" clickHandler={() => setUserFoodType('Vegan')} />
@@ -69,6 +94,13 @@ export default function SignUp(props) {
               <Button buttonText="Fiskätare" color="mint" clickHandler={() => setUserFoodType('Fiskätare')} />
               <Button buttonText="Allätare" color="persica" clickHandler={() => setUserFoodType('Allätare')} />
             </div>
+            <span className="err">
+              {
+                msg
+                  ? <span className="error">{msg}</span>
+                  : null
+              }
+            </span>
             <div className="next-page">
               <button type="submit">Skapa Konto</button>
               <Link to="/">
@@ -81,3 +113,10 @@ export default function SignUp(props) {
     </div>
   );
 }
+
+const mapStateToProps = state => ({
+  isAuthenticated: state.auth.isAuthenticated,
+  error: state.error,
+});
+
+export default connect(mapStateToProps, { signUp, clearErrors })(SignUp);

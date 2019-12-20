@@ -1,15 +1,53 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { Link, useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+
+import { connect } from 'react-redux';
+import { login } from '../actions/authAction';
+import { clearErrors } from '../actions/errorAction';
+import store from '../store';
 import Button from '../Components/Button/Button';
 
+function Login(props) {
+  // prop types
 
-export default function Login({ submitHandler, setEmail, setPassword }) {
   Login.propTypes = {
-    submitHandler: PropTypes.func.isRequired,
-    setEmail: PropTypes.func.isRequired,
-    setPassword: PropTypes.func.isRequired,
+    isAuthenticated: PropTypes.bool,
+    error: PropTypes.object.isRequired,
+    login: PropTypes.func.isRequired,
+    clearErrors: PropTypes.func.isRequired,
   };
+  Login.defaultProps = {
+    isAuthenticated: false,
+  };
+
+  // state
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [msg, setMsg] = useState('');
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    const user = {
+      email,
+      password,
+    };
+    store.dispatch(login(user));
+  };
+
+  const { error, isAuthenticated } = props;
+  const history = useHistory();
+  useEffect(() => {
+    if (error.id === 'LOGIN_FAIL') {
+      setMsg(error.msg.msg);
+    } else {
+      setMsg(null);
+    }
+    if (isAuthenticated) {
+      history.push('/landing-page');
+    }
+  }, [onSubmit]);
 
   return (
     <div className="Startlogga">
@@ -20,17 +58,28 @@ export default function Login({ submitHandler, setEmail, setPassword }) {
         <div className="input-container">
           <span>Lösenord:</span> <input type="password" id="password" onChange={e => setPassword(e.target.value)} />
         </div>
+        <span className="err">
+          {
+                msg
+                  ? <span className="error">{msg}</span>
+                  : null
+              }
+        </span>
         <div className="login-button-container">
           <Link to="/signup">
             <Button buttonText="Skapa Konto" color="mint" />
           </Link>
-          <span onClick={() => submitHandler()}>
-            <Link to="landing-page">
-              <Button buttonText="Logga In" color="yellow" />
-            </Link>
+          <span>
+            <Button buttonText="Logga In" color="yellow" clickHandler={onSubmit} />
           </span>
         </div>
       </form>
     </div>
   );
 }
+const mapStateToProps = state => ({
+  isAuthenticated: state.auth.isAuthenticated,
+  error: state.error,
+});
+
+export default connect(mapStateToProps, { login, clearErrors })(Login);
