@@ -58,9 +58,9 @@ const DynamicInput = ({
              <label htmlFor={instId}>Instruktion
                <input
                  type="text"
-                 name={unitId}
+                 name={instId}
                  data-idx={idx}
-                 id={unitId}
+                 id={instId}
                  className="inst"
                  value={input[idx].inst}
                  onChange={handleCatChange}
