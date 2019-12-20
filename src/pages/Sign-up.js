@@ -41,11 +41,6 @@ function SignUp(props) {
 
   const onSubmit = (e) => {
     e.preventDefault();
-  const submitHandler = (event) => {
-    event.preventDefault();
-    const name = userName.current.value;
-    const email = userEmail.current.value;
-    const password = userPassword.current.value;
 
     // Create user object
     const newUser = {
