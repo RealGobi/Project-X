@@ -13,6 +13,7 @@ import arrow from '../../images/arrow.svg';
  * @param {string} recipeImg
  * @param {string} recipeTitle
  * @param {number} time
+ * @param {array} recipeInstructions
 * */
 
 const Recipt = ({
@@ -28,10 +29,9 @@ const Recipt = ({
   const toogleShowIngridients = (e) => { setShowIngridients(!showIngridients); };
   const [changedPortionValue, setChangedPortionValue] = useState(false);
 
-  const onChangedValue = (e) => {
+  const handleChangedValue = (e) => {
     setChangedPortionValue(true);
     setPortions(e.target.value);
-    console.log(e.target.value);
   };
   return (
     <div className="recipt-content">
@@ -50,7 +50,7 @@ const Recipt = ({
           <div className="ingridiens">
             <div>
               <form>
-                <select className="portioner" defaultValue="4" onChange={onChangedValue}>
+                <select className="portioner" defaultValue="4" onChange={handleChangedValue}>
                   <option value="1">1 portion</option>
                   <option value="2">2 portioner</option>
                   <option value="3">3 portioner</option>
@@ -62,7 +62,7 @@ const Recipt = ({
                 </select>
               </form>
               {changedPortionValue ? (
-                recipeIngredients.map((ing, idx) => <div key={idx}>{portions} {ing.count} {ing.unit} {ing.ingredient}</div>)
+                recipeIngredients.map((ing, idx) => <div key={idx}>{ing.count / 4 * portions} {ing.unit} {ing.ingredient}</div>)
               ) : (
                 recipeIngredients.map((ing, idx) => <div key={idx}>{ing.count} {ing.unit} {ing.ingredient}</div>))
               }
@@ -74,7 +74,7 @@ const Recipt = ({
       <div className="instructions">
         <h2>Instruktioner</h2>
         <hr />
-        {recipeInstructions.map((inst, idx) => <div key={idx}>{idx+1}. {recipeInstructions[idx].inst} </div>)}
+        {recipeInstructions.map((ing, idx) => <p key={idx}>{idx + 1}. {recipeInstructions[idx]} </p>)}
       </div>
     </div>
   );

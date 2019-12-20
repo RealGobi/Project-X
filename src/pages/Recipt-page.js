@@ -5,7 +5,6 @@ import Button from '../Components/Button/Button';
 import Recipt from '../Components/Recipt/Recipt';
 
 export default function ReciptPage(findRecipe) {
-  //console.log(findRecipe.findRecipe.instructions);
   const history = useHistory();
   function goBackHandler() {
     history.goBack();
