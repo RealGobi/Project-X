@@ -96,7 +96,7 @@ function SignUp(props) {
                   : null
               }
             </span>
-            <div className="next-page">
+            <div className="next">
               <button type="submit">Skapa Konto</button>
               <Link to="/">
                 <Button buttonText="Tillbaka" color="mint" />

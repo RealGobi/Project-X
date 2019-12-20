@@ -11,6 +11,7 @@ import Button from '../Components/Button/Button';
 
 import Mail from '../images/button-contact.svg';
 import Settings from '../images/button-settings.svg';
+import Background from '../images/lemons.jpg';
 
 export default function LandingPage(props) {
   const userName1 = props.userName;
@@ -25,6 +26,12 @@ export default function LandingPage(props) {
   };
 
   const hello = <span>God Morgon {userName1}</span>;
+  const styleback = {
+    backgroundImage: `url(${Background})`,
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+  };
   const setting = (
     <span className="settings">
       <Button buttonText="Vegan" color="mint" clickHandler={() => setUserFoodType('Vegan')} /><Button buttonText="Vegetarian" color="yellow" clickHandler={() => setUserFoodType('Vegetarian')} />
@@ -44,7 +51,7 @@ export default function LandingPage(props) {
   );
 
   return (
-    <div>
+    <div id="bg" style={styleback}>
       <Header headLine={hello} />
       <Page>
         <div className="mail-button">
