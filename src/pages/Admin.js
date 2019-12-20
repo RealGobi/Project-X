@@ -8,9 +8,9 @@ export default function Admin(props) {
   const [newRecipe, setNewRecipe] = useState({});
   const [loading, setLoading] = useState(false);
 
-  const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkZmExOGUzYjdhNjBjNjJhMjAxMTAwMyIsImlhdCI6MTU3NjcxMTM3MSwiZXhwIjoxNTc2NzE0OTcxfQ.OEk_iLlCPj5E7pwtTwy-iIB_jEqBg6PktoUjohFW8EE';
+  const token = localStorage.getItem('token');
   const recipeApi = useFetch(
-    'http://localhost:5000/api/recipe/',
+    'http://localhost:5000/api/recipe',
     token,
   );
 
