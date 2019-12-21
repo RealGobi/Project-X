@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { Provider } from 'react-redux';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import store from './store';
 import { loadUser } from './actions/authAction';
-
+import { getRecipes } from './actions/recipeAction';
 
 // pages
 
@@ -17,29 +18,24 @@ import ReciptPage from './pages/Recipt-page';
 import SearchList from './pages/Search-list';
 import Admin from './pages/Admin';
 
-const App = () => {
+const App = (recipe) => {
+  useEffect(() => {
+    const dispatchActions = async () => {
+      await store.dispatch(loadUser());
+      store.dispatch(getRecipes());
+      console.log('lkjh');
+    };
+    dispatchActions();
+  }, []);
   // fishing hooks
 
-  useEffect(() => {
-    fetchRecipe();
-    store.dispatch(loadUser());
-  }, []);
-
-  const [recipe, setRecipes] = useState([]);
   const [categoryOne, setCategoryOne] = useState([]);
   const [categoryTwo, setCategoryTwo] = useState([]);
   const [chosenRecipe, setChosenRecipe] = useState('');
-
-  // get db
-
-  const fetchRecipe = async () => {
-    const data = await fetch('http://localhost:5000/api/recipe');
-    const workingData = await data.json();
-    setRecipes(workingData);
-  };
-
+  
   // filter out recipe
-
+  
+  console.log(recipe);
   const findRecipe = recipe.find(rec => rec._id === chosenRecipe);
   const findRecipeBasedOnOne = recipe.filter(rec => rec.category1.find(r => r === categoryOne));
 
@@ -68,24 +64,30 @@ const App = () => {
 
   return (
     <Router>
-      <Provider store={store}>
-        <div className="App">
-          <Switch>
-            <Route path="/" exact render={() => <Login />} />
-            <Route path="/signup" component={SignUp} />
-            <Route path="/landing-page" component={LandingPage} />
-            <Route path="/choose-first" render={() => <ChooseFirst recipe={recipe} setCategoryOne={setCategoryOne} category1={category1} />} />
-            <Route path="/choose-second" render={() => <ChooseSecond findRecipeBasedOnOne={findRecipeBasedOnOne} setCategoryTwo={setCategoryTwo} />} />
-            <Route path="/recipt-list" render={() => <ReciptList findRecipeBasedOnOne={findRecipeBasedOnOne} setChosenRecipe={setChosenRecipe} />} />
-            <Route path="/recipt-page" render={() => <ReciptPage findRecipe={findRecipe} />} />
-            <Route path="/search-list" render={() => <SearchList setChosenRecipe={setChosenRecipe} recipe={recipe} category1={category1} category2={category2} />} />
-            <Route path="/admin" render={() => <Admin recipe={recipe} />} />
-          </Switch>
-        </div>
-      </Provider>
+      <div className="App">
+        <Switch>
+          <Route path="/" exact render={() => <Login />} />
+          <Route path="/signup" component={SignUp} />
+          <Route path="/landing-page" component={LandingPage} />
+          <Route path="/choose-first" render={() => <ChooseFirst recipe={recipe} setCategoryOne={setCategoryOne} category1={category1} />} />
+          <Route path="/choose-second" render={() => <ChooseSecond findRecipeBasedOnOne={findRecipeBasedOnOne} setCategoryTwo={setCategoryTwo} />} />
+          <Route path="/recipt-list" render={() => <ReciptList findRecipeBasedOnOne={findRecipeBasedOnOne} setChosenRecipe={setChosenRecipe} />} />
+          <Route path="/recipt-page" render={() => <ReciptPage findRecipe={findRecipe} />} />
+          <Route path="/search-list" render={() => <SearchList setChosenRecipe={setChosenRecipe} recipe={recipe} category1={category1} category2={category2} />} />
+          <Route path="/admin" render={() => <Admin recipe={recipe} />} />
+        </Switch>
+      </div>
     </Router>
   );
 };
 
+// prop types
+App.propTypes = {
+  getRecipes: PropTypes.func.isRequired,
+  recipe: PropTypes.object.isRequired,
+};
 
-export default App;
+const mapStateToProps = state => ({
+  recipe: state.recipe,
+});
+export default connect(mapStateToProps, { getRecipes })(App);
