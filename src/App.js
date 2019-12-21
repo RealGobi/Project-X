@@ -22,12 +22,7 @@ const App = (getState) => {
   const { recipes } = getState.recipe;
   console.log(recipes);
   useEffect(() => {
-    const dispatchActions = async () => {
-      await store.dispatch(loadUser());
-      store.dispatch(getRecipes());
-      console.log('lkjh');
-    };
-    dispatchActions();
+    store.dispatch(loadUser());
   }, []);
   // fishing hooks
 
