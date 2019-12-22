@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { Provider } from 'react-redux';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import store from './store';
 import { loadUser } from './actions/authAction';
-
+import { getRecipes } from './actions/recipeAction';
 
 // pages
 
@@ -17,54 +18,73 @@ import ReciptPage from './pages/Recipt-page';
 import SearchList from './pages/Search-list';
 import Admin from './pages/Admin';
 
-const App = () => {
-  // fishing hooks
-
+const App = (getState) => {
+  const { recipes } = getState.recipe;
+  console.log(recipes);
   useEffect(() => {
-    fetchRecipe();
     store.dispatch(loadUser());
   }, []);
+  // fishing hooks
 
-  const [recipe, setRecipes] = useState([]);
   const [categoryOne, setCategoryOne] = useState([]);
   const [categoryTwo, setCategoryTwo] = useState([]);
   const [chosenRecipe, setChosenRecipe] = useState('');
-
-  // get db
-
-  const fetchRecipe = async () => {
-    const data = await fetch('http://localhost:5000/api/recipe');
-    const workingData = await data.json();
-    setRecipes(workingData);
-  };
-
+  
   // filter out recipe
+  
+  console.log(recipes);
+  const findRecipe = recipes.find(rec => rec._id === chosenRecipe);
+  const findRecipeBasedOnOne = recipes.filter(rec => rec.category1.find(r => r === categoryOne));
 
-  const findRecipe = recipe.find(rec => rec._id === chosenRecipe);
-  const findRecipeBasedOnOne = recipe.filter(rec => rec.category1.find(r => r === categoryOne));
+  // filter out category
+
+  // collect all categorys to one array
+  let category1 = [];
+  const collectCategory1 = () => {
+    recipes.map(cat => cat.category1.map(tac => category1.push(tac)));
+  };
+  collectCategory1();
+  const categorylist1 = category1;
+  // remove duplicates
+  category1 = Array.from(new Set(categorylist1.map(JSON.stringify))).map(JSON.parse);
+
+  let category2 = [];
+  const collectCategory2 = () => {
+    recipes.map(cat => cat.category2.map(tac => category2.push(tac)));
+  };
+  collectCategory2();
+  const categorylist2 = category2;
+  // remove duplicates
+  category2 = Array.from(new Set(categorylist2.map(JSON.stringify))).map(JSON.parse);
 
   // Router and render
 
   return (
     <Router>
-      <Provider store={store}>
-        <div className="App">
-          <Switch>
-            <Route path="/" exact render={() => <Login />} />
-          <Route path="/signup" render={() => <SignUp tokens={tokens} />} />
-          <Route path="/landing-page" render={() => <LandingPage userName={userName} food={food}/>} />
-            <Route path="/choose-first" render={() => <ChooseFirst recipe={recipe} setCategoryOne={setCategoryOne} />} />
-            <Route path="/choose-second" render={() => <ChooseSecond findRecipeBasedOnOne={findRecipeBasedOnOne} setCategoryTwo={setCategoryTwo} />} />
-            <Route path="/recipt-list" render={() => <ReciptList findRecipeBasedOnOne={findRecipeBasedOnOne} setChosenRecipe={setChosenRecipe} />} />
-            <Route path="/recipt-page" render={() => <ReciptPage findRecipe={findRecipe} />} />
-            <Route path="/search-list" render={() => <SearchList setChosenRecipe={setChosenRecipe} recipe={recipe} />} />
-            <Route path="/admin" render={() => <Admin recipe={recipe} />} />
-          </Switch>
-        </div>
-      </Provider>
+      <div className="App">
+        <Switch>
+          <Route path="/" exact render={() => <Login />} />
+          <Route path="/signup" component={SignUp} />
+          <Route path="/landing-page" component={LandingPage} />
+          <Route path="/choose-first" render={() => <ChooseFirst recipe={recipes} setCategoryOne={setCategoryOne} category1={category1} />} />
+          <Route path="/choose-second" render={() => <ChooseSecond findRecipeBasedOnOne={findRecipeBasedOnOne} setCategoryTwo={setCategoryTwo} />} />
+          <Route path="/recipt-list" render={() => <ReciptList findRecipeBasedOnOne={findRecipeBasedOnOne} setChosenRecipe={setChosenRecipe} />} />
+          <Route path="/recipt-page" render={() => <ReciptPage findRecipe={findRecipe} />} />
+          <Route path="/search-list" render={() => <SearchList setChosenRecipe={setChosenRecipe} recipe={recipes} category1={category1} category2={category2} />} />
+          <Route path="/admin" render={() => <Admin recipe={recipes} />} />
+        </Switch>
+      </div>
     </Router>
   );
 };
 
+// prop types
+App.propTypes = {
+  getRecipes: PropTypes.func.isRequired,
+  recipe: PropTypes.object.isRequired,
+};
 
-export default App;
+const mapStateToProps = state => ({
+  recipe: state.recipe,
+});
+export default connect(mapStateToProps, { getRecipes })(App);

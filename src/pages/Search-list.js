@@ -10,15 +10,19 @@ export default function SearchList(props) {
   SearchList.propTypes = {
     // eslint-disable-next-line react/forbid-prop-types
     recipe: PropTypes.array.isRequired,
+    // eslint-disable-next-line react/forbid-prop-types
+    category1: PropTypes.array.isRequired,
+    // eslint-disable-next-line react/forbid-prop-types
+    category2: PropTypes.array.isRequired,
   };
+
   const [searchValue, setSearchValue] = useState('');
   const listRecipe = props.recipe;
-  const foodtype1 = props.food;  
-  console.log(foodtype1);
+  const category1 = props.category1;
+  const category2 = props.category2;
+  // console.log(foodtype1);
 
-  function handleSearchInputChange(e) {
-    setSearchValue(e.target.value);
-  }
+  function handleSearchInputChange(e) { setSearchValue(e.target.value); }
 
   // Creating array with the activeCategories
   const [activeCategoryFilter, dispatch] = useReducer((activeCategoryFilter, { type, value }) => {
@@ -31,6 +35,7 @@ export default function SearchList(props) {
         return activeCategoryFilter;
     }
   }, []);
+
   // toogle check/uncheck category
   const categoryToggle = (e) => {
     if (e.target.checked) {
@@ -46,29 +51,8 @@ export default function SearchList(props) {
 
   const [showCategory, setShowCategory] = useState(true);
   const toggleShow = () => { setShowCategory(!showCategory); };
-
-  let category1 = [];
-  const collectCategory1 = () => {
-    props.recipe.map(cat => cat.category1.map(tac => category1.push(tac)));
-  };
-  collectCategory1();
-  const categorylist1 = category1;
-  category1 = Array.from(new Set(categorylist1.map(JSON.stringify))).map(JSON.parse);
-
-  let category2 = [];
-  const collectCategory2 = () => {
-    props.recipe.map(cat => cat.category2.map(tac => category2.push(tac)));
-  };
-  collectCategory2();
-  const categorylist2 = category2;
-  category2 = Array.from(new Set(categorylist2.map(JSON.stringify))).map(JSON.parse);
-
-  const handleCategory2Change = (e) => {  
-    categoryToggle(e);
-  };
-  const handleCategory1Change = (e) => {
-    categoryToggle(e);
-  };
+  const handleCategory2Change = (e) => { categoryToggle(e); };
+  const handleCategory1Change = (e) => { categoryToggle(e); };
 
   return (
     <div>

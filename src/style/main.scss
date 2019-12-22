@@ -27,6 +27,7 @@ body {
 
             .input-container {
                 margin: 0 8px 8px 0;
+
                 span {
                     padding: 0px;
                 }
@@ -36,6 +37,7 @@ body {
                 display: flex;
                 flex-direction: row;
                 margin: 0 8px;
+
                 a {
                     margin: 0 8px 0 0;
                 }
@@ -46,7 +48,9 @@ body {
     .header {
         background: $dinner_Blue;
         border-radius: 3px 3px 0 0;
-        margin:0;
+        margin: 0;
+        max-height: 100px;
+
         .headLine {
             margin: 0;
             line-height: 100px;
@@ -58,11 +62,13 @@ body {
     .header-recipt {
         background: $dinner_Persica;
         border-radius: 3px 3px 0 0;
+
         h1 {
             margin: 0;
             line-height: 70px;
             text-align: center;
             @extend %header2;
+            font-size: 1.8rem;
         }
     }
 
@@ -71,6 +77,7 @@ body {
             #bg {
                 width: 100%;
             }
+
             display: flex;
             align-items: center;
             flex-direction: column;
@@ -82,14 +89,15 @@ body {
 
             .input-container:nth-child(3) {
                 background: $dinner_Yellow;
-                margin-bottom: 60px;
+                margin-bottom: 40px;
             }
 
-            .next-page {
+            .next {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 50px 0;
                 width: 100%;
-                height: 100px;
-                justify-content: flex-end;
-                align-items: flex-end;
 
                 .Button {
                     margin-right: 24px;
@@ -100,45 +108,46 @@ body {
         .select-preference-button {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            grid-template-rows:repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
             gap: 8px;
         }
-        
+
         .centerGrid {
             @extend %center;
             flex-direction: column;
             padding: 24px;
 
-        .choose-button {
-            display: grid;
-            grid-template-columns: repeat(4, 77px);
-            grid-template-rows:repeat(4, 77px);
-            gap: 8px;
+            .choose-button {
+                display: grid;
+                grid-template-columns: repeat(4, 77px);
+                grid-template-rows: repeat(4, 77px);
+                gap: 8px;
+            }
         }
-    }
 
         .mail-button {
             display: flex;
-            justify-content: space-between;   
-            margin: 0 64px;   
+            justify-content: space-between;
+            margin: 0 64px;
             padding: 26px 0;
         }
-            
+
         .landing-button-position {
             height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             flex-direction: column;
+
             .Button {
                 margin: 24px;
-            }    
+            }
         }
-    
+
         .next-page {
             display: flex;
-            align-items: flex-end;
-            justify-content: flex-end;
+            align-items: flex-start;
+            justify-content: flex-start;
             margin: 24px;
 
             a {
@@ -149,11 +158,12 @@ body {
 
         .categorybar {
             margin: 10px 14px;
+
             label {
                 font-size: 0.9rem;
             }
         }
-     
+
     }
 
     .admin {
@@ -168,17 +178,19 @@ body {
             background: #c4c4c4;
             padding: 12px;
             border-radius: 3px;
+
             .listrow {
                 display: flex;
                 flex-direction: row;
                 justify-content: space-between;
+
                 .admin-title {
                     width: 260px;
                     text-align: left;
                 }
             }
         }
-        
+
         .admin-addrecept {
             background: $dinner_Persica;
             display: flex;
@@ -187,12 +199,14 @@ body {
             padding: 12px;
             border-radius: 3px;
 
-            h2, h3 {
+            h2,
+            h3 {
                 text-align: center;
             }
 
             .foodtype {
                 margin: 10px;
+
                 select {
                     width: 150px;
                     margin: 10px;
@@ -205,6 +219,7 @@ body {
                 display: flex;
                 justify-content: flex-end;
                 padding: 3px;
+
                 input {
                     margin: 0 3px;
                     border-radius: 3px;
@@ -216,7 +231,7 @@ body {
 }
 
 @media only screen and (min-width: 767px) {
-    
+
     body {
         width: 100vw;
         height: 100vh;
@@ -229,7 +244,7 @@ body {
         .Startlogga {
             background-image: url(../images/Startlogga.svg);
             background-repeat: no-repeat;
-            background-size:cover;
+            background-size: cover;
             width: 100vw;
             height: 100vh;
             display: flex;
@@ -244,6 +259,7 @@ body {
 
                 .input-container {
                     margin: 0 12px 12px 0;
+
                     span {
                         padding-left: 12px;
                     }
@@ -253,6 +269,7 @@ body {
                     display: flex;
                     flex-direction: row;
                     justify-content: flex-end;
+
                     a {
                         margin: 0 12px 0 0;
                     }
@@ -265,9 +282,10 @@ body {
             background: $dinner_Blue;
             border-radius: 3px 3px 0 0;
             margin: 24px 0 0 0;
+
             .headLine {
                 margin: 0;
-                line-height: 100px;  
+                line-height: 100px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -284,6 +302,7 @@ body {
                     width: 100%;
                     height: 100%;
                 }
+
                 display: flex;
                 align-items: center;
                 flex-direction: column;
@@ -291,12 +310,12 @@ body {
 
                 .input-container:nth-child(1) {
                     background: $dinner_Persica;
-                    margin-top: 140px;
+                    margin-top: 90px;
                 }
 
                 .input-container:nth-child(3) {
                     background: $dinner_Yellow;
-                    margin-bottom: 140px;
+                    margin-bottom: 90px;
                 }
 
                 .Button {
@@ -305,8 +324,6 @@ body {
 
                 .next-page {
                     width: 100%;
-                    justify-content: flex-end;
-                    align-items: flex-end;
 
                     .Button {
                         margin-right: 75px;
@@ -319,56 +336,55 @@ body {
                 justify-content: center;
                 width: 100%;
             }
-            
-            .centerGrid {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            padding: 64px;
 
-            .choose-button {
-                display: grid;
-                grid-template-columns: repeat(4, 127px);
-                grid-template-rows:repeat(4, 127px);
-                gap: 28px;
+            .centerGrid {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                padding: 64px;
+
+                .choose-button {
+                    display: grid;
+                    grid-template-columns: repeat(4, 127px);
+                    grid-template-rows: repeat(4, 127px);
+                    gap: 28px;
+                }
             }
-        }
 
             .mail-button {
                 display: flex;
-                justify-content: space-between;   
-                margin: 0 64px;   
+                justify-content: space-between;
+                margin: 0 64px;
                 padding: 36px 0;
             }
-                
+
             .landing-button-position {
                 height: 600px;
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 flex-direction: column;
+
                 .Button {
                     margin: 24px;
-                }    
+                }
             }
-        
+
             .next-page {
-                display: flex;
-                align-items: flex-end;
-                justify-content: flex-end;
                 margin: 64px;
+
                 a {
                     text-decoration: none;
                     margin: 0 0 0 12px;
                 }
             }
-                
+
             .categorybar {
                 margin: 10px 64px;
             }
         }
-        
+
     }
 }
 
@@ -386,13 +402,14 @@ body {
         .Startlogga {
             background-image: url(../images/Startlogga.svg);
             background-repeat: no-repeat;
-            background-size:1024px 1366px;
+            background-size: 1024px 1366px;
             display: flex;
             justify-content: flex-end;
             align-items: flex-end;
             margin: 0;
 
         }
+
         .admin {
             margin: 12px 12px;
             display: flex;
@@ -400,10 +417,11 @@ body {
             justify-content: space-around;
             align-content: space-around;
             text-align: center;
+
             .admin-receptlist {
                 margin: 10px;
             }
-            
+
             .admin-addrecept {
                 display: flex;
                 flex-direction: row;
@@ -415,61 +433,71 @@ body {
 
 //bigger than ipad pro
 @media only screen and (min-width: 1025px) {
-    body {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        background: rebeccapurple;
-        padding: 0;
+    html {
         margin: 0 auto;
 
-        .Startlogga {
-            background-image: url(../images/lemons.jpg);
-            background-repeat: no-repeat;
-            max-width: 1000px;
-            background-size:400px 600px;
+        body {
             display: flex;
-            justify-content: flex-end;
-            align-items: flex-end;
-            margin: 0;
-            .login-container {
-                height: 200px;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 0;
+            margin: 0 auto;
+
+            .Startlogga {
+                background-image: url(../images/Startlogga.svg);
+                background-repeat: no-repeat;
+                background-position: center;
+                max-width: 1000px;
+                background-size: 1200px 980px;
                 display: flex;
-                flex-direction: column;
-                margin: 64px;
+                justify-content: center;
+                align-items: flex-end;
+                margin: 0 auto;
 
-                .input-container {
-                    margin: 0 12px 12px 0;
-                    span {
-                        padding-left: 12px;
-                    }
-                }
-
-                .login-button-container {
+                .login-container {
+                    height: 200px;
                     display: flex;
-                    flex-direction: row;
-                    justify-content: flex-end;
-                    a {
-                        margin: 0 12px 0 0;
+                    flex-direction: column;
+                    margin-bottom: 90px;
+
+                    .input-container {
+                        margin: 0 8px 8px 0;
+
+                        span {
+                            padding-left: 8px;
+                        }
+                    }
+
+                    .login-button-container {
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: flex-end;
+
+                        a {
+                            margin: 0 12px 0 0;
+                        }
                     }
                 }
             }
-        }
-        .admin {
-            margin: 12px 12px;
-            display: flex;
-            flex-direction: row;
-            justify-content: space-around;
-            align-content: space-around;
-            text-align: center;
-            .admin-receptlist {
-                margin: 10px;
-            }
-            
-            .admin-addrecept {
+
+            .admin {
+                margin: 12px 12px;
                 display: flex;
                 flex-direction: row;
-                margin: 12px;
+                justify-content: space-around;
+                align-content: space-around;
+                text-align: center;
+
+                .admin-receptlist {
+                    margin: 10px;
+                }
+
+                .admin-addrecept {
+                    display: flex;
+                    flex-direction: row;
+                    margin: 12px;
+                }
             }
         }
     }

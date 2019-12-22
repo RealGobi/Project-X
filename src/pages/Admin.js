@@ -1,27 +1,23 @@
 import React, { useState } from 'react';
-import Button from '../Components/Button/Button';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import store from '../store';
+import { addRecipe, deleteRecipe } from '../actions/recipeAction';
 
-import useFetch from '../Hooks/useFetch';
+import Button from '../Components/Button/Button';
 import DynomicInput from '../Components/Page/dynamicInput';
 
-export default function Admin(props) {
-  const [newRecipe, setNewRecipe] = useState({});
-  const [loading, setLoading] = useState(false);
-  const listRecipe = props.recipe;
+const Admin = (getState) => {
+  const { recipes } = getState.recipe;
 
-  const token = localStorage.getItem('token');
-  const recipeApi = useFetch(
-    'http://localhost:5000/api/recipe',
-    token,
-  );
-
-  const [title, setTitle] = useState();
-  const [description, setDesc] = useState();
-  const [category1, setcategory1] = useState([]);
-  const [category2, setcategory2] = useState([]);
-  const [imageLink, setImageLink] = useState();
-  const [time, setTime] = useState();
-  const [foodType, setFoodType] = useState();
+  const [title, setTitle] = useState('');
+  const [description, setDesc] = useState('');
+  const [category1, setCategory1] = useState('');
+  const [category2, setCategory2] = useState('');
+  const [imageLink, setImageLink] = useState('');
+  const [time, setTime] = useState('');
+  const [foodType, setFoodType] = useState('');
+  console.log(title);
 
   // set ingredient
   const blankState = { count: '', unit: '', ingredient: '' };
@@ -54,50 +50,49 @@ export default function Admin(props) {
     updatedCats[e.target.dataset.idx][e.target.className] = e.target.value;
     setInstructions(updatedCats);
   };
-
-  const handleSubmit = (e) => {
-    e.preventDefault(e);
-    if (!newRecipe) return;
-    setLoading(true);
-    console.log(loading);    
-    recipeApi
-      .post({
-        title,
-        description,
-        category1,
-        category2,
-        imageLink,
-        time,
-        ingredients,
-        instructions,
-        foodType,
-      })
-      .then((data) => {
-        console.log(data);
-        setNewRecipe('');
-        setLoading(false);
-      });
-  };
   const Rubrik = 'Ingredienser:';
   const Rubrik2 = 'Instruktioner:';
 
-  const handleSave = () => {
-    console.log(props);
-    
-  }
+  const handleAddRecipe = () => {
+    let recipeToDb = {
+      title,
+      description,
+      category1,
+      category2,
+      imageLink,
+      time,
+      foodType,
+      ingredients,
+      instructions,
+    };
+    store.dispatch(addRecipe(recipeToDb));
+    recipeToDb = null;
+    setTitle('');
+    setDesc('');
+    setCategory1('');
+    setCategory2('');
+    setImageLink('');
+    setTime('');
+    setFoodType('');
+  };
+
+  const deleteRec = (id) => {
+    console.log(id);
+    store.dispatch(deleteRecipe(id));
+  };
 
   return (
     <div className="admin">
-      <h1>Admin</h1>
+      <div className="header"><h1>Admin</h1></div>
       <div className="admin-addrecept">
         <h2>Nytt Recept</h2>
         <form action="send">
-          <label htmlFor="Namn">Namn: <input type="text" onChange={(e) => { setTitle(e.target.value); }} /></label>
-          <label htmlFor="Beskrivning">Beskrivning: <input type="text" name="description" onChange={(e) => { setDesc(e.target.value); }} /></label>
-          <label htmlFor="Kategori1">Kategori Protein: <input type="text" name="category1" onChange={(e) => { setcategory1(e.target.value); }} /></label>
-          <label htmlFor="Kategori2">Kategori Kolhydrat: <input type="text" name="category2" onChange={(e) => { setcategory2(e.target.value); }} /></label>
-          <label htmlFor="bildlänk">Bildlänk:<input type="text" name="imageLink" onChange={(e) => { setImageLink(e.target.value); }} /></label>
-          <label htmlFor="Time">Tid: <input type="number" name="time" onChange={(e) => { setTime(e.target.value); }} /></label>
+          <label htmlFor="Namn">Namn: <input type="text" name="name" value={title} onChange={(e) => { setTitle(e.target.value); }} /></label>
+          <label htmlFor="Beskrivning">Beskrivning: <input type="text" value={description} name="description" onChange={(e) => { setDesc(e.target.value); }} /></label>
+          <label htmlFor="Kategori1">Kategori Protein: <input type="text" value={category1} name="category1" onChange={(e) => { setCategory1(e.target.value); }} /></label>
+          <label htmlFor="Kategori2">Kategori Kolhydrat: <input type="text" value={category2} name="category2" onChange={(e) => { setCategory2(e.target.value); }} /></label>
+          <label htmlFor="bildlänk">Bildlänk:<input type="text" name="imageLink" value={imageLink} onChange={(e) => { setImageLink(e.target.value); }} /></label>
+          <label htmlFor="Time">Tid: <input type="number" name="time" value={time} onChange={(e) => { setTime(e.target.value); }} /></label>
           <hr />
           {
                 ingredients.map((val, idx) => (
@@ -133,7 +128,7 @@ export default function Admin(props) {
             onClick={addInst}
           />
           <hr />
-          <label htmlFor="rating">Betyg 1-5:<input type="text" name="rating" /></label>
+          {/* <label htmlFor="rating">Betyg 1-5:<input type="text" name="rating" /></label> */}
           <label htmlFor="Foodtype" className="foodtype">Vad för sort recept:
             <select className="portioner" onChange={(e) => { setFoodType(e.target.value); }}>
               <option value="All">Kött / kyckling</option>
@@ -144,19 +139,18 @@ export default function Admin(props) {
           </label>
         </form>
         <div>
-          <Button type="button" buttonText="Lägg till" clickHandler={handleSubmit} />
-          <Button type="button" buttonText="Spara men posta inte" clickHandler={handleSave} />
+          <Button type="button" buttonText="Lägg till" clickHandler={handleAddRecipe} />
         </div>
       </div>
       <div className="admin-receptlist">
         <h2>Receptlista</h2>
         <div>
           {
-              listRecipe.map(rec => (
+              recipes.map(rec => (
                 <div key={rec._id} className="listrow">
                   <span className="admin-title">{rec.title}</span>
                   <span className="editbtn" role="button" alt="edit" />
-                  <span className="deletebtn" role="button" alt="delete" />
+                  <span className="deletebtn" role="button" alt="delete" onClick={() => { deleteRec(rec._id)}} />
                 </div>
               ))
             }
@@ -164,4 +158,10 @@ export default function Admin(props) {
       </div>
     </div>
   );
-}
+};
+
+
+const mapStateToProps = state => ({
+  recipe: state.recipe,
+});
+export default connect(mapStateToProps, { addRecipe, deleteRecipe })(Admin);

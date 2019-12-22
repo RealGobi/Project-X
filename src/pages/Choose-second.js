@@ -21,24 +21,25 @@ export default function ChooseSecond({ findRecipeBasedOnOne, setCategoryTwo }) {
   // remove duplicates
   const data = category;
   category = Array.from(new Set(data.map(JSON.stringify))).map(JSON.parse);
-  console.log(category);
 
   return (
     <div>
       <Header headLine="Välj Andra" />
       <Page>
         <span className="centerGrid">
-          <div className="choose-button">
-            { category.map((cat2, idx) => <Button clickHandler={() => setCategoryTwo(cat2)} key={idx} buttonText={cat2} buttonType="square" />) }
-          </div>
+          <Link to="/recipt-list">
+            <div className="choose-button">
+              { category.map((cat2, idx) => <Button clickHandler={() => setCategoryTwo(cat2)} key={idx} buttonText={cat2} buttonType="square" />) }
+            </div>
+          </Link>
         </span>
         <div className="next-page">
           <Link to="/choose-first">
-            <Button buttonText="Back" color="mint" />
+            <Button buttonText="Tillbaka" color="mint" />
           </Link>
-          <Link to="/recipt-list">
+         {/*  <Link to="/recipt-list">
             <Button buttonText="Välj Andra" color="mint" />
-          </Link>
+          </Link> */}
         </div>
       </Page>
     </div>

@@ -11,6 +11,7 @@ import Button from '../Components/Button/Button';
 
 import Mail from '../images/button-contact.svg';
 import Settings from '../images/button-settings.svg';
+import Background from '../images/lemons.jpg';
 
 export default function LandingPage(props) {
   const userName1 = props.userName;
@@ -25,15 +26,21 @@ export default function LandingPage(props) {
   };
 
   const hello = <span>God Morgon {userName1}</span>;
+  const styleback = {
+    backgroundImage: `url(${Background})`,
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+  };
   const setting = (
     <span className="settings">
       <Button buttonText="Vegan" color="mint" clickHandler={() => setUserFoodType('Vegan')} /><Button buttonText="Vegetarian" color="yellow" clickHandler={() => setUserFoodType('Vegetarian')} />
       <Button buttonText="Fiskätare" color="mint" clickHandler={() => setUserFoodType('Fiskätare')} />
       <Button buttonText="Allätare" color="persica" clickHandler={() => setUserFoodType('Allätare')} />
-      <p>Du har valt {foodType}</p>
+      <p>Vald: {foodType}</p>
     </span>
   );
-  const mail = (
+ /*  const mail = (
     <span>
       <form>
         <label htmlFor="ämne">Ämne:<input type="text" id="mailhead" onChange={e => setMailHead(e.target.value)} /></label>
@@ -41,14 +48,14 @@ export default function LandingPage(props) {
       </form>
       <Button buttonText="Skicka" color="yellow" clickHandler={setSendMail} />
     </span>
-  );
+  ); */
 
   return (
-    <div>
+    <div id="bg" style={styleback}>
       <Header headLine={hello} />
       <Page>
         <div className="mail-button">
-          <Popup trigger={<img src={Mail} alt="mail" />} modal>
+          {/* <Popup trigger={<img src={Mail} alt="mail" />} modal>
             {close => (
               <div className="modal">
                 <span className="close" onClick={close}>
@@ -60,7 +67,10 @@ export default function LandingPage(props) {
                 </div>
               </div>
             )}
-          </Popup>
+          </Popup> */}
+          <Link to="/admin">
+            <Button buttonText="Lägg till recept" color="mint" />
+          </Link>
           <Popup trigger={<img src={Settings} alt="inställningar" />} modal>
             {close => (
               <div className="modal">

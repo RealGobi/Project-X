@@ -27,7 +27,7 @@
 @media only screen and (min-width: 767px) {
 
     .Recipeitem {
-        width: 600px;
+        width: 620px;
         border-radius: 3px;
         border: 2px solid $dinner_Grey;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -36,12 +36,12 @@
 
     .recipeitemtext {
         padding: 12px 24px;
-        font-size: 1rem;
+        font-size: 0.95rem;
     }
 
     .Recipeitem img {
         width: 250px;
-        height: 125px;
+        height: 200px;
         border: 1px solid $dinner_Grey;
         border-radius: 0px 3px 3px 0px;
     }
