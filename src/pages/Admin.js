@@ -74,7 +74,6 @@ const Admin = (getState) => {
     setImageLink('');
     setTime('');
     setFoodType('');
-    setIngredients({ count: '', unit: '', ingredient: '' });
   };
 
   const deleteRec = (id) => {
