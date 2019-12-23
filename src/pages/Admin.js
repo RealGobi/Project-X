@@ -5,7 +5,7 @@ import store from '../store';
 import { addRecipe, deleteRecipe } from '../actions/recipeAction';
 
 import Button from '../Components/Button/Button';
-import DynomicInput from '../Components/Page/dynamicInput';
+import DynomicInput from '../Components/Input/dynamicInput';
 
 const Admin = (getState) => {
   const { recipes } = getState.recipe;
@@ -103,6 +103,7 @@ const Admin = (getState) => {
       <div className="header"><h1>Admin</h1></div>
       <div className="admin-addrecept">
         <h2>Nytt Recept</h2>
+        <p>Lägg till nytt recept baserat på fyra potioner.</p>
         <form>
           <label htmlFor="Namn">Namn: <input type="text" name="name" value={title} onChange={(e) => { setTitle(e.target.value); }} /></label>
           <label htmlFor="Beskrivning">Beskrivning: <input type="text" value={description} name="description" onChange={(e) => { setDesc(e.target.value); }} /></label>

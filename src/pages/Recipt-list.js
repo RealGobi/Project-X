@@ -23,13 +23,13 @@ export default function ReciptList({ findRecipeBasedOnOne, setChosenRecipe }) {
         <Link to="recipt-page">
           {
             listResults.map(rec => (
-              <span key={rec._id} onClick={() => setChosenRecipe(rec._id)}>
+              <div key={rec._id} onClick={() => setChosenRecipe(rec._id)} className="margin_Recipe_Page" >
                 <RecipeItem
                   recipeTitle={rec.title}
-                  recipeIntro={rec.description}
+                  recipeIntro={`${rec.description.substring(0, 100)}...`}
                   recipeImg={rec.imageLink}
                 />
-              </span>
+              </div>
             ))
           }
         </Link>

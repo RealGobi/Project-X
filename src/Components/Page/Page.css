@@ -5,14 +5,14 @@
     padding: 0px;
 }
 
-@media only screen and (min-width: 767px) {
+@media only screen and (min-width: 768px) {
 
     .page {
         width: 720px;
         min-height: 876px;
         border-radius: 0 0 3px 3px;
         background: rgba(95, 95, 95, 0.10);
-        padding: 0;
+        padding: 0px;
     }
 }
 
