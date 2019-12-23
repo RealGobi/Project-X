@@ -53,21 +53,7 @@ const Admin = (getState) => {
   const Rubrik = 'Ingredienser:';
   const Rubrik2 = 'Instruktioner:';
 
-  const emptyDynamicInput = () => {
-    while (ingredients.length > 1) {
-      ingredients.pop();
-    }
-    setIngredients([
-      { ...blankState }]);
-
-    while (instructions.length > 1) {
-      instructions.pop();
-    }
-    setInstructions([
-      { ...blankStateInst }]);
-  };
-
-  const handleAddRecipe = () => {
+  const handleAddRecipe = (e) => {
     let recipeToDb = {
       title,
       description,
@@ -80,7 +66,6 @@ const Admin = (getState) => {
       instructions,
     };
     store.dispatch(addRecipe(recipeToDb));
-    emptyDynamicInput();
     recipeToDb = null;
     setTitle('');
     setDesc('');
@@ -88,7 +73,11 @@ const Admin = (getState) => {
     setCategory2('');
     setImageLink('');
     setTime('');
-    setFoodType('Kött / kyckling');
+    setFoodType('');
+    setIngredients([
+      { ...blankState }]);
+    setInstructions([
+      { ...blankStateInst }]);
   };
 
   const deleteRec = (id) => {
@@ -157,12 +146,12 @@ const Admin = (getState) => {
           />
           <hr />
           {/* <label htmlFor="rating">Betyg 1-5:<input type="text" name="rating" /></label> */}
-          <label htmlFor="Foodtype" className="foodtype">Vad för sort recept:
+          <label htmlFor="Foodtype" defaultValue={1} className="foodtype">Vad för sort recept:
             <select className="portioner" onChange={(e) => { setFoodType(e.target.value); }}>
-              <option value="All">Kött / kyckling</option>
-              <option value="Fisk">Fisk</option>
-              <option value="Vegetarian">Vegetarian</option>
-              <option value="Vegan">Vegan</option>
+              <option value={1}>Allt</option>
+              <option value={2}>Fisk</option>
+              <option value={3}>Vegetarian</option>
+              <option value={4}>Vegan</option>
             </select>
           </label>
         </form>
@@ -175,7 +164,7 @@ const Admin = (getState) => {
         <div>
           {
               recipes.sort(sortByName).map(rec => (
-              <div key={rec._id} className="listrow">
+                <div key={rec._id} className="listrow">
                 <span className="admin-title">{rec.title}</span>
                 <span className="editbtn" role="button" alt="edit" />
                 <span className="deletebtn" role="button" alt="delete" onClick={() => { deleteRec(rec._id); }} />
