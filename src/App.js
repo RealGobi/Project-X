@@ -69,7 +69,7 @@ const App = (getState) => {
           <Route path="/choose-first" render={() => <ChooseFirst recipe={recipes} setCategoryOne={setCategoryOne} category1={category1} />} />
           <Route path="/choose-second" render={() => <ChooseSecond findRecipeBasedOnOne={findRecipeBasedOnOne} setCategoryTwo={setCategoryTwo} />} />
           <Route path="/recipt-list" render={() => <ReciptList findRecipeBasedOnOne={findRecipeBasedOnOne} setChosenRecipe={setChosenRecipe} />} />
-          <Route path="/recipt-page" render={() => <ReciptPage findRecipe={findRecipe} />} />
+          <Route path="/recipt-page" render={() => <ReciptPage findRecipeBasedOnOne={findRecipeBasedOnOne} findRecipe={findRecipe} />} />
           <Route path="/search-list" render={() => <SearchList setChosenRecipe={setChosenRecipe} recipe={recipes} category1={category1} category2={category2} />} />
           <Route path="/admin" render={() => <Admin recipe={recipes} />} />
         </Switch>

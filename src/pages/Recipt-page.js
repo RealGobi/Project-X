@@ -3,6 +3,7 @@ import { Link, useHistory } from 'react-router-dom';
 import Page from '../Components/Page/Page';
 import Button from '../Components/Button/Button';
 import Recipt from '../Components/Recipt/Recipt';
+import { Reload } from '../Components/misc/Reload';
 
 export default function ReciptPage(findRecipe) {
   const history = useHistory();

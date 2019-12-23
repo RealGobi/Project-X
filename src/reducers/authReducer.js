@@ -51,6 +51,7 @@ export default function (state = initialState, action) {
       localStorage.removeItem('token');
       localStorage.removeItem('name');
       localStorage.removeItem('foodType');
+      localStorage.removeItem('currentRecipe');
       return {
         ...state,
         token: null,

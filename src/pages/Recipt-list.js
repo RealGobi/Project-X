@@ -6,8 +6,11 @@ import Page from '../Components/Page/Page';
 import Header from '../Components/Header/Header';
 import Button from '../Components/Button/Button';
 import RecipeItem from '../Components/RecipeItem/RecipeItem';
+import { Reload } from '../Components/misc/Reload';
 
 export default function ReciptList({ findRecipeBasedOnOne, setChosenRecipe }) {
+  Reload(findRecipeBasedOnOne);
+
   ReciptList.propTypes = {
     findRecipeBasedOnOne: PropTypes.array.isRequired,
   };

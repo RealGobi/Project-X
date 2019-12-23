@@ -5,8 +5,11 @@ import PropTypes from 'prop-types';
 import Page from '../Components/Page/Page';
 import Header from '../Components/Header/Header';
 import Button from '../Components/Button/Button';
+import { Reload } from '../Components/misc/Reload';
 
 export default function ChooseSecond({ findRecipeBasedOnOne, setCategoryTwo }) {
+  /* eslint-disable import/prefer-default-export */
+  Reload(findRecipeBasedOnOne);
   ChooseSecond.propTypes = {
     // eslint-disable-next-line react/forbid-prop-types
     findRecipeBasedOnOne: PropTypes.array.isRequired,
@@ -37,7 +40,7 @@ export default function ChooseSecond({ findRecipeBasedOnOne, setCategoryTwo }) {
           <Link to="/choose-first">
             <Button buttonText="Tillbaka" color="mint" />
           </Link>
-         {/*  <Link to="/recipt-list">
+          {/*  <Link to="/recipt-list">
             <Button buttonText="Välj Andra" color="mint" />
           </Link> */}
         </div>
