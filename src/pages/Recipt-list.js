@@ -10,7 +10,7 @@ import { Reload } from '../Components/misc/Reload';
 
 export default function ReciptList({ findRecipeBasedOnOne, setChosenRecipe }) {
   Reload(findRecipeBasedOnOne);
-
+  sessionStorage.setItem('1', 'yes');
   ReciptList.propTypes = {
     findRecipeBasedOnOne: PropTypes.array.isRequired,
   };
