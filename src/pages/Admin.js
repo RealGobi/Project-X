@@ -53,7 +53,7 @@ const Admin = (getState) => {
   const Rubrik = 'Ingredienser:';
   const Rubrik2 = 'Instruktioner:';
 
-  const handleAddRecipe = () => {
+  const handleAddRecipe = (e) => {
     let recipeToDb = {
       title,
       description,
@@ -74,6 +74,10 @@ const Admin = (getState) => {
     setImageLink('');
     setTime('');
     setFoodType('');
+    setIngredients([
+      { ...blankState }]);
+    setInstructions([
+      { ...blankStateInst }]);
   };
 
   const deleteRec = (id) => {
@@ -81,12 +85,25 @@ const Admin = (getState) => {
     store.dispatch(deleteRecipe(id));
   };
 
+  const sortByName = (a, b) => {
+    const compA = a.title.toLowerCase();
+    const compB = b.title.toLowerCase();
+
+    let comparison = 0;
+    if (compA > compB) {
+      comparison = 1;
+    } else if (compA < compB) {
+      comparison = -1;
+    }
+    return comparison;
+  };
+
   return (
     <div className="admin">
       <div className="header"><h1>Admin</h1></div>
       <div className="admin-addrecept">
         <h2>Nytt Recept</h2>
-        <form action="send">
+        <form>
           <label htmlFor="Namn">Namn: <input type="text" name="name" value={title} onChange={(e) => { setTitle(e.target.value); }} /></label>
           <label htmlFor="Beskrivning">Beskrivning: <input type="text" value={description} name="description" onChange={(e) => { setDesc(e.target.value); }} /></label>
           <label htmlFor="Kategori1">Kategori Protein: <input type="text" value={category1} name="category1" onChange={(e) => { setCategory1(e.target.value); }} /></label>
@@ -104,7 +121,7 @@ const Admin = (getState) => {
                     handleCatChange={handleIngChange}
                   />
                 ))
-            }
+              }
           <input
             type="button"
             value="Lägg till en till ingrediens"
@@ -129,12 +146,12 @@ const Admin = (getState) => {
           />
           <hr />
           {/* <label htmlFor="rating">Betyg 1-5:<input type="text" name="rating" /></label> */}
-          <label htmlFor="Foodtype" className="foodtype">Vad för sort recept:
+          <label htmlFor="Foodtype" defaultValue={1} className="foodtype">Vad för sort recept:
             <select className="portioner" onChange={(e) => { setFoodType(e.target.value); }}>
-              <option value="All">Kött / kyckling</option>
-              <option value="Fisk">Fisk</option>
-              <option value="Vegetarian">Vegetarian</option>
-              <option value="Vegan">Vegan</option>
+              <option value={1}>Allt</option>
+              <option value={2}>Fisk</option>
+              <option value={3}>Vegetarian</option>
+              <option value={4}>Vegan</option>
             </select>
           </label>
         </form>
@@ -146,12 +163,12 @@ const Admin = (getState) => {
         <h2>Receptlista</h2>
         <div>
           {
-              recipes.map(rec => (
+              recipes.sort(sortByName).map(rec => (
                 <div key={rec._id} className="listrow">
-                  <span className="admin-title">{rec.title}</span>
-                  <span className="editbtn" role="button" alt="edit" />
-                  <span className="deletebtn" role="button" alt="delete" onClick={() => { deleteRec(rec._id)}} />
-                </div>
+                <span className="admin-title">{rec.title}</span>
+                <span className="editbtn" role="button" alt="edit" />
+                <span className="deletebtn" role="button" alt="delete" onClick={() => { deleteRec(rec._id); }} />
+              </div>
               ))
             }
         </div>
