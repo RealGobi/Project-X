@@ -6,10 +6,10 @@ body {
     width: 100vw;
     height: 100vh;
     display: flex;
-    align-items: center;
     justify-content: center;
     padding: 0;
     margin: 0;
+    overflow-y: scroll;
 
     .Startlogga {
         background-image: url(../images/StartloggaPhone.svg);
@@ -50,10 +50,11 @@ body {
         border-radius: 3px 3px 0 0;
         margin: 0;
         max-height: 100px;
+        @extend %center;
+        padding: 24px;
 
         .headLine {
             margin: 0;
-            line-height: 100px;
             @extend %center;
             @extend %header2;
         }
@@ -62,13 +63,13 @@ body {
     .header-recipt {
         background: $dinner_Persica;
         border-radius: 3px 3px 0 0;
+        max-height: 100px;
+        @extend %center;
+        margin: 24px 24px 0 24px;
 
         h1 {
-            margin: 0;
-            line-height: 70px;
-            text-align: center;
             @extend %header2;
-            font-size: 1.8rem;
+            
         }
     }
 
@@ -103,6 +104,10 @@ body {
                     margin-right: 24px;
                 }
             }
+        }
+
+        .margin_Recipe_Page:nth-child(1)  {
+            padding-top: 24px;
         }
 
         .select-preference-button {
@@ -230,7 +235,7 @@ body {
     }
 }
 
-@media only screen and (min-width: 767px) {
+@media only screen and (min-width: 768px) {
 
     body {
         width: 100vw;
@@ -285,7 +290,6 @@ body {
 
             .headLine {
                 margin: 0;
-                line-height: 100px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -293,6 +297,10 @@ body {
                 font-family: 'Red Hat Text', sans-serif;
                 font-size: 2.1rem;
             }
+        }
+
+        .header-recipt {
+            margin: 24px auto 0;
         }
 
         .content {
@@ -329,6 +337,9 @@ body {
                         margin-right: 75px;
                     }
                 }
+            }
+            .margin_Recipe_Page:nth-child(1)  {
+                padding-top: 64px;
             }
 
             .select-button {

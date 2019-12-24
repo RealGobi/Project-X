@@ -6,8 +6,11 @@ import Page from '../Components/Page/Page';
 import Header from '../Components/Header/Header';
 import Button from '../Components/Button/Button';
 import RecipeItem from '../Components/RecipeItem/RecipeItem';
+import { Reload } from '../Components/misc/Reload';
 
 export default function ReciptList({ findRecipeBasedOnOne, setChosenRecipe }) {
+  Reload(findRecipeBasedOnOne);
+  sessionStorage.setItem('1', 'yes');
   ReciptList.propTypes = {
     findRecipeBasedOnOne: PropTypes.array.isRequired,
   };
@@ -20,13 +23,13 @@ export default function ReciptList({ findRecipeBasedOnOne, setChosenRecipe }) {
         <Link to="recipt-page">
           {
             listResults.map(rec => (
-              <span key={rec._id} onClick={() => setChosenRecipe(rec._id)}>
+              <div key={rec._id} onClick={() => setChosenRecipe(rec._id)} className="margin_Recipe_Page" >
                 <RecipeItem
                   recipeTitle={rec.title}
-                  recipeIntro={rec.description}
+                  recipeIntro={`${rec.description.substring(0, 100)}...`}
                   recipeImg={rec.imageLink}
                 />
-              </span>
+              </div>
             ))
           }
         </Link>

@@ -71,7 +71,7 @@ const App = (getState) => {
           <Route path="/recipt-list" render={() => <ReciptList findRecipeBasedOnOne={findRecipeBasedOnOne} setChosenRecipe={setChosenRecipe} />} />
           <Route path="/recipt-page" render={() => <ReciptPage findRecipe={findRecipe} />} />
           <Route path="/search-list" render={() => <SearchList setChosenRecipe={setChosenRecipe} recipe={recipes} category1={category1} category2={category2} />} />
-          <Route path="/admin" render={() => <Admin recipe={recipes} />} />
+          <Route path="/admin" render={() => <Admin recipes={recipes} />} />
         </Switch>
       </div>
     </Router>

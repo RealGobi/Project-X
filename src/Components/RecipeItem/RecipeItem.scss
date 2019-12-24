@@ -24,14 +24,14 @@
         border-radius: 0px 0px 0px 0px;
     }
 
-@media only screen and (min-width: 767px) {
+@media only screen and (min-width: 768px) {
 
     .Recipeitem {
         width: 620px;
         border-radius: 3px;
         border: 2px solid $dinner_Grey;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-        margin: 0 auto 12px;
+        margin: 0px auto 12px;
     }
 
     .recipeitemtext {
