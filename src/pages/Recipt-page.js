@@ -19,7 +19,7 @@ const ReciptPage = (findRecipe) => {
       {
       findRecipe.findRecipe
         ? (
-          <span>
+          <div className="recipe">
             <div className="header-recipt">
               <h1>{ findRecipe.findRecipe.title }</h1>
             </div>
@@ -38,7 +38,7 @@ const ReciptPage = (findRecipe) => {
                 </Link>
               </div>
             </Page>
-          </span>
+          </div>
         )
         : (
           null
