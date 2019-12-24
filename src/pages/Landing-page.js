@@ -9,7 +9,6 @@ import Page from '../Components/Page/Page';
 import Header from '../Components/Header/Header';
 import Button from '../Components/Button/Button';
 
-import Mail from '../images/button-contact.svg';
 import Settings from '../images/button-settings.svg';
 import Background from '../images/lemons.jpg';
 
@@ -17,13 +16,6 @@ export default function LandingPage(props) {
   const userName1 = props.userName;
   const foodtypeUser1 = props.food;
   const [foodType, setUserFoodType] = useState(foodtypeUser1);
-  const [mailContent, setMailContent] = useState();
-  const [mailHead, setMailHead] = useState('');
-
-  const setSendMail = () => {
-    console.log(mailHead);
-    console.log(mailContent);
-  };
 
   const hello = <span>God Morgon {userName1}</span>;
   const styleback = {
@@ -40,35 +32,13 @@ export default function LandingPage(props) {
       <p>Vald: {foodType}</p>
     </span>
   );
- /*  const mail = (
-    <span>
-      <form>
-        <label htmlFor="ämne">Ämne:<input type="text" id="mailhead" onChange={e => setMailHead(e.target.value)} /></label>
-        <label htmlFor="förslag">Förslag eller synpunkt:<textarea id="mailcontent" onChange={e => setMailContent(e.target.value)} /></label>
-      </form>
-      <Button buttonText="Skicka" color="yellow" clickHandler={setSendMail} />
-    </span>
-  ); */
-
+ 
   return (
     <div id="bg" style={styleback}>
       <Header headLine={hello} />
       <Page>
         <div className="mail-button">
-          {/* <Popup trigger={<img src={Mail} alt="mail" />} modal>
-            {close => (
-              <div className="modal">
-                <span className="close" onClick={close}>
-                &times;
-                </span>
-                <div className="header"> Kontaktformulär </div>
-                <div className="content">
-                  {mail}
-                </div>
-              </div>
-            )}
-          </Popup> */}
-          <Link to="/admin">
+          <Link to="/addRecipe">
             <Button buttonText="Lägg till recept" color="mint" />
           </Link>
           <Popup trigger={<img src={Settings} alt="inställningar" />} modal>

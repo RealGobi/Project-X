@@ -171,8 +171,8 @@ body {
 
     }
 
-    .admin {
-        margin: 12px 0px;
+    .admin, .addRecipe {
+        margin: 0px 0px;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -196,7 +196,7 @@ body {
             }
         }
 
-        .admin-addrecept {
+        .admin-addrecept, .addRecipe-addrecept  {
             background: $dinner_Persica;
             display: flex;
             flex-direction: column;
@@ -363,13 +363,6 @@ body {
                 }
             }
 
-            .mail-button {
-                display: flex;
-                justify-content: space-between;
-                margin: 0 64px;
-                padding: 36px 0;
-            }
-
             .landing-button-position {
                 height: 600px;
                 display: flex;
@@ -433,7 +426,7 @@ body {
                 margin: 10px;
             }
 
-            .admin-addrecept {
+            .admin-addrecept, {
                 display: flex;
                 flex-direction: row;
                 margin: 12px;

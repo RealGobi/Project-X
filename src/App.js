@@ -17,6 +17,7 @@ import ReciptList from './pages/Recipt-list';
 import ReciptPage from './pages/Recipt-page';
 import SearchList from './pages/Search-list';
 import Admin from './pages/Admin';
+import AddRecipe from './pages/AddRecipe';
 
 const App = (getState) => {
   const { recipes } = getState.recipe;
@@ -71,6 +72,7 @@ const App = (getState) => {
           <Route path="/recipt-list" render={() => <ReciptList findRecipeBasedOnOne={findRecipeBasedOnOne} setChosenRecipe={setChosenRecipe} />} />
           <Route path="/recipt-page" render={() => <ReciptPage findRecipe={findRecipe} />} />
           <Route path="/search-list" render={() => <SearchList setChosenRecipe={setChosenRecipe} recipe={recipes} category1={category1} category2={category2} />} />
+          <Route path="/addRecipe" render={() => <AddRecipe recipes={recipes} />} />
           <Route path="/admin" render={() => <Admin recipes={recipes} />} />
         </Switch>
       </div>
