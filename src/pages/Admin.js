@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
+import Popup from 'reactjs-popup';
 import store from '../store';
 import { addRecipe, deleteRecipe } from '../actions/recipeAction';
 
 import Button from '../Components/Button/Button';
-import DynomicInput from '../Components/Page/dynamicInput';
+import DynomicInput from '../Components/Input/dynamicInput';
 
 const Admin = (getState) => {
   const { recipes } = getState.recipe;
@@ -103,6 +103,7 @@ const Admin = (getState) => {
       <div className="header"><h1>Admin</h1></div>
       <div className="admin-addrecept">
         <h2>Nytt Recept</h2>
+        <p>Lägg till nytt recept baserat på fyra potioner.</p>
         <form>
           <label htmlFor="Namn">Namn: <input type="text" name="name" value={title} onChange={(e) => { setTitle(e.target.value); }} /></label>
           <label htmlFor="Beskrivning">Beskrivning: <input type="text" value={description} name="description" onChange={(e) => { setDesc(e.target.value); }} /></label>
@@ -165,10 +166,20 @@ const Admin = (getState) => {
           {
               recipes.sort(sortByName).map(rec => (
                 <div key={rec._id} className="listrow">
-                <span className="admin-title">{rec.title}</span>
-                <span className="editbtn" role="button" alt="edit" />
-                <span className="deletebtn" role="button" alt="delete" onClick={() => { deleteRec(rec._id); }} />
-              </div>
+                  <span className="admin-title">{rec.title}</span>
+                  <span className="editbtn" role="button" alt="edit" />
+                  <Popup trigger={<span className="deletebtn"></span>} modal>
+                    {close => (
+                      <div className="modal">
+                        <span className="close" onClick={close}>
+                &times;
+                        </span>
+                        <div className="header" onClick={() => { deleteRec(rec._id); }}><p>Ta bort!</p></div>
+                       
+                      </div>
+                    )}
+                  </Popup>
+                </div>
               ))
             }
         </div>

@@ -18,8 +18,8 @@ export default function SearchList(props) {
 
   const [searchValue, setSearchValue] = useState('');
   const listRecipe = props.recipe;
-  const category1 = props.category1;
-  const category2 = props.category2;
+  const {category1} = props;
+  const {category2} = props;
   // console.log(foodtype1);
 
   function handleSearchInputChange(e) { setSearchValue(e.target.value); }
@@ -108,7 +108,7 @@ export default function SearchList(props) {
               <span key={rec._id} onClick={() => props.setChosenRecipe(rec._id)}>
                 <RecipeItem
                   recipeTitle={rec.title}
-                  recipeIntro={rec.description}
+                  recipeIntro={`${rec.description.substring(0, 100)}...`}
                   recipeImg={rec.imageLink}
                 />
               </span>
