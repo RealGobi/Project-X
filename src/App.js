@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import {
+  BrowserRouter as Router, Switch, Route, Redirect,
+} from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import store from './store';
@@ -20,18 +22,20 @@ import Admin from './pages/Admin';
 
 const App = (getState) => {
   const { recipes } = getState.recipe;
+  const { isAuthenticated } = getState;
   console.log(recipes);
   useEffect(() => {
     store.dispatch(loadUser());
   }, []);
   // fishing hooks
+  
 
   const [categoryOne, setCategoryOne] = useState([]);
   const [categoryTwo, setCategoryTwo] = useState([]);
   const [chosenRecipe, setChosenRecipe] = useState('');
-  
+
   // filter out recipe
-  
+
   console.log(recipes);
   const findRecipe = recipes.find(rec => rec._id === chosenRecipe);
   const findRecipeBasedOnOne = recipes.filter(rec => rec.category1.find(r => r === categoryOne));
@@ -56,6 +60,20 @@ const App = (getState) => {
   const categorylist2 = category2;
   // remove duplicates
   category2 = Array.from(new Set(categorylist2.map(JSON.stringify))).map(JSON.parse);
+
+  // Protected Routes
+
+  const ProtectedRoutes = ({ component: Component, ...rest }) => (
+    <Route
+      {...rest}
+      render={props => (isAuthenticated === true
+        ? <Component {...props} />
+        : <Redirect to="/login" />
+      )}
+    />
+  );
+  console.log(isAuthenticated);
+  
 
   // Router and render
 
@@ -86,5 +104,6 @@ App.propTypes = {
 
 const mapStateToProps = state => ({
   recipe: state.recipe,
+  isAuthenticated: state.auth.isAuthenticated,
 });
 export default connect(mapStateToProps, { getRecipes })(App);
