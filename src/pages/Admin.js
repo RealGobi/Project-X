@@ -10,7 +10,9 @@ import DynomicInput from '../Components/Input/dynamicInput';
 
 function Admin(getState) {
   const { recipes } = getState.recipe;
-  const { isAuthenticated } = getState;
+  const { isAdmin } = getState;
+
+console.log(getState);
 
   const [title, setTitle] = useState('');
   const [description, setDesc] = useState('');
@@ -99,7 +101,7 @@ function Admin(getState) {
     }
     return comparison;
   };
-  console.log(isAuthenticated);
+  console.log(isAdmin);
 
   return (
     <div className="admin">
@@ -165,7 +167,7 @@ function Admin(getState) {
       </div>
 
       {
-            isAuthenticated
+            isAdmin
               ? (
                 <div className="admin-receptlist">
                   <h2>Receptlista</h2>
@@ -199,7 +201,7 @@ function Admin(getState) {
 
 
 const mapStateToProps = state => ({
-  isAuthenticated: state.auth.isAuthenticated,
+  isAdmin: state.auth.isAdmin,
   recipe: state.recipe,
 });
 export default connect(mapStateToProps, { addRecipe, deleteRecipe })(Admin);
