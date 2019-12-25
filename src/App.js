@@ -28,7 +28,7 @@ const App = (getState) => {
     store.dispatch(loadUser());
   }, []);
   // fishing hooks
-  
+
 
   const [categoryOne, setCategoryOne] = useState([]);
   const [categoryTwo, setCategoryTwo] = useState([]);
@@ -61,19 +61,19 @@ const App = (getState) => {
   // remove duplicates
   category2 = Array.from(new Set(categorylist2.map(JSON.stringify))).map(JSON.parse);
 
-  // Protected Routes
-
+  // Protected Routes - you need to be authenticated to reach this routes
+  // eslint-disable-next-line react/prop-types
   const ProtectedRoutes = ({ component: Component, ...rest }) => (
     <Route
       {...rest}
-      render={props => (isAuthenticated === true
+      render={props => (isAuthenticated
         ? <Component {...props} />
-        : <Redirect to="/login" />
+        : <Redirect to="/" />
       )}
     />
   );
   console.log(isAuthenticated);
-  
+
 
   // Router and render
 
@@ -83,13 +83,13 @@ const App = (getState) => {
         <Switch>
           <Route path="/" exact render={() => <Login />} />
           <Route path="/signup" component={SignUp} />
-          <Route path="/landing-page" component={LandingPage} />
-          <Route path="/choose-first" render={() => <ChooseFirst recipe={recipes} setCategoryOne={setCategoryOne} category1={category1} />} />
-          <Route path="/choose-second" render={() => <ChooseSecond findRecipeBasedOnOne={findRecipeBasedOnOne} setCategoryTwo={setCategoryTwo} />} />
-          <Route path="/recipt-list" render={() => <ReciptList findRecipeBasedOnOne={findRecipeBasedOnOne} setChosenRecipe={setChosenRecipe} />} />
-          <Route path="/recipt-page" render={() => <ReciptPage findRecipe={findRecipe} />} />
-          <Route path="/search-list" render={() => <SearchList setChosenRecipe={setChosenRecipe} recipe={recipes} category1={category1} category2={category2} />} />
-          <Route path="/admin" render={() => <Admin recipes={recipes} />} />
+          <ProtectedRoutes path="/landing-page" component={LandingPage} />
+          <ProtectedRoutes path="/choose-first" render={() => <ChooseFirst recipe={recipes} setCategoryOne={setCategoryOne} category1={category1} />} />
+          <ProtectedRoutes path="/choose-second" render={() => <ChooseSecond findRecipeBasedOnOne={findRecipeBasedOnOne} setCategoryTwo={setCategoryTwo} />} />
+          <ProtectedRoutes path="/recipt-list" render={() => <ReciptList findRecipeBasedOnOne={findRecipeBasedOnOne} setChosenRecipe={setChosenRecipe} />} />
+          <ProtectedRoutes path="/recipt-page" render={() => <ReciptPage findRecipe={findRecipe} />} />
+          <ProtectedRoutes path="/search-list" render={() => <SearchList setChosenRecipe={setChosenRecipe} recipe={recipes} category1={category1} category2={category2} />} />
+          <ProtectedRoutes path="/admin" render={() => <Admin recipes={recipes} />} />
         </Switch>
       </div>
     </Router>
