@@ -3,7 +3,6 @@ import {
   BrowserRouter as Router, Switch, Route, Redirect,
 } from 'react-router-dom';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 import store from './store';
 import { loadUser } from './actions/authAction';
 import { getRecipes } from './actions/recipeAction';
@@ -58,6 +57,7 @@ const App = (getState) => {
   category2 = Array.from(new Set(categorylist2.map(JSON.stringify))).map(JSON.parse);
 
   // Protected Routes - you need to be authenticated to reach this routes
+  // eslint-disable-next-line react/prop-types
   const ProtectedRoutes = ({ component: Component, ...rest }) => (
     <Route
       {...rest}
