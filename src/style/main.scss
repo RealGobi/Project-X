@@ -97,12 +97,8 @@ body {
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                margin: 50px 0;
+                margin: 50px 0px;
                 width: 100%;
-
-                .Button {
-                    margin-right: 24px;
-                }
             }
         }
 
@@ -113,11 +109,12 @@ body {
         .select-preference-button {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            grid-template-rows: repeat(3, 1fr);
+            grid-template-rows: repeat(4, 1fr);
             grid-template-areas: 
             "item2 item3"
             "item4 item5"
-            "item1 item1";
+            "item1 item1"
+            "item6 item7";
             gap: 8px;
         }
 
@@ -136,6 +133,12 @@ body {
         }
         .item5 {
             grid-area: item5;
+        }
+        .item6 {
+            grid-area: item6;
+        }
+        .item7 {
+            grid-area: item7;
         }
 
         .centerGrid {

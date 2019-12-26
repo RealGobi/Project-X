@@ -73,7 +73,7 @@ function SignUp(props) {
       <Header headLine={headLine} />
       <div id="bg" style={styleback}>
         <Page>
-          <form className="sign-up" onSubmit={onSubmit}>
+          <form className="sign-up">
             <div className="input-container">
               <label htmlFor="name">Name:<input type="text" id="name" onChange={e => setName(e.target.value)} /> </label>
             </div>
@@ -94,11 +94,11 @@ function SignUp(props) {
               <Button className="item3" buttonText="Vegetarian" color="yellow" clickHandler={() => setUserFoodType('Vegetarian')} />
               <Button className="item4" buttonText="Fiskätare" color="mint" clickHandler={() => setUserFoodType('Fiskätare')} />
               <Button className="item5" buttonText="Allätare" color="persica" clickHandler={() => setUserFoodType('Allätare')} />
-            </div>
-            <div className="next">
-              <button type="submit">Skapa Konto</button>
+              <Link to="/landing-page">
+                <Button className="item6" buttonText="Skapa Konto" color="mint" clickHandler={onSubmit} />
+              </Link>
               <Link to="/">
-                <Button buttonText="Tillbaka" color="mint" />
+                <Button className="item7" buttonText="Tillbaka" color="mint" />
               </Link>
             </div>
           </form>
