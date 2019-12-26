@@ -113,8 +113,29 @@ body {
         .select-preference-button {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            grid-template-rows: repeat(2, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            grid-template-areas: 
+            "item2 item3"
+            "item4 item5"
+            "item1 item1";
             gap: 8px;
+        }
+
+        .item1 {
+            grid-area: item1;
+            @extend %center;
+        }
+        .item2 {
+            grid-area: item2;
+        }
+        .item3 {
+            grid-area: item3;
+        }
+        .item4 {
+            grid-area: item4;
+        }
+        .item5 {
+            grid-area: item5;
         }
 
         .centerGrid {
@@ -323,7 +344,7 @@ body {
 
                 .input-container:nth-child(3) {
                     background: $dinner_Yellow;
-                    margin-bottom: 90px;
+                    margin-bottom: 45px;
                 }
 
                 .Button {

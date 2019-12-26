@@ -84,18 +84,17 @@ function SignUp(props) {
               <label htmlFor="password">Lösenord: <input type="password" id="password" onChange={e => setPassword(e.target.value)} /></label>
             </div>
             <div className="select-preference-button">
-              <Button buttonText="Vegan" color="mint" clickHandler={() => setUserFoodType('Vegan')} />
-              <Button buttonText="Vegetarian" color="yellow" clickHandler={() => setUserFoodType('Vegetarian')} />
-              <Button buttonText="Fiskätare" color="mint" clickHandler={() => setUserFoodType('Fiskätare')} />
-              <Button buttonText="Allätare" color="persica" clickHandler={() => setUserFoodType('Allätare')} />
-            </div>
-            <span className="err">
-              {
+              <div className="item1">
+                {
                 msg
-                  ? <span className="error">{msg}</span>
-                  : null
+                  && <span className="error">{msg}</span>
               }
-            </span>
+              </div>
+              <Button className="item2" buttonText="Vegan" color="mint" clickHandler={() => setUserFoodType('Vegan')} />
+              <Button className="item3" buttonText="Vegetarian" color="yellow" clickHandler={() => setUserFoodType('Vegetarian')} />
+              <Button className="item4" buttonText="Fiskätare" color="mint" clickHandler={() => setUserFoodType('Fiskätare')} />
+              <Button className="item5" buttonText="Allätare" color="persica" clickHandler={() => setUserFoodType('Allätare')} />
+            </div>
             <div className="next">
               <button type="submit">Skapa Konto</button>
               <Link to="/">

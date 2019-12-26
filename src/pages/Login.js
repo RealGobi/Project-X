@@ -52,19 +52,18 @@ function Login(props) {
   return (
     <div className="Startlogga">
       <form className="login-container">
+        <div className="err">
+          {
+                msg
+                  && <div className="error">{msg}</div>
+              }
+        </div>
         <div className="input-container">
           <span>E-post:</span> <input type="email" id="email" onChange={e => setEmail(e.target.value)} />
         </div>
         <div className="input-container">
           <span>Lösenord:</span> <input type="password" id="password" onChange={e => setPassword(e.target.value)} />
         </div>
-        <span className="err">
-          {
-                msg
-                  ? <span className="error">{msg}</span>
-                  : null
-              }
-        </span>
         <div className="login-button-container">
           <Link to="/signup">
             <Button buttonText="Skapa Konto" color="mint" />
