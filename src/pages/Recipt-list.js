@@ -9,8 +9,9 @@ import RecipeItem from '../Components/RecipeItem/RecipeItem';
 import { Reload } from '../Components/misc/Reload';
 
 export default function ReciptList({ findRecipeBasedOnOne, setChosenRecipe }) {
+  // if user relodpage, you get thrown back to landing-page.
   Reload(findRecipeBasedOnOne);
-  sessionStorage.setItem('1', 'yes');
+
   ReciptList.propTypes = {
     findRecipeBasedOnOne: PropTypes.array.isRequired,
   };

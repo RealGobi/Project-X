@@ -1,14 +1,18 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import Popup from 'reactjs-popup';
+import PropTypes from 'prop-types';
 import store from '../store';
 import { addRecipe, deleteRecipe } from '../actions/recipeAction';
 
 import Button from '../Components/Button/Button';
 import DynomicInput from '../Components/Input/dynamicInput';
 
-const Admin = (getState) => {
+function Admin(getState) {
   const { recipes } = getState.recipe;
+  const { isAdmin } = getState;
+
+console.log(getState);
 
   const [title, setTitle] = useState('');
   const [description, setDesc] = useState('');
@@ -97,6 +101,7 @@ const Admin = (getState) => {
     }
     return comparison;
   };
+  console.log(isAdmin);
 
   return (
     <div className="admin">
@@ -160,36 +165,43 @@ const Admin = (getState) => {
           <Button type="button" buttonText="Lägg till" clickHandler={handleAddRecipe} />
         </div>
       </div>
-      <div className="admin-receptlist">
-        <h2>Receptlista</h2>
-        <div>
-          {
-              recipes.sort(sortByName).map(rec => (
-                <div key={rec._id} className="listrow">
-                  <span className="admin-title">{rec.title}</span>
-                  <span className="editbtn" role="button" alt="edit" />
-                  <Popup trigger={<span className="deletebtn"></span>} modal>
-                    {close => (
-                      <div className="modal">
-                        <span className="close" onClick={close}>
+
+      {
+            isAdmin
+              ? (
+                <div className="admin-receptlist">
+                  <h2>Receptlista</h2>
+                  <div>
+                    {recipes.sort(sortByName).map(rec => (
+                      <div key={rec._id} className="listrow">
+                        <span className="admin-title">{rec.title}</span>
+                        <span className="editbtn" role="button" alt="edit" />
+                        <Popup trigger={<span className="deletebtn" />} modal>
+                          {close => (
+                            <div className="modal">
+                              <span className="close" onClick={close}>
                 &times;
-                        </span>
-                        <div className="header" onClick={() => { deleteRec(rec._id); }}><p>Ta bort!</p></div>
-                       
+                              </span>
+                              <div className="header" onClick={() => { deleteRec(rec._id); }}><p>Ta bort!</p></div>
+
+                            </div>
+                          )}
+                        </Popup>
                       </div>
-                    )}
-                  </Popup>
+                    ))}
+
+                  </div>
                 </div>
-              ))
+              )
+              : null
             }
-        </div>
-      </div>
     </div>
   );
-};
+}
 
 
 const mapStateToProps = state => ({
+  isAdmin: state.auth.isAdmin,
   recipe: state.recipe,
 });
 export default connect(mapStateToProps, { addRecipe, deleteRecipe })(Admin);

@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import {
+  BrowserRouter as Router, Switch, Route, Redirect,
+} from 'react-router-dom';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 import store from './store';
 import { loadUser } from './actions/authAction';
 import { getRecipes } from './actions/recipeAction';
@@ -21,23 +22,21 @@ import AddRecipe from './pages/AddRecipe';
 
 const App = (getState) => {
   const { recipes } = getState.recipe;
-  console.log(recipes);
+  const { isAuthenticated } = getState;
+
+  // see if user valid token is present
   useEffect(() => {
     store.dispatch(loadUser());
   }, []);
-  // fishing hooks
 
+  // fishing hooks
   const [categoryOne, setCategoryOne] = useState([]);
   const [categoryTwo, setCategoryTwo] = useState([]);
   const [chosenRecipe, setChosenRecipe] = useState('');
-  
+
   // filter out recipe
-  
-  console.log(recipes);
   const findRecipe = recipes.find(rec => rec._id === chosenRecipe);
   const findRecipeBasedOnOne = recipes.filter(rec => rec.category1.find(r => r === categoryOne));
-
-  // filter out category
 
   // collect all categorys to one array
   let category1 = [];
@@ -58,35 +57,72 @@ const App = (getState) => {
   // remove duplicates
   category2 = Array.from(new Set(categorylist2.map(JSON.stringify))).map(JSON.parse);
 
-  // Router and render
+  // Protected Routes - you need to be authenticated to reach this routes
+  // eslint-disable-next-line react/prop-types
+  const ProtectedRoutes = ({ component: Component, ...rest }) => (
+    <Route
+      {...rest}
+      render={props => (isAuthenticated
+        ? <Component {...props} {...rest} />
+        : <Redirect to="/" />
+      )}
+    />
+  );
 
+  // Router and render
   return (
     <Router>
       <div className="App">
         <Switch>
           <Route path="/" exact render={() => <Login />} />
           <Route path="/signup" component={SignUp} />
-          <Route path="/landing-page" component={LandingPage} />
-          <Route path="/choose-first" render={() => <ChooseFirst recipe={recipes} setCategoryOne={setCategoryOne} category1={category1} />} />
-          <Route path="/choose-second" render={() => <ChooseSecond findRecipeBasedOnOne={findRecipeBasedOnOne} setCategoryTwo={setCategoryTwo} />} />
-          <Route path="/recipt-list" render={() => <ReciptList findRecipeBasedOnOne={findRecipeBasedOnOne} setChosenRecipe={setChosenRecipe} />} />
-          <Route path="/recipt-page" render={() => <ReciptPage findRecipe={findRecipe} />} />
-          <Route path="/search-list" render={() => <SearchList setChosenRecipe={setChosenRecipe} recipe={recipes} category1={category1} category2={category2} />} />
-          <Route path="/addRecipe" render={() => <AddRecipe recipes={recipes} />} />
-          <Route path="/admin" render={() => <Admin recipes={recipes} />} />
+          <ProtectedRoutes path="/landing-page" component={LandingPage} />
+          <ProtectedRoutes
+            path="/choose-first"
+            component={ChooseFirst}
+            recipe={recipes}
+            setCategoryOne={setCategoryOne}
+            category1={category1}
+          />
+          <ProtectedRoutes
+            path="/choose-second"
+            component={ChooseSecond}
+            findRecipeBasedOnOne={findRecipeBasedOnOne}
+            setCategoryTwo={setCategoryTwo}
+          />
+          <ProtectedRoutes
+            path="/recipt-list"
+            component={ReciptList}
+            findRecipeBasedOnOne={findRecipeBasedOnOne}
+            setChosenRecipe={setChosenRecipe}
+          />
+          <ProtectedRoutes
+            path="/recipt-page"
+            component={ReciptPage}
+            findRecipe={findRecipe}
+          />
+          <ProtectedRoutes
+            path="/search-list"
+            component={SearchList}
+            setChosenRecipe={setChosenRecipe}
+            recipe={recipes}
+            category1={category1}
+            category2={category2}
+          />
+          <ProtectedRoutes
+            path="/admin"
+            component={Admin}
+            recipes={recipes}
+          />
+          <Route path="*" render={() => <Login />} />
         </Switch>
       </div>
     </Router>
   );
 };
 
-// prop types
-App.propTypes = {
-  getRecipes: PropTypes.func.isRequired,
-  recipe: PropTypes.object.isRequired,
-};
-
 const mapStateToProps = state => ({
   recipe: state.recipe,
+  isAuthenticated: state.auth.isAuthenticated,
 });
 export default connect(mapStateToProps, { getRecipes })(App);
