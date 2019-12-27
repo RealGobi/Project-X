@@ -12,7 +12,7 @@ const Logout = () => {
     history.push('/');
   };
   return (
-    <button type="button" onClick={() => { logoutMe(); out(); }} href="#">
+    <button className="logout" type="button" onClick={() => { logoutMe(); out(); }} href="#">
        Logga ut
     </button>
   );
