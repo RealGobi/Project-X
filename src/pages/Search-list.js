@@ -25,6 +25,7 @@ export default function SearchList(props) {
   function handleSearchInputChange(e) { setSearchValue(e.target.value); }
 
   // Creating array with the activeCategories
+  // eslint-disable-next-line no-shadow
   const [activeCategoryFilter, dispatch] = useReducer((activeCategoryFilter, { type, value }) => {
     switch (type) {
       case 'add':
@@ -71,7 +72,7 @@ export default function SearchList(props) {
           </div>
         </div>
         <div className="categorybar">
-          <div onClick={toggleShow}>Show/Hide Category</div>
+          <div className="row" onClick={toggleShow} role="button">Kategori{showCategory ? <div className="arrow" /> : <div className="arrow-open" />}</div>
           {showCategory ? (
             <div className="category">
               {

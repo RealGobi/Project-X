@@ -26,8 +26,9 @@ export default function LandingPage(props) {
   };
   const setting = (
     <span className="settings">
-      <Button buttonText="Vegan" color="mint" clickHandler={() => setUserFoodType('Vegan')} /><Button buttonText="Vegetarian" color="yellow" clickHandler={() => setUserFoodType('Vegetarian')} />
-      <Button buttonText="Fiskätare" color="mint" clickHandler={() => setUserFoodType('Fiskätare')} />
+      <Button buttonText="Vegan" color="mint" clickHandler={() => setUserFoodType('Vegan')} />
+      <Button buttonText="Lakto-ovo Vegetarian" color="yellow" clickHandler={() => setUserFoodType('Vegetarian')} />
+      <Button buttonText="Vegetarian + Fisk" color="mint" clickHandler={() => setUserFoodType('Fiskätare')} />
       <Button buttonText="Allätare" color="persica" clickHandler={() => setUserFoodType('Allätare')} />
       <p>Vald: {foodType}</p>
     </span>
@@ -38,7 +39,7 @@ export default function LandingPage(props) {
       <Header headLine={hello} />
       <Page>
         <div className="mail-button">
-          <Link to="/addRecipe">
+          <Link to="/admin">
             <Button buttonText="Lägg till recept" color="mint" />
           </Link>
           <Popup trigger={<img src={Settings} alt="inställningar" />} modal>

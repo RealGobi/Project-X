@@ -28,9 +28,6 @@ export default function ChooseFirst({ category1, setCategoryOne }) {
           <Link to="/landing-page">
             <Button buttonText="Tillbaka" color="mint" />
           </Link>
-         {/*  <Link to="/choose-second">
-            <Button buttonText="Välj Första" color="mint" />
-          </Link> */}
         </div>
       </Page>
     </div>

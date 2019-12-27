@@ -4,7 +4,6 @@
 // mobile
 body {
     width: 100vw;
-    height: 100vh;
     display: flex;
     justify-content: center;
     padding: 0;
@@ -48,8 +47,8 @@ body {
     .header {
         background: $dinner_Blue;
         border-radius: 3px 3px 0 0;
-        margin: 0;
-        max-height: 100px;
+        margin: 0px;
+        max-height: 150px;
         @extend %center;
         padding: 24px;
 
@@ -63,9 +62,9 @@ body {
     .header-recipt {
         background: $dinner_Persica;
         border-radius: 3px 3px 0 0;
-        max-height: 100px;
+        max-height: 140px;
         @extend %center;
-        margin: 24px 24px 0 24px;
+        padding: 24px 24px 0 24px;
 
         h1 {
             @extend %header2;
@@ -167,6 +166,31 @@ body {
             label {
                 font-size: 0.9rem;
             }
+            .row {
+                display: flex;
+                flex-direction: row;           
+                .arrow { 
+                    background-image: url(../images/arrow.svg);
+                    background-size: contain;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    width: 20px;
+                    height: 20px;
+                    margin-left: 10px;
+                    transform: rotate(180deg);
+                }
+
+                .arrow-open {
+                    background-image: url(../images/arrow.svg);
+                    background-size: contain;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    width: 20px;
+                    height: 20px;
+                    margin-left: 10px;
+                    transform: rotate(0deg);
+                }
+            }
         }
 
     }
@@ -178,6 +202,7 @@ body {
         justify-content: center;
         align-content: center;
         text-align: center;
+        overflow-y: visible;
 
         .admin-receptlist {
             background: #c4c4c4;
@@ -239,7 +264,6 @@ body {
 
     body {
         width: 100vw;
-        height: 100vh;
         display: flex;
         align-items: flex-start;
         justify-content: center;
@@ -396,7 +420,6 @@ body {
 @media only screen and (min-width: 780px) {
     body {
         width: 100vw;
-        height: 100vh;
         display: flex;
         align-items: flex-start;
         justify-content: center;
@@ -411,7 +434,6 @@ body {
             justify-content: flex-end;
             align-items: flex-end;
             margin: 0;
-
         }
 
         .admin {

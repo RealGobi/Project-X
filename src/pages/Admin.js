@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import Popup from 'reactjs-popup';
-import PropTypes from 'prop-types';
 import store from '../store';
 import { addRecipe, deleteRecipe } from '../actions/recipeAction';
 
@@ -12,7 +12,7 @@ function Admin(getState) {
   const { recipes } = getState.recipe;
   const { isAdmin } = getState;
 
-console.log(getState);
+  console.log(getState);
 
   const [title, setTitle] = useState('');
   const [description, setDesc] = useState('');
@@ -57,7 +57,7 @@ console.log(getState);
   const Rubrik = 'Ingredienser:';
   const Rubrik2 = 'Instruktioner:';
 
-  const handleAddRecipe = (e) => {
+  const handleAddRecipe = () => {
     let recipeToDb = {
       title,
       description,
@@ -179,10 +179,10 @@ console.log(getState);
                         <Popup trigger={<span className="deletebtn" />} modal>
                           {close => (
                             <div className="modal">
-                              <span className="close" onClick={close}>
+                              <span className="close" role="button" keyonpress={close} onClick={close}>
                 &times;
                               </span>
-                              <div className="header" onClick={() => { deleteRec(rec._id); }}><p>Ta bort!</p></div>
+                              <div className="header" role="button" onClick={() => { deleteRec(rec._id); }}><p>Ta bort!</p></div>
 
                             </div>
                           )}
@@ -195,6 +195,9 @@ console.log(getState);
               )
               : null
             }
+      <Link to="/landing-page">
+        <Button buttonText="Tillbaka" color="mint" />
+      </Link>
     </div>
   );
 }

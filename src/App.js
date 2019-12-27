@@ -18,7 +18,6 @@ import ReciptList from './pages/Recipt-list';
 import ReciptPage from './pages/Recipt-page';
 import SearchList from './pages/Search-list';
 import Admin from './pages/Admin';
-import AddRecipe from './pages/AddRecipe';
 
 const App = (getState) => {
   const { recipes } = getState.recipe;
@@ -31,10 +30,12 @@ const App = (getState) => {
 
   // fishing hooks
   const [categoryOne, setCategoryOne] = useState([]);
+  // eslint-disable-next-line no-unused-vars
   const [categoryTwo, setCategoryTwo] = useState([]);
   const [chosenRecipe, setChosenRecipe] = useState('');
 
   // filter out recipe
+  // eslint-disable-next-line no-underscore-dangle
   const findRecipe = recipes.find(rec => rec._id === chosenRecipe);
   const findRecipeBasedOnOne = recipes.filter(rec => rec.category1.find(r => r === categoryOne));
 
