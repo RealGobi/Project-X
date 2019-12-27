@@ -30,10 +30,10 @@ export default function LandingPage(props) {
 
   const setting = (
     <span className="settings">
-      <Button buttonText="1. Vegan" color="mint" clickHandler={() => setUserFoodType('1')} />
-      <Button buttonText="2. Lakto-ovo Vegetarian" color="yellow" clickHandler={() => setUserFoodType('2')} />
-      <Button buttonText="3. Vegetarian + Fisk" color="mint" clickHandler={() => setUserFoodType('3')} />
-      <Button buttonText="4. Allätare" color="persica" clickHandler={() => setUserFoodType('4')} />
+      <Button buttonText="1. Vegan" color="persica" clickHandler={() => setUserFoodType(1)} />
+      <Button buttonText="2. Lakto-ovo Vegetarian" color="yellow" clickHandler={() => setUserFoodType(2)} />
+      <Button buttonText="3. Vegetarian + Fisk" color="mint" clickHandler={() => setUserFoodType(3)} />
+      <Button buttonText="4. Allätare" color="persica" clickHandler={() => setUserFoodType(4)} />
       <Button buttonText="Byt till denna preference" color="yellow" clickHandler={changeFoodType} />
     </span>
   );

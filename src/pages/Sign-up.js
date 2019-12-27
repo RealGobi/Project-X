@@ -48,7 +48,6 @@ function SignUp(props) {
       email,
       password,
       foodType,
-
     };
 
     // Attempt to register
@@ -90,10 +89,10 @@ function SignUp(props) {
                   && <span className="error">{msg}</span>
               }
               </div>
-              <Button className="item2" buttonText="Vegan" color="mint" clickHandler={() => setUserFoodType('Vegan')} />
-              <Button className="item3" buttonText="Vegetarian" color="yellow" clickHandler={() => setUserFoodType('Vegetarian')} />
-              <Button className="item4" buttonText="Fiskätare" color="mint" clickHandler={() => setUserFoodType('Fiskätare')} />
-              <Button className="item5" buttonText="Allätare" color="persica" clickHandler={() => setUserFoodType('Allätare')} />
+              <Button className="item2" buttonText="Vegan" color="persica" clickHandler={() => setUserFoodType(1)} />
+              <Button className="item3" buttonText="Lakto-ovo Vegetarian" color="yellow" clickHandler={() => setUserFoodType(2)} />
+              <Button className="item4" buttonText="Vegetarian + Fisk" color="mint" clickHandler={() => setUserFoodType(3)} />
+              <Button className="item5" buttonText="Allätare" color="persica" clickHandler={() => setUserFoodType(4)} />
               <Link to="/landing-page">
                 <Button className="item6" buttonText="Skapa Konto" color="mint" clickHandler={onSubmit} />
               </Link>

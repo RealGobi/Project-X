@@ -22,7 +22,6 @@ import Admin from './pages/Admin';
 const App = (getState) => {
   const { recipes } = getState.recipe;
   const { isAuthenticated } = getState;
-  const userFoodType = localStorage.getItem('foodType');
 
   // see if user valid token is present
   useEffect(() => {
@@ -40,11 +39,15 @@ const App = (getState) => {
   const findRecipe = recipes.find(rec => rec._id === chosenRecipe);
   const findRecipeBasedOnOne = recipes.filter(rec => rec.category1.find(r => r === categoryOne));
 
+  // get the users foodtype
+  const userFoodType = localStorage.getItem('foodType');
+  // make recipelist from foodtype
+  const foodTypeRecipes = recipes.filter(rec => (userFoodType ? rec.foodType <= userFoodType : true));
+
   // collect all categorys to one array
-  // recipes.filter(recipes.foodType <= userFoodType);
   let category1 = [];
   const collectCategory1 = () => {
-    recipes.map(cat => cat.category1.map(tac => category1.push(tac)));
+    foodTypeRecipes.map(cat => cat.category1.map(tac => category1.push(tac)));
   };
   collectCategory1();
   const categorylist1 = category1;
@@ -53,7 +56,7 @@ const App = (getState) => {
 
   let category2 = [];
   const collectCategory2 = () => {
-    recipes.map(cat => cat.category2.map(tac => category2.push(tac)));
+    foodTypeRecipes.map(cat => cat.category2.map(tac => category2.push(tac)));
   };
   collectCategory2();
   const categorylist2 = category2;
