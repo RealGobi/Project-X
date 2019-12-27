@@ -3,14 +3,14 @@
 import React, { useState } from 'react';
 import Popup from 'reactjs-popup';
 import { Link } from 'react-router-dom';
-
 import './popup.css';
 import Page from '../Components/Page/Page';
 import Header from '../Components/Header/Header';
 import Button from '../Components/Button/Button';
-
 import Settings from '../images/button-settings.svg';
 import Background from '../images/lemons.jpg';
+import { changeUserSettings } from '../actions/authAction';
+import store from '../store';
 
 export default function LandingPage(props) {
   const userName1 = localStorage.getItem('name');
@@ -24,8 +24,12 @@ export default function LandingPage(props) {
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
   };
-  const changeFoodType = () => {
-    console.log(foodType);
+
+  const changeFoodType = (e) => {
+    e.preventDefault();
+
+    // Attempt to change
+    store.dispatch(changeUserSettings(foodType));
   };
 
   const setting = (
@@ -34,7 +38,7 @@ export default function LandingPage(props) {
       <Button buttonText="2. Lakto-ovo Vegetarian" color="yellow" clickHandler={() => setUserFoodType(2)} />
       <Button buttonText="3. Vegetarian + Fisk" color="mint" clickHandler={() => setUserFoodType(3)} />
       <Button buttonText="4. Allätare" color="persica" clickHandler={() => setUserFoodType(4)} />
-      <Button buttonText="Byt till denna preference" color="yellow" clickHandler={changeFoodType} />
+      <Button buttonText="Byt preference" color="yellow" clickHandler={changeFoodType} />
     </span>
   );
 

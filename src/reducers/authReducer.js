@@ -7,6 +7,7 @@ import {
   LOGOUT_SUCCESS,
   REGISTER_SUCCESS,
   REGISTER_FAIL,
+  USER_SETTINGS_CHANGE,
 } from '../actions/types';
 
 
@@ -63,6 +64,15 @@ export default function (state = initialState, action) {
         user: null,
         isAuthenticated: false,
         isLoading: false,
+      };
+    case USER_SETTINGS_CHANGE:
+      localStorage.setItem('foodType', action.payload.user.foodType);
+      return {
+        ...state,
+        ...action.payload,
+        isAuthenticated: true,
+        isLoading: false,
+        user: action.payload,
       };
     default:
       return state;

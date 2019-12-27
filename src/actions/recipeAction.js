@@ -1,6 +1,6 @@
 import axios from 'axios';
 import {
-  GET_RECIPES, ADD_RECIPE, DELETE_RECIPE, RECIPES_LOADING,
+  GET_RECIPES, ADD_RECIPE, DELETE_RECIPE, RECIPES_LOADING, EDIT_RECIPE,
 } from './types';
 import { tokenConfig } from './authAction';
 import { returnErrors } from './errorAction';
@@ -28,6 +28,16 @@ export const addRecipe = recipe => (dispatch, getState) => {
     .then(res => dispatch({
       type: ADD_RECIPE,
       payload: res.data,
+    }))
+    .catch(err => dispatch(returnErrors(err.response.data, err.response.status)));
+};
+
+export const editRecipe = id => (dispatch, getState) => {
+  axios
+    .patch(`http://localhost:5000/api/recipe/${id}`, tokenConfig(getState))
+    .then(res => dispatch({
+      type: EDIT_RECIPE,
+      payload: id,
     }))
     .catch(err => dispatch(returnErrors(err.response.data, err.response.status)));
 };
