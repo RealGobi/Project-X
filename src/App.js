@@ -22,6 +22,7 @@ import Admin from './pages/Admin';
 const App = (getState) => {
   const { recipes } = getState.recipe;
   const { isAuthenticated } = getState;
+  const userFoodType = localStorage.getItem('foodType');
 
   // see if user valid token is present
   useEffect(() => {
@@ -40,6 +41,7 @@ const App = (getState) => {
   const findRecipeBasedOnOne = recipes.filter(rec => rec.category1.find(r => r === categoryOne));
 
   // collect all categorys to one array
+  // recipes.filter(recipes.foodType <= userFoodType);
   let category1 = [];
   const collectCategory1 = () => {
     recipes.map(cat => cat.category1.map(tac => category1.push(tac)));

@@ -154,10 +154,10 @@ function Admin(getState) {
           {/* <label htmlFor="rating">Betyg 1-5:<input type="text" name="rating" /></label> */}
           <label htmlFor="Foodtype" defaultValue={1} className="foodtype">Vad för sort recept:
             <select className="portioner" onChange={(e) => { setFoodType(e.target.value); }}>
-              <option value={1}>Allt</option>
-              <option value={2}>Fisk</option>
-              <option value={3}>Vegetarian</option>
-              <option value={4}>Vegan</option>
+              <option value={4}>Allt</option>
+              <option value={3}>Fisk</option>
+              <option value={2}>Vegetarian</option>
+              <option value={1}>Vegan</option>
             </select>
           </label>
         </form>

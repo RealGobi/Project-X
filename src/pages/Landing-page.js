@@ -13,8 +13,8 @@ import Settings from '../images/button-settings.svg';
 import Background from '../images/lemons.jpg';
 
 export default function LandingPage(props) {
-  const userName1 = props.userName;
-  const foodtypeUser1 = props.food;
+  const userName1 = localStorage.getItem('name');
+  const foodtypeUser1 = localStorage.getItem('foodType');
   const [foodType, setUserFoodType] = useState(foodtypeUser1);
 
   const hello = <span>God Morgon {userName1}</span>;
@@ -24,16 +24,20 @@ export default function LandingPage(props) {
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
   };
+  const changeFoodType = () => {
+    console.log(foodType);
+  };
+
   const setting = (
     <span className="settings">
-      <Button buttonText="Vegan" color="mint" clickHandler={() => setUserFoodType('Vegan')} />
-      <Button buttonText="Lakto-ovo Vegetarian" color="yellow" clickHandler={() => setUserFoodType('Vegetarian')} />
-      <Button buttonText="Vegetarian + Fisk" color="mint" clickHandler={() => setUserFoodType('Fiskätare')} />
-      <Button buttonText="Allätare" color="persica" clickHandler={() => setUserFoodType('Allätare')} />
-      <p>Vald: {foodType}</p>
+      <Button buttonText="1. Vegan" color="mint" clickHandler={() => setUserFoodType('1')} />
+      <Button buttonText="2. Lakto-ovo Vegetarian" color="yellow" clickHandler={() => setUserFoodType('2')} />
+      <Button buttonText="3. Vegetarian + Fisk" color="mint" clickHandler={() => setUserFoodType('3')} />
+      <Button buttonText="4. Allätare" color="persica" clickHandler={() => setUserFoodType('4')} />
+      <Button buttonText="Byt till denna preference" color="yellow" clickHandler={changeFoodType} />
     </span>
   );
- 
+
   return (
     <div id="bg" style={styleback}>
       <Header headLine={hello} />

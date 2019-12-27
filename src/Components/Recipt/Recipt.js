@@ -84,7 +84,7 @@ Recipt.propTypes = {
   recipeIntro: PropTypes.string,
   recipeImg: PropTypes.string,
   time: PropTypes.number,
-  recipeIngredients: PropTypes.arrayOf(PropTypes.string),
+  recipeIngredients: PropTypes.array,
   recipeInstructions: PropTypes.arrayOf(PropTypes.string),
 };
 
