@@ -89,6 +89,11 @@ function Admin(getState) {
     store.dispatch(deleteRecipe(id));
   };
 
+  const editRec = (id) => {
+    console.log(id);
+    //store.dispatch(editRec(id));
+  };
+
   const sortByName = (a, b) => {
     const compA = a.title.toLowerCase();
     const compB = b.title.toLowerCase();
@@ -152,7 +157,7 @@ function Admin(getState) {
           />
           <hr />
           {/* <label htmlFor="rating">Betyg 1-5:<input type="text" name="rating" /></label> */}
-          <label htmlFor="Foodtype" defaultValue={1} className="foodtype">Vad för sort recept:
+          <label htmlFor="Foodtype" defaultValue={4} className="foodtype">Vad för sort recept:
             <select className="portioner" onChange={(e) => { setFoodType(e.target.value); }}>
               <option value={4}>Allt</option>
               <option value={3}>Fisk</option>
@@ -175,11 +180,11 @@ function Admin(getState) {
                     {recipes.sort(sortByName).map(rec => (
                       <div key={rec._id} className="listrow">
                         <span className="admin-title">{rec.title}</span>
-                        <span className="editbtn" role="button" alt="edit" />
+                        <span className="editbtn" role="button" alt="edit" onClick={() => { editRec(rec._id); }} />
                         <Popup trigger={<span className="deletebtn" />} modal>
                           {close => (
                             <div className="modal">
-                              <span className="close" role="button" keyonpress={close} onClick={close}>
+                              <span className="close" role="button" onClick={close}>
                 &times;
                               </span>
                               <div className="header" role="button" onClick={() => { deleteRec(rec._id); }}><p>Ta bort!</p></div>
