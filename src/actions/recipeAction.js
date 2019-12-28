@@ -34,7 +34,7 @@ export const addRecipe = recipe => (dispatch, getState) => {
 
 export const editRecipe = id => (dispatch, getState) => {
   axios
-    .patch(`http://localhost:5000/api/recipe/${id}`, tokenConfig(getState))
+    .put(`http://localhost:5000/api/recipe/${id}`, tokenConfig(getState))
     .then(res => dispatch({
       type: EDIT_RECIPE,
       payload: id,
