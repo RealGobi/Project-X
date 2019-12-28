@@ -3,7 +3,9 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Popup from 'reactjs-popup';
 import store from '../store';
-import { addRecipe, deleteRecipe } from '../actions/recipeAction';
+import {
+  addRecipe, deleteRecipe, getRecipes, editRecipe,
+} from '../actions/recipeAction';
 
 import Button from '../Components/Button/Button';
 import DynomicInput from '../Components/Input/dynamicInput';
@@ -12,6 +14,7 @@ function Admin(getState) {
   const { recipes } = getState.recipe;
   const { isAdmin } = getState;
 
+  const [editMode, setEditMode] = useState(false);
   console.log(getState);
 
   const [title, setTitle] = useState('');
@@ -89,9 +92,17 @@ function Admin(getState) {
     store.dispatch(deleteRecipe(id));
   };
 
+  // Will start editMode and fill in a recipe in all input field
+  const editClickHandler = (id) => {
+    console.log(id);
+    store.dispatch(getRecipes(id));
+    setEditMode(true);
+  };
+
+  // will happen if you changed something
   const editRec = (id) => {
-    //console.log(id);
-    let recipeToDb = {
+    // console.log(id);
+    const recipeToDb = {
       title,
       description,
       category1,
@@ -102,7 +113,7 @@ function Admin(getState) {
       ingredients,
       instructions,
     };
-    store.dispatch(editRec(id));
+    store.dispatch(editRecipe(recipeToDb));
   };
 
   const sortByName = (a, b) => {
@@ -123,18 +134,22 @@ function Admin(getState) {
     <div className="admin">
       <div className="header"><h1>Admin</h1></div>
       <div className="admin-addrecept">
-        <div>
-          <h2>Nytt Recept</h2>
-          <p>Lägg till nytt recept baserat på fyra potioner.</p>
-          <form>
-            <label htmlFor="Namn">Namn: <input type="text" name="name" value={title} onChange={(e) => { setTitle(e.target.value); }} /></label>
-            <label htmlFor="Beskrivning">Beskrivning: <input type="text" value={description} name="description" onChange={(e) => { setDesc(e.target.value); }} /></label>
-            <label htmlFor="Kategori1">Kategori Protein: <input type="text" value={category1} name="category1" onChange={(e) => { setCategory1(e.target.value); }} /></label>
-            <label htmlFor="Kategori2">Kategori Kolhydrat: <input type="text" value={category2} name="category2" onChange={(e) => { setCategory2(e.target.value); }} /></label>
-            <label htmlFor="bildlänk">Bildlänk:<input type="text" name="imageLink" value={imageLink} onChange={(e) => { setImageLink(e.target.value); }} /></label>
-            <label htmlFor="Time">Tid: <input type="number" name="time" value={time} onChange={(e) => { setTime(e.target.value); }} /></label>
-            <hr />
-            {
+        {editMode ? (
+          <div>hej</div>
+          // inputs for each field you can change
+        ) : (
+          <div>
+            <h2>Nytt Recept</h2>
+            <p>Lägg till nytt recept baserat på fyra potioner.</p>
+            <form>
+              <label htmlFor="Namn">Namn: <input type="text" name="name" value={title} onChange={(e) => { setTitle(e.target.value); }} /></label>
+              <label htmlFor="Beskrivning">Beskrivning: <input type="text" value={description} name="description" onChange={(e) => { setDesc(e.target.value); }} /></label>
+              <label htmlFor="Kategori1">Kategori Protein: <input type="text" value={category1} name="category1" onChange={(e) => { setCategory1(e.target.value); }} /></label>
+              <label htmlFor="Kategori2">Kategori Kolhydrat: <input type="text" value={category2} name="category2" onChange={(e) => { setCategory2(e.target.value); }} /></label>
+              <label htmlFor="bildlänk">Bildlänk:<input type="text" name="imageLink" value={imageLink} onChange={(e) => { setImageLink(e.target.value); }} /></label>
+              <label htmlFor="Time">Tid: <input type="number" name="time" value={time} onChange={(e) => { setTime(e.target.value); }} /></label>
+              <hr />
+              {
                   ingredients.map((val, idx) => (
                     <DynomicInput
                       Rubrik={Rubrik}
@@ -145,13 +160,13 @@ function Admin(getState) {
                     />
                   ))
                 }
-            <input
-              type="button"
-              value="Lägg till en till ingrediens"
-              onClick={addIng}
-            />
-            <hr />
-            {
+              <input
+                type="button"
+                value="Lägg till en till ingrediens"
+                onClick={addIng}
+              />
+              <hr />
+              {
                   instructions.map((val, idx) => (
                     <DynomicInput
                       Rubrik={Rubrik2}
@@ -162,27 +177,27 @@ function Admin(getState) {
                     />
                   ))
               }
-            <input
-              type="button"
-              value="Lägg till en till instruktion"
-              onClick={addInst}
-            />
-            <hr />
-            {/* <label htmlFor="rating">Betyg 1-5:<input type="text" name="rating" /></label> */}
-            <label htmlFor="Foodtype" defaultValue={4} className="foodtype">Vad för sort recept:
-              <select className="portioner" onChange={(e) => { setFoodType(e.target.value); }}>
-                <option value={4}>Allt</option>
-                <option value={3}>Fisk</option>
-                <option value={2}>Vegetarian</option>
-                <option value={1}>Vegan</option>
-              </select>
-            </label>
-          </form>
-          <div>
-            <Button type="button" buttonText="Lägg till" clickHandler={handleAddRecipe} />
+              <input
+                type="button"
+                value="Lägg till en till instruktion"
+                onClick={addInst}
+              />
+              <hr />
+              {/* <label htmlFor="rating">Betyg 1-5:<input type="text" name="rating" /></label> */}
+              <label htmlFor="Foodtype" defaultValue={4} className="foodtype">Vad för sort recept:
+                <select className="portioner" onChange={(e) => { setFoodType(e.target.value); }}>
+                  <option value={4}>Allt</option>
+                  <option value={3}>Fisk</option>
+                  <option value={2}>Vegetarian</option>
+                  <option value={1}>Vegan</option>
+                </select>
+              </label>
+            </form>
+            <div>
+              <Button type="button" buttonText="Lägg till" clickHandler={handleAddRecipe} />
+            </div>
           </div>
-        </div>
-
+        )}
         {
               isAdmin
                 ? (
@@ -192,7 +207,7 @@ function Admin(getState) {
                       {recipes.sort(sortByName).map(rec => (
                         <div key={rec._id} className="listrow">
                           <span className="admin-title">{rec.title}</span>
-                          <span className="editbtn" role="button" alt="edit" onClick={() => { editRec(rec._id); }} />
+                          <span className="editbtn" role="button" alt="edit" onClick={() => editClickHandler(rec._id)} />
                           <Popup trigger={<span className="deletebtn" />} modal>
                             {close => (
                               <div className="modal">
