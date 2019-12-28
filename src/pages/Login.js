@@ -59,17 +59,17 @@ function Login(props) {
               }
         </div>
         <div className="input-container">
-          <span>E-post:</span> <input type="email" id="email" onChange={e => setEmail(e.target.value)} />
+          <span>E-post:</span> <input type="email" id="email" tabIndex="0" onChange={e => setEmail(e.target.value)} />
         </div>
         <div className="input-container">
           <span>Lösenord:</span> <input type="password" id="password" onChange={e => setPassword(e.target.value)} />
         </div>
         <div className="login-button-container">
           <Link to="/signup">
-            <Button buttonText="Skapa Konto" color="mint" />
+            <Button buttonText="Skapa Konto" color="mint" role="button" />
           </Link>
           <span>
-            <Button buttonText="Logga In" color="yellow" clickHandler={onSubmit} />
+            <Button buttonText="Logga In" color="yellow" role="button" clickHandler={onSubmit} />
           </span>
         </div>
       </form>

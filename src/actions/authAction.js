@@ -129,7 +129,7 @@ export const changeUserSettings = () => (dispatch, getState) => {
   dispatch({ type: USER_LOADING });
 
   axios
-    .patch('http://localhost:5000/api/auth/user', tokenConfig(getState))
+    .put('http://localhost:5000/api/auth/user', tokenConfig(getState))
     .then(res => dispatch({
       type: USER_SETTINGS_CHANGE,
       payload: res.data,
