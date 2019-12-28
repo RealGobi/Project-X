@@ -1,11 +1,11 @@
 .logout {
     position: absolute;
-    top:5px;
+    top: 5px;
     right: 5px;
     padding: 5px;
     border-radius: 3px;
     border: 1px solid #828282;
-    background-color:#FFC79B;
+    background-color: #FFC79B;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -15,7 +15,7 @@
     color: #4f4f4f;
 }
 
-.logout:hover{
+.logout:hover {
     transform: scale(1.15);
     box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.35);
 }
@@ -23,10 +23,22 @@
 @media only screen and (min-width: 768px) {
     .logout {
         position: absolute;
-        top:29px;
-        right: 29px; 
+        top: 29px;
+        right: 29px;
         padding: 10px;
         font-size: 1.1rem;
 
     }
+}
+
+//bigger than ipad pro
+@media only screen and (min-width: 1025px) {
+    .logout {
+        position: relative;
+        top: 0px;
+        right: -270px;
+        padding: 10px;
+        font-size: 1.1rem;
+    }
+
 }
