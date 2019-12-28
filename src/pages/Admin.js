@@ -179,7 +179,7 @@ function Admin(getState) {
                         <Popup trigger={<span className="deletebtn" />} modal>
                           {close => (
                             <div className="modal">
-                              <span className="close" role="button" keyonpress={close} onClick={close}>
+                              <span className="close" role="button" onClick={close}>
                 &times;
                               </span>
                               <div className="header" role="button" onClick={() => { deleteRec(rec._id); }}><p>Ta bort!</p></div>

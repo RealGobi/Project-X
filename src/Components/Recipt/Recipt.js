@@ -60,6 +60,7 @@ const Recipt = ({
                   <option value="10">10 portioner</option>
                 </select>
               </form>
+              <hr />
               {changedPortionValue ? (
                 recipeIngredients.map((ing, idx) => <div key={idx}>{ing.count / 4 * portions} {ing.unit} {ing.ingredient}</div>)
               ) : (
