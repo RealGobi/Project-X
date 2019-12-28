@@ -100,7 +100,7 @@ function Admin(getState) {
   };
 
   // will happen if you changed something
-  const editRec = (id) => {
+  const handleEditRecipe = (id) => {
     // console.log(id);
     const recipeToDb = {
       title,
@@ -128,16 +128,12 @@ function Admin(getState) {
     }
     return comparison;
   };
-  console.log(isAdmin);
 
   return (
     <div className="admin">
       <div className="header"><h1>Admin</h1></div>
-      <div className="admin-addrecept">
-        {editMode ? (
-          <div>hej</div>
-          // inputs for each field you can change
-        ) : (
+      {!editMode ? (
+        <div className="admin-addrecept">
           <div>
             <h2>Nytt Recept</h2>
             <p>Lägg till nytt recept baserat på fyra potioner.</p>
@@ -183,7 +179,6 @@ function Admin(getState) {
                 onClick={addInst}
               />
               <hr />
-              {/* <label htmlFor="rating">Betyg 1-5:<input type="text" name="rating" /></label> */}
               <label htmlFor="Foodtype" defaultValue={4} className="foodtype">Vad för sort recept:
                 <select className="portioner" onChange={(e) => { setFoodType(e.target.value); }}>
                   <option value={4}>Allt</option>
@@ -197,8 +192,71 @@ function Admin(getState) {
               <Button type="button" buttonText="Lägg till" clickHandler={handleAddRecipe} />
             </div>
           </div>
-        )}
-        {
+        </div>
+      ) : (
+
+        // Displays when we wants to edit a recipe.
+        <div className="admin-addrecept">
+          <div>
+            <h2>Editera Recept</h2>
+            <form>
+              <label htmlFor="Namn">Namn: <input type="text" name="name" value={title} onChange={(e) => { setTitle(e.target.value); }} /></label>
+              <label htmlFor="Beskrivning">Beskrivning: <input type="text" value={description} name="description" onChange={(e) => { setDesc(e.target.value); }} /></label>
+              <label htmlFor="Kategori1">Kategori Protein: <input type="text" value={category1} name="category1" onChange={(e) => { setCategory1(e.target.value); }} /></label>
+              <label htmlFor="Kategori2">Kategori Kolhydrat: <input type="text" value={category2} name="category2" onChange={(e) => { setCategory2(e.target.value); }} /></label>
+              <label htmlFor="bildlänk">Bildlänk:<input type="text" name="imageLink" value={imageLink} onChange={(e) => { setImageLink(e.target.value); }} /></label>
+              <label htmlFor="Time">Tid: <input type="number" name="time" value={time} onChange={(e) => { setTime(e.target.value); }} /></label>
+              <hr />
+              {
+                  ingredients.map((val, idx) => (
+                    <DynomicInput
+                      Rubrik={Rubrik}
+                      key={`main-${idx}`}
+                      idx={idx}
+                      input={ingredients}
+                      handleCatChange={handleIngChange}
+                    />
+                  ))
+                }
+              <input
+                type="button"
+                value="Lägg till en till ingrediens"
+                onClick={addIng}
+              />
+              <hr />
+              {
+                  instructions.map((val, idx) => (
+                    <DynomicInput
+                      Rubrik={Rubrik2}
+                      key={`main-${idx}`}
+                      idx={idx}
+                      input={instructions}
+                      handleCatChange={handleInstChange}
+                    />
+                  ))
+              }
+              <input
+                type="button"
+                value="Lägg till en till instruktion"
+                onClick={addInst}
+              />
+              <hr />
+              <label htmlFor="Foodtype" defaultValue={4} className="foodtype">Vad för sort recept:
+                <select className="portioner" onChange={(e) => { setFoodType(e.target.value); }}>
+                  <option value={4}>Allt</option>
+                  <option value={3}>Fisk</option>
+                  <option value={2}>Vegetarian</option>
+                  <option value={1}>Vegan</option>
+                </select>
+              </label>
+            </form>
+            <div>
+              <Button type="button" buttonText="Ändra" clickHandler={handleEditRecipe} />
+            </div>
+          </div>
+        </div>
+      )}
+      {
               isAdmin
                 ? (
                   <div className="admin-receptlist">
@@ -211,7 +269,7 @@ function Admin(getState) {
                           <Popup trigger={<span className="deletebtn" />} modal>
                             {close => (
                               <div className="modal">
-                              <span className="close" role="button" onClick={close}>
+                                <span className="close" role="button" onClick={close}>
                   &times;
                                 </span>
                                 <div className="header" role="button" onClick={() => { deleteRec(rec._id); }}><p>Ta bort!</p></div>
@@ -227,11 +285,11 @@ function Admin(getState) {
                 )
                 : null
               }
-        <Link to="/landing-page">
-          <Button buttonText="Tillbaka" color="mint" />
-        </Link>
-      </div>
+      <Link to="/landing-page">
+        <Button buttonText="Tillbaka" color="mint" />
+      </Link>
     </div>
+
   );
 }
 
@@ -240,4 +298,6 @@ const mapStateToProps = state => ({
   isAdmin: state.auth.isAdmin,
   recipe: state.recipe,
 });
-export default connect(mapStateToProps, { addRecipe, deleteRecipe })(Admin);
+export default connect(mapStateToProps, {
+  addRecipe, deleteRecipe, getRecipes, editRecipe,
+})(Admin);
