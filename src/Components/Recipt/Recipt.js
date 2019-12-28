@@ -73,7 +73,7 @@ const Recipt = ({
       <div className="instructions">
         <h2>Instruktioner</h2>
         <hr />
-        {recipeInstructions.map((ing, idx) => <p key={idx}>{idx + 1}. {recipeInstructions[idx]} </p>)}
+        {recipeInstructions.map((inst, idx) => <p key={idx}>{idx + 1}. {recipeInstructions[idx].inst} </p>)}
       </div>
     </div>
   );
@@ -84,8 +84,8 @@ Recipt.propTypes = {
   recipeIntro: PropTypes.string,
   recipeImg: PropTypes.string,
   time: PropTypes.number,
-  recipeIngredients: PropTypes.array,
-  recipeInstructions: PropTypes.arrayOf(PropTypes.string),
+  recipeIngredients: PropTypes.arrayOf(PropTypes.object),
+  recipeInstructions: PropTypes.arrayOf(PropTypes.object),
 };
 
 Recipt.defaultProps = {
