@@ -18,11 +18,17 @@ function Admin(getState) {
   console.log(getState);
 
   const [title, setTitle] = useState('');
+  const [titleError, setTitleError] = useState('');
   const [description, setDesc] = useState('');
+  const [descriptionError, setDescError] = useState('');
   const [category1, setCategory1] = useState('');
+  const [category1Error, setCategory1Error] = useState('');
   const [category2, setCategory2] = useState('');
+  const [category2Error, setCategory2Error] = useState('');
   const [imageLink, setImageLink] = useState('');
+  const [imageLinkError, setImageLinkError] = useState('');
   const [time, setTime] = useState('');
+  const [timeError, setTimeError] = useState('');
   const [foodType, setFoodType] = useState('');
   console.log(title);
 
@@ -60,31 +66,69 @@ function Admin(getState) {
   const Rubrik = 'Ingredienser:';
   const Rubrik2 = 'Instruktioner:';
 
-  const handleAddRecipe = () => {
-    let recipeToDb = {
-      title,
-      description,
-      category1,
-      category2,
-      imageLink,
-      time,
-      foodType,
-      ingredients,
-      instructions,
-    };
-    store.dispatch(addRecipe(recipeToDb));
-    recipeToDb = null;
-    setTitle('');
-    setDesc('');
+  function validate() {
+    setTitleError('');
+    setDescError('');
     setCategory1('');
     setCategory2('');
-    setImageLink('');
-    setTime('');
-    setFoodType('');
-    setIngredients([
-      { ...blankState }]);
-    setInstructions([
-      { ...blankStateInst }]);
+    setImageLinkError('');
+    setTimeError('');
+    if (!title) {
+      setTitleError('Namn måste vara ifyllt.');
+    }
+    if (!description) {
+      setDescError('Receptet måste ha en beskrivning.');
+    }
+    if (!category1) {
+      setCategory1Error('Kategori måste vara ifyllt.');
+    }
+    if (!category2) {
+      setCategory2Error('Kategori måste vara ifyllt.');
+    }
+    if (!imageLink) {
+      setImageLinkError('Bildlänk måste vara ifyllt');
+    }
+    if (!time) {
+      setTimeError('Tid måste vara ifyllt (min)');
+    }
+
+    if (!title || !description || !description || !category1 || !category2 || !imageLink || !time) {
+      return false;
+    }
+    return true;
+  }
+
+  const handleAddRecipe = (e) => {
+    e.preventDefault();
+    const isValid = validate();
+    if (isValid) {
+      console.log(title, description);
+
+      let recipeToDb = {
+        title,
+        description,
+        category1,
+        category2,
+        imageLink,
+        time,
+        foodType,
+        ingredients,
+        instructions,
+      };
+      store.dispatch(addRecipe(recipeToDb));
+      recipeToDb = null;
+      setTitle('');
+      setDesc('');
+      setCategory1('');
+      setCategory2('');
+      setImageLink('');
+      setTime('');
+      setFoodType('');
+      setIngredients([
+        { ...blankState }]);
+      setInstructions([
+        { ...blankStateInst }]);
+    }
   };
 
   const deleteRec = (id) => {
@@ -139,7 +183,13 @@ function Admin(getState) {
             <p>Lägg till nytt recept baserat på fyra potioner.</p>
             <form>
               <label htmlFor="Namn">Namn: <input type="text" name="name" value={title} onChange={(e) => { setTitle(e.target.value); }} /></label>
+              { titleError
+              && <span className="errorContainer"><div className="error">{titleError}</div></span>
+            }
               <label htmlFor="Beskrivning">Beskrivning: <input type="text" value={description} name="description" onChange={(e) => { setDesc(e.target.value); }} /></label>
+              { descriptionError
+              && <span className="errorContainer"><div className="error">{descriptionError}</div></span>
+            }
               <label htmlFor="Kategori1">Kategori Protein: <input type="text" value={category1} name="category1" onChange={(e) => { setCategory1(e.target.value); }} /></label>
               <label htmlFor="Kategori2">Kategori Kolhydrat: <input type="text" value={category2} name="category2" onChange={(e) => { setCategory2(e.target.value); }} /></label>
               <label htmlFor="bildlänk">Bildlänk:<input type="text" name="imageLink" value={imageLink} onChange={(e) => { setImageLink(e.target.value); }} /></label>
