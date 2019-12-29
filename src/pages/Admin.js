@@ -37,6 +37,8 @@ function Admin(getState) {
   const [ingredients, setIngredients] = useState([
     { ...blankState },
   ]);
+  const [ingredientsError, setIngredientsError] = useState('');
+  const [instructionsError, setInstructionsError] = useState('');
 
   const addIng = () => {
     setIngredients([...ingredients, { ...blankState }]);
@@ -65,6 +67,7 @@ function Admin(getState) {
   };
   const Rubrik = 'Ingredienser:';
   const Rubrik2 = 'Instruktioner:';
+  console.log(instructions);
 
   function validate() {
     setTitleError('');
@@ -73,6 +76,11 @@ function Admin(getState) {
     setCategory2('');
     setImageLinkError('');
     setTimeError('');
+    setInstructionsError(null);
+    setIngredientsError('');
+    console.log(instructions.map(inst => inst.inst));
+    console.log(instructionsError);
+    
     if (!title) {
       setTitleError('Namn måste vara ifyllt.');
     }
@@ -91,19 +99,27 @@ function Admin(getState) {
     if (!time) {
       setTimeError('Tid måste vara ifyllt (min)');
     }
+    const instToValidate = instructions.map(inst => inst.inst);
+    console.log(instToValidate);
+    
+    if (instToValidate.map(i => i === '')) {
+      setInstructionsError('Fyll i alla instruktions fälten.');
+    }
+    if (!ingredients.count || !ingredients.unit || !ingredients.ingredient) {
+      setIngredientsError('Alla fält för en ingrediens måste vara ifyllt.');
+    }
 
-    if (!title || !description || !description || !category1 || !category2 || !imageLink || !time) {
+    if (!title || !description || !description || !category1 || !category2 || !imageLink || !time || !instToValidate) {
       return false;
     }
     return true;
   }
 
+  console.log(instructionsError);
   const handleAddRecipe = (e) => {
     e.preventDefault();
     const isValid = validate();
     if (isValid) {
-      console.log(title, description);
-
       let recipeToDb = {
         title,
         description,
@@ -218,6 +234,9 @@ function Admin(getState) {
                     />
                   ))
                 }
+              { ingredientsError
+              && <span className="errorContainer"><div className="error">{ingredientsError}</div></span>
+            }
               <input
                 type="button"
                 value="Lägg till en till ingrediens"
@@ -235,6 +254,9 @@ function Admin(getState) {
                     />
                   ))
               }
+              { instructionsError
+              && <span className="errorContainer"><div className="error">{instructionsError}</div></span>
+            }
               <input
                 type="button"
                 value="Lägg till en till instruktion"
