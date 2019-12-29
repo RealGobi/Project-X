@@ -191,9 +191,21 @@ function Admin(getState) {
               && <span className="errorContainer"><div className="error">{descriptionError}</div></span>
             }
               <label htmlFor="Kategori1">Kategori Protein: <input type="text" value={category1} name="category1" onChange={(e) => { setCategory1(e.target.value); }} /></label>
+              { category1Error
+              && <span className="errorContainer"><div className="error">{category1Error}</div></span>
+            }
               <label htmlFor="Kategori2">Kategori Kolhydrat: <input type="text" value={category2} name="category2" onChange={(e) => { setCategory2(e.target.value); }} /></label>
+              { category2Error
+              && <span className="errorContainer"><div className="error">{category2Error}</div></span>
+            }
               <label htmlFor="bildlänk">Bildlänk:<input type="text" name="imageLink" value={imageLink} onChange={(e) => { setImageLink(e.target.value); }} /></label>
+              { imageLinkError
+              && <span className="errorContainer"><div className="error">{imageLinkError}</div></span>
+            }
               <label htmlFor="Time">Tid: <input type="number" name="time" value={time} onChange={(e) => { setTime(e.target.value); }} /></label>
+              { timeError
+              && <span className="errorContainer"><div className="error">{timeError}</div></span>
+            }
               <hr />
               {
                   ingredients.map((val, idx) => (
