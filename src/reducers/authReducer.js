@@ -19,6 +19,7 @@ const initialState = {
   isAuthenticated: null,
   isLoading: false,
   user: null,
+  id: localStorage.getItem('id'),
 };
 
 export default function (state = initialState, action) {
@@ -41,12 +42,15 @@ export default function (state = initialState, action) {
       localStorage.setItem('isAdmin', action.payload.user.isAdmin);
       localStorage.setItem('name', action.payload.user.name);
       localStorage.setItem('foodType', action.payload.user.foodType);
+      localStorage.setItem('id', action.payload.user.id);
+      console.log(action.payload.user);
       return {
         ...state,
         ...action.payload,
         isAuthenticated: true,
         isLoading: false,
         isAdmin: action.payload.user.isAdmin,
+        id: action.payload.user.id,
       };
     case AUTH_ERROR:
     case LOGIN_FAIL:
@@ -56,6 +60,7 @@ export default function (state = initialState, action) {
       localStorage.removeItem('isAdmin');
       localStorage.removeItem('name');
       localStorage.removeItem('foodType');
+      localStorage.removeItem('id');
       return {
         ...state,
         token: null,
@@ -64,9 +69,10 @@ export default function (state = initialState, action) {
         user: null,
         isAuthenticated: false,
         isLoading: false,
+        id: null,
       };
     case USER_SETTINGS_CHANGE:
-      localStorage.setItem('foodType', action.payload.user.foodType);
+      localStorage.setItem('foodType', action.payload.foodType);
       return {
         ...state,
         ...action.payload,

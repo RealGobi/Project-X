@@ -4,6 +4,8 @@ import React, { useState } from 'react';
 import Popup from 'reactjs-popup';
 import { Link } from 'react-router-dom';
 import './popup.css';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import Page from '../Components/Page/Page';
 import Header from '../Components/Header/Header';
 import Button from '../Components/Button/Button';
@@ -12,11 +14,19 @@ import Background from '../images/lemons.jpg';
 import { changeUserSettings } from '../actions/authAction';
 import store from '../store';
 
-export default function LandingPage(props) {
+
+const LandingPage = () => {
+  LandingPage.propTypes = {
+    changeUserSettings: PropTypes.func.isRequired,
+  };
+
   const userName1 = localStorage.getItem('name');
   const foodtypeUser1 = localStorage.getItem('foodType');
+  const id = localStorage.getItem('id');
   const [foodType, setUserFoodType] = useState(foodtypeUser1);
 
+  console.log(foodType);
+  console.log(id);
   const hello = <span>God Morgon {userName1}</span>;
   const styleback = {
     backgroundImage: `url(${Background})`,
@@ -25,11 +35,13 @@ export default function LandingPage(props) {
     backgroundRepeat: 'no-repeat',
   };
 
-  const changeFoodType = (e) => {
+  const onSubmit = (e) => {
     e.preventDefault();
-
-    // Attempt to change
-    store.dispatch(changeUserSettings(foodType));
+    const type = {
+      foodType,
+    };
+    console.log(type);
+    store.dispatch(changeUserSettings(type));
   };
 
   const setting = (
@@ -38,7 +50,6 @@ export default function LandingPage(props) {
       <Button buttonText="Vegetarian" color="yellow" clickHandler={() => setUserFoodType(2)} />
       <Button buttonText="Fisk" color="mint" clickHandler={() => setUserFoodType(3)} />
       <Button buttonText="Allätare" color="persica" clickHandler={() => setUserFoodType(4)} />
-      <Button buttonText="Byt preference" color="yellow" clickHandler={changeFoodType} />
     </span>
   );
 
@@ -59,6 +70,10 @@ export default function LandingPage(props) {
                 <div className="header">Inställningar</div>
                 <div className="content">
                   {setting}
+                  <hr />
+                  <div onClick={close}>
+                    <Button buttonText="Byt preference" color="yellow" clickHandler={onSubmit} />
+                  </div>
                 </div>
               </div>
             )}
@@ -75,4 +90,11 @@ export default function LandingPage(props) {
       </Page>
     </div>
   );
-}
+};
+
+const mapStateToProps = state => ({
+  isAuthenticated: state.auth.isAuthenticated,
+  error: state.error,
+});
+
+export default connect(mapStateToProps, { changeUserSettings })(LandingPage);

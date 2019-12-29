@@ -121,15 +121,18 @@ export const logoutMe = () => {
   });
 };
 
-
 // Change User settings
 
-export const changeUserSettings = () => (dispatch, getState) => {
-  // User loading
-  dispatch({ type: USER_LOADING });
+export const changeUserSettings = ({ foodType }) => (dispatch, getState) => {
+  // req body
+  console.log(foodType);
+  
+  const body = JSON.stringify({ foodType });
+
+  const { id } = getState().auth;
 
   axios
-    .put('http://localhost:5000/api/auth/user', tokenConfig(getState))
+    .put(`http://localhost:5000/api/auth/user/${id}`, body, tokenConfig(getState))
     .then(res => dispatch({
       type: USER_SETTINGS_CHANGE,
       payload: res.data,
