@@ -76,7 +76,7 @@ function Admin(getState) {
     setCategory2('');
     setImageLinkError('');
     setTimeError('');
-    setInstructionsError(null);
+    setInstructionsError('');
     setIngredientsError('');
     console.log(instructions.map(inst => inst.inst));
     console.log(instructionsError);
@@ -100,16 +100,18 @@ function Admin(getState) {
       setTimeError('Tid måste vara ifyllt (min)');
     }
     const instToValidate = instructions.map(inst => inst.inst);
-    console.log(instToValidate);
     
-    if (instToValidate.map(i => i === '')) {
+    if (instToValidate.map(inst => inst) == '') {
+      console.log(instToValidate);
       setInstructionsError('Fyll i alla instruktions fälten.');
     }
-    if (!ingredients.count || !ingredients.unit || !ingredients.ingredient) {
+    const ingToValidate = ingredients.map(ing => ing.count && ing.unit && ing.ingredient);
+
+    if (ingToValidate.map(ing => ing) == '') {
       setIngredientsError('Alla fält för en ingrediens måste vara ifyllt.');
     }
 
-    if (!title || !description || !description || !category1 || !category2 || !imageLink || !time || !instToValidate) {
+    if (!title || !description || !description || !category1 || !category2 || !imageLink || !time || instToValidate == '' || ingToValidate == '') {
       return false;
     }
     return true;
