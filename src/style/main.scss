@@ -102,21 +102,27 @@ body {
         grid-area: item1;
         @extend %center;
       }
+
       .item2 {
         grid-area: item2;
       }
+
       .item3 {
         grid-area: item3;
       }
+
       .item4 {
         grid-area: item4;
       }
+
       .item5 {
         grid-area: item5;
       }
+
       .item6 {
         grid-area: item6;
       }
+
       .item7 {
         grid-area: item7;
       }
@@ -161,9 +167,9 @@ body {
     }
 
     .categorybar {
-      border:2px solid $dinner_Grey;
+      border: 2px solid $dinner_Grey;
       margin: 10px 14px;
-      padding:3px;
+      padding: 3px;
 
 
       label {
@@ -266,8 +272,6 @@ body {
 
 @media only screen and (min-width: 768px) {
   body {
-    width: 100vw; // dubbelt
-    margin: 0; // dubbelt
 
     .Startlogga {
       background-image: url(../images/Startlogga.svg);
@@ -395,7 +399,7 @@ body {
 @media only screen and (min-width: 1025px) {
   html {
     margin: 0 auto;
-    
+
     body {
       margin: 0 auto;
 
@@ -442,7 +446,7 @@ body {
         flex-direction: row;
         justify-content: space-around;
         align-content: space-around;
-        
+
         .admin-receptlist {
           margin: 10px;
         }
