@@ -3,10 +3,10 @@
   cursor: pointer;
   position: absolute;
   display: block;
-  padding: 18px 25px;
-  line-height: 50px;
+  padding: 5px 5px;
+  line-height: 60px;
   right: 10px;
-  font-size: 5rem;
+  font-size: 3rem;
 }
 
 .modal>.header {
@@ -27,45 +27,22 @@
   align-items: center;
 }
 
-.modal>.content label {
-  margin: 10px;
+.modal>.content .Button {
+  margin: 5px;
 }
-
-.modal>.content input[type=text] {
-  width: 330px;
-  height: 28px;
-  border-radius: 3px;
-  border: 1px solid #828282;
-  background: #fFFFFF;
-  font-family: 'Red Hat Text', sans-serif;
-  font-size: 1rem;
-  margin: 6px 12px;
-}
-
-.modal>.content textarea {
-  border: 1px solid #828282;
-  background: #fFFFFF;
-  width: 330px;
-  height: 280px;
-  border-radius: 3px;
-  font-family: 'Red Hat Text', sans-serif;
-  font-size: 1rem;
-  margin: 6px 12px;
-}
-
 .modal>.content .settings {
-  height: 400px;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  margin: 10px;
   align-items: center;
 
 }
 
-.modal>.content .send {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  align-items: flex-end;
-  margin: 12px 22px;
+@media only screen and (min-width: 768px) {
+
+.modal>.close {
+  padding: 18px 25px;
+  line-height: 35px;
+  font-size: 5rem;
+}
 }
