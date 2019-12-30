@@ -27,7 +27,23 @@ const LandingPage = () => {
 
   console.log(foodType);
   console.log(id);
-  const hello = <span>God Morgon {userName1}</span>;
+  const day = new Date();
+  const hr = day.getHours();
+  let headline = '';
+  if (hr > 0 && hr < 6) {
+    headline = 'Nattamat?, ';
+  }
+  if (hr > 6 && hr < 12) {
+    headline = 'God morgon, ';
+  }
+  if (hr > 12 && hr < 18) {
+    headline = 'God middag, ';
+  }
+  if (hr > 18 && hr < 24) {
+    headline = 'God kväll, ';
+  }
+
+  const hello = <span>{headline} {userName1}</span>;
   const styleback = {
     backgroundImage: `url(${Background})`,
     backgroundPosition: 'center',
