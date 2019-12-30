@@ -8,7 +8,6 @@ body {
   justify-content: center;
   padding: 0;
   margin: 0;
-  overflow-y: scroll;
 
   .Startlogga {
     background-image: url(../images/StartloggaPhone.svg);
@@ -73,10 +72,6 @@ body {
 
   .content {
     .sign-up {
-      #bg {
-        width: 100%;
-      }
-
       display: flex;
       align-items: center;
       flex-direction: column;
@@ -91,55 +86,43 @@ body {
         margin-bottom: 40px;
       }
 
-      .next {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 50px 0px;
-        width: 100%;
+      .select-preference-button {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+        grid-template-areas:
+          "item2 item3"
+          "item4 item5"
+          "item1 item1"
+          "item6 item7";
+        gap: 8px;
+      }
+
+      .item1 {
+        grid-area: item1;
+        @extend %center;
+      }
+      .item2 {
+        grid-area: item2;
+      }
+      .item3 {
+        grid-area: item3;
+      }
+      .item4 {
+        grid-area: item4;
+      }
+      .item5 {
+        grid-area: item5;
+      }
+      .item6 {
+        grid-area: item6;
+      }
+      .item7 {
+        grid-area: item7;
       }
     }
 
-    .margin_Recipe_Page:nth-child(1) {
-      padding-top: 24px;
-    }
-
-    .select-preference-button {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: repeat(4, 1fr);
-      grid-template-areas:
-        "item2 item3"
-        "item4 item5"
-        "item1 item1"
-        "item6 item7";
-      gap: 8px;
-    }
-
-    .item1 {
-      grid-area: item1;
-      @extend %center;
-    }
-    .item2 {
-      grid-area: item2;
-    }
-    .item3 {
-      grid-area: item3;
-    }
-    .item4 {
-      grid-area: item4;
-    }
-    .item5 {
-      grid-area: item5;
-    }
-    .item6 {
-      grid-area: item6;
-    }
-    .item7 {
-      grid-area: item7;
-    }
-
-    .centerGrid {
+    .center-grid-choose {
       @extend %center;
       flex-direction: column;
       padding: 24px;
@@ -152,7 +135,11 @@ body {
       }
     }
 
-    .mail-button {
+    .margin-recipt-list:nth-child(1) {
+      padding-top: 24px;
+    }
+
+    .add-button {
       display: flex;
       justify-content: space-between;
       margin: 0 64px;
@@ -189,9 +176,11 @@ body {
       label {
         font-size: 0.9rem;
       }
+
       .row {
         display: flex;
         flex-direction: row;
+
         .arrow {
           background-image: url(../images/arrow.svg);
           background-size: contain;
@@ -217,8 +206,7 @@ body {
     }
   }
 
-  .admin,
-  .addRecipe {
+  .admin {
     margin: 0px 0px;
     display: flex;
     flex-direction: column;
@@ -244,8 +232,7 @@ body {
       }
     }
 
-    .admin-addrecept,
-    .addRecipe-addrecept {
+    .admin-addrecept {
       background: $dinner_Persica;
       display: flex;
       flex-direction: column;
@@ -287,18 +274,10 @@ body {
 @media only screen and (min-width: 768px) {
   body {
     width: 100vw;
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
     margin: 0;
-    padding: 0;
 
     .Startlogga {
       background-image: url(../images/Startlogga.svg);
-      background-repeat: no-repeat;
-      background-size: cover;
-      width: 100vw;
-      height: 100vh;
       display: flex;
       justify-content: flex-end;
       align-items: flex-end;
@@ -318,8 +297,6 @@ body {
         }
 
         .login-button-container {
-          display: flex;
-          flex-direction: row;
           justify-content: flex-end;
 
           a {
@@ -330,17 +307,9 @@ body {
     }
 
     .header {
-      background: $dinner_Blue;
-      border-radius: 3px 3px 0 0;
       margin: 24px 0 0 0;
 
       .headLine {
-        margin: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: $dinner_HeadLine;
-        font-family: "Red Hat Text", sans-serif;
         font-size: 2.1rem;
       }
     }
@@ -356,19 +325,14 @@ body {
           height: 100%;
         }
 
-        display: flex;
-        align-items: center;
-        flex-direction: column;
         height: 100%;
 
         .input-container:nth-child(1) {
-          background: $dinner_Persica;
-          margin-top: 90px;
+            margin-top: 90px;
         }
 
         .input-container:nth-child(3) {
-          background: $dinner_Yellow;
-          margin-bottom: 45px;
+            margin-bottom: 45px;
         }
 
         .Button {
@@ -393,7 +357,7 @@ body {
         width: 100%;
       }
 
-      .centerGrid {
+      .center-grid-choose{
         display: flex;
         align-items: center;
         justify-content: center;

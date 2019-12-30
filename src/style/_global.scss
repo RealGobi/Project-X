@@ -37,11 +37,11 @@ li {
 .input-container {
   width: 320px;
   height: 55px;
-  border-radius: 3px;
-  border: 1px solid $dinner_Grey;
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  border-radius: 3px;
+  border: 1px solid $dinner_Grey;
   font-family: "Red Hat Text", sans-serif;
   font-size: 1rem;
   color: $dinner_HeadLine;
@@ -79,26 +79,6 @@ li {
   font-size: 1.5rem;
   border-radius: 3px;
   border: 1px solid $dinner_Grey;
-}
-
-input[type="button"] {
-  width: 180px;
-  height: 50px;
-  border-radius: 3px;
-  border: 1px solid #828282;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  font-family: "Red Hat Text", sans-serif;
-  font-size: 0.8rem;
-  color: #4f4f4f;
-  position: relative;
-  left: 83px;
-  background-color: $dinner_Blue;
-  margin: 5px 0;
-
-  &:hover {
-    transform: scale(1.05);
-    box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.35);
-  }
 }
 
 .editbtn {

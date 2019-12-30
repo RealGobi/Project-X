@@ -57,7 +57,7 @@ const LandingPage = () => {
     <div id="bg" style={styleback}>
       <Header headLine={hello} />
       <Page>
-        <div className="mail-button">
+        <div className="add-button">
           <Link to="/admin">
             <Button buttonText="Lägg till recept" color="mint" />
           </Link>
