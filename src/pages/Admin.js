@@ -35,15 +35,15 @@ function Admin(getState) {
   const [ingredients, setIngredients] = useState([
     { ...blankState },
   ]);
-  
+
   const addIng = () => {
     setIngredients([...ingredients, { ...blankState }]);
   };
 
   const handleIngChange = (e) => {
-    const updatedCats = [...ingredients];
-    updatedCats[e.target.dataset.idx][e.target.className] = e.target.value;
-    setIngredients(updatedCats);
+    const updatedIng = [...ingredients];
+    updatedIng[e.target.dataset.idx][e.target.className] = e.target.value;
+    setIngredients(updatedIng);
   };
 
   // set instruktion
@@ -57,9 +57,9 @@ function Admin(getState) {
   };
 
   const handleInstChange = (e) => {
-    const updatedCats = [...instructions];
-    updatedCats[e.target.dataset.idx][e.target.className] = e.target.value;
-    setInstructions(updatedCats);
+    const updatedInst = [...instructions];
+    updatedInst[e.target.dataset.idx][e.target.className] = e.target.value;
+    setInstructions(updatedInst);
   };
   const Rubrik = 'Ingredienser:';
   const Rubrik2 = 'Instruktioner:';
