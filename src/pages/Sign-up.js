@@ -23,7 +23,7 @@ function SignUp(props) {
   SignUp.defaultProps = {
     isAuthenticated: false,
   };
-  const headLine = 'Skapa Konto';
+  const headLine = 'Skapa konto';
   const styleback = {
     backgroundImage: `url(${Background})`,
     backgroundPosition: 'center',
@@ -93,11 +93,11 @@ function SignUp(props) {
               <Button className="item3" buttonText="Lakto-ovo Vegetarian" color="yellow" clickHandler={() => setUserFoodType(2)} />
               <Button className="item4" buttonText="Vegetarian + Fisk" color="mint" clickHandler={() => setUserFoodType(3)} />
               <Button className="item5" buttonText="Allätare" color="persica" clickHandler={() => setUserFoodType(4)} />
-              <Link to="/landing-page">
-                <Button className="item6" buttonText="Skapa Konto" color="mint" clickHandler={onSubmit} />
-              </Link>
               <Link to="/">
                 <Button className="item7" buttonText="Tillbaka" color="mint" />
+              </Link>
+              <Link to="/landing-page">
+                <Button className="item6" buttonText="Skapa Konto" color="yellow" clickHandler={onSubmit} />
               </Link>
             </div>
           </form>

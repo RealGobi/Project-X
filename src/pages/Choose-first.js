@@ -17,7 +17,7 @@ export default function ChooseFirst({ category1, setCategoryOne }) {
     <div>
       <Header headLine="Välj Första" />
       <Page>
-        <span className="centerGrid">
+        <span className="center-grid-choose">
           <Link to="/choose-second">
             <div className="choose-button">
               { category1.map((cat1, idx) => <Button clickHandler={() => setCategoryOne(cat1)} key={idx} buttonText={cat1} buttonType="square" />) }

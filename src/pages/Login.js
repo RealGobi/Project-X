@@ -22,11 +22,13 @@ function Login(props) {
   };
 
   // state
-
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [msg, setMsg] = useState('');
+  const { error, isAuthenticated } = props;
+  const history = useHistory();
 
+  // submit func
   const onSubmit = (e) => {
     e.preventDefault();
     const user = {
@@ -36,8 +38,15 @@ function Login(props) {
     store.dispatch(login(user));
   };
 
-  const { error, isAuthenticated } = props;
-  const history = useHistory();
+  // login with enter key
+  const enterClick = (e) => {
+    if (e.key === 'Enter') {
+      console.log('enter press here! ');
+      onSubmit(e);
+    }
+  };
+
+  // check if valid token exist, and login in if valid
   useEffect(() => {
     if (error.id === 'LOGIN_FAIL') {
       setMsg(error.msg.msg);
@@ -62,7 +71,7 @@ function Login(props) {
           <span>E-post:</span> <input type="email" id="email" tabIndex="0" onChange={e => setEmail(e.target.value)} />
         </div>
         <div className="input-container">
-          <span>Lösenord:</span> <input type="password" id="password" onChange={e => setPassword(e.target.value)} />
+          <span>Lösenord:</span> <input type="password" id="password" onChange={e => setPassword(e.target.value)} onKeyDown={enterClick} />
         </div>
         <div className="login-button-container">
           <Link to="/signup">

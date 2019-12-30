@@ -1,48 +1,44 @@
-@import '../../style/color';
+@import "../../style/color";
 
-    .Recipeitem {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        background-color: $dinner_Yellow;
-        border-radius: 3px;
-        border:2px solid $dinner_Grey;
-        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-        margin: 5px 10px;
-    }
+.Recipeitem {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: $dinner_Yellow;
+  border-radius: 3px;
+  border: 2px solid $dinner_Grey;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  margin: 5px 10px;
+}
 
-    .recipeitemtext {
-        padding: 8px 12px;
-        font-size: 0.8rem;
-    }
+.recipeitemtext {
+  padding: 8px 12px;
+  font-size: 0.8rem;
+}
 
-    .Recipeitem img {
-        width: 150px;
-        height: 120px;
-        border: 1px $dinner_Grey;
-        border-style:none none none solid;
-        border-radius: 0px 0px 0px 0px;
-    }
+.Recipeitem img {
+  width: 150px;
+  height: 120px;
+  border: 1px $dinner_Grey;
+  border-style: none none none solid;
+  border-radius: 0px 0px 0px 0px;
+}
 
 @media only screen and (min-width: 768px) {
+  .Recipeitem {
+    width: 620px;
+    margin: 0px auto 12px;
+  }
 
-    .Recipeitem {
-        width: 620px;
-        border-radius: 3px;
-        border: 2px solid $dinner_Grey;
-        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-        margin: 0px auto 12px;
-    }
+  .recipeitemtext {
+    padding: 12px 24px;
+    font-size: 0.95rem;
+  }
 
-    .recipeitemtext {
-        padding: 12px 24px;
-        font-size: 0.95rem;
-    }
-
-    .Recipeitem img {
-        width: 250px;
-        height: 200px;
-        border: 1px solid $dinner_Grey;
-        border-radius: 0px 3px 3px 0px;
-    }
+  .Recipeitem img {
+    width: 250px;
+    height: 200px;
+    border: 1px solid $dinner_Grey;
+    border-radius: 0px 3px 3px 0px;
+  }
 }

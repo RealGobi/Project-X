@@ -24,7 +24,7 @@ export default function ReciptList({ findRecipeBasedOnOne, setChosenRecipe }) {
         <Link to="recipt-page">
           {
             listResults.map(rec => (
-              <div key={rec._id} onClick={() => setChosenRecipe(rec._id)} className="margin_Recipe_Page" >
+              <div key={rec._id} onClick={() => setChosenRecipe(rec._id)} className="margin-recipt-list" >
                 <RecipeItem
                   recipeTitle={rec.title}
                   recipeIntro={`${rec.description.substring(0, 100)}...`}

@@ -7,7 +7,10 @@ import Logout from '../misc/Logout';
 const Header = ({ headLine }) => (
   <div className="header">
     <h1 className="headLine"> { headLine } </h1>
-    <Logout />
+    { headLine === 'Skapa konto'
+      ? null
+      : <Logout />
+     }
   </div>
 );
 

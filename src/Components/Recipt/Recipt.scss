@@ -1,177 +1,171 @@
-@import '../../style/color';
+@import "../../style/color";
 
 .recipt-content {
-    padding: 0;
-    margin: 0 auto;
+  padding: 0;
+  margin: 0 auto;
 }
 
 .time {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .clock {
-    padding: 6px 12px 0px 12px;
+  padding: 6px 12px 0px 12px;
 }
 
 .recipe-img {
-    border: 1px solid #575757;
-    box-sizing: border-box;
-    width: 355px;
-    border-radius: 10px;
-    margin: 12px 10px;
+  border: 1px solid #575757;
+  box-sizing: border-box;
+  width: 355px;
+  border-radius: 10px;
+  margin: 12px 10px;
 }
 
 .recipe-intro {
-    border: 1px solid $dinner_Grey;
-    background: $dinner_Blue;
-    border-radius: 3px;
-    padding: 12px;
-    font-size: 0.9rem;
-    margin: 0px 10px;
+  border: 1px solid $dinner_Grey;
+  background: $dinner_Blue;
+  border-radius: 3px;
+  padding: 12px;
+  font-size: 0.9rem;
+  margin: 0px 10px;
 }
 
-.space { margin: 40px;}
+.space {
+  margin: 40px;
+}
 
 .ingridiens-header {
-    position: relative;
-    top: 20px;
-    left: 12px;
-    border: 1px solid $dinner_Grey;
-    background: $dinner_LigthGrey;
-    border-radius: 3px;
-    font-size: 1.1rem;
-    width: 188px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    padding: 0 0 0 12px;
-    margin: 0px 10px;
+  position: relative;
+  top: 20px;
+  left: 12px;
+  border: 1px solid $dinner_Grey;
+  background: $dinner_LigthGrey;
+  border-radius: 3px;
+  font-size: 1.1rem;
+  width: 188px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  padding: 0 0 0 12px;
+  margin: 0px 10px;
 }
 
-.arrow { 
-    background-image: url(../../images/arrow.svg);
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    width: 20px;
-    height: 20px;
-    margin-left: 60px;
-    transform: rotate(180deg);
+.arrow {
+  background-image: url(../../images/arrow.svg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 20px;
+  margin-left: 60px;
+  transform: rotate(180deg);
 }
 
 .arrow-open {
-    background-image: url(../../images/arrow.svg);
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    width: 20px;
-    height: 20px;
-    margin-left: 60px;
-    transform: rotate(0deg);
+  background-image: url(../../images/arrow.svg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 20px;
+  margin-left: 60px;
+  transform: rotate(0deg);
 }
 
 .ingridiens {
-    border: 1px solid $dinner_Grey;
-    background: $dinner_Yellow;
-    border-radius: 3px;
-    padding: 18px 26px 26px 26px;
-    font-size: 0.9rem;
-    margin: 0px 10px;
+  border: 1px solid $dinner_Grey;
+  background: $dinner_Yellow;
+  border-radius: 3px;
+  padding: 18px 26px 26px 26px;
+  font-size: 0.9rem;
+  margin: 0px 10px;
 }
 
 .portioner {
-    width: 100px;
-    height: 30px;
-    position: relative;
-    left: 220px;
-    top: -12px;
-    border: 1px solid $dinner_Grey;
-    background: #ffffff;
-    border-radius: 3px;    
+  width: 100px;
+  height: 30px;
+  position: relative;
+  left: 220px;
+  top: -12px;
+  border: 1px solid $dinner_Grey;
+  background: #ffffff;
+  border-radius: 3px;
 }
 
 .instructions {
-    border: 1px solid $dinner_Grey;
-    background: $dinner_Blue;
-    border-radius: 3px;
-    padding: 0 26px 26px;
-    font-size: 0.9rem;
-    margin: 12px 10px;
+  border: 1px solid $dinner_Grey;
+  background: $dinner_Blue;
+  border-radius: 3px;
+  padding: 0 26px 26px;
+  font-size: 0.9rem;
+  margin: 12px 10px;
 }
 
 .ingredientGrid {
-    display: grid;
-    grid-template-columns: repeat(4, 77px);
-    grid-template-rows:repeat(4, 77px);
-    gap: 8px;
+  display: grid;
+  grid-template-columns: repeat(4, 77px);
+  grid-template-rows: repeat(4, 77px);
+  gap: 8px;
 }
 
 @media only screen and (min-width: 767px) {
-    .recipt-content {
-        margin: 0 64px 12px;
-        padding: 12px 0;
-    }
+  .recipt-content {
+    margin: 0 64px 12px;
+    padding: 12px 0;
+  }
 
-    .clock {
-        padding: 0 12px;
-    }
+  .clock {
+    padding: 0 12px;
+  }
 
-    .recipe-img {
-        width: 590px;
-        margin: 12px 0;
-    }
+  .recipe-img {
+    width: 590px;
+    margin: 12px 0;
+  }
 
-    .arrow { 
-        margin-left: 100px;
-        width: 30px;
-        height: 30px;
-    }
-    
-    .arrow-open {
-        background-image: url(../../images/arrow.svg);
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-        margin-left: 100px;
-        width: 30px;
-        height: 30px;
-        transform: rotate(0deg);
-    }
+  .recipe-intro {
+    padding: 26px;
+    font-size: 1.1rem;
+    margin: 0px 0px;
+  }
 
-    .recipe-intro {
-        padding: 26px;
-        font-size: 1.1rem;
-        margin: 0px 0px;
-    }
+  .ingridiens-header {
+    position: relative;
+    top: 26px;
+    left: 22px;
+    font-size: 1.4rem;
+    width: 288px;
+    height: 60px;
+    padding: 0 0 0 12px;
+  }
 
-    .ingridiens-header {
-        position: relative;
-        top: 26px;
-        left: 22px;
-        font-size: 1.4rem;
-        width: 288px;
-        height: 60px;
-        padding: 0 0 0 12px;
-    }
+  .arrow {
+    margin-left: 100px;
+    width: 30px;
+    height: 30px;
+  }
 
-    .ingridiens {
-        padding: 40px 26px 26px 26px;
-        font-size: 1.1rem;
-        margin: 0px 0px;
-    }
+  .arrow-open {
+    margin-left: 100px;
+    width: 30px;
+    height: 30px;
+  }
 
-    .portioner {
-        width: 100px;
-        height: 30px;
-        position: relative;
-        left: 360px;
-        top: -12px;
-    }
+  .ingridiens {
+    padding: 40px 26px 26px 26px;
+    font-size: 1.1rem;
+    margin: 0px 0px;
+  }
 
-    .instructions {
-        margin: 12px 0;
-        padding: 0 26px 26px;
-        font-size: 1.1rem;
-    }
+  .portioner {
+    left: 360px;
+    top: -12px;
+  }
+
+  .instructions {
+    margin: 12px 0;
+    padding: 0 26px 26px;
+    font-size: 1.1rem;
+  }
 }

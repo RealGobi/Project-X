@@ -1,41 +1,29 @@
 .page {
-    width: 100vw;
-    min-height: 570px;
-    background: rgba(95, 95, 95, 0.10);
-    padding: 0px;
+  width: 100vw;
+  min-height: 570px;
+  background: rgba(95, 95, 95, 0.1);
+  padding: 0px;
 }
 
 @media only screen and (min-width: 768px) {
-
-    .page {
-        width: 720px;
-        min-height: 876px;
-        border-radius: 0 0 3px 3px;
-        background: rgba(95, 95, 95, 0.10);
-        padding: 0px;
-        margin: 0 auto;
-    }
+  .page {
+    width: 720px;
+    min-height: 876px;
+    border-radius: 0 0 3px 3px;
+    margin: 0 auto;
+  }
 }
 
 @media only screen and (min-width: 780px) {
-
-    .page {
-        width: 980px;
-        min-height: 1210px;
-        border-radius: 0 0 3px 3px;
-        background: rgba(95, 95, 95, 0.10);
-        padding: 0;
-    }
-
+  .page {
+    width: 980px;
+    min-height: 1210px;
+  }
 }
 
 @media only screen and (min-width: 1025px) {
-
-    .page {
-        width: 980px;
-        min-height: 905px;
-        border-radius: 0 0 3px 3px;
-        background: rgba(95, 95, 95, 0.10);
-        padding: 0;
-    }
+  .page {
+    width: 980px;
+    min-height: 905px;
+  }
 }

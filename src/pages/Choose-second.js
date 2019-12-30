@@ -29,7 +29,7 @@ export default function ChooseSecond({ findRecipeBasedOnOne, setCategoryTwo }) {
     <div>
       <Header headLine="Välj Andra" />
       <Page>
-        <span className="centerGrid">
+        <span className="center-grid-choose">
           <Link to="/recipt-list">
             <div className="choose-button">
               { category.map((cat2, idx) => <Button clickHandler={() => setCategoryTwo(cat2)} key={idx} buttonText={cat2} buttonType="square" />) }
@@ -40,9 +40,6 @@ export default function ChooseSecond({ findRecipeBasedOnOne, setCategoryTwo }) {
           <Link to="/choose-first">
             <Button buttonText="Tillbaka" color="mint" />
           </Link>
-          {/*  <Link to="/recipt-list">
-            <Button buttonText="Välj Andra" color="mint" />
-          </Link> */}
         </div>
       </Page>
     </div>
