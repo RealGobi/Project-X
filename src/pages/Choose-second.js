@@ -40,9 +40,6 @@ export default function ChooseSecond({ findRecipeBasedOnOne, setCategoryTwo }) {
           <Link to="/choose-first">
             <Button buttonText="Tillbaka" color="mint" />
           </Link>
-          {/*  <Link to="/recipt-list">
-            <Button buttonText="Välj Andra" color="mint" />
-          </Link> */}
         </div>
       </Page>
     </div>

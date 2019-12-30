@@ -14,9 +14,8 @@ function Admin(getState) {
   const { recipes } = getState.recipe;
   const { isAdmin } = getState;
 
+  // hooks
   const [editMode, setEditMode] = useState(false);
-  console.log(getState);
-
   const [title, setTitle] = useState('');
   const [titleError, setTitleError] = useState('');
   const [description, setDesc] = useState('');
@@ -30,16 +29,13 @@ function Admin(getState) {
   const [time, setTime] = useState('');
   const [timeError, setTimeError] = useState('');
   const [foodType, setFoodType] = useState('');
-  console.log(title);
 
   // set ingredient
   const blankState = { count: '', unit: '', ingredient: '' };
   const [ingredients, setIngredients] = useState([
     { ...blankState },
   ]);
-  const [ingredientsError, setIngredientsError] = useState('');
-  const [instructionsError, setInstructionsError] = useState('');
-
+  
   const addIng = () => {
     setIngredients([...ingredients, { ...blankState }]);
   };
@@ -67,8 +63,8 @@ function Admin(getState) {
   };
   const Rubrik = 'Ingredienser:';
   const Rubrik2 = 'Instruktioner:';
-  console.log(instructions);
 
+  // validation
   function validate() {
     setTitleError('');
     setDescError('');
@@ -76,10 +72,6 @@ function Admin(getState) {
     setCategory2('');
     setImageLinkError('');
     setTimeError('');
-    setInstructionsError('');
-    setIngredientsError('');
-    console.log(instructions.map(inst => inst.inst));
-    console.log(instructionsError);
     
     if (!title) {
       setTitleError('Namn måste vara ifyllt.');
@@ -99,25 +91,12 @@ function Admin(getState) {
     if (!time) {
       setTimeError('Tid måste vara ifyllt (min)');
     }
-    const instToValidate = instructions.map(inst => inst.inst);
-    
-    if (instToValidate.map(inst => inst) == '') {
-      console.log(instToValidate);
-      setInstructionsError('Fyll i alla instruktions fälten.');
-    }
-    const ingToValidate = ingredients.map(ing => ing.count && ing.unit && ing.ingredient);
-
-    if (ingToValidate.map(ing => ing) == '') {
-      setIngredientsError('Alla fält för en ingrediens måste vara ifyllt.');
-    }
-
-    if (!title || !description || !description || !category1 || !category2 || !imageLink || !time || instToValidate == '' || ingToValidate == '') {
+    if (!title || !description || !description || !category1 || !category2 || !imageLink || !time) {
       return false;
     }
     return true;
   }
 
-  console.log(instructionsError);
   const handleAddRecipe = (e) => {
     e.preventDefault();
     const isValid = validate();
@@ -149,6 +128,7 @@ function Admin(getState) {
     }
   };
 
+  // delete
   const deleteRec = (id) => {
     console.log(id);
     store.dispatch(deleteRecipe(id));
@@ -177,7 +157,7 @@ function Admin(getState) {
     };
     store.dispatch(editRecipe(recipeToDb));
   };
-
+  // sort func
   const sortByName = (a, b) => {
     const compA = a.title.toLowerCase();
     const compB = b.title.toLowerCase();
@@ -236,9 +216,6 @@ function Admin(getState) {
                     />
                   ))
                 }
-              { ingredientsError
-              && <span className="errorContainer"><div className="error">{ingredientsError}</div></span>
-            }
               <input
                 type="button"
                 value="Lägg till en till ingrediens"
@@ -256,9 +233,6 @@ function Admin(getState) {
                     />
                   ))
               }
-              { instructionsError
-              && <span className="errorContainer"><div className="error">{instructionsError}</div></span>
-            }
               <input
                 type="button"
                 value="Lägg till en till instruktion"

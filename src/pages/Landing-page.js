@@ -22,12 +22,28 @@ const LandingPage = () => {
 
   const userName1 = localStorage.getItem('name');
   const foodtypeUser1 = localStorage.getItem('foodType');
-  const id = localStorage.getItem('id');
   const [foodType, setUserFoodType] = useState(foodtypeUser1);
 
-  console.log(foodType);
-  console.log(id);
-  const hello = <span>God Morgon {userName1}</span>;
+  // greetingMsg
+
+  const day = new Date();
+  const hr = day.getHours();
+  let headline = '';
+  if (hr > 0 && hr < 6) {
+    headline = 'Nattamat?, ';
+  }
+  if (hr > 6 && hr < 12) {
+    headline = 'God morgon, ';
+  }
+  if (hr > 12 && hr < 18) {
+    headline = 'God middag, ';
+  }
+  if (hr > 18 && hr < 24) {
+    headline = 'God kväll, ';
+  }
+  const greetingMsg = <span>{headline} {userName1}</span>;
+
+  // style
   const styleback = {
     backgroundImage: `url(${Background})`,
     backgroundPosition: 'center',
@@ -44,6 +60,7 @@ const LandingPage = () => {
     store.dispatch(changeUserSettings(type));
   };
 
+  // config settings
   const setting = (
     <span className="settings">
       <Button buttonText="Vegan" color="persica" clickHandler={() => setUserFoodType(1)} />
@@ -55,7 +72,7 @@ const LandingPage = () => {
 
   return (
     <div id="bg" style={styleback}>
-      <Header headLine={hello} />
+      <Header headLine={greetingMsg} />
       <Page>
         <div className="add-button">
           <Link to="/admin">
