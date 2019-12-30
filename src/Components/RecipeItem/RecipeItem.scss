@@ -1,9 +1,6 @@
 @import '../../style/color';
 
     .Recipeitem {
-        // display: flex;
-        // flex-direction: row;
-        // justify-content: space-between;
         background-color: $dinner_Yellow;
         border-radius: 3px;
         border:2px solid $dinner_Grey;
@@ -12,8 +9,19 @@
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         grid-template-areas:
+        "item item item"
         "item1 item1 item2";
         gap: 8px;
+    }
+    .item {
+        grid-area: item;
+        margin: 0;
+        background: rgb(212, 216, 186);
+        border-bottom:2px solid $dinner_Grey;
+        border-radius: 3px;
+        padding: 5px 0;
+        text-align: center;
+        font-size: 1.1rem;
     }
 
     .recipeitemtext {
