@@ -33,6 +33,9 @@ const App = (getState) => {
   // eslint-disable-next-line no-unused-vars
   const [categoryTwo, setCategoryTwo] = useState([]);
   const [chosenRecipe, setChosenRecipe] = useState('');
+console.log(categoryOne);
+console.log(categoryTwo);
+console.log(chosenRecipe);
 
   // filter out recipe
   // eslint-disable-next-line no-underscore-dangle
