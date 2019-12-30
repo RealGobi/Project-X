@@ -1,6 +1,6 @@
 
 import {
-  GET_RECIPES, ADD_RECIPE, DELETE_RECIPE, RECIPES_LOADING,
+  GET_RECIPES, ADD_RECIPE, DELETE_RECIPE, RECIPES_LOADING, EDIT_RECIPE,
 } from '../actions/types';
 
 const initialState = {
@@ -21,7 +21,6 @@ export default function (state = initialState, action) {
       return {
         ...state,
         recipes: state.recipes.filter(recipe => recipe._id !== action.payload),
-
       };
     case ADD_RECIPE:
       return {
@@ -34,6 +33,11 @@ export default function (state = initialState, action) {
         ...state,
         loading: true,
 
+      };
+    case EDIT_RECIPE:
+      return {
+        ...state,
+        recipes: state.recipes.filter(recipe => recipe._id !== action.payload),
       };
     default:
       return state;

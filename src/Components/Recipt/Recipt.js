@@ -4,7 +4,6 @@ import '../../style/main.scss';
 
 import './Recipt.scss';
 import clock from '../../images/modernclock.svg';
-import arrow from '../../images/arrow.svg';
 
 /**
  *
@@ -26,7 +25,7 @@ const Recipt = ({
 }) => {
   const [showIngridients, setShowIngridients] = useState(true);
   const [portions, setPortions] = useState();
-  const toogleShowIngridients = (e) => { setShowIngridients(!showIngridients); };
+  const toogleShowIngridients = () => { setShowIngridients(!showIngridients); };
   const [changedPortionValue, setChangedPortionValue] = useState(false);
 
   const handleChangedValue = (e) => {
@@ -44,7 +43,7 @@ const Recipt = ({
       <div>
         <div className="ingridiens-header" role="button" tabIndex="0" onClick={toogleShowIngridients}>
           <h4>Ingredienser</h4>
-          <img src={arrow} className="arrow" alt="arrow" />
+          {showIngridients ? <div className="arrow" alt="arrow" /> : <div className="arrow-open" alt="arrow" /> }
         </div>
         {showIngridients ? (
           <div className="ingridiens">
@@ -61,6 +60,7 @@ const Recipt = ({
                   <option value="10">10 portioner</option>
                 </select>
               </form>
+              <hr />
               {changedPortionValue ? (
                 recipeIngredients.map((ing, idx) => <div key={idx}>{ing.count / 4 * portions} {ing.unit} {ing.ingredient}</div>)
               ) : (
@@ -74,7 +74,7 @@ const Recipt = ({
       <div className="instructions">
         <h2>Instruktioner</h2>
         <hr />
-        {recipeInstructions.map((ing, idx) => <p key={idx}>{idx + 1}. {recipeInstructions[idx]} </p>)}
+        {recipeInstructions.map((inst, idx) => <p key={idx}>{idx + 1}. {recipeInstructions[idx].inst} </p>)}
       </div>
     </div>
   );
@@ -85,8 +85,8 @@ Recipt.propTypes = {
   recipeIntro: PropTypes.string,
   recipeImg: PropTypes.string,
   time: PropTypes.number,
-  recipeIngredients: PropTypes.array,
-  recipeInstructions: PropTypes.array,
+  recipeIngredients: PropTypes.arrayOf(PropTypes.object),
+  recipeInstructions: PropTypes.arrayOf(PropTypes.object),
 };
 
 Recipt.defaultProps = {

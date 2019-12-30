@@ -8,7 +8,6 @@ export function Reload(item) {
     if (performance.navigation.type === 1 && item.length === 0) {
       console.log('This page is reloaded');
       history.push('/landing-page');
-      console.log('why');
     } else {
       console.log('This page is not reloaded');
     }

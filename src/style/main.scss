@@ -4,7 +4,6 @@
 // mobile
 body {
     width: 100vw;
-    height: 100vh;
     display: flex;
     justify-content: center;
     padding: 0;
@@ -48,8 +47,8 @@ body {
     .header {
         background: $dinner_Blue;
         border-radius: 3px 3px 0 0;
-        margin: 0;
-        max-height: 100px;
+        margin: 0px;
+        max-height: 150px;
         @extend %center;
         padding: 24px;
 
@@ -63,9 +62,9 @@ body {
     .header-recipt {
         background: $dinner_Persica;
         border-radius: 3px 3px 0 0;
-        max-height: 100px;
+        max-height: 140px;
         @extend %center;
-        margin: 24px 24px 0 24px;
+        padding: 24px 24px 0 24px;
 
         h1 {
             @extend %header2;
@@ -97,12 +96,8 @@ body {
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                margin: 50px 0;
+                margin: 50px 0px;
                 width: 100%;
-
-                .Button {
-                    margin-right: 24px;
-                }
             }
         }
 
@@ -113,8 +108,36 @@ body {
         .select-preference-button {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            grid-template-rows: repeat(2, 1fr);
+            grid-template-rows: repeat(4, 1fr);
+            grid-template-areas: 
+            "item2 item3"
+            "item4 item5"
+            "item1 item1"
+            "item6 item7";
             gap: 8px;
+        }
+
+        .item1 {
+            grid-area: item1;
+            @extend %center;
+        }
+        .item2 {
+            grid-area: item2;
+        }
+        .item3 {
+            grid-area: item3;
+        }
+        .item4 {
+            grid-area: item4;
+        }
+        .item5 {
+            grid-area: item5;
+        }
+        .item6 {
+            grid-area: item6;
+        }
+        .item7 {
+            grid-area: item7;
         }
 
         .centerGrid {
@@ -167,17 +190,43 @@ body {
             label {
                 font-size: 0.9rem;
             }
+            .row {
+                display: flex;
+                flex-direction: row;           
+                .arrow { 
+                    background-image: url(../images/arrow.svg);
+                    background-size: contain;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    width: 20px;
+                    height: 20px;
+                    margin-left: 10px;
+                    transform: rotate(180deg);
+                }
+
+                .arrow-open {
+                    background-image: url(../images/arrow.svg);
+                    background-size: contain;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    width: 20px;
+                    height: 20px;
+                    margin-left: 10px;
+                    transform: rotate(0deg);
+                }
+            }
         }
 
     }
 
-    .admin {
-        margin: 12px 0px;
+    .admin, .addRecipe {
+        margin: 0px 0px;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-content: center;
         text-align: center;
+        overflow-y: visible;
 
         .admin-receptlist {
             background: #c4c4c4;
@@ -196,7 +245,7 @@ body {
             }
         }
 
-        .admin-addrecept {
+        .admin-addrecept, .addRecipe-addrecept  {
             background: $dinner_Persica;
             display: flex;
             flex-direction: column;
@@ -239,7 +288,6 @@ body {
 
     body {
         width: 100vw;
-        height: 100vh;
         display: flex;
         align-items: flex-start;
         justify-content: center;
@@ -323,7 +371,7 @@ body {
 
                 .input-container:nth-child(3) {
                     background: $dinner_Yellow;
-                    margin-bottom: 90px;
+                    margin-bottom: 45px;
                 }
 
                 .Button {
@@ -363,13 +411,6 @@ body {
                 }
             }
 
-            .mail-button {
-                display: flex;
-                justify-content: space-between;
-                margin: 0 64px;
-                padding: 36px 0;
-            }
-
             .landing-button-position {
                 height: 600px;
                 display: flex;
@@ -403,7 +444,6 @@ body {
 @media only screen and (min-width: 780px) {
     body {
         width: 100vw;
-        height: 100vh;
         display: flex;
         align-items: flex-start;
         justify-content: center;
@@ -418,7 +458,6 @@ body {
             justify-content: flex-end;
             align-items: flex-end;
             margin: 0;
-
         }
 
         .admin {
@@ -433,7 +472,7 @@ body {
                 margin: 10px;
             }
 
-            .admin-addrecept {
+            .admin-addrecept, {
                 display: flex;
                 flex-direction: row;
                 margin: 12px;

@@ -48,7 +48,6 @@ function SignUp(props) {
       email,
       password,
       foodType,
-
     };
 
     // Attempt to register
@@ -73,7 +72,7 @@ function SignUp(props) {
       <Header headLine={headLine} />
       <div id="bg" style={styleback}>
         <Page>
-          <form className="sign-up" onSubmit={onSubmit}>
+          <form className="sign-up">
             <div className="input-container">
               <label htmlFor="name">Name:<input type="text" id="name" onChange={e => setName(e.target.value)} /> </label>
             </div>
@@ -84,22 +83,21 @@ function SignUp(props) {
               <label htmlFor="password">Lösenord: <input type="password" id="password" onChange={e => setPassword(e.target.value)} /></label>
             </div>
             <div className="select-preference-button">
-              <Button buttonText="Vegan" color="mint" clickHandler={() => setUserFoodType('Vegan')} />
-              <Button buttonText="Vegetarian" color="yellow" clickHandler={() => setUserFoodType('Vegetarian')} />
-              <Button buttonText="Fiskätare" color="mint" clickHandler={() => setUserFoodType('Fiskätare')} />
-              <Button buttonText="Allätare" color="persica" clickHandler={() => setUserFoodType('Allätare')} />
-            </div>
-            <span className="err">
-              {
+              <div className="item1">
+                {
                 msg
-                  ? <span className="error">{msg}</span>
-                  : null
+                  && <span className="error">{msg}</span>
               }
-            </span>
-            <div className="next">
-              <button type="submit">Skapa Konto</button>
+              </div>
+              <Button className="item2" buttonText="Vegan" color="persica" clickHandler={() => setUserFoodType(1)} />
+              <Button className="item3" buttonText="Lakto-ovo Vegetarian" color="yellow" clickHandler={() => setUserFoodType(2)} />
+              <Button className="item4" buttonText="Vegetarian + Fisk" color="mint" clickHandler={() => setUserFoodType(3)} />
+              <Button className="item5" buttonText="Allätare" color="persica" clickHandler={() => setUserFoodType(4)} />
+              <Link to="/landing-page">
+                <Button className="item6" buttonText="Skapa Konto" color="mint" clickHandler={onSubmit} />
+              </Link>
               <Link to="/">
-                <Button buttonText="Tillbaka" color="mint" />
+                <Button className="item7" buttonText="Tillbaka" color="mint" />
               </Link>
             </div>
           </form>

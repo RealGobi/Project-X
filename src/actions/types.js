@@ -1,6 +1,7 @@
 // from db
 export const GET_RECIPES = 'GET_RECIPES';
 export const ADD_RECIPE = 'ADD_RECIPE';
+export const EDIT_RECIPE = 'EDIT_RECIPE';
 export const DELETE_RECIPE = 'DELETE_RECIPE';
 export const RECIPES_LOADING = 'RECIPES_LOADING';
 
@@ -15,3 +16,4 @@ export const REGISTER_SUCCESS = 'REGISTER_SUCCESS';
 export const REGISTER_FAIL = 'REGISTER_FAIL';
 export const GET_ERRORS = 'GET_ERRORS';
 export const CLEAR_ERRORS = 'CLEAR_ERRORS';
+export const USER_SETTINGS_CHANGE = 'USER_SETTINGS_CHANGE';

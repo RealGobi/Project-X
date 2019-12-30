@@ -17,14 +17,15 @@ export default function SearchList(props) {
   };
 
   const [searchValue, setSearchValue] = useState('');
-  const listRecipe = props.recipe;
-  const {category1} = props;
-  const {category2} = props;
-  // console.log(foodtype1);
+  const { recipe } = props;
+  const { category1 } = props;
+  const { category2 } = props;
+  const userFoodType = localStorage.getItem('foodType');
 
   function handleSearchInputChange(e) { setSearchValue(e.target.value); }
 
   // Creating array with the activeCategories
+  // eslint-disable-next-line no-shadow
   const [activeCategoryFilter, dispatch] = useReducer((activeCategoryFilter, { type, value }) => {
     switch (type) {
       case 'add':
@@ -45,9 +46,10 @@ export default function SearchList(props) {
     }
   };
 
-  const listRecipeThatRenders = listRecipe.filter(rec => (searchValue ? rec.title.toLowerCase().match(searchValue) : true))
+  const listRecipeThatRenders = recipe.filter(rec => (searchValue ? rec.title.toLowerCase().match(searchValue) : true))
     .filter(rec => (activeCategoryFilter.length !== 0 ? rec.category1.some(value => activeCategoryFilter.includes(value))
-   || rec.category2.some(value => activeCategoryFilter.includes(value)) : true));
+   || rec.category2.some(value => activeCategoryFilter.includes(value)) : true))
+    .filter(rec => (userFoodType ? rec.foodType <= userFoodType : true));
 
   const [showCategory, setShowCategory] = useState(true);
   const toggleShow = () => { setShowCategory(!showCategory); };
@@ -71,7 +73,7 @@ export default function SearchList(props) {
           </div>
         </div>
         <div className="categorybar">
-          <div onClick={toggleShow}>Show/Hide Category</div>
+          <div className="row" onClick={toggleShow} role="button">Kategori{showCategory ? <div className="arrow" /> : <div className="arrow-open" />}</div>
           {showCategory ? (
             <div className="category">
               {

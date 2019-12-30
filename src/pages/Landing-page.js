@@ -3,28 +3,30 @@
 import React, { useState } from 'react';
 import Popup from 'reactjs-popup';
 import { Link } from 'react-router-dom';
-
 import './popup.css';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import Page from '../Components/Page/Page';
 import Header from '../Components/Header/Header';
 import Button from '../Components/Button/Button';
-
-import Mail from '../images/button-contact.svg';
 import Settings from '../images/button-settings.svg';
 import Background from '../images/lemons.jpg';
+import { changeUserSettings } from '../actions/authAction';
+import store from '../store';
 
-export default function LandingPage(props) {
-  const userName1 = props.userName;
-  const foodtypeUser1 = props.food;
-  const [foodType, setUserFoodType] = useState(foodtypeUser1);
-  const [mailContent, setMailContent] = useState();
-  const [mailHead, setMailHead] = useState('');
 
-  const setSendMail = () => {
-    console.log(mailHead);
-    console.log(mailContent);
+const LandingPage = () => {
+  LandingPage.propTypes = {
+    changeUserSettings: PropTypes.func.isRequired,
   };
 
+  const userName1 = localStorage.getItem('name');
+  const foodtypeUser1 = localStorage.getItem('foodType');
+  const id = localStorage.getItem('id');
+  const [foodType, setUserFoodType] = useState(foodtypeUser1);
+
+  console.log(foodType);
+  console.log(id);
   const hello = <span>God Morgon {userName1}</span>;
   const styleback = {
     backgroundImage: `url(${Background})`,
@@ -32,42 +34,30 @@ export default function LandingPage(props) {
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
   };
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    const type = {
+      foodType,
+    };
+    console.log(type);
+    store.dispatch(changeUserSettings(type));
+  };
+
   const setting = (
     <span className="settings">
-      <Button buttonText="Vegan" color="mint" clickHandler={() => setUserFoodType('Vegan')} /><Button buttonText="Vegetarian" color="yellow" clickHandler={() => setUserFoodType('Vegetarian')} />
-      <Button buttonText="Fiskätare" color="mint" clickHandler={() => setUserFoodType('Fiskätare')} />
-      <Button buttonText="Allätare" color="persica" clickHandler={() => setUserFoodType('Allätare')} />
-      <p>Vald: {foodType}</p>
+      <Button buttonText="Vegan" color="persica" clickHandler={() => setUserFoodType(1)} />
+      <Button buttonText="Vegetarian" color="yellow" clickHandler={() => setUserFoodType(2)} />
+      <Button buttonText="Fisk" color="mint" clickHandler={() => setUserFoodType(3)} />
+      <Button buttonText="Allätare" color="persica" clickHandler={() => setUserFoodType(4)} />
     </span>
   );
- /*  const mail = (
-    <span>
-      <form>
-        <label htmlFor="ämne">Ämne:<input type="text" id="mailhead" onChange={e => setMailHead(e.target.value)} /></label>
-        <label htmlFor="förslag">Förslag eller synpunkt:<textarea id="mailcontent" onChange={e => setMailContent(e.target.value)} /></label>
-      </form>
-      <Button buttonText="Skicka" color="yellow" clickHandler={setSendMail} />
-    </span>
-  ); */
 
   return (
     <div id="bg" style={styleback}>
       <Header headLine={hello} />
       <Page>
         <div className="mail-button">
-          {/* <Popup trigger={<img src={Mail} alt="mail" />} modal>
-            {close => (
-              <div className="modal">
-                <span className="close" onClick={close}>
-                &times;
-                </span>
-                <div className="header"> Kontaktformulär </div>
-                <div className="content">
-                  {mail}
-                </div>
-              </div>
-            )}
-          </Popup> */}
           <Link to="/admin">
             <Button buttonText="Lägg till recept" color="mint" />
           </Link>
@@ -80,6 +70,10 @@ export default function LandingPage(props) {
                 <div className="header">Inställningar</div>
                 <div className="content">
                   {setting}
+                  <hr />
+                  <div onClick={close}>
+                    <Button buttonText="Byt preference" color="yellow" clickHandler={onSubmit} />
+                  </div>
                 </div>
               </div>
             )}
@@ -96,4 +90,11 @@ export default function LandingPage(props) {
       </Page>
     </div>
   );
-}
+};
+
+const mapStateToProps = state => ({
+  isAuthenticated: state.auth.isAuthenticated,
+  error: state.error,
+});
+
+export default connect(mapStateToProps, { changeUserSettings })(LandingPage);

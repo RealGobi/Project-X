@@ -10,6 +10,7 @@ import {
   LOGOUT_SUCCESS,
   REGISTER_SUCCESS,
   REGISTER_FAIL,
+  USER_SETTINGS_CHANGE,
 } from './types';
 
 // setup config and header - use in all actions
@@ -118,4 +119,29 @@ export const logoutMe = () => {
   store.dispatch({
     type: LOGOUT_SUCCESS,
   });
+};
+
+// Change User settings
+
+export const changeUserSettings = ({ foodType }) => (dispatch, getState) => {
+  // req body
+  console.log(foodType);
+  
+  const body = JSON.stringify({ foodType });
+
+  const { id } = getState().auth;
+
+  axios
+    .put(`http://localhost:5000/api/auth/user/${id}`, body, tokenConfig(getState))
+    .then(res => dispatch({
+      type: USER_SETTINGS_CHANGE,
+      payload: res.data,
+    }))
+    .catch((err) => {
+      console.log(err);
+      dispatch(returnErrors(err.response));
+      dispatch({
+        type: AUTH_ERROR,
+      });
+    });
 };
