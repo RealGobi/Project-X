@@ -1,157 +1,156 @@
-@import url('https://fonts.googleapis.com/css?family=Red+Hat+Text:400&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Red+Hat+Text:400&display=swap");
 // align center
 
 :root {
-    font-family: 'Red Hat Text', sans-serif;
-    font-size: 1rem;
-    color: $dinner_HeadLine;
+  font-family: "Red Hat Text", sans-serif;
+  font-size: 1rem;
+  color: $dinner_HeadLine;
 }
 
 a {
-    color: $dinner_HeadLine;
-    text-decoration: none;
+  color: $dinner_HeadLine;
+  text-decoration: none;
 }
 
 li {
-    list-style-type: none;
-   }
+  list-style-type: none;
+}
 
 %center {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 // margin
 %betweenElement {
-    margin: 24px;
+  margin: 24px;
 }
 
 // font styles
 %header2 {
-    color: $dinner_HeadLine;
-    font-family: 'Red Hat Text', sans-serif;
-    font-size: 2.1rem;
+  color: $dinner_HeadLine;
+  font-family: "Red Hat Text", sans-serif;
+  font-size: 2.1rem;
 }
 
-.input-container {            
-    width: 320px;
-    height: 55px;
+.input-container {
+  width: 320px;
+  height: 55px;
+  border-radius: 3px;
+  border: 1px solid $dinner_Grey;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-family: "Red Hat Text", sans-serif;
+  font-size: 1rem;
+  color: $dinner_HeadLine;
+  background: $dinner_Blue;
+  margin: 0 0px 8px 0;
+
+  input[type="email"],
+  [type="password"],
+  [type="text"] {
+    width: 210px;
+    height: 28px;
     border-radius: 3px;
     border: 1px solid $dinner_Grey;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    font-family: 'Red Hat Text', sans-serif;
+    font-family: "Red Hat Text", sans-serif;
     font-size: 1rem;
-    color: $dinner_HeadLine;
-    background:$dinner_Blue;
-    margin: 0 0px 8px 0;
+    margin: 6px;
+  }
 
-    input[type=email],[type=password], [type=text] {
-        width: 210px;
-        height: 28px;
-        border-radius: 3px;
-        border: 1px solid $dinner_Grey;
-        font-family: 'Red Hat Text', sans-serif;
-        font-size: 1rem;
-        margin: 6px;
-    }
-
-    span {
-        padding-left: 12px;
-    }
+  span {
+    padding-left: 12px;
+  }
 }
 
 .Searchinput {
-    display: flex;
-    justify-content: center;
-    align-content: center;
+  display: flex;
+  justify-content: center;
+  align-content: center;
 }
 
-.Searchinput input[type=text] {
-    padding: 0 6px;
-    width: 320px;
-    height: 55px;
-    margin: 20px 30px;
-    font-size: 1.5rem;
-    border-radius: 3px;
-    border: 1px solid $dinner_Grey;
+.Searchinput input[type="text"] {
+  padding: 0 6px;
+  width: 320px;
+  height: 55px;
+  margin: 20px 30px;
+  font-size: 1.5rem;
+  border-radius: 3px;
+  border: 1px solid $dinner_Grey;
+}
+
+input[type="button"] {
+  width: 180px;
+  height: 50px;
+  border-radius: 3px;
+  border: 1px solid #828282;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-family: "Red Hat Text", sans-serif;
+  font-size: 0.8rem;
+  color: #4f4f4f;
+  position: relative;
+  left: 83px;
+  background-color: $dinner_Blue;
+  margin: 5px 0;
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.35);
   }
-
-  input[type=button] {
-    width: 180px;
-    height: 50px;
-    border-radius: 3px;
-    border: 1px solid #828282;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    font-family: 'Red Hat Text', sans-serif;
-    font-size: 0.8rem;
-    color: #4f4f4f;
-    position: relative;
-    left: 83px;
-    background-color: $dinner_Blue;
-    margin: 5px 0;
-
-    &:hover{
-        transform: scale(1.05);
-        box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.35);
-    } 
-    
 }
 
 .editbtn {
-    width: 20px;
-    height: 20px;
-    background-image:url(../images/edit.svg);
+  width: 20px;
+  height: 20px;
+  background-image: url(../images/edit.svg);
 }
 
 .deletebtn {
-    width: 20px;
-    height: 20px;
-    background-image: url(../images/trash.svg);
+  width: 20px;
+  height: 20px;
+  background-image: url(../images/trash.svg);
 }
+
 .errorContainer {
-    display: flex;
-    justify-content: flex-end;
+  display: flex;
+  justify-content: flex-end;
 }
+
 .error {
-    padding: 3px;
-    margin: 3px;
-    font-size: .7rem;
-    border: 2px solid #ec5b5b;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    color: #ec5b5b;
-    background-color: rgba(255, 255, 255, 0.5);
-    z-index: 1000;
+  padding: 3px;
+  margin: 3px;
+  font-size: 0.7rem;
+  border: 2px solid #ec5b5b;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  color: #ec5b5b;
+  background-color: rgba(255, 255, 255, 0.5);
+  z-index: 1000;
 }
 
 //ipad
 @media only screen and (min-width: 768px) {
+  .error {
+    padding: 5px;
+    margin: 5px;
+    font-size: 0.7rem;
+  }
 
-    .error {
-        padding: 5px;
-        margin: 5px;
-        font-size: .7rem; 
+  .input-container {
+    width: 440px;
+    height: 65px;
+    font-size: 1.2rem;
+    margin: 0 12px 12px 0;
+
+    input[type="email"],
+    [type="password"],
+    [type="text"] {
+      width: 290px;
+      height: 35px;
+      font-size: 1.2rem;
+      margin: 12px;
     }
-    .input-container {            
-        width: 440px;
-        height: 65px;
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        font-size: 1.2rem;
-        margin: 0 12px 12px 0;
 
-        input[type=email],[type=password], [type=text] {
-            width: 290px;
-            height: 35px;
-            font-size: 1.2rem;
-            margin: 12px;
-        }
-
-        span {
-            padding-left: 12px;
-        }
-    }
+  }
 }

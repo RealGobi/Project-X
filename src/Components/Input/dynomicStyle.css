@@ -1,13 +1,14 @@
 .DynomicInput {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
-input[type=text], [type=number] {
-    width: 210px;
-    height: 28px;
-    border-radius: 3px;
-    border: 1px solid #828282;
-    font-family: 'Red Hat Text', sans-serif;
-    font-size: 1rem;
-    margin: 6px;
+
+input[type="text"],[type="number"] {
+  width: 210px;
+  height: 28px;
+  border-radius: 3px;
+  border: 1px solid #828282;
+  font-family: "Red Hat Text", sans-serif;
+  font-size: 1rem;
+  margin: 6px;
 }
