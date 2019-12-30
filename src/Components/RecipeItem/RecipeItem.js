@@ -21,7 +21,9 @@ const RecipeItem = ({
       <h3>{recipeTitle}</h3>
       <p>{recipeIntro}</p>
     </div>
-    <img src={recipeImg} alt={recipeTitle} />
+    <div className="item2">
+      <img src={recipeImg} alt={recipeTitle} />
+    </div>
   </div>
 );
 
