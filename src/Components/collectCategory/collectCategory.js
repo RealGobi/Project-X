@@ -10,7 +10,25 @@ function getArrayFromFoodtype({ recipes }) {
 
 export default function collectCategory() {
   const [array, setArray] = useState(getArrayFromFoodtype());
-
+  ({
+    buttonText, color, buttonType, clickHandler,
+  }) => {
+    let bg;
+    let btnType;
+    const { width } = useWindowDimensions();
+  
+  
+  switch (color) {
+    case 'mint':
+      bg = { background: '#B7DDE0' };
+      break;
+    case 'persica':
+      bg = { background: '#FFC79B' };
+      break;
+    default:
+      bg = { background: '#FEE19F' };
+      break;
+  }
 
   if (cat1) {
     // collect all categorys to one array
@@ -40,3 +58,4 @@ export default function collectCategory() {
 
   return category2;
 }
+export default collectCategory;
