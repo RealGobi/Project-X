@@ -27,7 +27,7 @@ export default function ReciptList({ findRecipeBasedOnOne, setChosenRecipe }) {
               <div key={rec._id} onClick={() => setChosenRecipe(rec._id)} className="margin-recipt-list" >
                 <RecipeItem
                   recipeTitle={rec.title}
-                  recipeIntro={`${rec.description.substring(0, 100)}...`}
+                  recipeIntro={`${rec.description.substring(0, 75)}...`}
                   recipeImg={rec.imageLink}
                 />
               </div>

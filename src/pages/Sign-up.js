@@ -89,15 +89,15 @@ function SignUp(props) {
                   && <span className="error">{msg}</span>
               }
               </div>
-              <Button className="item2" buttonText="Vegan" color="persica" clickHandler={() => setUserFoodType(1)} />
-              <Button className="item3" buttonText="Vegetarian" color="yellow" clickHandler={() => setUserFoodType(2)} />
-              <Button className="item4" buttonText="Fisk" color="mint" clickHandler={() => setUserFoodType(3)} />
+              <Button className="item2" buttonText="Vegan" color="mint" clickHandler={() => setUserFoodType(1)} />
+              <Button className="item3" buttonText="Vegetarian" color="mint" clickHandler={() => setUserFoodType(2)} />
+              <Button className="item4" buttonText="Fisk" clickHandler={() => setUserFoodType(3)} />
               <Button className="item5" buttonText="Allätare" color="persica" clickHandler={() => setUserFoodType(4)} />
-              <Link to="/landing-page" className="Searchinput">
-                <Button className="item6" buttonText="Skapa Konto" color="mint" buttonType="small" clickHandler={onSubmit} />
-              </Link>
               <Link to="/" className="Searchinput">
-                <Button className="item7" buttonText="Tillbaka" color="mint" buttonType="small" />
+                <Button className="item6" buttonText="Tillbaka" color="mint" buttonType="small" />
+              </Link>
+              <Link to="/landing-page" className="Searchinput">
+                <Button className="item7" buttonText="Skapa Konto" color="mint" buttonType="small" clickHandler={onSubmit} />
               </Link>
             </div>
           </form>

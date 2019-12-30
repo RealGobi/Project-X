@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import Popup from 'reactjs-popup';
 import store from '../store';
 import {
-  addRecipe, deleteRecipe, getRecipes, editRecipe,
+  addRecipe, deleteRecipe, getRecipes,
 } from '../actions/recipeAction';
 
 import Button from '../Components/Button/Button';
@@ -15,7 +15,6 @@ function Admin(getState) {
   const { isAdmin } = getState;
 
   // hooks
-  const [editMode, setEditMode] = useState(false);
   const [title, setTitle] = useState('');
   const [titleError, setTitleError] = useState('');
   const [description, setDesc] = useState('');
@@ -134,29 +133,6 @@ function Admin(getState) {
     store.dispatch(deleteRecipe(id));
   };
 
-  // Will start editMode and fill in a recipe in all input field
-  const editClickHandler = (id) => {
-    console.log(id);
-    store.dispatch(getRecipes(id));
-    setEditMode(true);
-  };
-
-  // will happen if you changed something
-  const handleEditRecipe = (id) => {
-    // console.log(id);
-    const recipeToDb = {
-      title,
-      description,
-      category1,
-      category2,
-      imageLink,
-      time,
-      foodType,
-      ingredients,
-      instructions,
-    };
-    store.dispatch(editRecipe(recipeToDb));
-  };
   // sort func
   const sortByName = (a, b) => {
     const compA = a.title.toLowerCase();
@@ -174,38 +150,37 @@ function Admin(getState) {
   return (
     <div className="admin">
       <div className="header"><h1>Admin</h1></div>
-      {!editMode ? (
-        <div className="admin-addrecept">
-          <div>
-            <h2>Nytt Recept</h2>
-            <p>Lägg till nytt recept baserat på fyra potioner.</p>
-            <form>
-              <label htmlFor="Namn">Namn: <input type="text" name="name" value={title} onChange={(e) => { setTitle(e.target.value); }} /></label>
-              { titleError
+      <div className="admin-addrecept">
+        <div>
+          <h2>Nytt Recept</h2>
+          <p>Lägg till nytt recept baserat på fyra potioner.</p>
+          <form>
+            <label htmlFor="Namn">Namn: <input type="text" name="name" value={title} onChange={(e) => { setTitle(e.target.value); }} /></label>
+            { titleError
               && <span className="errorContainer"><div className="error">{titleError}</div></span>
             }
-              <label htmlFor="Beskrivning">Beskrivning: <input type="text" value={description} name="description" onChange={(e) => { setDesc(e.target.value); }} /></label>
-              { descriptionError
+            <label htmlFor="Beskrivning">Beskrivning: <input type="text" value={description} name="description" onChange={(e) => { setDesc(e.target.value); }} /></label>
+            { descriptionError
               && <span className="errorContainer"><div className="error">{descriptionError}</div></span>
             }
-              <label htmlFor="Kategori1">Kategori Protein: <input type="text" value={category1} name="category1" onChange={(e) => { setCategory1(e.target.value); }} /></label>
-              { category1Error
+            <label htmlFor="Kategori1">Kategori Protein: <input type="text" value={category1} name="category1" onChange={(e) => { setCategory1(e.target.value); }} /></label>
+            { category1Error
               && <span className="errorContainer"><div className="error">{category1Error}</div></span>
             }
-              <label htmlFor="Kategori2">Kategori Kolhydrat: <input type="text" value={category2} name="category2" onChange={(e) => { setCategory2(e.target.value); }} /></label>
-              { category2Error
+            <label htmlFor="Kategori2">Kategori Kolhydrat: <input type="text" value={category2} name="category2" onChange={(e) => { setCategory2(e.target.value); }} /></label>
+            { category2Error
               && <span className="errorContainer"><div className="error">{category2Error}</div></span>
             }
-              <label htmlFor="bildlänk">Bildlänk:<input type="text" name="imageLink" value={imageLink} onChange={(e) => { setImageLink(e.target.value); }} /></label>
-              { imageLinkError
+            <label htmlFor="bildlänk">Bildlänk:<input type="text" name="imageLink" value={imageLink} onChange={(e) => { setImageLink(e.target.value); }} /></label>
+            { imageLinkError
               && <span className="errorContainer"><div className="error">{imageLinkError}</div></span>
             }
-              <label htmlFor="Time">Tid: <input type="number" name="time" value={time} onChange={(e) => { setTime(e.target.value); }} /></label>
-              { timeError
+            <label htmlFor="Time">Tid: <input type="number" name="time" value={time} onChange={(e) => { setTime(e.target.value); }} /></label>
+            { timeError
               && <span className="errorContainer"><div className="error">{timeError}</div></span>
             }
-              <hr />
-              {
+            <hr />
+            {
                   ingredients.map((val, idx) => (
                     <DynomicInput
                       Rubrik={Rubrik}
@@ -216,71 +191,11 @@ function Admin(getState) {
                     />
                   ))
                 }
-              <div className="btn-admin-right">
-                <Button onClick={addIng} buttonText="Lägg till ingrediens" color="mint" buttonType="small" />
-              </div>
-              <hr />
-              {
-                  instructions.map((val, idx) => (
-                    <DynomicInput
-                      Rubrik={Rubrik2}
-                      key={`main-${idx}`}
-                      idx={idx}
-                      input={instructions}
-                      handleCatChange={handleInstChange}
-                    />
-                  ))
-              }
-              <div className="btn-admin-right">
-                <Button onClick={addInst} buttonText="Lägg till instruktion" color="mint" buttonType="small" />
-              </div>
-              <hr />
-              <label htmlFor="Foodtype" defaultValue={4} className="foodtype">Vad för sort recept:
-                <select className="portioner" onChange={(e) => { setFoodType(e.target.value); }}>
-                  <option value={4}>Allt</option>
-                  <option value={3}>Fisk</option>
-                  <option value={2}>Vegetarian</option>
-                  <option value={1}>Vegan</option>
-                </select>
-              </label>
-            </form>
             <div className="btn-admin-right">
-              <Button type="button" buttonText="Lägg till" clickHandler={handleAddRecipe} />
+              <Button clickHandler={addIng} buttonText="Lägg till ingrediens" color="mint" buttonType="small" />
             </div>
-          </div>
-        </div>
-      ) : (
-
-        // Displays when we wants to edit a recipe.
-        <div className="admin-addrecept">
-          <div>
-            <h2>Editera Recept</h2>
-            <form>
-              <label htmlFor="Namn">Namn: <input type="text" name="name" value={title} onChange={(e) => { setTitle(e.target.value); }} /></label>
-              <label htmlFor="Beskrivning">Beskrivning: <input type="text" value={description} name="description" onChange={(e) => { setDesc(e.target.value); }} /></label>
-              <label htmlFor="Kategori1">Kategori Protein: <input type="text" value={category1} name="category1" onChange={(e) => { setCategory1(e.target.value); }} /></label>
-              <label htmlFor="Kategori2">Kategori Kolhydrat: <input type="text" value={category2} name="category2" onChange={(e) => { setCategory2(e.target.value); }} /></label>
-              <label htmlFor="bildlänk">Bildlänk:<input type="text" name="imageLink" value={imageLink} onChange={(e) => { setImageLink(e.target.value); }} /></label>
-              <label htmlFor="Time">Tid: <input type="number" name="time" value={time} onChange={(e) => { setTime(e.target.value); }} /></label>
-              <hr />
-              {
-                  ingredients.map((val, idx) => (
-                    <DynomicInput
-                      Rubrik={Rubrik}
-                      key={`main-${idx}`}
-                      idx={idx}
-                      input={ingredients}
-                      handleCatChange={handleIngChange}
-                    />
-                  ))
-                }
-              <input
-                type="button"
-                value="Lägg till en till ingrediens"
-                onClick={addIng}
-              />
-              <hr />
-              {
+            <hr />
+            {
                   instructions.map((val, idx) => (
                     <DynomicInput
                       Rubrik={Rubrik2}
@@ -291,27 +206,24 @@ function Admin(getState) {
                     />
                   ))
               }
-              <input
-                type="button"
-                value="Lägg till en till instruktion"
-                onClick={addInst}
-              />
-              <hr />
-              <label htmlFor="Foodtype" defaultValue={4} className="foodtype">Vad för sort recept:
-                <select className="portioner" onChange={(e) => { setFoodType(e.target.value); }}>
-                  <option value={4}>Allt</option>
-                  <option value={3}>Fisk</option>
-                  <option value={2}>Vegetarian</option>
-                  <option value={1}>Vegan</option>
-                </select>
-              </label>
-            </form>
-            <div>
-              <Button type="button" buttonText="Ändra" clickHandler={handleEditRecipe} />
+            <div className="btn-admin-right">
+              <Button clickHandler={addInst} buttonText="Lägg till instruktion" color="mint" buttonType="small" />
             </div>
+            <hr />
+            <label htmlFor="Foodtype" defaultValue={4} className="foodtype">Vad för sort recept:
+              <select className="portioner" onChange={(e) => { setFoodType(e.target.value); }}>
+                <option value={4}>Allt</option>
+                <option value={3}>Fisk</option>
+                <option value={2}>Vegetarian</option>
+                <option value={1}>Vegan</option>
+              </select>
+            </label>
+          </form>
+          <div className="btn-admin-right">
+            <Button type="button" buttonText="Lägg till" clickHandler={handleAddRecipe} />
           </div>
         </div>
-      )}
+      </div>
       {
               isAdmin
                 ? (
@@ -321,7 +233,6 @@ function Admin(getState) {
                       {recipes.sort(sortByName).map(rec => (
                         <div key={rec._id} className="listrow">
                           <span className="admin-title">{rec.title}</span>
-                          <span className="editbtn" role="button" alt="edit" onClick={() => editClickHandler(rec._id)} />
                           <Popup trigger={<span className="deletebtn" />} modal>
                             {close => (
                               <div className="modal">
@@ -355,5 +266,5 @@ const mapStateToProps = state => ({
   recipe: state.recipe,
 });
 export default connect(mapStateToProps, {
-  addRecipe, deleteRecipe, getRecipes, editRecipe,
+  addRecipe, deleteRecipe, getRecipes,
 })(Admin);

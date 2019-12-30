@@ -110,7 +110,7 @@ export default function SearchList(props) {
               <span key={rec._id} onClick={() => props.setChosenRecipe(rec._id)}>
                 <RecipeItem
                   recipeTitle={rec.title}
-                  recipeIntro={`${rec.description.substring(0, 100)}...`}
+                  recipeIntro={`${rec.description.substring(0, 75)}...`}
                   recipeImg={rec.imageLink}
                 />
               </span>
