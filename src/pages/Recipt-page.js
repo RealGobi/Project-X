@@ -9,7 +9,7 @@ const ReciptPage = (findRecipe) => {
   if (findRecipe.findRecipe === undefined) {
     history.goBack();
   }
-
+  // go back depending on where you  came from.
   function goBackHandler() {
     history.goBack();
   }

@@ -15,7 +15,7 @@ export default function SearchList(props) {
     // eslint-disable-next-line react/forbid-prop-types
     category2: PropTypes.array.isRequired,
   };
-
+  // state and props
   const [searchValue, setSearchValue] = useState('');
   const { recipe } = props;
   const { category1 } = props;
@@ -45,12 +45,12 @@ export default function SearchList(props) {
       dispatch({ type: 'remove', value: e.target.value });
     }
   };
-
+  // sort out recipe after category, foodType and search input.
   const listRecipeThatRenders = recipe.filter(rec => (searchValue ? rec.title.toLowerCase().match(searchValue) : true))
     .filter(rec => (activeCategoryFilter.length !== 0 ? rec.category1.some(value => activeCategoryFilter.includes(value))
    || rec.category2.some(value => activeCategoryFilter.includes(value)) : true))
     .filter(rec => (userFoodType ? rec.foodType <= userFoodType : true));
-
+  // category toggle
   const [showCategory, setShowCategory] = useState(true);
   const toggleShow = () => { setShowCategory(!showCategory); };
   const handleCategory2Change = (e) => { categoryToggle(e); };

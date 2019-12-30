@@ -22,11 +22,13 @@ function Login(props) {
   };
 
   // state
-
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [msg, setMsg] = useState('');
+  const { error, isAuthenticated } = props;
+  const history = useHistory();
 
+  // submit func
   const onSubmit = (e) => {
     e.preventDefault();
     const user = {
@@ -35,6 +37,8 @@ function Login(props) {
     };
     store.dispatch(login(user));
   };
+
+  // login with enter key
   const enterClick = (e) => {
     if (e.key === 'Enter') {
       console.log('enter press here! ');
@@ -42,8 +46,7 @@ function Login(props) {
     }
   };
 
-  const { error, isAuthenticated } = props;
-  const history = useHistory();
+  // check if valid token exist, and login in if valid
   useEffect(() => {
     if (error.id === 'LOGIN_FAIL') {
       setMsg(error.msg.msg);
