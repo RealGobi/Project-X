@@ -23,7 +23,7 @@ function SignUp(props) {
   SignUp.defaultProps = {
     isAuthenticated: false,
   };
-  const headLine = 'Skapa Konto';
+  const headLine = 'Skapa konto';
   const styleback = {
     backgroundImage: `url(${Background})`,
     backgroundPosition: 'center',
