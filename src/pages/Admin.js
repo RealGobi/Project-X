@@ -72,7 +72,7 @@ function Admin(getState) {
     setCategory2('');
     setImageLinkError('');
     setTimeError('');
-    
+
     if (!title) {
       setTitleError('Namn måste vara ifyllt.');
     }
@@ -216,11 +216,9 @@ function Admin(getState) {
                     />
                   ))
                 }
-              <input
-                type="button"
-                value="Lägg till en till ingrediens"
-                onClick={addIng}
-              />
+              <div className="btn-admin-right">
+                <Button onClick={addIng} buttonText="Lägg till ingrediens" color="mint" buttonType="small" />
+              </div>
               <hr />
               {
                   instructions.map((val, idx) => (
@@ -233,11 +231,9 @@ function Admin(getState) {
                     />
                   ))
               }
-              <input
-                type="button"
-                value="Lägg till en till instruktion"
-                onClick={addInst}
-              />
+              <div className="btn-admin-right">
+                <Button onClick={addInst} buttonText="Lägg till instruktion" color="mint" buttonType="small" />
+              </div>
               <hr />
               <label htmlFor="Foodtype" defaultValue={4} className="foodtype">Vad för sort recept:
                 <select className="portioner" onChange={(e) => { setFoodType(e.target.value); }}>
@@ -346,7 +342,7 @@ function Admin(getState) {
                 : null
               }
       <Link to="/landing-page">
-        <Button buttonText="Tillbaka" color="mint" />
+        <Button buttonText="Tillbaka" color="mint" buttonType="small" />
       </Link>
     </div>
 

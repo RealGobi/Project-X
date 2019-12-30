@@ -36,7 +36,7 @@ export default function ReciptList({ findRecipeBasedOnOne, setChosenRecipe }) {
         </Link>
         <div className="next-page">
           <Link to="/choose-second">
-            <Button buttonText="Tillbaka" color="mint" />
+            <Button buttonText="Tillbaka" color="mint" buttonType="small" />
           </Link>
         </div>
       </Page>

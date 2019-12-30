@@ -119,7 +119,7 @@ export default function SearchList(props) {
         </Link>
         <div className="next-page">
           <Link to="/landing-page">
-            <Button buttonText="Tillbaka" color="mint" />
+            <Button buttonText="Tillbaka" color="mint" buttonType="small" />
           </Link>
         </div>
       </Page>

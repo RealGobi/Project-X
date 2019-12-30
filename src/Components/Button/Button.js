@@ -40,6 +40,9 @@ const Button = ({
       case 'square':
         btnType = { width: '125px', height: '125px' };
         break;
+      case 'small':
+        btnType = { width: '100', height: '45px' };
+        break;
       default:
         btnType = { width: '200px', height: '75px' };
         break;
@@ -51,6 +54,9 @@ const Button = ({
         break;
       case 'square':
         btnType = { width: '75px', height: '75px' };
+        break;
+      case 'small':
+        btnType = { width: '85px', height: '40px' };
         break;
       default:
         btnType = { width: '140px', height: '55px' };

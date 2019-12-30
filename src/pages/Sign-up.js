@@ -94,10 +94,10 @@ function SignUp(props) {
               <Button className="item4" buttonText="Vegetarian + Fisk" color="mint" clickHandler={() => setUserFoodType(3)} />
               <Button className="item5" buttonText="Allätare" color="persica" clickHandler={() => setUserFoodType(4)} />
               <Link to="/landing-page">
-                <Button className="item6" buttonText="Skapa Konto" color="mint" clickHandler={onSubmit} />
+                <Button className="item6" buttonText="Skapa Konto" color="mint" buttonType="small" clickHandler={onSubmit} />
               </Link>
               <Link to="/">
-                <Button className="item7" buttonText="Tillbaka" color="mint" />
+                <Button className="item7" buttonText="Tillbaka" color="mint" buttonType="small" />
               </Link>
             </div>
           </form>

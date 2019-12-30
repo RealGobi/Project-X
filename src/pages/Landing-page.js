@@ -76,7 +76,7 @@ const LandingPage = () => {
       <Page>
         <div className="add-button">
           <Link to="/admin">
-            <Button buttonText="Lägg till recept" color="mint" />
+            <Button buttonText="Lägg till recept" color="mint" buttonType="small" />
           </Link>
           <Popup trigger={<img src={Settings} alt="inställningar" />} modal>
             {close => (

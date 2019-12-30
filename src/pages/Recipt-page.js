@@ -34,7 +34,7 @@ const ReciptPage = (findRecipe) => {
               />
               <div className="next-page">
                 <Link to="/search-list">
-                  <Button buttonText="Tillbaka" color="mint" clickHandler={goBackHandler} />
+                  <Button buttonText="Tillbaka" buttonType="small" color="mint" clickHandler={goBackHandler} />
                 </Link>
               </div>
             </Page>
