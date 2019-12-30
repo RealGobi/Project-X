@@ -1,554 +1,550 @@
-@import './_color.scss';
-@import './global.scss';
+@import "./_color.scss";
+@import "./global.scss";
 
 // mobile
 body {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  overflow-y: scroll;
+
+  .Startlogga {
+    background-image: url(../images/StartloggaPhone.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
     width: 100vw;
-    display: flex;
-    justify-content: center;
-    padding: 0;
-    margin: 0;
-    overflow-y: scroll;
+    height: 100vh;
 
-    .Startlogga {
-        background-image: url(../images/StartloggaPhone.svg);
-        background-repeat: no-repeat;
-        background-size: cover;
-        width: 100vw;
-        height: 100vh;
+    .login-container {
+      height: 98%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: flex-end;
 
-        .login-container {
-            height: 98%;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            align-items: flex-end;
+      .input-container {
+        margin: 0 8px 8px 0;
 
-            .input-container {
-                margin: 0 8px 8px 0;
-
-                span {
-                    padding: 0px;
-                }
-            }
-
-            .login-button-container {
-                display: flex;
-                flex-direction: row;
-                margin: 0 8px;
-
-                a {
-                    margin: 0 8px 0 0;
-                }
-            }
+        span {
+          padding: 0px;
         }
-    }
+      }
 
-    .header {
-        background: $dinner_Blue;
-        border-radius: 3px 3px 0 0;
-        margin: 0px;
-        max-height: 150px;
-        @extend %center;
-        padding: 24px;
-
-        .headLine {
-            margin: 0;
-            @extend %center;
-            @extend %header2;
-        }
-    }
-
-    .header-recipt {
-        background: $dinner_Persica;
-        border-radius: 3px 3px 0 0;
-        max-height: 140px;
-        @extend %center;
-        padding: 24px 24px 0 24px;
-
-        h1 {
-            @extend %header2;
-            
-        }
-    }
-
-    .content {
-        .sign-up {
-            #bg {
-                width: 100%;
-            }
-
-            display: flex;
-            align-items: center;
-            flex-direction: column;
-
-            .input-container:nth-child(1) {
-                background: $dinner_Persica;
-                margin-top: 40px;
-            }
-
-            .input-container:nth-child(3) {
-                background: $dinner_Yellow;
-                margin-bottom: 40px;
-            }
-
-            .next {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                margin: 50px 0px;
-                width: 100%;
-            }
-        }
-
-        .margin_Recipe_Page:nth-child(1)  {
-            padding-top: 24px;
-        }
-
-        .select-preference-button {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            grid-template-rows: repeat(4, 1fr);
-            grid-template-areas: 
-            "item2 item3"
-            "item4 item5"
-            "item1 item1"
-            "item6 item7";
-            gap: 8px;
-        }
-
-        .item1 {
-            grid-area: item1;
-            @extend %center;
-        }
-        .item2 {
-            grid-area: item2;
-        }
-        .item3 {
-            grid-area: item3;
-        }
-        .item4 {
-            grid-area: item4;
-        }
-        .item5 {
-            grid-area: item5;
-        }
-        .item6 {
-            grid-area: item6;
-        }
-        .item7 {
-            grid-area: item7;
-        }
-
-        .centerGrid {
-            @extend %center;
-            flex-direction: column;
-            padding: 24px;
-
-            .choose-button {
-                display: grid;
-                grid-template-columns: repeat(4, 77px);
-                grid-template-rows: repeat(4, 77px);
-                gap: 8px;
-            }
-        }
-
-        .mail-button {
-            display: flex;
-            justify-content: space-between;
-            margin: 0 64px;
-            padding: 26px 0;
-        }
-
-        .landing-button-position {
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-
-            .Button {
-                margin: 24px;
-            }
-        }
-
-        .next-page {
-            display: flex;
-            align-items: flex-start;
-            justify-content: flex-start;
-            margin: 24px;
-
-            a {
-                text-decoration: none;
-                margin: 0 0 0 12px;
-            }
-        }
-
-        .categorybar {
-            margin: 10px 14px;
-
-            label {
-                font-size: 0.9rem;
-            }
-            .row {
-                display: flex;
-                flex-direction: row;           
-                .arrow { 
-                    background-image: url(../images/arrow.svg);
-                    background-size: contain;
-                    background-position: center;
-                    background-repeat: no-repeat;
-                    width: 20px;
-                    height: 20px;
-                    margin-left: 10px;
-                    transform: rotate(180deg);
-                }
-
-                .arrow-open {
-                    background-image: url(../images/arrow.svg);
-                    background-size: contain;
-                    background-position: center;
-                    background-repeat: no-repeat;
-                    width: 20px;
-                    height: 20px;
-                    margin-left: 10px;
-                    transform: rotate(0deg);
-                }
-            }
-        }
-
-    }
-
-    .admin, .addRecipe {
-        margin: 0px 0px;
+      .login-button-container {
         display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-content: center;
-        text-align: center;
-        overflow-y: visible;
+        flex-direction: row;
+        margin: 0 8px;
 
-        .admin-receptlist {
-            background: #c4c4c4;
-            padding: 12px;
-            border-radius: 3px;
-
-            .listrow {
-                display: flex;
-                flex-direction: row;
-                justify-content: space-between;
-
-                .admin-title {
-                    width: 260px;
-                    text-align: left;
-                }
-            }
+        a {
+          margin: 0 8px 0 0;
         }
-
-        .admin-addrecept, .addRecipe-addrecept  {
-            background: $dinner_Persica;
-            display: flex;
-            flex-direction: column;
-            margin: 12px 0;
-            padding: 12px;
-            border-radius: 3px;
-
-            h2,
-            h3 {
-                text-align: center;
-            }
-
-            .foodtype {
-                margin: 10px;
-
-                select {
-                    width: 150px;
-                    margin: 10px;
-                    position: relative;
-                    left: 17px;
-                }
-            }
-
-            label {
-                display: flex;
-                justify-content: flex-end;
-                padding: 3px;
-
-                input {
-                    margin: 0 3px;
-                    border-radius: 3px;
-                    border: 1px solid $dinner_Grey;
-                }
-            }
-        }
+      }
     }
+  }
+
+  .header {
+    background: $dinner_Blue;
+    border-radius: 3px 3px 0 0;
+    margin: 0px;
+    max-height: 150px;
+    @extend %center;
+    padding: 24px;
+
+    .headLine {
+      margin: 0;
+      @extend %center;
+      @extend %header2;
+    }
+  }
+
+  .header-recipt {
+    background: $dinner_Persica;
+    border-radius: 3px 3px 0 0;
+    max-height: 140px;
+    @extend %center;
+    padding: 24px 24px 0 24px;
+
+    h1 {
+      @extend %header2;
+    }
+  }
+
+  .content {
+    .sign-up {
+      #bg {
+        width: 100%;
+      }
+
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+
+      .input-container:nth-child(1) {
+        background: $dinner_Persica;
+        margin-top: 40px;
+      }
+
+      .input-container:nth-child(3) {
+        background: $dinner_Yellow;
+        margin-bottom: 40px;
+      }
+
+      .next {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 50px 0px;
+        width: 100%;
+      }
+    }
+
+    .margin_Recipe_Page:nth-child(1) {
+      padding-top: 24px;
+    }
+
+    .select-preference-button {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(4, 1fr);
+      grid-template-areas:
+        "item2 item3"
+        "item4 item5"
+        "item1 item1"
+        "item6 item7";
+      gap: 8px;
+    }
+
+    .item1 {
+      grid-area: item1;
+      @extend %center;
+    }
+    .item2 {
+      grid-area: item2;
+    }
+    .item3 {
+      grid-area: item3;
+    }
+    .item4 {
+      grid-area: item4;
+    }
+    .item5 {
+      grid-area: item5;
+    }
+    .item6 {
+      grid-area: item6;
+    }
+    .item7 {
+      grid-area: item7;
+    }
+
+    .centerGrid {
+      @extend %center;
+      flex-direction: column;
+      padding: 24px;
+
+      .choose-button {
+        display: grid;
+        grid-template-columns: repeat(4, 77px);
+        grid-template-rows: repeat(4, 77px);
+        gap: 8px;
+      }
+    }
+
+    .mail-button {
+      display: flex;
+      justify-content: space-between;
+      margin: 0 64px;
+      padding: 26px 0;
+    }
+
+    .landing-button-position {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+
+      .Button {
+        margin: 24px;
+      }
+    }
+
+    .next-page {
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      margin: 24px;
+
+      a {
+        text-decoration: none;
+        margin: 0 0 0 12px;
+      }
+    }
+
+    .categorybar {
+      margin: 10px 14px;
+
+      label {
+        font-size: 0.9rem;
+      }
+      .row {
+        display: flex;
+        flex-direction: row;
+        .arrow {
+          background-image: url(../images/arrow.svg);
+          background-size: contain;
+          background-position: center;
+          background-repeat: no-repeat;
+          width: 20px;
+          height: 20px;
+          margin-left: 10px;
+          transform: rotate(180deg);
+        }
+
+        .arrow-open {
+          background-image: url(../images/arrow.svg);
+          background-size: contain;
+          background-position: center;
+          background-repeat: no-repeat;
+          width: 20px;
+          height: 20px;
+          margin-left: 10px;
+          transform: rotate(0deg);
+        }
+      }
+    }
+  }
+
+  .admin,
+  .addRecipe {
+    margin: 0px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    overflow-y: visible;
+
+    .admin-receptlist {
+      background: #c4c4c4;
+      padding: 12px;
+      border-radius: 3px;
+
+      .listrow {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        .admin-title {
+          width: 260px;
+          text-align: left;
+        }
+      }
+    }
+
+    .admin-addrecept,
+    .addRecipe-addrecept {
+      background: $dinner_Persica;
+      display: flex;
+      flex-direction: column;
+      margin: 12px 0;
+      padding: 12px;
+      border-radius: 3px;
+
+      h2,
+      h3 {
+        text-align: center;
+      }
+
+      .foodtype {
+        margin: 10px;
+
+        select {
+          width: 150px;
+          margin: 10px;
+          position: relative;
+          left: 17px;
+        }
+      }
+
+      label {
+        display: flex;
+        justify-content: flex-end;
+        padding: 3px;
+
+        input {
+          margin: 0 3px;
+          border-radius: 3px;
+          border: 1px solid $dinner_Grey;
+        }
+      }
+    }
+  }
 }
 
 @media only screen and (min-width: 768px) {
+  body {
+    width: 100vw;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
 
-    body {
-        width: 100vw;
+    .Startlogga {
+      background-image: url(../images/Startlogga.svg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+
+      .login-container {
+        height: 800px;
         display: flex;
-        align-items: flex-start;
-        justify-content: center;
-        margin: 0;
-        padding: 0;
+        flex-direction: column;
+        margin: 64px;
 
-        .Startlogga {
-            background-image: url(../images/Startlogga.svg);
-            background-repeat: no-repeat;
-            background-size: cover;
-            width: 100vw;
-            height: 100vh;
-            display: flex;
-            justify-content: flex-end;
-            align-items: flex-end;
+        .input-container {
+          margin: 0 12px 12px 0;
 
-            .login-container {
-                height: 800px;
-                display: flex;
-                flex-direction: column;
-                margin: 64px;
-
-                .input-container {
-                    margin: 0 12px 12px 0;
-
-                    span {
-                        padding-left: 12px;
-                    }
-                }
-
-                .login-button-container {
-                    display: flex;
-                    flex-direction: row;
-                    justify-content: flex-end;
-
-                    a {
-                        margin: 0 12px 0 0;
-                    }
-                }
-            }
-
+          span {
+            padding-left: 12px;
+          }
         }
 
-        .header {
-            background: $dinner_Blue;
-            border-radius: 3px 3px 0 0;
-            margin: 24px 0 0 0;
+        .login-button-container {
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-end;
 
-            .headLine {
-                margin: 0;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                color: $dinner_HeadLine;
-                font-family: 'Red Hat Text', sans-serif;
-                font-size: 2.1rem;
-            }
+          a {
+            margin: 0 12px 0 0;
+          }
         }
-
-        .header-recipt {
-            margin: 24px auto 0;
-        }
-
-        .content {
-            .sign-up {
-
-                #bg {
-                    width: 100%;
-                    height: 100%;
-                }
-
-                display: flex;
-                align-items: center;
-                flex-direction: column;
-                height: 100%;
-
-                .input-container:nth-child(1) {
-                    background: $dinner_Persica;
-                    margin-top: 90px;
-                }
-
-                .input-container:nth-child(3) {
-                    background: $dinner_Yellow;
-                    margin-bottom: 45px;
-                }
-
-                .Button {
-                    margin: 0 6px;
-                }
-
-                .next-page {
-                    width: 100%;
-
-                    .Button {
-                        margin-right: 75px;
-                    }
-                }
-            }
-            .margin_Recipe_Page:nth-child(1)  {
-                padding-top: 64px;
-            }
-
-            .select-button {
-                display: flex;
-                justify-content: center;
-                width: 100%;
-            }
-
-            .centerGrid {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                flex-direction: column;
-                padding: 64px;
-
-                .choose-button {
-                    display: grid;
-                    grid-template-columns: repeat(4, 127px);
-                    grid-template-rows: repeat(4, 127px);
-                    gap: 28px;
-                }
-            }
-
-            .landing-button-position {
-                height: 600px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                flex-direction: column;
-
-                .Button {
-                    margin: 24px;
-                }
-            }
-
-            .next-page {
-                margin: 64px;
-
-                a {
-                    text-decoration: none;
-                    margin: 0 0 0 12px;
-                }
-            }
-
-            .categorybar {
-                margin: 10px 64px;
-            }
-        }
-
+      }
     }
+
+    .header {
+      background: $dinner_Blue;
+      border-radius: 3px 3px 0 0;
+      margin: 24px 0 0 0;
+
+      .headLine {
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: $dinner_HeadLine;
+        font-family: "Red Hat Text", sans-serif;
+        font-size: 2.1rem;
+      }
+    }
+
+    .header-recipt {
+      margin: 24px auto 0;
+    }
+
+    .content {
+      .sign-up {
+        #bg {
+          width: 100%;
+          height: 100%;
+        }
+
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        height: 100%;
+
+        .input-container:nth-child(1) {
+          background: $dinner_Persica;
+          margin-top: 90px;
+        }
+
+        .input-container:nth-child(3) {
+          background: $dinner_Yellow;
+          margin-bottom: 45px;
+        }
+
+        .Button {
+          margin: 0 6px;
+        }
+
+        .next-page {
+          width: 100%;
+
+          .Button {
+            margin-right: 75px;
+          }
+        }
+      }
+      .margin_Recipe_Page:nth-child(1) {
+        padding-top: 64px;
+      }
+
+      .select-button {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+      }
+
+      .centerGrid {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 64px;
+
+        .choose-button {
+          display: grid;
+          grid-template-columns: repeat(4, 127px);
+          grid-template-rows: repeat(4, 127px);
+          gap: 28px;
+        }
+      }
+
+      .landing-button-position {
+        height: 600px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        .Button {
+          margin: 24px;
+        }
+      }
+
+      .next-page {
+        margin: 64px;
+
+        a {
+          text-decoration: none;
+          margin: 0 0 0 12px;
+        }
+      }
+
+      .categorybar {
+        margin: 10px 64px;
+      }
+    }
+  }
 }
 
 //Ipad Pro
 @media only screen and (min-width: 780px) {
-    body {
-        width: 100vw;
-        display: flex;
-        align-items: flex-start;
-        justify-content: center;
-        padding: 0px 0;
-        margin: 0;
+  body {
+    width: 100vw;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 0px 0;
+    margin: 0;
 
-        .Startlogga {
-            background-image: url(../images/Startlogga.svg);
-            background-repeat: no-repeat;
-            background-size: 1024px 1366px;
-            display: flex;
-            justify-content: flex-end;
-            align-items: flex-end;
-            margin: 0;
-        }
-
-        .admin {
-            margin: 12px 12px;
-            display: flex;
-            flex-direction: row;
-            justify-content: space-around;
-            align-content: space-around;
-            text-align: center;
-
-            .admin-receptlist {
-                margin: 10px;
-            }
-
-            .admin-addrecept, {
-                display: flex;
-                flex-direction: row;
-                margin: 12px;
-            }
-        }
+    .Startlogga {
+      background-image: url(../images/Startlogga.svg);
+      background-repeat: no-repeat;
+      background-size: 1024px 1366px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+      margin: 0;
     }
+
+    .admin {
+      margin: 12px 12px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-content: space-around;
+      text-align: center;
+
+      .admin-receptlist {
+        margin: 10px;
+      }
+
+      .admin-addrecept {
+        display: flex;
+        flex-direction: row;
+        margin: 12px;
+      }
+    }
+  }
 }
 
-//bigger than ipad pro
+//Desktop
 @media only screen and (min-width: 1025px) {
-    html {
+  html {
+    margin: 0 auto;
+
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 0;
+      margin: 0 auto;
+
+      .Startlogga {
+        background-image: url(../images/Startlogga.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+        max-width: 1000px;
+        background-size: 1200px 980px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
         margin: 0 auto;
 
-        body {
+        .login-container {
+          height: 200px;
+          display: flex;
+          flex-direction: column;
+          margin-bottom: 90px;
+
+          .input-container {
+            margin: 0 8px 8px 0;
+
+            span {
+              padding-left: 8px;
+            }
+          }
+
+          .login-button-container {
             display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 0;
-            margin: 0 auto;
+            flex-direction: row;
+            justify-content: flex-end;
 
-            .Startlogga {
-                background-image: url(../images/Startlogga.svg);
-                background-repeat: no-repeat;
-                background-position: center;
-                max-width: 1000px;
-                background-size: 1200px 980px;
-                display: flex;
-                justify-content: center;
-                align-items: flex-end;
-                margin: 0 auto;
-
-                .login-container {
-                    height: 200px;
-                    display: flex;
-                    flex-direction: column;
-                    margin-bottom: 90px;
-
-                    .input-container {
-                        margin: 0 8px 8px 0;
-
-                        span {
-                            padding-left: 8px;
-                        }
-                    }
-
-                    .login-button-container {
-                        display: flex;
-                        flex-direction: row;
-                        justify-content: flex-end;
-
-                        a {
-                            margin: 0 12px 0 0;
-                        }
-                    }
-                }
+            a {
+              margin: 0 12px 0 0;
             }
-
-            .admin {
-                margin: 12px 12px;
-                display: flex;
-                flex-direction: row;
-                justify-content: space-around;
-                align-content: space-around;
-                text-align: center;
-
-                .admin-receptlist {
-                    margin: 10px;
-                }
-
-                .admin-addrecept {
-                    display: flex;
-                    flex-direction: row;
-                    margin: 12px;
-                }
-            }
+          }
         }
+      }
+
+      .admin {
+        margin: 12px 12px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-content: space-around;
+        text-align: center;
+
+        .admin-receptlist {
+          margin: 10px;
+        }
+
+        .admin-addrecept {
+          display: flex;
+          flex-direction: row;
+          margin: 12px;
+        }
+      }
     }
+  }
 }

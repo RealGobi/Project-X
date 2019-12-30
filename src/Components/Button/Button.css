@@ -1,35 +1,32 @@
-
 .Button {
-    width: 140px;
-    height: 50px;
-    border-radius: 3px;
-    border: 1px solid #828282;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  width: 140px;
+  height: 50px;
+  border-radius: 3px;
+  border: 1px solid #828282;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.Button:hover{
-    transform: scale(1.10);
-    box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.35);
+.Button:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.35);
 }
 
 .button-text {
-    font-family: 'Red Hat Text', sans-serif;
-    font-size: 0.8rem;
-    color: #4f4f4f;
+  font-family: "Red Hat Text", sans-serif;
+  font-size: 0.8rem;
+  color: #4f4f4f;
 }
 
-
 @media only screen and (min-width: 768px) {
+  .Button {
+    width: 180px;
+    height: 65px;
+  }
 
-    .Button {
-        width: 180px;
-        height: 65px;
-    }
-
-    .button-text {
-        font-size: 1.2rem;
-    }
+  .button-text {
+    font-size: 1.2rem;
+  }
 }
