@@ -8,14 +8,15 @@ import Button from '../Components/Button/Button';
 import RecipeItem from '../Components/RecipeItem/RecipeItem';
 import { Reload } from '../Components/misc/Reload';
 
-export default function ReciptList({ findRecipeBasedOnOne, setChosenRecipe }) {
+export default function ReciptList({ findRecipeBasedOnTwo, setChosenRecipe }) {
   // if user relodpage, you get thrown back to landing-page.
-  Reload(findRecipeBasedOnOne);
+  Reload(findRecipeBasedOnTwo);
 
   ReciptList.propTypes = {
-    findRecipeBasedOnOne: PropTypes.array.isRequired,
+    // eslint-disable-next-line react/forbid-prop-types
+    findRecipeBasedOnTwo: PropTypes.array.isRequired,
   };
-  const listResults = findRecipeBasedOnOne;
+  const listResults = findRecipeBasedOnTwo;
 
   return (
     <div>
