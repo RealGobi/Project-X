@@ -35,6 +35,12 @@ function Login(props) {
     };
     store.dispatch(login(user));
   };
+  const enterClick = (e) => {
+    if (e.key === 'Enter') {
+      console.log('enter press here! ');
+      onSubmit(e);
+    }
+  };
 
   const { error, isAuthenticated } = props;
   const history = useHistory();
@@ -62,7 +68,7 @@ function Login(props) {
           <span>E-post:</span> <input type="email" id="email" tabIndex="0" onChange={e => setEmail(e.target.value)} />
         </div>
         <div className="input-container">
-          <span>Lösenord:</span> <input type="password" id="password" onChange={e => setPassword(e.target.value)} />
+          <span>Lösenord:</span> <input type="password" id="password" onChange={e => setPassword(e.target.value)} onKeyDown={enterClick} />
         </div>
         <div className="login-button-container">
           <Link to="/signup">
