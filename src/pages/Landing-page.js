@@ -29,16 +29,16 @@ const LandingPage = () => {
   const day = new Date();
   const hr = day.getHours();
   let headline = '';
-  if (hr > 0 && hr < 6) {
+  if (hr >= 0 && hr < 6) {
     headline = 'Nattamat?, ';
   }
-  if (hr > 6 && hr < 12) {
+  if (hr >= 6 && hr < 12) {
     headline = 'God morgon, ';
   }
-  if (hr > 12 && hr < 18) {
+  if (hr >= 12 && hr < 18) {
     headline = 'God middag, ';
   }
-  if (hr > 18 && hr < 24) {
+  if (hr >= 18 && hr < 24) {
     headline = 'God kväll, ';
   }
   const greetingMsg = <span>{headline} {userName1}</span>;
