@@ -25,7 +25,7 @@ export default function ChooseFirst({ category1, setCategoryOne }) {
           </Link>
         </span>
         <div className="next-page">
-          <Link to="/landing-page">
+          <Link to="/landing-page" className="btn-admin-left">
             <Button buttonText="Tillbaka" color="mint" buttonType="small" />
           </Link>
         </div>

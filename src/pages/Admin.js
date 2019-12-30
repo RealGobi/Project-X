@@ -244,7 +244,7 @@ function Admin(getState) {
                 </select>
               </label>
             </form>
-            <div>
+            <div className="btn-admin-right">
               <Button type="button" buttonText="Lägg till" clickHandler={handleAddRecipe} />
             </div>
           </div>
@@ -341,7 +341,7 @@ function Admin(getState) {
                 )
                 : null
               }
-      <Link to="/landing-page">
+      <Link to="/landing-page" className="btn-admin-left">
         <Button buttonText="Tillbaka" color="mint" buttonType="small" />
       </Link>
     </div>

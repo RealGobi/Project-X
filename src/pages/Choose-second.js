@@ -37,7 +37,7 @@ export default function ChooseSecond({ findRecipeBasedOnOne, setCategoryTwo }) {
           </Link>
         </span>
         <div className="next-page">
-          <Link to="/choose-first">
+          <Link to="/choose-first" className="btn-admin-left">
             <Button buttonText="Tillbaka" color="mint" buttonType="small" />
           </Link>
         </div>

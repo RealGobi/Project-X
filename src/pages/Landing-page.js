@@ -63,10 +63,10 @@ const LandingPage = () => {
   // config settings
   const setting = (
     <span className="settings">
-      <Button buttonText="Vegan" color="persica" clickHandler={() => setUserFoodType(1)} />
-      <Button buttonText="Vegetarian" color="yellow" clickHandler={() => setUserFoodType(2)} />
-      <Button buttonText="Fisk" color="mint" clickHandler={() => setUserFoodType(3)} />
-      <Button buttonText="Allätare" color="persica" clickHandler={() => setUserFoodType(4)} />
+      <Button buttonText="Vegan" buttonType="small" color="persica" clickHandler={() => setUserFoodType(1)} />
+      <Button buttonText="Vegetarian" buttonType="small" color="yellow" clickHandler={() => setUserFoodType(2)} />
+      <Button buttonText="Fisk" buttonType="small" color="mint" clickHandler={() => setUserFoodType(3)} />
+      <Button buttonText="Allätare" buttonType="small" color="persica" clickHandler={() => setUserFoodType(4)} />
     </span>
   );
 
@@ -76,7 +76,7 @@ const LandingPage = () => {
       <Page>
         <div className="add-button">
           <Link to="/admin">
-            <Button buttonText="Lägg till recept" color="mint" buttonType="small" />
+            <Button buttonText="Lägg till recept" color="mint" />
           </Link>
           <Popup trigger={<img src={Settings} alt="inställningar" />} modal>
             {close => (

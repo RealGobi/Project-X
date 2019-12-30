@@ -33,7 +33,7 @@ const ReciptPage = (findRecipe) => {
                 recipeInstructions={findRecipe.findRecipe.instructions}
               />
               <div className="next-page">
-                <Link to="/search-list">
+                <Link to="/search-list" className="btn-admin-left">
                   <Button buttonText="Tillbaka" buttonType="small" color="mint" clickHandler={goBackHandler} />
                 </Link>
               </div>

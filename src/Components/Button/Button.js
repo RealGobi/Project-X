@@ -41,7 +41,7 @@ const Button = ({
         btnType = { width: '125px', height: '125px' };
         break;
       case 'small':
-        btnType = { width: '100', height: '45px' };
+        btnType = { width: '125px', height: '50px' };
         break;
       default:
         btnType = { width: '200px', height: '75px' };

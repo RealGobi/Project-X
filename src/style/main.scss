@@ -142,8 +142,8 @@ body {
     .add-button {
       display: flex;
       justify-content: space-between;
-      margin: 0 64px;
-      padding: 26px 0;
+      margin: 0 32px;
+      padding: 16px 0;
     }
 
     .landing-button-position {
@@ -263,8 +263,8 @@ body {
 
 @media only screen and (min-width: 768px) {
   body {
-    width: 100vw;
-    margin: 0;
+    width: 100vw; // dubbelt
+    margin: 0; // dubbelt
 
     .Startlogga {
       background-image: url(../images/Startlogga.svg);
