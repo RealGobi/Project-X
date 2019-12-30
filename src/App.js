@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import store from './store';
 import { loadUser } from './actions/authAction';
 import { getRecipes } from './actions/recipeAction';
+import collectCategory from './Components/collectCategory/collectCategory';
 
 // pages
 
@@ -44,6 +45,10 @@ const App = (getState) => {
   // make recipelist from foodtype
   const foodTypeRecipes = recipes.filter(rec => (userFoodType ? rec.foodType <= userFoodType : true));
 
+  const category1 = [];
+  collectCategory(category1, recipes);
+
+/* 
   // collect all categorys to one array
   let category1 = [];
   const collectCategory1 = () => {
@@ -57,7 +62,9 @@ const App = (getState) => {
   let category2 = [];
   const collectCategory2 = () => {
     foodTypeRecipes.map(cat => cat.category2.map(tac => category2.push(tac)));
-  };
+  }; */
+
+
   collectCategory2();
   const categorylist2 = category2;
   // remove duplicates
