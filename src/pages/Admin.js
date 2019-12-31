@@ -1,3 +1,6 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/interactive-supports-focus */
+/* eslint-disable no-underscore-dangle */
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -237,7 +240,7 @@ function Admin(getState) {
                             {close => (
                               <div className="modal">
                                 <span className="close" role="button" onClick={close}>
-                  &times;
+                                  &times;
                                 </span>
                                 <div className="header" role="button" onClick={() => { deleteRec(rec._id); }}><p>Ta bort!</p></div>
 

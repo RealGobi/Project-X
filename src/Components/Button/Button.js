@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 import React from 'react';
 import PropTypes from 'prop-types';
 import useWindowDimensions from '../../Hooks/useWindowDimensions';
@@ -64,6 +65,7 @@ const Button = ({
     }
   }
   return (
+    // eslint-disable-next-line jsx-a11y/click-events-have-key-events
     <div onClick={clickHandler} className="Button" style={{ ...bg, ...btnType }}>
       <h1 className="button-text"> {buttonText} </h1>
     </div>

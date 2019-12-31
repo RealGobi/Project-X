@@ -76,6 +76,7 @@ const DynamicInput = ({
 DynamicInput.propTypes = {
   idx: PropTypes.number.isRequired,
   Rubrik: PropTypes.string.isRequired,
+  // eslint-disable-next-line react/forbid-prop-types
   input: PropTypes.array.isRequired,
   handleCatChange: PropTypes.func.isRequired,
 };

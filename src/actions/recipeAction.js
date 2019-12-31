@@ -35,6 +35,7 @@ export const addRecipe = recipe => (dispatch, getState) => {
 export const deleteRecipe = id => (dispatch, getState) => {
   axios
     .delete(`http://localhost:5000/api/recipe/${id}`, tokenConfig(getState))
+    // eslint-disable-next-line no-unused-vars
     .then(res => dispatch({
       type: DELETE_RECIPE,
       payload: id,

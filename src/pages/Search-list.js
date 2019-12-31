@@ -1,3 +1,7 @@
+/* eslint-disable no-underscore-dangle */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/interactive-supports-focus */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useState, useReducer } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
@@ -14,6 +18,7 @@ export default function SearchList(props) {
     category1: PropTypes.array.isRequired,
     // eslint-disable-next-line react/forbid-prop-types
     category2: PropTypes.array.isRequired,
+    setChosenRecipe: PropTypes.func.isRequired,
   };
   // state and props
   const [searchValue, setSearchValue] = useState('');

@@ -1,3 +1,5 @@
+/* eslint-disable no-underscore-dangle */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
@@ -26,7 +28,8 @@ export default function ReciptList({ findRecipeBasedOnTwo, setChosenRecipe }) {
         <Link to="recipt-page">
           {
             listResults.map(rec => (
-              <div key={rec._id} onClick={() => setChosenRecipe(rec._id)} className="margin-recipt-list" >
+              // eslint-disable-next-line jsx-a11y/click-events-have-key-events
+              <div key={rec._id} onClick={() => setChosenRecipe(rec._id)} className="margin-recipt-list">
                 <RecipeItem
                   recipeTitle={rec.title}
                   recipeIntro={`${rec.description.substring(0, 75)}...`}

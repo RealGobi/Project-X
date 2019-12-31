@@ -16,9 +16,9 @@ function SignUp(props) {
 
   SignUp.propTypes = {
     isAuthenticated: PropTypes.bool,
+    // eslint-disable-next-line react/forbid-prop-types
     error: PropTypes.object.isRequired,
-    signUp: PropTypes.func.isRequired,
-    clearErrors: PropTypes.func.isRequired,
+    history: PropTypes.func.isRequired,
   };
   SignUp.defaultProps = {
     isAuthenticated: false,

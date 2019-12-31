@@ -33,15 +33,13 @@ const App = (getState) => {
   // eslint-disable-next-line no-unused-vars
   const [categoryTwo, setCategoryTwo] = useState([]);
   const [chosenRecipe, setChosenRecipe] = useState('');
-console.log(categoryTwo);
 
   // filter out recipe
   // eslint-disable-next-line no-underscore-dangle
   const findRecipe = recipes.find(rec => rec._id === chosenRecipe);
   const findRecipeBasedOnOne = recipes.filter(rec => rec.category1.find(r => r === categoryOne));
   const findRecipeBasedOnTwo = findRecipeBasedOnOne.filter(rec => rec.category2.find(r => r === categoryTwo));
-  console.log(findRecipeBasedOnTwo);
-  
+
   // get the users foodtype
   const userFoodType = localStorage.getItem('foodType');
   // make recipelist from foodtype

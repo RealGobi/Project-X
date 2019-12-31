@@ -7,7 +7,7 @@ import Header from '../Components/Header/Header';
 import Button from '../Components/Button/Button';
 import { Reload } from '../Components/misc/Reload';
 
-export default function ChooseSecond({ findRecipeBasedOnOne, setCategoryTwo }) {  
+export default function ChooseSecond({ findRecipeBasedOnOne, setCategoryTwo }) {
   /* eslint-disable import/prefer-default-export */
   Reload(findRecipeBasedOnOne);
   ChooseSecond.propTypes = {

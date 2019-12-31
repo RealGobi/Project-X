@@ -54,7 +54,7 @@ export const loadUser = () => (dispatch, getState) => {
 
 // signUp
 export const signUp = ({
-  name, email, password, foodType, props,
+  name, email, password, foodType,
 }) => (dispatch) => {
   // Heders
   const config = {
@@ -126,7 +126,6 @@ export const logoutMe = () => {
 export const changeUserSettings = ({ foodType }) => (dispatch, getState) => {
   // req body
   console.log(foodType);
-  
   const body = JSON.stringify({ foodType });
 
   const { id } = getState().auth;

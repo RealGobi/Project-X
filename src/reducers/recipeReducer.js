@@ -18,6 +18,7 @@ export default function (state = initialState, action) {
     case DELETE_RECIPE:
       return {
         ...state,
+        // eslint-disable-next-line no-underscore-dangle
         recipes: state.recipes.filter(recipe => recipe._id !== action.payload),
       };
     case ADD_RECIPE:

@@ -17,7 +17,7 @@ const RecipeItem = ({
   recipeImg,
 }) => (
   <div className="Recipeitem">
-      <h3 className="item">{recipeTitle}</h3>
+    <h3 className="item">{recipeTitle}</h3>
     <div className="recipeitemtext">
       <p>{recipeIntro}</p>
     </div>
