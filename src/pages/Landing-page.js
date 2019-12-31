@@ -5,7 +5,6 @@ import Popup from 'reactjs-popup';
 import { Link } from 'react-router-dom';
 import './popup.css';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 import Page from '../Components/Page/Page';
 import Header from '../Components/Header/Header';
 import Button from '../Components/Button/Button';
@@ -16,10 +15,6 @@ import store from '../store';
 
 
 const LandingPage = () => {
-  LandingPage.propTypes = {
-    changeUserSettings: PropTypes.func.isRequired,
-  };
-
   const userName1 = localStorage.getItem('name');
   const foodtypeUser1 = localStorage.getItem('foodType');
   const [foodType, setUserFoodType] = useState(foodtypeUser1);

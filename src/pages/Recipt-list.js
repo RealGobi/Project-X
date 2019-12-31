@@ -15,6 +15,7 @@ export default function ReciptList({ findRecipeBasedOnTwo, setChosenRecipe }) {
   ReciptList.propTypes = {
     // eslint-disable-next-line react/forbid-prop-types
     findRecipeBasedOnTwo: PropTypes.array.isRequired,
+    setChosenRecipe: PropTypes.func.isRequired,
   };
   const listResults = findRecipeBasedOnTwo;
 
