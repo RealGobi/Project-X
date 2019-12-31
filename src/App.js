@@ -43,6 +43,7 @@ const App = (getState) => {
   // get the users foodtype
   const userFoodType = localStorage.getItem('foodType');
   // make recipelist from foodtype
+
   const foodTypeRecipes = recipes.filter(rec => (userFoodType ? rec.foodType <= userFoodType : true));
 
   // collect all categorys to one array

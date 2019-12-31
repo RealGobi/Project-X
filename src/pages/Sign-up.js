@@ -1,3 +1,4 @@
+/* eslint-disable react/forbid-prop-types */
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -16,9 +17,8 @@ function SignUp(props) {
 
   SignUp.propTypes = {
     isAuthenticated: PropTypes.bool,
-    // eslint-disable-next-line react/forbid-prop-types
     error: PropTypes.object.isRequired,
-    history: PropTypes.func.isRequired,
+    history: PropTypes.object.isRequired,
   };
   SignUp.defaultProps = {
     isAuthenticated: false,
