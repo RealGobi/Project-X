@@ -49,21 +49,16 @@ console.log(categoryTwo);
 
   // collect all categorys to one array
   let category1 = [];
-  const collectCategory1 = () => {
-    foodTypeRecipes.map(cat => cat.category1.map(tac => category1.push(tac)));
-  };
-  collectCategory1();
-  const categorylist1 = category1;
-  // remove duplicates
-  category1 = Array.from(new Set(categorylist1.map(JSON.stringify))).map(JSON.parse);
-
   let category2 = [];
-  const collectCategory2 = () => {
+  const collectCategory = () => {
+    foodTypeRecipes.map(cat => cat.category1.map(tac => category1.push(tac)));
     foodTypeRecipes.map(cat => cat.category2.map(tac => category2.push(tac)));
   };
-  collectCategory2();
-  const categorylist2 = category2;
+  collectCategory();
   // remove duplicates
+  const categorylist1 = category1;
+  category1 = Array.from(new Set(categorylist1.map(JSON.stringify))).map(JSON.parse);
+  const categorylist2 = category2;
   category2 = Array.from(new Set(categorylist2.map(JSON.stringify))).map(JSON.parse);
 
   // Protected Routes - you need to be authenticated to reach this routes
