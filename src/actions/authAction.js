@@ -143,4 +143,8 @@ export const changeUserSettings = ({ foodType }) => (dispatch, getState) => {
         type: AUTH_ERROR,
       });
     });
+  // bugfix for now, better fix is coming.
+  setTimeout(() => {
+    window.location.reload();
+  }, 110);
 };
