@@ -43,6 +43,9 @@ export default function ReciptList({ findRecipeBasedOnTwo, setChosenRecipe }) {
           <Link to="/choose-second" className="btn-admin-left">
             <Button buttonText="Tillbaka" color="mint" buttonType="small" />
           </Link>
+          <Link to="/landing-page" className="btn-admin-left">
+            <Button buttonText="Startsidan" color="persica" buttonType="small" />
+          </Link>
         </div>
       </Page>
     </div>

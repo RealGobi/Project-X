@@ -146,5 +146,5 @@ export const changeUserSettings = ({ foodType }) => (dispatch, getState) => {
   // bugfix for now, better fix is coming.
   setTimeout(() => {
     window.location.reload();
-  }, 110);
+  }, 175);
 };
