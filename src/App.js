@@ -35,20 +35,20 @@ const App = (getState) => {
   const [categoryTwo, setCategoryTwo] = useState([]);
   const [chosenRecipe, setChosenRecipe] = useState('');
 
-  // filter out recipe
-  // eslint-disable-next-line no-underscore-dangle
-  const findRecipe = recipes.find(rec => rec._id === chosenRecipe);
-  const findRecipeBasedOnOne = recipes.filter(rec => rec.category1.find(r => r === categoryOne));
-
   // get the users foodtype
   const userFoodType = localStorage.getItem('foodType');
   // make recipelist from foodtype
   const foodTypeRecipes = recipes.filter(rec => (userFoodType ? rec.foodType <= userFoodType : true));
 
-  const category1 = [];
-  collectCategory(category1, recipes);
+  // filter out recipe
+  // eslint-disable-next-line no-underscore-dangle
+  const findRecipe = recipes.find(rec => rec._id === chosenRecipe);
+  const findRecipeBasedOnOne = foodTypeRecipes.filter(rec => rec.category1.find(r => r === categoryOne));
 
-/* 
+  //const category1 = [];
+  //collectCategory(category1, recipes);
+
+
   // collect all categorys to one array
   let category1 = [];
   const collectCategory1 = () => {
@@ -62,7 +62,7 @@ const App = (getState) => {
   let category2 = [];
   const collectCategory2 = () => {
     foodTypeRecipes.map(cat => cat.category2.map(tac => category2.push(tac)));
-  }; */
+  };
 
 
   collectCategory2();
