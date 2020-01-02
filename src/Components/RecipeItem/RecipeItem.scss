@@ -5,22 +5,20 @@
         border-radius: 3px;
         border:2px solid $dinner_Grey;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-        margin: 5px 10px;
+        margin: 13px 10px;
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: 30% 30% 40%;
         grid-template-areas:
         "item item item"
         "item1 item1 item2";
-        gap: 8px;
     }
     .item {
         grid-area: item;
         margin: 0;
-        background: rgb(212, 216, 186);
-        border-bottom:2px solid $dinner_Grey;
+        background: $dinner_LigthGrey;
+        border-bottom:1px solid $dinner_Grey;
         border-radius: 3px;
-        padding: 5px 0;
-        text-align: center;
+        padding: 10px;
         font-size: 1.1rem;
     }
 
@@ -33,15 +31,11 @@
     .item2 {
         grid-area: item2;
         display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        max-width: 150px;
+        justify-content: flex-end;
+        align-items: flex-end;
         img {
-            border: 1px solid $dinner_Grey;
-            border-radius: 3px;
+            border-left: 1px solid $dinner_Grey;
             width: 100%;
-            margin-right: 5px;
          }
     }
 
@@ -61,8 +55,6 @@
     }
 
     .Recipeitem img {
-        width: 180px;
-        height: 160px;
         border: 1px solid $dinner_Grey;
         border-radius: 0px 3px 3px 0px;
     }
