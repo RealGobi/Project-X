@@ -40,7 +40,6 @@ function Login(props) {
   // login with enter key
   const enterClick = (e) => {
     if (e.key === 'Enter') {
-      console.log('enter press here! ');
       onSubmit(e);
     }
   };
