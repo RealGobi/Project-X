@@ -26,7 +26,6 @@ export const tokenConfig = (getState) => {
     },
   };
   if (token) {
-    console.log(token);
     config.headers['x-auth-token'] = token;
   }
   return config;
@@ -81,7 +80,6 @@ export const signUp = ({
         type: REGISTER_FAIL,
       });
     });
-  console.log(body);
 };
 
 // Login user
@@ -125,7 +123,6 @@ export const logoutMe = () => {
 
 export const changeUserSettings = ({ foodType }) => (dispatch, getState) => {
   // req body
-  console.log(foodType);
   const body = JSON.stringify({ foodType });
 
   const { id } = getState().auth;

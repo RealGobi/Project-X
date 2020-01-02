@@ -10,8 +10,6 @@ export const setRecipesLoading = () => ({
 });
 
 export const getRecipes = () => (dispatch) => {
-  console.log('hello');
-
   dispatch(setRecipesLoading());
   axios
     .get('http://localhost:5000/api/recipe')

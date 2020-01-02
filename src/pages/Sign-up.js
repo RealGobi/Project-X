@@ -77,7 +77,7 @@ function SignUp(props) {
               <label htmlFor="name">Name:<input type="text" id="name" onChange={e => setName(e.target.value)} /> </label>
             </div>
             <div className="input-container">
-              <label htmlFor="email">E-post: <input type="email" id="email" onChange={e => setEmail(e.target.value)} /></label>
+              <label htmlFor="email">E-post: <input type="email" id="email" required onChange={e => setEmail(e.target.value)} /></label>
             </div>
             <div className="input-container">
               <label htmlFor="password">Lösenord: <input type="password" id="password" onChange={e => setPassword(e.target.value)} /></label>

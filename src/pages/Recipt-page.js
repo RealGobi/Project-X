@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect  } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import Page from '../Components/Page/Page';
 import Button from '../Components/Button/Button';
@@ -6,6 +6,13 @@ import Recipt from '../Components/Recipt/Recipt';
 
 const ReciptPage = (findRecipe) => {
   const history = useHistory();
+
+  useEffect(() => {
+    history.listen(() => {
+      window.scrollTo(0, 0);
+    });
+  }, []);
+
   if (findRecipe.findRecipe === undefined) {
     history.goBack();
   }
@@ -35,6 +42,9 @@ const ReciptPage = (findRecipe) => {
               <div className="next-page">
                 <Link to="/search-list" className="btn-admin-left">
                   <Button buttonText="Tillbaka" buttonType="small" color="mint" clickHandler={goBackHandler} />
+                </Link>
+                <Link to="/landing-page" className="btn-admin-left">
+                  <Button buttonText="Startsidan" color="persica" buttonType="small" />
                 </Link>
               </div>
             </Page>

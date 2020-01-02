@@ -43,7 +43,6 @@ export default function (state = initialState, action) {
       localStorage.setItem('name', action.payload.user.name);
       localStorage.setItem('foodType', action.payload.user.foodType);
       localStorage.setItem('id', action.payload.user.id);
-      console.log(action.payload.user);
       return {
         ...state,
         ...action.payload,
